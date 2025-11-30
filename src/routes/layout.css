@@ -1,2 +1,73 @@
 @import 'tailwindcss';
 @plugin 'daisyui';
+@plugin 'daisyui/theme' {
+	name: 'vanchi';
+	default: true;
+	prefersdark: true;
+	color-scheme: 'dark';
+
+	/* FONDO: Negro "Carbón" */
+	--color-base-100: oklch(15% 0.005 85);
+	--color-base-200: oklch(12% 0.005 85);
+	--color-base-300: oklch(10% 0.005 85);
+
+	/* TEXTO: Blanco "Hueso/Mármol" */
+	--color-base-content: oklch(92% 0.005 90);
+
+	/* PRIMARIO: "Antique Gold" */
+	--color-primary: oklch(74% 0.14 85);
+	--color-primary-content: oklch(15% 0.01 85); /* Texto oscuro sobre el dorado */
+
+	/* SECUNDARIO: "Greek Stone" */
+	--color-secondary: oklch(45% 0.02 85);
+	--color-secondary-content: oklch(98% 0 0);
+
+	/* ACCENT: "Tech White" */
+	--color-accent: oklch(98% 0 0);
+	--color-accent-content: oklch(10% 0 0);
+
+	/* NEUTRAL: Para tarjetas o secciones menos importantes */
+	--color-neutral: oklch(25% 0.01 85);
+	--color-neutral-content: oklch(90% 0.005 90);
+
+	/* ESTADOS */
+	--color-info: oklch(70% 0.12 250); /* Azul */
+	--color-success: oklch(75% 0.15 150); /* Verde */
+	--color-warning: oklch(80% 0.15 85); /* Amarillo */
+	--color-error: oklch(65% 0.2 30); /* Rojo */
+
+	/* RADIUS */
+	--radius-selector: 2rem;
+	--radius-field: 2rem;
+	--radius-box: 2rem;
+
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+
+	--border: 2px;
+	--depth: 1;
+	--noise: 1;
+}
+
+@theme {
+	--font-serif: 'Playfair Display', serif;
+	--font-sans: 'Geist', sans-serif;
+}
+
+/* playfair-display-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Playfair Display';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/playfair-display-v40-latin-regular.woff2') format('woff2');
+}
+
+/* geist-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Geist';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/geist-v4-latin-regular.woff2') format('woff2');
+}
