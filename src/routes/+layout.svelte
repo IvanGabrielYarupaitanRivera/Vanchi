@@ -14,7 +14,7 @@
 <div class="flex min-h-screen flex-col">
 	<Header />
 
-	<main class="mx-auto w-full max-w-400 flex-1 px-4 lg:px-8">
+	<main class="mx-auto w-full max-w-450 flex-1">
 		{@render children()}
 	</main>
 
