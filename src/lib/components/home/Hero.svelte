@@ -8,7 +8,7 @@
 	<!-- 1. Imagen de Fondo con Máscara de Desvanecimiento -->
 	<!-- Se usa un div absoluto para aplicar la máscara SOLO a la imagen, no al texto -->
 	<div
-		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-70% mask-l-from-80% bg-cover bg-center opacity-50"
+		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% bg-cover bg-center opacity-20"
 		style="background-image: url({bgHero});"
 	></div>
 
@@ -26,7 +26,10 @@
 				<div
 					class="inline-flex h-full w-full items-center gap-2 rounded-full bg-base-100/90 px-4 py-1.5 backdrop-blur-3xl"
 				>
-					<span class="h-2 w-2 animate-pulse rounded-full bg-primary"></span>
+					<div class="inline-grid *:[grid-area:1/1]">
+						<div class="status animate-ping status-primary"></div>
+						<div class="status status-primary"></div>
+					</div>
 					<span class="flex gap-1 text-xs font-medium tracking-widest text-base-content uppercase">
 						Disponible
 						<span class="hidden lg:inline">para nuevos proyectos</span>
