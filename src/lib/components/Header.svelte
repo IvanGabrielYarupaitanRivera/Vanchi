@@ -35,7 +35,7 @@
 			<ul class="flex gap-2">
 				{#each navItems as item}
 					<!-- 2. Determinar si es la ruta activa -->
-					{@const isActive = page.url.pathname === item.href}
+					{@const isActive = page.url.pathname.startsWith(item.href)}
 					<li>
 						<a
 							href={item.href}
@@ -99,10 +99,13 @@
 			<nav class="flex-1">
 				<ul class="flex flex-col gap-4">
 					{#each navItems as item}
+						<!-- 2. Determinar si es la ruta activa -->
+						{@const isActive = page.url.pathname.startsWith(item.href)}
 						<li>
 							<a
 								href={item.href}
-								class="flex items-center text-base font-medium"
+								class="flex items-center text-base font-medium
+								{isActive ? 'text-primary' : 'text-base-content/80'}"
 								onclick={() => (open = false)}
 							>
 								{item.label}
