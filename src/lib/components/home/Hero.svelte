@@ -36,42 +36,51 @@
 				in:fly={{ y: 30, duration: 1000, delay: 400 }}
 				class="mb-6 text-5xl font-bold lg:text-7xl"
 			>
-				Construyendo el futuro
+				Construyendo sistemas
 				<br />
 				<span
-					class="bg-linear-to-r from-primary via-yellow-200 to-primary bg-clip-text font-serif text-transparent italic"
+					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text px-1 font-serif text-transparent italic"
 				>
-					Pieza por Pieza
+					modernos
 				</span>
 			</h1>
 
 			<!-- P: Leading loose para elegancia -->
 			<p
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-10 max-w-2xl text-lg text-base-content lg:text-xl"
+				class="mx-auto mb-10 max-w-2xl text-lg text-base-content/60 lg:text-xl"
 			>
-				Sistemas y aplicaciones web diseñados para impresionar y mejorar tus procesos de negocio.
+				Diseño y desarrollo de sistemas modernos y robustos con tecnologías de vanguardia y
+				arquitecturas escalables. Integración nativa de IA para automatizar flujos, optimizar
+				decisiones y potenciar el valor del negocio.
 			</p>
 
-			<!-- Buttons: CTA Principal + Secundario -->
-			<div
-				in:fly={{ y: 30, duration: 1000, delay: 800 }}
-				class="flex flex-col items-center justify-center gap-4 lg:flex-row"
-			>
-				<button
-					class="btn h-12 min-h-12 rounded-full px-8 text-base font-semibold shadow-[0_0_20px_rgba(197,160,89,0.3)] transition-all duration-300 btn-primary hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(197,160,89,0.5)]"
-				>
-					Start a Project
-					<ArrowRight size={18} />
-				</button>
+			<!-- Buttons: CTA Principal + Secundario (semántico y accesible) -->
+			<nav in:fly={{ y: 30, duration: 1000, delay: 800 }} aria-label="Acciones principales">
+				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
+					<li role="listitem">
+						<button
+							type="button"
+							aria-label="Iniciar un proyecto con Vanchi"
+							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
+						>
+							Iniciar proyecto
+							<ArrowRight size={18} aria-hidden="true" class="ml-2" />
+						</button>
+					</li>
 
-				<button
-					class="btn h-12 min-h-12 rounded-full border border-white/10 px-8 text-base font-medium btn-ghost transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:text-white"
-				>
-					<Play size={18} class="fill-current" />
-					Showreel
-				</button>
-			</div>
+					<li role="listitem">
+						<button
+							type="button"
+							aria-label="Ver showreel — video de trabajos"
+							class="btn transition-all duration-300 btn-neutral hover:-translate-y-1"
+						>
+							<Play size={18} aria-hidden="true" class="mr-2" />
+							Ver showreel
+						</button>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</div>
 </section>
