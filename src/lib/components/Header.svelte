@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { Box, ArrowUpRight, Menu, House, Code, DollarSign, X } from '@lucide/svelte';
 	import icon from '$lib/assets/icons/icon.svg';
 	import vanchi from '$lib/assets/icons/vanchi.svg';
@@ -31,12 +32,15 @@
 		</div>
 
 		<div class="navbar-center hidden lg:flex">
-			<ul class="flex">
+			<ul class="flex gap-2">
 				{#each navItems as item}
+					<!-- 2. Determinar si es la ruta activa -->
+					{@const isActive = page.url.pathname === item.href}
 					<li>
 						<a
 							href={item.href}
-							class="block rounded-full px-4 py-2 text-sm text-base-content/80 transition-all hover:bg-neutral hover:text-primary"
+							class="} rounded-full px-4 py-2 text-sm transition-all hover:bg-neutral hover:text-primary
+							{isActive ? 'bg-white/10 text-white ' : 'text-base-content/80'}"
 						>
 							{item.label}
 						</a>
