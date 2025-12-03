@@ -18,7 +18,7 @@
 	<div class="container mx-auto px-4">
 		<!-- Header de Sección -->
 		<div class="mb-16 text-center">
-			<h2 in:fly={{ y: 20, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-4xl">
+			<h2 in:fly={{ y: 20, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-5xl">
 				<span class=" ">Confianza.</span> Modernidad.
 				<span
 					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
