@@ -21,6 +21,7 @@ Actúa como un **Senior Frontend Engineer & UI/UX Designer** especializado en in
   - Aprovecha las transiciones nativas de Svelte (`import { fade, fly } from 'svelte/transition'`) en lugar de escribir CSS keyframes manuales cuando sea posible.
   - Componentización: Crea componentes pequeños y reutilizables.
 - **Legibilidad:** Variables descriptivas en inglés. Comentarios solo cuando la lógica de negocio sea compleja.
+- Para usar los íconos de Lucide, importa desde `@lucide/svelte` y no desde `lucide-svelte`.
 
 ## 2. Generación de HTML (Semántica y SEO)
 
