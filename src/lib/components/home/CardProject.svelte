@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowUpRight } from '@lucide/svelte';
+	import { ArrowUpRight, Book, BookOpen, Eye } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	type Project = {
@@ -60,9 +60,13 @@
 		</p>
 
 		<div>
-			<a href={project.href} class="btn btn-primary" aria-label={`Ver proyecto ${project.title}`}>
-				Ver Proyecto
-				<ArrowUpRight size={18} />
+			<a
+				href={project.href}
+				class="btn btn-primary"
+				aria-label={`Ver Estudio de Caso ${project.title}`}
+			>
+				Ver Estudio de Caso
+				<ArrowUpRight size={16} />
 			</a>
 		</div>
 	</div>
