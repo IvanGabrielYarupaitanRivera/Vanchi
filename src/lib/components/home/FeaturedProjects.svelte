@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { ArrowUpRight } from '@lucide/svelte';
 	import CardProject from './CardProject.svelte';
+	import junin360 from '$lib/assets/images/projects/junin360.webp';
+	import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
+	import farmape from '$lib/assets/images/projects/farmape.webp';
 
 	type Project = {
 		id: number;
@@ -11,42 +13,46 @@
 		image: string;
 		tags: string[];
 		href: string;
+		link?: string;
+		video?: string;
 	};
 
 	// Mock Data: Proyectos seleccionados para mostrar nicho (IA + Arquitectura)
 	const projects: Project[] = [
 		{
 			id: 1,
-			title: 'Nexus AI Analytics',
-			category: 'Inteligencia Artificial',
+			title: 'Junin360',
+			category: 'Optimización de Procesos',
 			description:
-				'Dashboard de procesamiento de datos en tiempo real capaz de analizar 1M+ de registros por segundo utilizando modelos predictivos para la toma de decisiones.',
-			image:
-				'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-			tags: ['SvelteKit', 'Python', 'TensorFlow'],
-			href: '/proyectos/nexus'
+				'Sistema de gestión de informes de control para el GORE Junín. Organiza los datos de cada informe y envía notificaciones a los responsables de cada informe de control para no llegar a responsabbilidades legales.',
+			image: junin360,
+			tags: ['SvelteKit', 'Supabase', 'OpenRouter'],
+			href: '/proyectos/junin360',
+			link: 'https://junin360.com/'
 		},
 		{
 			id: 2,
-			title: 'Vault Financial',
-			category: 'Fintech',
+			title: 'MediRoosevelt',
+			category: 'HealthTech Innovation',
 			description:
 				'Plataforma de gestión de activos digitales con seguridad de grado militar, sincronización de estado global instantánea y latencia sub-100ms.',
-			image:
-				'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop',
-			tags: ['Convex', 'TypeScript', 'Web3'],
-			href: '/proyectos/vault'
+			image: mediroosevelt,
+			tags: ['Convex', 'TypeScript', 'Gemini API'],
+			href: '/proyectos/mediroosevelt',
+			link: 'https://mediroosevelt.com/',
+			video: 'https://www.youtube.com/watch?v=2RlIn3JFajc'
 		},
 		{
 			id: 3,
-			title: 'Orbital SaaS',
-			category: 'Enterprise Architecture',
+			title: 'Farmape',
+			category: 'HealthTech Innovation',
 			description:
 				'Sistema escalable multi-tenant diseñado para orquestar flujos de trabajo complejos en corporaciones multinacionales, reduciendo la carga operativa un 40%.',
-			image:
-				'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop',
-			tags: ['Bun', 'Tailwind', 'PostgreSQL'],
-			href: '/proyectos/orbital'
+			image: farmape,
+			tags: ['Convex', 'TypeScript', 'Gemini API'],
+			href: '/proyectos/farmape',
+			link: 'https://www.farmape.net/',
+			video: 'https://www.youtube.com/watch?v=6-3bhIxR4-k'
 		}
 	];
 </script>
