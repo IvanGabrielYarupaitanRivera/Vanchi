@@ -4,6 +4,9 @@
 	import junin360 from '$lib/assets/images/projects/junin360.webp';
 	import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
 	import farmape from '$lib/assets/images/projects/farmape.webp';
+	import obstetraconecta from '$lib/assets/images/projects/obstetraconecta.webp';
+	import diapis from '$lib/assets/images/projects/diapis.webp';
+	import peraltaasociados from '$lib/assets/images/projects/peraltaasociados.webp';
 
 	type Project = {
 		id: number;
@@ -53,6 +56,41 @@
 			href: '/proyectos/farmape',
 			link: 'https://www.farmape.net/',
 			video: 'https://www.youtube.com/watch?v=6-3bhIxR4-k'
+		},
+		{
+			id: 4,
+			title: 'Obstetra Conecta',
+			category: 'HealthTech Innovation',
+			description:
+				'Plataforma de telemedicina especializada en obstetricia, que conecta a pacientes con profesionales de la salud para consultas virtuales y seguimiento del embarazo.',
+			image: obstetraconecta,
+			tags: ['Convex', 'TypeScript', 'Gemini API'],
+			href: '/proyectos/obstetraconecta',
+			link: 'https://www.obstetraconecta.com/',
+			video: 'https://www.youtube.com/watch?v=tVvpd5Wp98k'
+		},
+		{
+			id: 5,
+			title: 'Diapis',
+			category: 'EduTech Innovation',
+			description:
+				'Plataforma educativa que utiliza IA para personalizar el aprendizaje de estudiantes con diabetes, ofreciendo recursos adaptados y seguimiento en tiempo real.',
+			image: diapis,
+			tags: ['SvelteKit', 'Convex', 'Livekit', 'Gemini API'],
+			href: '/proyectos/diapis',
+			link: 'https://diapis.vercel.app/',
+			video: 'https://www.youtube.com/watch?v=nHPqMsQJLFw'
+		},
+		{
+			id: 6,
+			title: 'Peralta Asociados',
+			category: 'LegalTech',
+			description:
+				'Aplicación móvil que utiliza IA para crear planes de nutrición personalizados basados en los datos de salud y preferencias alimenticias del usuario.',
+			image: peraltaasociados,
+			tags: ['Astro', 'Tailwind'],
+			href: '/proyectos/peralta-asociados',
+			link: 'https://peraltaasociados.com/'
 		}
 	];
 </script>

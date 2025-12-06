@@ -31,7 +31,7 @@
 		/>
 		<!-- Gradient Overlay: Fade from black at bottom to transparent top -->
 		<div
-			class="absolute inset-0 bg-linear-to-t from-base-300 via-base-100/10 to-transparent duration-500"
+			class="absolute inset-0 bg-linear-to-t from-base-300 via-base-300/70 to-transparent duration-500"
 		></div>
 	</div>
 
@@ -57,14 +57,14 @@
 			{project.title}
 		</h3>
 
-		<p class="line-clamp-3 text-sm leading-relaxed text-white/70">
+		<p class="line-clamp-2 text-sm leading-relaxed text-white/70">
 			{project.description}
 		</p>
 
 		<div class="divider"></div>
 
 		<!-- Control Deck: Diseño unificado y minimalista -->
-		<div class="flex items-center gap-1 pt-2">
+		<div class="flex items-center gap-2 pt-2">
 			<!-- 1. Acción Principal: Botón extendido con etiqueta -->
 			<div class="tooltip tooltip-primary" data-tip="Leer Estudio de Caso">
 				<a

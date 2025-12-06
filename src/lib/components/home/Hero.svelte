@@ -54,11 +54,11 @@
 			<!-- P: Leading loose para elegancia -->
 			<p
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-10 max-w-2xl text-sm text-base-content/80 lg:text-lg"
+				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
 			>
 				Diseño y desarrollo de sistemas modernos y robustos con tecnologías de vanguardia y
-				arquitecturas escalables. Integración nativa de IA para automatizar flujos, optimizar
-				decisiones y potenciar el valor del negocio.
+				arquitecturas escalables. Transformamos ideas en productos digitales que impulsan el éxito
+				de negocios.
 			</p>
 
 			<!-- Buttons: CTA Principal + Secundario -->
