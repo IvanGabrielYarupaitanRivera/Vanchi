@@ -1,0 +1,24 @@
+<script>
+	import { fly } from 'svelte/transition';
+</script>
+
+<section class="w-full py-20 lg:py-32" id="servicios">
+	<div class="container mx-auto px-4">
+		<!-- Header de Sección -->
+		<div class="mb-8 text-center">
+			<h2 in:fly={{ y: 30, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-5xl">
+				Servicios que <span
+					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
+					>Ofrecemos.</span
+				>
+			</h2>
+			<p
+				in:fly={{ y: 30, duration: 800, delay: 400 }}
+				class="mx-auto max-w-2xl text-base text-base-content/60 lg:text-lg"
+			>
+				Desde consultoría en IA hasta desarrollo de aplicaciones modernas personalizadas, ofrecemos
+				soluciones integrales para transformar tu negocio y potenciar tu presencia digital.
+			</p>
+		</div>
+	</div>
+</section>
