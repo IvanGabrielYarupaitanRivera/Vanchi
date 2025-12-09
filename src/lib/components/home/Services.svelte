@@ -1,5 +1,27 @@
-<script>
+<script lang="ts">
 	import { fly } from 'svelte/transition';
+	import CardService from './CardService.svelte';
+
+	type Service = {
+		id: number;
+		title: string;
+		description: string;
+	};
+
+	const services: Service[] = [
+		{
+			id: 1,
+			title: 'Consultoría en IA',
+			description:
+				'Asesoramos a empresas sobre cómo integrar soluciones de inteligencia artificial para optimizar procesos y mejorar la toma de decisiones.'
+		},
+		{
+			id: 2,
+			title: 'Desarrollo de Aplicaciones Personalizadas',
+			description:
+				'Creamos aplicaciones web y móviles a medida que se adaptan a las necesidades específicas de tu negocio.'
+		}
+	];
 </script>
 
 <section class="w-full py-20 lg:py-32" id="servicios">
@@ -19,6 +41,13 @@
 				Desde consultoría en IA hasta desarrollo de aplicaciones modernas personalizadas, ofrecemos
 				soluciones integrales para transformar tu negocio y potenciar tu presencia digital.
 			</p>
+		</div>
+
+		<!-- Grid de Servicios -->
+		<div class="grid grid-cols-1 gap-8 py-8 lg:grid-cols-2">
+			{#each services as service, i}
+				<CardService {service} {i} />
+			{/each}
 		</div>
 	</div>
 </section>
