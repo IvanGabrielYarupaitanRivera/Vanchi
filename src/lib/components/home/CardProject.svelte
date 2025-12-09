@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowUpRight, Book, BookOpen, CirclePlay, Eye, Globe, PlayCircle } from '@lucide/svelte';
+	import { CirclePlay, Globe } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	type Project = {
@@ -26,7 +26,7 @@
 		<img
 			src={project.image}
 			alt={project.title}
-			class="h-full w-full object-cover transition-transform duration-700 will-change-transform group-hover:scale-105"
+			class="h-full w-full object-cover grayscale transition-all duration-1000 will-change-transform group-hover:scale-105 group-hover:grayscale-0"
 			loading="lazy"
 		/>
 		<!-- Gradient Overlay: Fade from black at bottom to transparent top -->
@@ -54,7 +54,9 @@
 		</span>
 
 		<h3 class="mb-3 font-serif text-3xl font-bold text-white">
-			{project.title}
+			<a href={project.link} class="transition-colors duration-300 hover:text-primary">
+				{project.title}
+			</a>
 		</h3>
 
 		<p class="line-clamp-2 text-sm leading-relaxed text-white/70">
