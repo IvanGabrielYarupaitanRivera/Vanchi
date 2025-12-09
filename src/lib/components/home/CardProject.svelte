@@ -19,7 +19,7 @@
 
 <article
 	in:fly={{ y: 30, duration: 800, delay: 600 + i * 100 }}
-	class="group relative h-[600px] w-full rounded-2xl border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
+	class="group relative h-[750px] w-full rounded-2xl border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 >
 	<!-- 1. Background Image (Full Cover) -->
 	<div class="absolute inset-0 h-full w-full overflow-hidden rounded-2xl">
@@ -59,7 +59,7 @@
 			</a>
 		</h3>
 
-		<p class="line-clamp-2 text-sm leading-relaxed text-white/70">
+		<p class="line-clamp-3 leading-relaxed text-white/70">
 			{project.description}
 		</p>
 
@@ -71,7 +71,7 @@
 			<div class="tooltip tooltip-primary" data-tip="Leer Estudio de Caso">
 				<a
 					href={project.href}
-					class="btn btn-soft btn-primary"
+					class="text sm btn btn-soft btn-primary lg:text-base"
 					aria-label={`Ver Estudio de Caso ${project.title}`}
 				>
 					<span>Caso de Estudio</span>
