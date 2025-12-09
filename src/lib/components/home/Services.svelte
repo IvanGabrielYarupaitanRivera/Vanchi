@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import CardService from './CardService.svelte';
+	import computer from '$lib/assets/images/icons/computer.png';
+	import cerebro from '$lib/assets/images/icons/cerebro.png';
 
 	type Service = {
 		id: number;
 		title: string;
 		description: string;
+		image?: string;
 	};
 
 	const services: Service[] = [
@@ -13,13 +16,15 @@
 			id: 1,
 			title: 'Consultoría en IA',
 			description:
-				'Asesoramos a empresas sobre cómo integrar soluciones de inteligencia artificial para optimizar procesos y mejorar la toma de decisiones.'
+				'Asesoramos a empresas sobre cómo integrar soluciones de inteligencia artificial para optimizar procesos y mejorar la toma de decisiones.',
+			image: computer
 		},
 		{
 			id: 2,
-			title: 'Desarrollo de Aplicaciones Personalizadas',
+			title: 'Desarrollo de Aplicaciones',
 			description:
-				'Creamos aplicaciones web y móviles a medida que se adaptan a las necesidades específicas de tu negocio.'
+				'Creamos aplicaciones web y móviles a medida que se adaptan a las necesidades específicas de tu negocio.',
+			image: cerebro
 		}
 	];
 </script>
