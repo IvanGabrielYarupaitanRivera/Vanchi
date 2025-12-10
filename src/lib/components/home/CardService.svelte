@@ -30,7 +30,6 @@
 
 	<!-- Contenido Principal -->
 	<div class="relative z-10">
-		<!-- Icono / Imagen en contenedor de cristal -->
 		<div
 			class="mb-6 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border border-white/5 transition-transform duration-500 group-hover:scale-110"
 		>
@@ -44,7 +43,7 @@
 		</div>
 
 		<h3
-			class="mb-3 font-serif text-3xl font-bold text-white transition-colors duration-300 group-hover:text-primary"
+			class="mb-3 font-serif text-3xl font-bold transition-colors duration-300 group-hover:text-primary"
 		>
 			{service.title}
 		</h3>
@@ -54,7 +53,6 @@
 		</p>
 	</div>
 
-	<!-- Acción: Visible en móvil (opacity-100), Hover en Desktop (lg:opacity-0) -->
 	<div class="mt-6 card-actions justify-start">
 		<a href="/" class="btn btn-primary" aria-label={`Ver detalles de ${service.title}`}>
 			<span>Descubrir</span>

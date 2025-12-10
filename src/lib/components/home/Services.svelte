@@ -17,23 +17,25 @@
 	const services: Service[] = [
 		{
 			id: 1,
-			title: 'Consultoría Estratégica IA',
+			title: 'Desarrollo de Sistemas',
 			description:
-				'Arquitectura de sistemas inteligentes y optimización de procesos mediante algoritmos de vanguardia.',
+				'Desarrollo sistemas completos con base de datos y con autorización de usuarios, adaptados a las necesidades de tu negocio.',
 			image: cerebro,
 			span: 'lg:col-span-2' // Destacado ancho
 		},
 		{
 			id: 2,
-			title: 'Desarrollo Full-Stack',
-			description: 'Aplicaciones web reactivas y escalables con arquitectura moderna.',
+			title: 'Sitios Web Modernos',
+			description:
+				'Sitios web responsivos y optimizados para SEO que capturan la esencia de tu marca.',
 			image: computer,
 			span: 'lg:col-span-1'
 		},
 		{
 			id: 3,
-			title: 'Diseño UI/UX Premium',
-			description: 'Interfaces inmersivas que fusionan arte digital con funcionalidad intuitiva.',
+			title: 'Integraciones con IA',
+			description:
+				'Incorpora capacidades de inteligencia artificial para automatizar procesos y mejorar la experiencia del usuario.',
 			image: ia,
 			span: 'lg:col-span-1'
 		},

@@ -53,7 +53,7 @@
 			{project.category}
 		</span>
 
-		<h3 class="mb-3 font-serif text-3xl font-bold text-white">
+		<h3 class="mb-3 font-serif text-3xl font-bold">
 			<a href={project.link} class="transition-colors duration-300 hover:text-primary">
 				{project.title}
 			</a>
