@@ -7,7 +7,7 @@
 		title: string;
 		description: string;
 		image?: string;
-		span?: string; // Propiedad para controlar el tamaño en la grilla
+		span?: string;
 	};
 
 	let { service, i }: { service: Service; i: number } = $props();
@@ -18,7 +18,8 @@
 
 <article
 	in:fly={{ y: 30, duration: 800, delay: 600 + i * 100 }}
-	class="group relative flex min-h-80 flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-base-300 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
+	class="{service.span ||
+		''} group relative flex min-h-80 flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-base-300 p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 >
 	<!-- Fondo: Número Editorial Gigante -->
 	<span
@@ -55,11 +56,7 @@
 
 	<!-- Acción: Visible en móvil (opacity-100), Hover en Desktop (lg:opacity-0) -->
 	<div class="mt-6 card-actions justify-start">
-		<a
-			href="/"
-			class="btn opacity-100 transition-all duration-500 btn-primary lg:translate-y-4 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100"
-			aria-label={`Ver detalles de ${service.title}`}
-		>
+		<a href="/" class="btn btn-primary" aria-label={`Ver detalles de ${service.title}`}>
 			<span>Descubrir</span>
 			<ArrowUpRight size={16} />
 		</a>
