@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import CardService from './CardService.svelte';
-	import computer from '$lib/assets/images/icons/2.jpg';
-	import cerebro from '$lib/assets/images/icons/1.jpg';
-	import ia from '$lib/assets/images/icons/3.jpg';
-	import cloud from '$lib/assets/images/icons/4.jpg';
+	import estrella from '$lib/assets/images/services/estrella.webp';
+	import cursor from '$lib/assets/images/services/cursor.webp';
+	import pincel from '$lib/assets/images/services/pincel.webp';
+	import nube from '$lib/assets/images/services/nube.webp';
 
 	type Service = {
 		id: number;
@@ -17,35 +17,35 @@
 	const services: Service[] = [
 		{
 			id: 1,
-			title: 'Desarrollo de Sistemas',
+			title: 'Inteligencia Artificial',
 			description:
-				'Desarrollo sistemas completos con base de datos y con autorización de usuarios, adaptados a las necesidades de tu negocio.',
-			image: cerebro,
-			span: 'lg:col-span-2' // Destacado ancho
+				'Implementamos herramientas de IA para automatizar tareas repetitivas, analizar grandes volúmenes de información y ayudarle a tomar mejores decisiones para que su negocio crezca más rápido.',
+			image: estrella,
+			span: 'lg:col-span-2'
 		},
 		{
 			id: 2,
-			title: 'Sitios Web Modernos',
+			title: 'Desarrollo de Sistemas',
 			description:
-				'Sitios web responsivos y optimizados para SEO que capturan la esencia de tu marca.',
-			image: computer,
+				'Construimos plataformas digitales a la medida, seguras y sencillas de usar, que organizan y controlan los procesos internos de su empresa para maximizar la eficiencia.',
+			image: cursor,
 			span: 'lg:col-span-1'
 		},
 		{
 			id: 3,
-			title: 'Integraciones con IA',
+			title: 'Sitios Web de Alto Impacto',
 			description:
-				'Incorpora capacidades de inteligencia artificial para automatizar procesos y mejorar la experiencia del usuario.',
-			image: ia,
+				'Creamos páginas web ultrarrápidas, diseñadas para aparecer en los primeros lugares de Google y enfocadas en atraer y convertir a sus clientes ideales.',
+			image: pincel,
 			span: 'lg:col-span-1'
 		},
 		{
 			id: 4,
-			title: 'Infraestructura Cloud',
+			title: 'Infraestructura y Soporte',
 			description:
-				'Despliegue robusto y escalable para asegurar que tu negocio opere sin interrupciones.',
-			image: cloud,
-			span: 'lg:col-span-2' // Destacado ancho
+				'Nos encargamos de que sus sistemas digitales funcionen siempre sin fallos, con la capacidad de crecer y manejar picos de tráfico sin interrupciones o costos innecesarios.',
+			image: nube,
+			span: 'lg:col-span-2'
 		}
 	];
 </script>
@@ -55,10 +55,12 @@
 		<!-- Header de Sección -->
 		<div class="mb-8 text-center">
 			<h2 in:fly={{ y: 30, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-5xl">
-				Servicios que <span
+				Servicios que
+				<span
 					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
-					>Ofrecemos.</span
 				>
+					Ofrecemos.
+				</span>
 			</h2>
 			<p
 				in:fly={{ y: 30, duration: 800, delay: 400 }}

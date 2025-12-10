@@ -31,7 +31,7 @@
 	<!-- Contenido Principal -->
 	<div class="relative z-10">
 		<div
-			class="mb-6 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border border-white/5 transition-transform duration-500 group-hover:scale-110"
+			class="mb-6 flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl transition-transform duration-500 group-hover:scale-110"
 		>
 			{#if service.image}
 				<img
@@ -55,7 +55,7 @@
 
 	<div class="mt-6 card-actions justify-start">
 		<a href="/" class="btn btn-primary" aria-label={`Ver detalles de ${service.title}`}>
-			<span>Descubrir</span>
+			<span>Comenzar una Consulta</span>
 			<ArrowUpRight size={16} />
 		</a>
 	</div>
