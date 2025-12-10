@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import CardService from './CardService.svelte';
-	import computer from '$lib/assets/images/icons/computer.png';
-	import cerebro from '$lib/assets/images/icons/cerebro.png';
+	import computer from '$lib/assets/images/icons/2.jpg';
+	import cerebro from '$lib/assets/images/icons/1.jpg';
 
 	type Service = {
 		id: number;
