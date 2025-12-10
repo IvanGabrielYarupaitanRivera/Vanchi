@@ -1,5 +1,6 @@
 <script>
 	import { fly } from 'svelte/transition';
+	import Me from './Me.svelte';
 
 	const birthday = new Date(2002, 1, 10);
 	const edad = Math.floor((new Date().getTime() - birthday.getTime()) / 3.15576e10);
@@ -26,4 +27,6 @@
 			</p>
 		</div>
 	</div>
+
+	<Me />
 </section>
