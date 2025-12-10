@@ -118,13 +118,9 @@
 			<div class="divider"></div>
 
 			<div class="mt-auto">
-				<a
-					href="/contacto"
-					class="btn w-full gap-2 rounded-xl btn-primary"
-					onclick={() => (open = false)}
-				>
+				<a href="/contacto" class="btn w-full btn-primary" onclick={() => (open = false)}>
 					Empezar Proyecto
-					<ArrowUpRight size={18} />
+					<ArrowUpRight size={16} />
 				</a>
 			</div>
 		</div>
