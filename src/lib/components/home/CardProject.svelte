@@ -59,7 +59,7 @@
 			</a>
 		</h3>
 
-		<p class="line-clamp-3 leading-relaxed text-white/70">
+		<p class="line-clamp-3 text-sm leading-relaxed text-base-content/70 lg:text-base">
 			{project.description}
 		</p>
 
