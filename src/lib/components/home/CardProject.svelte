@@ -71,7 +71,7 @@
 			<div class="tooltip tooltip-primary" data-tip="Leer Estudio de Caso">
 				<a
 					href={project.href}
-					class="text sm btn btn-soft btn-primary lg:text-base"
+					class="  btn btn-soft btn-primary"
 					aria-label={`Ver Estudio de Caso ${project.title}`}
 				>
 					<span>Caso de Estudio</span>
