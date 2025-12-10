@@ -67,7 +67,7 @@
 				</h2>
 
 				<!-- Cuerpo -->
-				<div class="space-y-6 font-sans text-base leading-loose text-base-content/70">
+				<div class="space-y-6 font-sans text-sm text-base-content/70 lg:text-base">
 					<p>
 						Hola, soy Iván. A mis {edad} años, opero en la intersección entre la ingeniería de software
 						robusta y el diseño de interfaces inmersivas. No solo escribo código; arquitecto ecosistemas
