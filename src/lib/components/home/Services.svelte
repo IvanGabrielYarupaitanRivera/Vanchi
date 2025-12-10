@@ -3,28 +3,47 @@
 	import CardService from './CardService.svelte';
 	import computer from '$lib/assets/images/icons/2.jpg';
 	import cerebro from '$lib/assets/images/icons/1.jpg';
+	import ia from '$lib/assets/images/icons/3.jpg';
+	import cloud from '$lib/assets/images/icons/4.jpg';
 
 	type Service = {
 		id: number;
 		title: string;
 		description: string;
 		image?: string;
+		span?: string;
 	};
 
 	const services: Service[] = [
 		{
 			id: 1,
-			title: 'Consultoría en IA',
+			title: 'Consultoría Estratégica IA',
 			description:
-				'Asesoramos a empresas sobre cómo integrar soluciones de inteligencia artificial para optimizar procesos y mejorar la toma de decisiones.',
-			image: computer
+				'Arquitectura de sistemas inteligentes y optimización de procesos mediante algoritmos de vanguardia.',
+			image: cerebro,
+			span: 'lg:col-span-2' // Destacado ancho
 		},
 		{
 			id: 2,
-			title: 'Desarrollo de Aplicaciones',
+			title: 'Desarrollo Full-Stack',
+			description: 'Aplicaciones web reactivas y escalables con arquitectura moderna.',
+			image: computer,
+			span: 'lg:col-span-1'
+		},
+		{
+			id: 3,
+			title: 'Diseño UI/UX Premium',
+			description: 'Interfaces inmersivas que fusionan arte digital con funcionalidad intuitiva.',
+			image: ia,
+			span: 'lg:col-span-1'
+		},
+		{
+			id: 4,
+			title: 'Infraestructura Cloud',
 			description:
-				'Creamos aplicaciones web y móviles a medida que se adaptan a las necesidades específicas de tu negocio.',
-			image: cerebro
+				'Despliegue robusto y escalable para asegurar que tu negocio opere sin interrupciones.',
+			image: cloud,
+			span: 'lg:col-span-2' // Destacado ancho
 		}
 	];
 </script>
