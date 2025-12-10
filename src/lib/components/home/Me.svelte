@@ -1,16 +1,19 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { Code, Cpu, Globe, Zap } from '@lucide/svelte';
+	import SvelteKitLogo from '$lib/assets/icons/technologies/SvelteKitLogo.svelte';
+	import TypeScriptLogo from '$lib/assets/icons/technologies/TypeScriptLogo.svelte';
+	import ConvexLogo from '$lib/assets/icons/technologies/ConvexLogo.svelte';
+	import BunLogo from '$lib/assets/icons/technologies/BunLogo.svelte';
 	import ivan from '$lib/assets/images/ivan.webp';
 
 	const birthday = new Date(2002, 1, 10);
 	const edad = Math.floor((new Date().getTime() - birthday.getTime()) / 3.15576e10);
 
 	const skills = [
-		{ name: 'SvelteKit', icon: Globe },
-		{ name: 'TypeScript', icon: Code },
-		{ name: 'Convex', icon: Cpu },
-		{ name: 'Bun', icon: Zap }
+		{ name: 'SvelteKit', icon: SvelteKitLogo },
+		{ name: 'TypeScript', icon: TypeScriptLogo },
+		{ name: 'Convex', icon: ConvexLogo },
+		{ name: 'Bun', icon: BunLogo }
 	];
 </script>
 
@@ -29,7 +32,7 @@
 
 				<!-- Contenedor Imagen -->
 				<div
-					class="relative overflow-hidden rounded-2xl bg-base-200 transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(211,163,41,0.15)] lg:grayscale lg:group-hover:grayscale-0"
+					class="relative overflow-hidden rounded-2xl bg-base-200 grayscale transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(211,163,41,0.15)] group-hover:grayscale-0"
 				>
 					<img
 						src={ivan}
@@ -85,12 +88,10 @@
 					<h4 class="mb-4 text-xs font-bold tracking-widest text-base-content/40 uppercase">
 						Tech DNA
 					</h4>
-					<div class="flex flex-wrap gap-3">
+					<div class="flex flex-wrap gap-2">
 						{#each skills as skill}
-							<div
-								class="flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-2 text-sm transition-colors hover:border-primary/30 hover:bg-primary/5 hover:text-primary"
-							>
-								<skill.icon size={14} />
+							<div class="badge badge-md py-4">
+								<skill.icon size={18} />
 								<span>{skill.name}</span>
 							</div>
 						{/each}
