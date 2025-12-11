@@ -31,7 +31,7 @@
 
 <section id="contacto" class="relative py-16 lg:py-36" aria-label="Contacto por WhatsApp">
 	<div
-		class="pointer-events-none absolute top-1/2 left-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl"
+		class="pointer-events-none absolute top-1/2 left-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/40 blur-3xl lg:h-96 lg:w-96"
 	></div>
 
 	<div class="relative container mx-auto px-4">
@@ -119,7 +119,7 @@
 								class="btn w-full transition-all duration-300 ease-out btn-lg btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(211,163,41,0.15)] lg:w-auto"
 							>
 								<span>Enviar WhatsApp</span>
-								<MessageCircle size={18} />
+								<MessageCircle size={16} />
 							</a>
 						</div>
 					</form>
