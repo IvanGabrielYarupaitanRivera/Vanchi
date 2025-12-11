@@ -63,11 +63,11 @@
 				</div>
 
 				<!-- Hook Editorial -->
-				<h2 class="mb-8 font-serif text-4xl leading-tight lg:text-5xl">
-					Transformando código complejo en <span class="text-primary italic"
-						>soluciones de negocio</span
-					> elegantes.
-				</h2>
+				<h3 class="mb-8 text-3xl font-bold lg:text-4xl">
+					Transformando código complejo en
+					<span class="font-serif text-primary italic">soluciones de negocio </span>
+					elegantes.
+				</h3>
 
 				<!-- Cuerpo -->
 				<div class="space-y-6 font-sans text-sm text-base-content/70 lg:text-base">
