@@ -31,7 +31,7 @@
 
 <section id="contacto" class="relative py-16 lg:py-36" aria-label="Contacto por WhatsApp">
 	<div
-		class="pointer-events-none absolute top-1/2 left-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/40 blur-3xl lg:h-96 lg:w-96"
+		class="pointer-events-none absolute top-1/2 left-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl lg:h-96 lg:w-96"
 	></div>
 
 	<div class="relative container mx-auto px-4">
