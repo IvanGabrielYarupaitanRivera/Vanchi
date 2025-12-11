@@ -25,9 +25,9 @@
 	<nav
 		class="navbar mx-auto max-w-5xl rounded-full border border-white/10 bg-base-300/70 p-2 shadow-lg backdrop-blur-xl transition-all duration-300"
 	>
-		<div class="navbar-start">
-			<a href="/" class="btn btn-circle btn-ghost hover:bg-transparent" aria-label="Ir al inicio">
-				<img src={icon} alt="Vanchi Logo" class="h-10 w-10 object-contain" draggable="false" />
+		<div class="ml-2 navbar-start">
+			<a href="/" class="" aria-label="Ir al inicio">
+				<img src={icon} alt="Vanchi Logo" class="h-9" draggable="false" />
 			</a>
 		</div>
 
