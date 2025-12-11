@@ -21,7 +21,7 @@
 	];
 </script>
 
-<section class="relative w-full py-24 lg:py-32" id="about-me">
+<section class="relative w-full py-24 lg:py-32" id="me">
 	<div class="container mx-auto px-4">
 		<div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-12">
 			<!-- Columna Izquierda: The Portal (Foto) -->
