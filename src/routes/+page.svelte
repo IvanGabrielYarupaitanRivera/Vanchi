@@ -4,6 +4,7 @@
 	import FeaturedProjects from '$lib/components/home/FeaturedProjects.svelte';
 	import Services from '$lib/components/home/Services.svelte';
 	import AboutMe from '$lib/components/home/AboutMe.svelte';
+	import WhatsappContact from '$lib/components/home/WhatsappContact.svelte';
 </script>
 
 <Hero />
@@ -11,3 +12,4 @@
 <FeaturedProjects />
 <Services />
 <AboutMe />
+<WhatsappContact />
