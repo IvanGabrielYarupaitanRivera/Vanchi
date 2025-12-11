@@ -5,6 +5,7 @@
 	import LinkedInLogo from '$lib/assets/icons/network/LinkedInLogo.svelte';
 	import WhatsAppLogo from '$lib/assets/icons/network/WhatsAppLogo.svelte';
 	import GmailLogo from '$lib/assets/icons/network/GmailLogo.svelte';
+	import FacebookLogo from '$lib/assets/icons/network/FacebookLogo.svelte';
 
 	const year = new Date().getFullYear();
 
@@ -16,10 +17,19 @@
 
 	// TODO: reemplaza con tus URLs reales
 	const socials = [
-		{ label: 'GitHub', href: 'https://github.com/', icon: GithubLogo },
-		{ label: 'LinkedIn', href: 'https://linkedin.com/in/', icon: LinkedInLogo },
-		{ label: 'WhatsApp', href: 'https://wa.me/1234567890', icon: WhatsAppLogo },
-		{ label: 'Email', href: 'mailto:hola@vanchi.pro', icon: GmailLogo }
+		{ label: 'GitHub', href: 'https://github.com/IvanGabrielYarupaitanRivera', icon: GithubLogo },
+		{
+			label: 'LinkedIn',
+			href: 'https://www.linkedin.com/in/ivan-yarupaitan-rivera/',
+			icon: LinkedInLogo
+		},
+		{
+			label: 'Facebook',
+			href: 'https://www.facebook.com/vanchi.desarrollador',
+			icon: FacebookLogo
+		},
+		{ label: 'WhatsApp', href: 'https://wa.me/985942670', icon: WhatsAppLogo },
+		{ label: 'Email', href: 'mailto:ivangyr321@gmail.com', icon: GmailLogo }
 	];
 </script>
 
@@ -79,7 +89,7 @@
 					{/each}
 				</div>
 
-				<p class="mt-6 text-sm leading-loose text-base-content/50">
+				<p class="mt-6 text-sm text-base-content/50">
 					Respuesta en aproximado 12 horas. Trabajo remoto y proyectos con alcance claro.
 				</p>
 			</nav>
