@@ -83,7 +83,7 @@
 	>
 		<div class="flex h-full flex-col p-6">
 			<header class="flex items-center justify-between">
-				<img src={vanchi} class="h-6" alt="Vanchi" />
+				<img src={vanchi} class="h-8" alt="Vanchi" />
 
 				<button
 					class="btn btn-circle btn-ghost btn-sm"
@@ -97,7 +97,7 @@
 			<div class="divider"></div>
 
 			<nav class="flex-1">
-				<ul class="flex flex-col gap-4">
+				<ul class="flex flex-col gap-2">
 					{#each navItems as item}
 						<!-- 2. Determinar si es la ruta activa -->
 						{@const isActive = page.url.pathname.startsWith(item.href)}
