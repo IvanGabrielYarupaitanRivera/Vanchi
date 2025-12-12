@@ -53,7 +53,7 @@
 						<span class="text-xs font-bold tracking-wider text-primary/60 uppercase">Enfoque</span>
 					</div>
 					<p class="font-serif text-base leading-tight font-medium lg:text-lg">
-						Ingeniería de precisión para la era digital.
+						Construyendo sistemas con la ambición de la IA y el corazón del diseño.
 					</p>
 				</div>
 			</div>
@@ -76,14 +76,16 @@
 				<!-- Cuerpo -->
 				<div class="space-y-6 font-sans text-sm text-base-content/70 lg:text-base">
 					<p>
-						Hola, soy Iván, opero en la intersección entre la ingeniería de software robusta y el
-						diseño de interfaces inmersivas. No solo escribo código; arquitecto ecosistemas
-						digitales que escalan.
+						Hola, soy Iván. Como Ingeniero de Sistemas, mi trabajo es simple: construir herramientas
+						digitales que solucionen problemas reales. Opero con tecnologías como Svelte y Convex,
+						enfocándome en la arquitectura limpia y la máxima velocidad para que tu producto
+						funcione sin fallos.
 					</p>
 					<p>
-						Mi metodología combina la lógica estricta de un Ingeniero de Sistemas con la visión
-						estética de un diseñador moderno. Me especializo en crear aplicaciones que no solo
-						funcionan rápido, sino que se sienten vivas y elevan el valor de tu marca.
+						Mi pasión es la Inteligencia Artificial. No solo implemento APIs, sino que investigo
+						cómo integrar la IA directamente en la lógica del negocio para automatizar decisiones y
+						procesos. Busco que cada sistema que construyo sea una inversión que se traduzca en
+						eficiencia y crecimiento tangible.
 					</p>
 				</div>
 
