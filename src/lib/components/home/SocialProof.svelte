@@ -19,7 +19,7 @@
 				in:fly={{ y: 20, duration: 800, delay: 400 }}
 				class="mx-auto max-w-2xl text-base text-base-content/60 lg:text-lg"
 			>
-				Arquitectura digital desplegada en instituciones de alto impacto.
+				Instituciones que confiaron en nosotros y nuestras soluciones modernas.
 			</p>
 		</div>
 
