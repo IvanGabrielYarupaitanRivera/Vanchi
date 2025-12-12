@@ -47,7 +47,7 @@
 							</span>
 						</h2>
 
-						<p class="mx-auto max-w-xl text-base text-base-content/60">
+						<p class="mx-auto max-w-xl text-sm text-base-content/60">
 							La forma más rápida de hablar de tu proyecto es por WhatsApp. Completa lo esencial y
 							abre una consulta. Te responderé en menos de 12 horas.
 						</p>
@@ -112,7 +112,7 @@
 								target="_blank"
 								rel="noreferrer"
 								aria-label="Enviar WhatsApp a Iván con mensaje precargado"
-								class="btn w-full transition-all duration-300 ease-out btn-lg btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(211,163,41,0.15)] lg:w-auto"
+								class="btn w-full transition-all duration-300 ease-out btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(211,163,41,0.15)] lg:w-auto"
 							>
 								<span>Enviar WhatsApp</span>
 								<MessageCircle size={16} />
