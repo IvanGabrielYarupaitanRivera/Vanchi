@@ -27,9 +27,9 @@
 			title: 'Junin360',
 			category: 'Optimización de Procesos',
 			description:
-				'Sistema de gestión de informes de control para el GORE Junín. Organiza los datos de cada informe y envía notificaciones a los responsables de cada informe de control para no llegar a responsabbilidades legales.',
+				'Plataforma de control de informes de control para el GORE Junín utilizando tecnologías modernas e IA para alertar a los responsables y eliminar el riesgo de responsabilidades legales.',
 			image: junin360,
-			tags: ['SvelteKit', 'Supabase', 'OpenRouter'],
+			tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'N8N'],
 			href: '/proyectos/junin360',
 			link: 'https://junin360.com/'
 		},
@@ -38,9 +38,9 @@
 			title: 'MediRoosevelt',
 			category: 'HealthTech Innovation',
 			description:
-				'Plataforma de gestión de activos digitales con seguridad de grado militar, sincronización de estado global instantánea y latencia sub-100ms.',
+				'Proyecto para los alumnos de la escuela profesional de Medicina Humana de la Universidad Roosevelt, ganó el primer puesto en la Expociencia 2025 - II.',
 			image: mediroosevelt,
-			tags: ['Convex', 'TypeScript', 'Gemini API'],
+			tags: ['Svelte', 'Convex', 'TypeScript', 'Gemini API'],
 			href: '/proyectos/mediroosevelt',
 			link: 'https://mediroosevelt.com/',
 			video: 'https://www.youtube.com/watch?v=2RlIn3JFajc'
@@ -50,9 +50,9 @@
 			title: 'Farmape',
 			category: 'HealthTech Innovation',
 			description:
-				'Sistema escalable multi-tenant diseñado para orquestar flujos de trabajo complejos en corporaciones multinacionales, reduciendo la carga operativa un 40%.',
+				'Proyecto para los alumnos de la escuela profesional de Farmacia de la Universidad Roosevelt, ganó el primer puesto en la Expociencia 2025 - II.',
 			image: farmape,
-			tags: ['Convex', 'TypeScript', 'Gemini API'],
+			tags: ['Svelte', 'Convex', 'TypeScript', 'Gemini API'],
 			href: '/proyectos/farmape',
 			link: 'https://www.farmape.net/',
 			video: 'https://www.youtube.com/watch?v=6-3bhIxR4-k'
@@ -62,9 +62,9 @@
 			title: 'Obstetra Conecta',
 			category: 'HealthTech Innovation',
 			description:
-				'Plataforma de telemedicina especializada en obstetricia, que conecta a pacientes con profesionales de la salud para consultas virtuales y seguimiento del embarazo.',
+				'Proyecto para las alumnas de la escuela profesional de Obstetricia de la Universidad Roosevelt, ganó el segundo puesto en la Expociencia 2025 - II.',
 			image: obstetraconecta,
-			tags: ['Convex', 'TypeScript', 'Gemini API'],
+			tags: ['Svelte', 'Convex', 'TypeScript', 'Gemini API'],
 			href: '/proyectos/obstetraconecta',
 			link: 'https://www.obstetraconecta.com/',
 			video: 'https://www.youtube.com/watch?v=tVvpd5Wp98k'
@@ -74,7 +74,7 @@
 			title: 'Diapis',
 			category: 'EduTech Innovation',
 			description:
-				'Plataforma educativa que utiliza IA para personalizar el aprendizaje de estudiantes con diabetes, ofreciendo recursos adaptados y seguimiento en tiempo real.',
+				'Sistema de IA que revoluciona el aprendizaje en el aula. Genera rondas de preguntas y respuestas personalizadas a partir del material de clase para impulsar la atención y la participación estudiantil.',
 			image: diapis,
 			tags: ['SvelteKit', 'Convex', 'Livekit', 'Gemini API'],
 			href: '/proyectos/diapis',
@@ -86,9 +86,9 @@
 			title: 'Peralta Asociados',
 			category: 'LegalTech',
 			description:
-				'Aplicación móvil que utiliza IA para crear planes de nutrición personalizados basados en los datos de salud y preferencias alimenticias del usuario.',
+				'Construcción de identidad digital de alto impacto para el estudio jurídico. Sitio web diseñado con la arquitectura más moderna (Astro/Tailwind) para garantizar la máxima velocidad, posicionamiento SEO y la atracción de nuevos clientes.',
 			image: peraltaasociados,
-			tags: ['Astro', 'Tailwind'],
+			tags: ['Astro', 'Tailwind', 'Netlify Forms'],
 			href: '/proyectos/peralta-asociados',
 			link: 'https://peraltaasociados.com/'
 		}
@@ -100,17 +100,17 @@
 		<!-- Header de Sección -->
 		<div class="mb-8 text-center">
 			<h2 in:fly={{ y: 30, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-5xl">
-				Arquitectura en <span
+				Soluciones <span
 					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
-					>Acción.</span
+					>Realizadas.</span
 				>
 			</h2>
 			<p
 				in:fly={{ y: 30, duration: 800, delay: 400 }}
 				class="mx-auto max-w-2xl text-base text-base-content/60 lg:text-lg"
 			>
-				Ingeniería Svelte e Inteligencia Artificial aplicadas a resultados de negocio tangibles.
-				Menos teoría, más despliegue.
+				Lista de proyectos realizados con tecnologías de vanguardia, incluyendo IA y arquitectura
+				moderna. Cada proyecto es un ejemplo de innovación y eficiencia en su campo.
 			</p>
 		</div>
 

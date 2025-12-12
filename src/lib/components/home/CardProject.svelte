@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CirclePlay, Globe } from '@lucide/svelte';
+	import { CirclePlay, Globe, Play } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	type Project = {
@@ -107,7 +107,7 @@
 						class="btn btn-circle btn-soft btn-accent"
 						aria-label={`Ver Video del Proyecto ${project.title}`}
 					>
-						<CirclePlay size={18} />
+						<Play size={18} />
 					</a>
 				</div>
 			{/if}
