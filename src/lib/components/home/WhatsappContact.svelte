@@ -121,7 +121,7 @@
 					</form>
 
 					<footer class="text-center">
-						<p class="text-xs leading-loose text-base-content/40">
+						<p class="text-xs text-base-content/40">
 							Se abrirá WhatsApp con un mensaje precargado usando tus respuestas.
 						</p>
 					</footer>
