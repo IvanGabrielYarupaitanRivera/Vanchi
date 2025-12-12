@@ -5,14 +5,11 @@
 </script>
 
 <section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
-	<!-- 1. Imagen de Fondo con Máscara de Desvanecimiento -->
-	<!-- Se usa un div absoluto para aplicar la máscara SOLO a la imagen, no al texto -->
 	<div
 		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% bg-cover bg-center opacity-20"
 		style="background-image: url({bgHero});"
 	></div>
 
-	<!-- 3. Contenido (z-10 para asegurar interactividad) -->
 	<div class="relative hero-content z-10 text-center text-base-content">
 		<div class="max-w-4xl">
 			<!-- Badge: Magic Border Effect -->
@@ -56,12 +53,12 @@
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
 				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
 			>
-				Diseño y desarrollo de sistemas modernos y robustos con tecnologías de vanguardia y
+				Diseño y desarrollo sistemas modernos y robustos con tecnologías de vanguardia y
 				arquitecturas escalables. Transformamos ideas en productos digitales que impulsan el éxito
-				de negocios.
+				de tu negocio.
 			</p>
 
-			<!-- Buttons: CTA Principal + Secundario -->
+			<!-- Buttons: CTA Principal -->
 			<nav in:fly={{ y: 30, duration: 1000, delay: 800 }} aria-label="Acciones principales">
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
@@ -72,17 +69,6 @@
 						>
 							Iniciar proyecto
 							<ArrowRight size={18} aria-hidden="true" class="ml-2" />
-						</button>
-					</li>
-
-					<li role="listitem">
-						<button
-							type="button"
-							aria-label="Ver showreel — video de trabajos"
-							class="btn transition-all duration-300 btn-neutral hover:-translate-y-1"
-						>
-							Ver showreel
-							<Play size={18} aria-hidden="true" class="ml-2" />
 						</button>
 					</li>
 				</ul>
