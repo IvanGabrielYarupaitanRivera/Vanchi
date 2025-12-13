@@ -48,7 +48,7 @@
 					listos para escalar.
 				</p>
 
-				<a href="#contacto" class="btn btn-primary">
+				<a href="/#contacto" class="btn btn-primary">
 					Comenzar una consulta
 					<ArrowUpRight size={16} />
 				</a>
