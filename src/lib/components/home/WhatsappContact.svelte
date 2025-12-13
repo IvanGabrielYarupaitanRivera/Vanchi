@@ -2,19 +2,17 @@
 	import { fly } from 'svelte/transition';
 	import { MessageCircle } from '@lucide/svelte';
 
+	let { selectedService }: { selectedService: string } = $props();
+
 	const phoneNumber = '51985942670';
 	let name = $state('');
-
+	let problem = $state('');
 	const serviceOptions = [
 		'Inteligencia Artificial',
 		'Desarrollo de Sistemas',
 		'Sitios Web de Alto Impacto',
 		'Infraestructura y Soporte'
 	] as const;
-
-	type ServiceOption = (typeof serviceOptions)[number];
-	let selectedService = $state<ServiceOption | ''>('');
-	let problem = $state('');
 
 	const whatsappMessage = $derived(`¡Hola, Iván!
         Estoy contactándote desde tu portafolio web.
