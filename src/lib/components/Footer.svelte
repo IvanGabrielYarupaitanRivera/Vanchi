@@ -12,7 +12,7 @@
 	const links = [
 		{ label: 'Servicios', href: '#servicios' },
 		{ label: 'Sobre mí', href: '#about-me' },
-		{ label: 'Contacto', href: '#contacto' }
+		{ label: 'Contacto', href: '/#contacto' }
 	];
 
 	// TODO: reemplaza con tus URLs reales
