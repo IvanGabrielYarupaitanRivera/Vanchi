@@ -50,7 +50,7 @@
 		</div>
 
 		<div class="navbar-end">
-			<a href="/contacto" class="btn hidden btn-primary lg:flex">
+			<a href="/#contacto" class="btn hidden btn-primary lg:flex">
 				<span>Contacto</span>
 				<ArrowUpRight size={16} />
 			</a>

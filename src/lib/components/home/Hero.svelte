@@ -62,14 +62,15 @@
 			<nav in:fly={{ y: 30, duration: 1000, delay: 800 }} aria-label="Acciones principales">
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
-						<button
+						<a
+							href="/#contacto"
 							type="button"
 							aria-label="Iniciar un proyecto con Vanchi"
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 						>
 							Iniciar proyecto
 							<ArrowRight size={18} aria-hidden="true" class="ml-2" />
-						</button>
+						</a>
 					</li>
 				</ul>
 			</nav>
