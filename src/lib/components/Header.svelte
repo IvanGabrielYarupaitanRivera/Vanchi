@@ -12,9 +12,9 @@
 
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Inicio', icon: House },
-		{ href: '/services', label: 'Servicios', icon: Box },
+		{ href: '/#servicios', label: 'Servicios', icon: Box },
 		{ href: '/pricing', label: 'Precios', icon: DollarSign },
-		{ href: '/proyectos', label: 'Proyectos', icon: Code }
+		{ href: '/#proyectos', label: 'Proyectos', icon: Code }
 	];
 
 	// Estado reactivo con Runes (Svelte 5)

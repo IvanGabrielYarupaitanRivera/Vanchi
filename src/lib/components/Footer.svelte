@@ -10,8 +10,8 @@
 	const year = new Date().getFullYear();
 
 	const links = [
-		{ label: 'Servicios', href: '#servicios' },
-		{ label: 'Sobre mí', href: '#about-me' },
+		{ label: 'Servicios', href: '/#servicios' },
+		{ label: 'Sobre mí', href: '/#about-me' },
 		{ label: 'Contacto', href: '/#contacto' }
 	];
 
