@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { ArrowUpRight } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import type { Service } from '$lib/constants/services';
 
-	type Service = {
-		id: number;
-		title: string;
-		description: string;
-		image?: string;
-		span?: string;
-	};
+	let {
+		service,
+		i,
+		onSelectService
+	}: {
+		service: Service;
+		i: number;
+		onSelectService: (title: string) => void;
+	} = $props();
 
-	let { service, i }: { service: Service; i: number } = $props();
-
-	// Formato editorial para el número (01, 02, etc.)
 	const num = (i + 1).toString().padStart(2, '0');
 </script>
 
@@ -54,7 +54,12 @@
 	</div>
 
 	<div class="mt-6 card-actions justify-start">
-		<a href="/" class="btn btn-primary" aria-label={`Ver detalles de ${service.title}`}>
+		<a
+			onclick={() => onSelectService(service.title)}
+			href="/#contacto"
+			class="btn btn-primary"
+			aria-label={`Ver detalles de ${service.title}`}
+		>
 			<span>Comenzar una Consulta</span>
 			<ArrowUpRight size={16} />
 		</a>
