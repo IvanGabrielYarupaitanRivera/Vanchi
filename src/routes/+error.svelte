@@ -19,10 +19,13 @@
 
 <section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
 	<!-- Fondo con máscara -->
-	<div
-		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% bg-cover bg-center opacity-30"
-		style="background-image: url({bgError});"
-	></div>
+	<enhanced:img
+		src={bgError}
+		alt="Fondo Error"
+		fetchpriority="high"
+		loading="eager"
+		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% object-cover object-center opacity-20"
+	/>
 
 	<article class="relative hero-content z-10 max-w-3xl text-center text-base-content">
 		<div class="max-w-4xl">
