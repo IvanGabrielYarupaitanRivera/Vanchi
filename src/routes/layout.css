@@ -49,6 +49,10 @@
 	--noise: 1;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 @theme {
 	--font-serif: 'Playfair Display', serif;
 	--font-sans: 'Geist', sans-serif;
