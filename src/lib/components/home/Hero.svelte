@@ -48,7 +48,6 @@
 				</span>
 			</h1>
 
-			<!-- P: Leading loose para elegancia -->
 			<p
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
 				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
@@ -69,7 +68,7 @@
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 						>
 							Iniciar proyecto
-							<ArrowRight size={18} aria-hidden="true" class="ml-2" />
+							<ArrowRight size={18} aria-hidden="true" />
 						</a>
 					</li>
 				</ul>
