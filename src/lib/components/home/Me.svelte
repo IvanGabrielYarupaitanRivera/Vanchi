@@ -38,7 +38,7 @@
 				<div
 					class="relative overflow-hidden rounded-2xl bg-base-200 grayscale transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(211,163,41,0.15)] group-hover:grayscale-0"
 				>
-					<img
+					<enhanced:img
 						src={ivan}
 						alt="Iván - Ingeniero de Sistemas"
 						class="aspect-3/4 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"

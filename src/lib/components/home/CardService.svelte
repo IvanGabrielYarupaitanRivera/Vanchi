@@ -34,7 +34,7 @@
 			class="mb-6 flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl transition-transform duration-500 group-hover:scale-110"
 		>
 			{#if service.image}
-				<img
+				<enhanced:img
 					src={service.image}
 					alt={service.title}
 					class="h-full w-full object-cover opacity-80 grayscale transition-all duration-500 group-hover:grayscale-0"

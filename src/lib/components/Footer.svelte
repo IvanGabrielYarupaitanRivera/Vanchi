@@ -40,7 +40,7 @@
 		>
 			<aside class="space-y-4">
 				<a href="/" aria-label="Ir al inicio">
-					<img src={vanchi} alt="Vanchi Logo" class="h-8" />
+					<enhanced:img src={vanchi} alt="Vanchi Logo" class="h-8" />
 				</a>
 
 				<p class="max-w-md text-base-content/70">

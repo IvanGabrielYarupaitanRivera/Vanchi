@@ -23,7 +23,7 @@
 >
 	<!-- 1. Background Image (Full Cover) -->
 	<div class="absolute inset-0 h-full w-full overflow-hidden rounded-2xl">
-		<img
+		<enhanced:img
 			src={project.image}
 			alt={project.title}
 			class="h-full w-full object-cover grayscale transition-all duration-1000 will-change-transform group-hover:scale-105 group-hover:grayscale-0"

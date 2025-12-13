@@ -55,7 +55,7 @@
 			>
 				<!-- Logo Container -->
 				<div class="flex h-12 w-full items-center justify-center">
-					<img
+					<enhanced:img
 						src={client.logo}
 						alt={client.name}
 						class="max-h-full max-w-full object-contain opacity-50 grayscale transition-all duration-500 group-hover/card:scale-110 group-hover/card:opacity-100 group-hover/card:grayscale-0"
@@ -95,7 +95,7 @@
 			>
 				<!-- Logo Container -->
 				<div class="flex h-12 w-full items-center justify-center">
-					<img
+					<enhanced:img
 						src={client.logo}
 						alt={client.name}
 						class="max-h-full max-w-full object-contain opacity-50 grayscale transition-all duration-500 group-hover/card:scale-110 group-hover/card:opacity-100 group-hover/card:grayscale-0"
@@ -135,7 +135,7 @@
 			>
 				<!-- Logo Container -->
 				<div class="flex h-12 w-full items-center justify-center">
-					<img
+					<enhanced:img
 						src={client.logo}
 						alt={client.name}
 						class="max-h-full max-w-full object-contain opacity-50 grayscale transition-all duration-500 group-hover/card:scale-110 group-hover/card:opacity-100 group-hover/card:grayscale-0"

@@ -27,7 +27,7 @@
 	>
 		<div class="ml-2 navbar-start">
 			<a href="/" class="" aria-label="Ir al inicio">
-				<img src={icon} alt="Vanchi Logo" class="h-9" draggable="false" />
+				<enhanced:img src={icon} alt="Vanchi Logo" class="h-9" draggable="false" />
 			</a>
 		</div>
 
@@ -83,7 +83,7 @@
 	>
 		<div class="flex h-full flex-col p-6">
 			<header class="flex items-center justify-between">
-				<img src={vanchi} class="h-8" alt="Vanchi" />
+				<enhanced:img src={vanchi} class="h-8" alt="Vanchi" />
 
 				<button
 					class="btn btn-circle btn-ghost btn-sm"
