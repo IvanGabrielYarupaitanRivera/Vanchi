@@ -5,11 +5,17 @@
 	import Services from '$lib/components/home/Services.svelte';
 	import AboutMe from '$lib/components/home/AboutMe.svelte';
 	import WhatsappContact from '$lib/components/home/WhatsappContact.svelte';
+
+	let selectedService = $state('');
+
+	const onSelectService = (service: string) => {
+		selectedService = service;
+	};
 </script>
 
 <Hero />
 <SocialProof />
 <FeaturedProjects />
-<Services />
+<Services {onSelectService} />
 <AboutMe />
-<WhatsappContact />
+<WhatsappContact {selectedService} />
