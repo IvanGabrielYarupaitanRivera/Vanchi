@@ -50,7 +50,7 @@
 			<!-- H1: Código de Error -->
 			<h1
 				in:fly={{ y: 30, duration: 1000, delay: 400 }}
-				class="mb-10 text-5xl font-bold lg:text-7xl"
+				class="mb-8 text-5xl font-bold lg:text-7xl"
 			>
 				{#if isNotFound}
 					Página
