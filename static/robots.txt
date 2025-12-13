@@ -1,3 +1,5 @@
-# allow crawling everything by default
 User-agent: *
-Disallow:
+Allow: /
+
+# Agregar enlace al sitemap
+Sitemap: https://www.vanchi.pro/sitemap.xml

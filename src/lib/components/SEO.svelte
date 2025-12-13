@@ -99,6 +99,9 @@
 	<!-- Canonical URL -->
 	<link rel="canonical" href={url} />
 
+	<!-- Manifest para PWA -->
+	<link rel="manifest" href="/manifest.json" />
+
 	<!-- Datos estructurados JSON-LD -->
 	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
 

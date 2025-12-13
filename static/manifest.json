@@ -1,0 +1,23 @@
+{ 
+    "id": "vanchi-app",
+    "name": "Vanchi — Desarrollo de Sistemas",
+    "short_name": "Vanchi",
+	"start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#0F0F0F",
+    "theme_color": "#D3A329",
+    "description": "Portafolio de ingeniería de sistemas y desarrollo web de alto impacto.",
+    "icons": [
+        {
+            "src": "/pwa-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/pwa-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
