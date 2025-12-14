@@ -20,7 +20,6 @@
 		video?: string;
 	};
 
-	// Mock Data: Proyectos seleccionados para mostrar nicho (IA + Arquitectura)
 	const projects: Project[] = [
 		{
 			id: 1,
