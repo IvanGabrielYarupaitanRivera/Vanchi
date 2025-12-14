@@ -42,27 +42,39 @@
 	// Asegurar slash final en canonical
 	if (!url.endsWith('/')) url = url + '/';
 
-	// Datos estructurados JSON-LD para Portafolio Personal (Person)
+	// Datos estructurados JSON-LD: Usamos @graph para conectar Persona y Sitio Web
 	const structuredData = {
 		'@context': 'https://schema.org',
-		'@type': 'Person',
-		name: 'Ivan',
-		alternateName: 'Vanchi',
-		description,
-		url,
-		image,
-		jobTitle: 'Ingeniero de Sistemas',
-		knowsAbout: [
-			'SvelteKit',
-			'TypeScript',
-			'Artificial Intelligence',
-			'UI/UX Design',
-			'Tailwind CSS'
-		],
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': url
-		}
+		'@graph': [
+			{
+				'@type': 'Person',
+				'@id': `${url}#person`,
+				name: 'Ivan',
+				alternateName: 'Vanchi',
+				description: description,
+				url: url,
+				image: image,
+				jobTitle: 'Ingeniero de Sistemas',
+				knowsAbout: [
+					'SvelteKit',
+					'TypeScript',
+					'Artificial Intelligence',
+					'UI/UX Design',
+					'Tailwind CSS'
+				]
+			},
+			{
+				'@type': 'WebSite',
+				'@id': `${url}#website`,
+				url: url,
+				name: siteName,
+				description: description,
+				publisher: {
+					'@id': `${url}#person`
+				},
+				inLanguage: locale
+			}
+		]
 	};
 </script>
 
