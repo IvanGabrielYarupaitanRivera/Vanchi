@@ -10,8 +10,6 @@
 		image: string;
 		tags: string[];
 		href: string;
-		link?: string;
-		video?: string;
 	};
 
 	let { project, i }: { project: Project; i: number } = $props();
@@ -54,12 +52,12 @@
 		</span>
 
 		<h3 class="mb-3 font-serif text-3xl font-bold">
-			<a href={project.link} class="transition-colors duration-300 hover:text-primary">
+			<a href={project.href} class="transition-colors duration-300 hover:text-primary">
 				{project.title}
 			</a>
 		</h3>
 
-		<p class="line-clamp-3 text-sm leading-relaxed text-base-content/70 lg:text-base">
+		<p class="line-clamp-2 text-sm leading-relaxed text-base-content/70 lg:text-base">
 			{project.description}
 		</p>
 
@@ -68,49 +66,14 @@
 		<!-- Control Deck: Diseño unificado y minimalista -->
 		<div class="flex items-center gap-2 pt-2">
 			<!-- 1. Acción Principal: Botón extendido con etiqueta -->
-			<div class="tooltip tooltip-primary" data-tip="Leer Estudio de Caso">
-				<a
-					href={project.href}
-					class="  btn btn-soft btn-primary"
-					aria-label={`Ver Estudio de Caso ${project.title}`}
-				>
-					<span>Caso de Estudio</span>
-				</a>
-			</div>
 
-			<!-- Separador vertical sutil (opcional, para agrupar visualmente) -->
-			{#if project.link || project.video}
-				<div class="divider divider-horizontal"></div>
-			{/if}
-
-			<!-- 2. Acciones Secundarias: Botones circulares 'Glass' -->
-			{#if project.link}
-				<div class="tooltip tooltip-accent" data-tip="Visitar Web">
-					<a
-						href={project.link}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="btn btn-circle btn-soft btn-accent"
-						aria-label={`Visitar Sitio Web ${project.title}`}
-					>
-						<Globe size={18} />
-					</a>
-				</div>
-			{/if}
-
-			{#if project.video}
-				<div class="tooltip tooltip-accent" data-tip="Ver Demo">
-					<a
-						href={project.video}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="btn btn-circle btn-soft btn-accent"
-						aria-label={`Ver Video del Proyecto ${project.title}`}
-					>
-						<Play size={18} />
-					</a>
-				</div>
-			{/if}
+			<a
+				href={project.href}
+				class="  btn btn-soft btn-primary"
+				aria-label={`Ver Más Información del Proyecto ${project.title}`}
+			>
+				<span>Más Información</span>
+			</a>
 		</div>
 	</div>
 </article>
