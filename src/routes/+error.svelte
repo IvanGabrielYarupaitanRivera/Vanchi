@@ -57,6 +57,7 @@
 			>
 				{#if isNotFound}
 					Página
+					<br />
 					<span
 						class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text px-1 font-serif text-transparent italic"
 					>
