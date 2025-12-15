@@ -18,7 +18,7 @@
 	);
 </script>
 
-<section class="w-full py-20 lg:py-32" id="proyectos">
+<section class="w-full py-20 lg:py-32" id="proyectos-destacados">
 	<div class="container mx-auto px-4">
 		<!-- Header de Sección -->
 		<div class="mb-8 text-center">
