@@ -44,7 +44,7 @@
 
 		<h3 class="mb-4 flex items-center justify-between gap-4">
 			<a
-				href={project.link}
+				href={project.href}
 				class="font-serif text-3xl font-bold text-base-content transition-all duration-300 ease-out hover:text-primary"
 			>
 				<span class="block truncate">{project.title}</span>
@@ -67,7 +67,7 @@
 			<div class="tooltip tooltip-primary" data-tip="Leer Estudio de Caso">
 				<a
 					href={project.href}
-					class="  btn btn-soft btn-primary"
+					class="btn btn-soft btn-primary"
 					aria-label={`Ver Estudio de Caso ${project.title}`}
 				>
 					<span>Caso de Estudio</span>
