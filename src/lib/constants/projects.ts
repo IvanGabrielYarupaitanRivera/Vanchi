@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
 		description:
 			'Plataforma de control de informes de control para el GORE Junín utilizando tecnologías modernas e IA para alertar a los responsables y eliminar el riesgo de responsabilidades legales.',
 		image: junin360,
-		tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'N8N'],
+		tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'n8n'],
 		href: '/proyectos/junin360',
 		link: 'https://junin360.com/',
 		date: 'Setiembre 2025'
