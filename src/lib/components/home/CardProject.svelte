@@ -69,7 +69,7 @@
 
 			<a
 				href={project.href}
-				class="  btn btn-soft btn-primary"
+				class="btn btn-soft btn-primary"
 				aria-label={`Ver Más Información del Proyecto ${project.title}`}
 			>
 				<span>Más Información</span>
