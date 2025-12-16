@@ -9,6 +9,7 @@
 	description="Explora los proyectos realizados por Vanchi, donde la innovación y la calidad se unen para crear soluciones digitales excepcionales."
 	keywords="Proyectos Vanchi, Portafolio de Proyectos, Desarrollo Web, Diseño de Software, Soluciones Digitales, Casos de Éxito, Innovación Tecnológica, Servicios de Desarrollo, Proyectos Destacados, Vanchi Proyectos"
 	url="https://vanchi.pro/proyectos"
+	image="https://vanchi.pro/images/proyectos.webp"
 />
 
 <Hero />
