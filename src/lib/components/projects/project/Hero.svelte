@@ -51,7 +51,7 @@
 			<!-- 3. Tagline: Clean & Readable -->
 			<p
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-16 max-w-2xl text-lg leading-relaxed text-base-content/70 lg:text-xl"
+				class="mx-auto mb-16 max-w-lg text-lg text-pretty text-base-content/70 lg:text-xl"
 			>
 				{meta.tagline}
 			</p>
@@ -59,7 +59,7 @@
 			<!-- 4. Meta HUD: Glassmorphism Panel -->
 			<div
 				in:fly={{ y: 40, duration: 1000, delay: 800 }}
-				class="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-base-100/40 shadow-2xl backdrop-blur-xl"
+				class="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-base-100/20 shadow-2xl backdrop-blur-xl"
 			>
 				<dl
 					class="grid grid-cols-1 divide-y divide-white/5 lg:grid-cols-2 lg:divide-x lg:divide-y-0"
