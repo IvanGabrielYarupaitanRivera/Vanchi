@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { Calendar, Layers, User } from '@lucide/svelte';
+	import { Calendar, User } from '@lucide/svelte';
 
 	let { meta } = $props();
 </script>
@@ -17,28 +17,33 @@
 	<div class="relative hero-content z-10 text-center text-base-content">
 		<div class="max-w-4xl">
 			<!-- 1. Badge: Tech Pill -->
-			<div in:fly={{ y: 20, duration: 1000, delay: 200 }} class="mb-8 flex justify-center">
+			<div
+				in:fly={{ y: 30, duration: 1000, delay: 200 }}
+				class="relative mb-8 inline-flex overflow-hidden rounded-full p-px"
+			>
+				<span
+					class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#C5A059_50%,transparent_100%)]"
+				></span>
+
 				<div
-					class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-widest text-primary uppercase backdrop-blur-md"
+					class="inline-flex h-full w-full items-center gap-2 rounded-full bg-base-100/90 px-4 py-1.5 backdrop-blur-3xl"
 				>
-					<span class="relative flex h-2 w-2">
-						<span
-							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"
-						></span>
-						<span class="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+					<div class="inline-grid *:[grid-area:1/1]">
+						<div class="status animate-ping status-primary"></div>
+						<div class="status status-primary"></div>
+					</div>
+					<span class="flex gap-1 text-xs font-medium tracking-widest text-base-content uppercase">
+						Caso de Estudio
 					</span>
-					Case Study
 				</div>
 			</div>
 
 			<!-- 2. Title: Luxury Gradient & Serif -->
 			<h1
 				in:fly={{ y: 30, duration: 1000, delay: 400 }}
-				class="mb-8 font-serif text-5xl leading-tight font-bold tracking-tight lg:text-8xl"
+				class="mb-8 font-serif text-5xl font-bold lg:text-7xl"
 			>
-				<span
-					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text text-transparent"
-				>
+				<span class="text-accent">
 					{meta.title}
 				</span>
 			</h1>
