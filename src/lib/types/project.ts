@@ -14,6 +14,7 @@ export interface CaseStudy {
 	};
 	context: {
 		client: string;
+		logo: string;
 		problem: string;
 		constraints: string[];
 	};

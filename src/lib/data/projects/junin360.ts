@@ -1,5 +1,6 @@
 import type { CaseStudy } from '$lib/types/project';
 import bgJunin360 from '$lib/assets/images/projects/bg-junin360.webp';
+import goreJuninLogo from '$lib/assets/icons/logos/gore-junin.svg';
 
 export const junin360: CaseStudy = {
 	id: 'junin360',
@@ -27,6 +28,7 @@ export const junin360: CaseStudy = {
 	},
 	context: {
 		client: 'Gobierno Regional de Junín',
+		logo: goreJuninLogo,
 		problem:
 			'El GORE Junín no tenía un sistema moderno para poder administrar sus informes de control esto causaba retrasos en subsanar observaciones.',
 		constraints: [
