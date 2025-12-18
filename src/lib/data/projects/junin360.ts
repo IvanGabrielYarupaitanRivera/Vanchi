@@ -21,7 +21,7 @@ export const junin360: CaseStudy = {
 			alt: 'Mockup principal de Junín 360'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/junin360-hero.webp',
+			src: 'https://vanchi.pro/images/proyectos/og-junin360.webp',
 			alt: 'Imagen OG de Junín 360'
 		}
 	},
