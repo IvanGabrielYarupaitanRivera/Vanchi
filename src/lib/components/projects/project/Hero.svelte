@@ -16,63 +16,78 @@
 
 	<div class="relative hero-content z-10 text-center text-base-content">
 		<div class="max-w-4xl">
-			<!-- Title: Serif & Gradient -->
+			<!-- 1. Badge: Tech Pill -->
+			<div in:fly={{ y: 20, duration: 1000, delay: 200 }} class="mb-8 flex justify-center">
+				<div
+					class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-widest text-primary uppercase backdrop-blur-md"
+				>
+					<span class="relative flex h-2 w-2">
+						<span
+							class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"
+						></span>
+						<span class="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+					</span>
+					Case Study
+				</div>
+			</div>
+
+			<!-- 2. Title: Luxury Gradient & Serif -->
 			<h1
 				in:fly={{ y: 30, duration: 1000, delay: 400 }}
-				class="mb-8 font-serif text-5xl font-bold text-primary lg:text-7xl"
+				class="mb-8 font-serif text-5xl leading-tight font-bold tracking-tight lg:text-8xl"
 			>
-				{meta.title}
+				<span
+					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text text-transparent"
+				>
+					{meta.title}
+				</span>
 			</h1>
 
-			<!-- Tagline -->
+			<!-- 3. Tagline: Clean & Readable -->
 			<p
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
+				class="mx-auto mb-16 max-w-2xl text-lg leading-relaxed text-base-content/70 lg:text-xl"
 			>
 				{meta.tagline}
 			</p>
 
-			<!-- Meta Grid -->
-			<section
-				in:fly={{ y: 30, duration: 1000, delay: 800 }}
-				aria-labelledby="project-meta-heading"
-				class="mx-auto mb-16 max-w-4xl border-t border-white/10 pt-8 text-sm"
+			<!-- 4. Meta HUD: Glassmorphism Panel -->
+			<div
+				in:fly={{ y: 40, duration: 1000, delay: 800 }}
+				class="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/10 bg-base-100/40 shadow-2xl backdrop-blur-xl"
 			>
-				<h2 id="project-meta-heading" class="sr-only">Detalles del proyecto</h2>
-
-				<dl class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-					<div class="flex flex-col items-center gap-2">
+				<dl
+					class="grid grid-cols-1 divide-y divide-white/5 lg:grid-cols-2 lg:divide-x lg:divide-y-0"
+				>
+					<!-- Item 1: Role -->
+					<div
+						class="group flex flex-col items-center gap-3 p-6 transition-colors hover:bg-white/5"
+					>
 						<dt
-							class="flex items-center gap-2 text-xs tracking-wider text-base-content/40 uppercase"
+							class="flex items-center gap-2 text-xs font-bold tracking-widest text-primary/80 uppercase"
 						>
 							<User size={14} /> Rol
 						</dt>
-						<dd class="text-sm font-medium text-base-content">{meta.role}</dd>
+						<dd class="text-center text-sm font-medium text-base-content/90">
+							{meta.role}
+						</dd>
 					</div>
 
+					<!-- Item 2: Date -->
 					<div
-						class="flex flex-col items-center gap-2 border-y border-white/5 py-4 lg:border-x lg:border-y-0 lg:border-white/10 lg:py-0"
+						class="group flex flex-col items-center gap-3 p-6 transition-colors hover:bg-white/5"
 					>
 						<dt
-							class="flex items-center gap-2 text-xs tracking-wider text-base-content/40 uppercase"
+							class="flex items-center gap-2 text-xs font-bold tracking-widest text-primary/80 uppercase"
 						>
 							<Calendar size={14} /> Fecha
 						</dt>
-						<dd class="text-sm font-medium text-base-content">{meta.date}</dd>
-					</div>
-
-					<div class="flex flex-col items-center gap-2">
-						<dt
-							class="flex items-center gap-2 text-xs tracking-wider text-base-content/40 uppercase"
-						>
-							<Layers size={14} /> Stack Principal
-						</dt>
-						<dd class="text-sm font-medium text-base-content">
-							{meta.stack.slice(0, 3).join(', ')}
+						<dd class="text-center text-sm font-medium text-base-content/90">
+							{meta.date}
 						</dd>
 					</div>
 				</dl>
-			</section>
+			</div>
 		</div>
 	</div>
 </section>
