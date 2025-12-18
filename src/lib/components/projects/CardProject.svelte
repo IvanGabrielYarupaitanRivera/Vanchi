@@ -42,7 +42,7 @@
 			{project.category}
 		</span>
 
-		<h3 class="mb-4 flex items-center justify-between gap-4">
+		<h3 class="mb-4 flex flex-col items-start justify-between gap-2">
 			<a
 				href={project.href}
 				class="font-serif text-3xl font-bold text-base-content transition-all duration-300 ease-out hover:text-primary"
