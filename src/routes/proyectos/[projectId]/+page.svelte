@@ -2,6 +2,7 @@
 	import SEO from '$lib/components/SEO.svelte';
 	import Hero from '$lib/components/projects/project/Hero.svelte';
 	import Context from '$lib/components/projects/project/Context.svelte';
+	import Role from '$lib/components/projects/project/Role.svelte';
 
 	let { data } = $props();
 	let { project } = $derived(data);
@@ -17,3 +18,4 @@
 
 <Hero meta={project.meta} />
 <Context context={project.context} />
+<Role myRole={project.myRole} />
