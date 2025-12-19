@@ -69,9 +69,9 @@
 			<!-- Card: Restricciones -->
 			<article
 				in:fly={{ y: 40, duration: 1000, delay: 800 }}
-				class="card border border-white/10 bg-base-100/40 backdrop-blur-md transition-all duration-300 hover:border-primary/20"
+				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
-				<div class="card-body p-8 lg:p-12">
+				<div class="card-body p-8">
 					<div class="mb-8 flex items-center gap-3">
 						<Building2 size={24} class="text-primary" />
 						<h4 class="text-sm font-bold tracking-widest uppercase">Restricciones del Entorno</h4>
