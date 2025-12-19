@@ -72,7 +72,7 @@
 				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
 				<div class="card-body p-8">
-					<div class="mb-8 flex items-center gap-3">
+					<div class="mb-4 flex items-center gap-3">
 						<Building2 size={24} class="text-primary" />
 						<h4 class="text-sm font-bold tracking-widest uppercase">Restricciones del Entorno</h4>
 					</div>
@@ -80,17 +80,19 @@
 					<ul class="grid gap-6 lg:grid-cols-3">
 						{#each context.constraints as constraint, i}
 							<li
-								class="group card border border-white/5 bg-base-200 p-6 transition-colors duration-500 hover:border-primary/30"
+								class="group card border border-white/5 bg-white/5 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-white/10"
 							>
-								<div class="flex items-center gap-4">
+								<div class="flex items-start gap-4">
+									<!-- Número Badge -->
 									<span class="badge h-8 w-8 rounded-full text-xs font-bold badge-primary">
 										{String(i + 1).padStart(2, '0')}
 									</span>
-									<div class="h-px flex-1 bg-primary"></div>
+
+									<!-- Texto de la Restricción -->
+									<p class="text-sm leading-loose text-base-content/70 lg:text-base">
+										{constraint}
+									</p>
 								</div>
-								<p class="mt-2 text-sm leading-loose text-base-content/70 lg:text-base">
-									{constraint}
-								</p>
 							</li>
 						{/each}
 					</ul>
