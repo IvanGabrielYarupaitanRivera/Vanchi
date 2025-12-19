@@ -28,80 +28,69 @@
 			</h2>
 		</div>
 
-		<div class="grid gap-12 lg:grid-cols-5 lg:gap-16">
-			<!-- Left Column: Client & Problem -->
-			<div in:fly={{ x: -30, duration: 1000, delay: 600 }} class="lg:col-span-3">
-				<!-- Client Card -->
-				<div
-					class="group mb-8 overflow-hidden rounded-2xl border border-white/10 bg-base-100/40 p-8 backdrop-blur-xl transition-all duration-300 hover:border-primary/30"
-				>
-					<div class="mb-6 flex items-center gap-4">
-						<div
-							class="flex h-16 w-16 items-center justify-center rounded-xl bg-white/5 p-3 transition-transform duration-300 group-hover:scale-110"
-						>
-							<enhanced:img
-								src={context.logo}
-								alt={`Logo de ${context.client}`}
-								class="h-full w-full object-contain"
-							/>
-						</div>
-						<div>
-							<dt class="mb-1 text-xs tracking-wider text-base-content/50 uppercase">Cliente</dt>
-							<dd class="text-xl font-bold text-base-content lg:text-2xl">
-								{context.client}
-							</dd>
+		<div class="flex flex-col gap-8">
+			<!-- Card: El Problema -->
+			<article
+				in:fly={{ y: 40, duration: 1000, delay: 600 }}
+				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
+			>
+				<div class="card-body p-8">
+					<div class="flex flex-col items-center justify-between gap-6 lg:flex-row">
+						<div class="flex items-center gap-6">
+							<div
+								class="flex h-14 w-auto items-center justify-center grayscale transition-all duration-500 group-hover:grayscale-0"
+							>
+								<enhanced:img
+									src={context.logo}
+									alt={`Logo de ${context.client}`}
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<div>
+								<p class="text-xs font-bold tracking-widest text-primary/60 uppercase">Cliente</p>
+								<h3 class="text-xl font-bold text-pretty text-base-content lg:text-2xl">
+									{context.client}
+								</h3>
+							</div>
 						</div>
 					</div>
 
-					<div
-						class="h-px w-full bg-linear-to-r from-transparent via-white/20 to-transparent"
-					></div>
+					<div class="divider"></div>
 
-					<div class="mt-6">
-						<dt
-							class="mb-3 flex items-center gap-2 text-sm font-bold tracking-widest text-primary uppercase"
-						>
-							<ShieldAlert size={16} />
-							Problema Principal
-						</dt>
-						<dd class="text-lg leading-loose text-base-content/80">
-							{context.problem}
-						</dd>
-					</div>
+					<h4 class="mb-2 text-sm font-bold tracking-widest text-primary/60 uppercase">
+						Problema Principal
+					</h4>
+					<p class=" text-base text-pretty text-base-content/80 lg:text-xl">
+						{context.problem}
+					</p>
 				</div>
-			</div>
+			</article>
 
-			<!-- Right Column: Constraints -->
-			<aside in:fly={{ x: 30, duration: 1000, delay: 800 }} class="lg:col-span-2">
-				<div
-					class="sticky top-8 rounded-2xl border border-white/10 bg-linear-to-br from-base-100/60 to-base-100/20 p-6 backdrop-blur-xl lg:p-8"
-				>
-					<h3
-						class="mb-6 flex items-center gap-2 text-sm font-bold tracking-widest text-base-content/70 uppercase"
-					>
-						<Building2 size={16} class="text-primary" />
-						Restricciones
-					</h3>
+			<!-- Card: Restricciones -->
+			<article
+				in:fly={{ y: 40, duration: 1000, delay: 800 }}
+				class="card border border-white/10 bg-base-100/40 backdrop-blur-md transition-all duration-300 hover:border-primary/20"
+			>
+				<div class="card-body p-8 lg:p-12">
+					<div class="mb-8 flex items-center gap-3">
+						<Building2 size={24} class="text-primary" />
+						<h4 class="text-sm font-bold tracking-widest uppercase">Restricciones del Entorno</h4>
+					</div>
 
-					<ul class="space-y-4">
+					<ul class="grid gap-4 lg:grid-cols-3">
 						{#each context.constraints as constraint, i}
 							<li
-								in:fly={{ y: 20, duration: 800, delay: 1000 + i * 100 }}
-								class="group flex items-start gap-3 rounded-xl border border-white/5 bg-white/5 p-4 transition-all duration-300 hover:border-primary/20 hover:bg-white/10"
+								class="flex flex-col gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 transition-colors hover:bg-white/10"
 							>
-								<span
-									class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary"
-								>
-									{i + 1}
-								</span>
-								<span class="leading-relaxed text-base-content/80">
+								<span class="badge badge-sm font-bold badge-primary">{i + 1}</span>
+								<p class="text-sm leading-relaxed text-base-content/70">
 									{constraint}
-								</span>
+								</p>
 							</li>
 						{/each}
 					</ul>
 				</div>
-			</aside>
+			</article>
 		</div>
 	</div>
 </section>
