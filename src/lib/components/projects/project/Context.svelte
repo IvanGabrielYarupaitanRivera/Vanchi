@@ -60,7 +60,7 @@
 					<h4 class="mb-2 text-sm font-bold tracking-widest text-primary/60 uppercase">
 						Problema Principal
 					</h4>
-					<p class=" text-base text-pretty text-base-content/80 lg:text-xl">
+					<p class="text-lg text-pretty text-base-content/80">
 						{context.problem}
 					</p>
 				</div>
@@ -77,13 +77,18 @@
 						<h4 class="text-sm font-bold tracking-widest uppercase">Restricciones del Entorno</h4>
 					</div>
 
-					<ul class="grid gap-4 lg:grid-cols-3">
+					<ul class="grid gap-6 lg:grid-cols-3">
 						{#each context.constraints as constraint, i}
 							<li
-								class="flex flex-col gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 transition-colors hover:bg-white/10"
+								class="group card border border-white/5 bg-base-200 p-6 transition-colors duration-500 hover:border-primary/30"
 							>
-								<span class="badge badge-sm font-bold badge-primary">{i + 1}</span>
-								<p class="text-sm leading-relaxed text-base-content/70">
+								<div class="flex items-center gap-4">
+									<span class="badge h-8 w-8 rounded-full text-xs font-bold badge-primary">
+										{String(i + 1).padStart(2, '0')}
+									</span>
+									<div class="h-px flex-1 bg-primary"></div>
+								</div>
+								<p class="mt-2 text-sm leading-loose text-base-content/70 lg:text-base">
 									{constraint}
 								</p>
 							</li>
