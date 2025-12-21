@@ -4,6 +4,7 @@
 	import Context from '$lib/components/projects/project/Context.svelte';
 	import Role from '$lib/components/projects/project/Role.svelte';
 	import Research from '$lib/components/projects/project/Research.svelte';
+	import Solution from '$lib/components/projects/project/Solution.svelte';
 
 	let { data } = $props();
 	let { project } = $derived(data);
@@ -21,3 +22,4 @@
 <Context context={project.context} />
 <Role myRole={project.myRole} />
 <Research research={project.research} />
+<Solution solution={project.solution} />
