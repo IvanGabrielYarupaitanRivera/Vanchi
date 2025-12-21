@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CircleAlert, Layers } from '@lucide/svelte';
+	import { CircleAlert, Layers, User } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	interface MyRole {
@@ -33,9 +33,10 @@
 				class="card border border-white/5 bg-base-300 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
 				<div class="card-body p-8">
-					<h4 class="mb-2 text-sm font-bold tracking-widest text-primary/60 uppercase">
-						Descripción del Rol
-					</h4>
+					<div class="mb-4 flex items-center gap-3">
+						<User size={24} class="text-primary" />
+						<h4 class="text-sm font-bold tracking-widest uppercase">Descripción del Rol</h4>
+					</div>
 					<p class="text-lg text-pretty text-base-content/80">
 						{myRole.description}
 					</p>
