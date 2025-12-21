@@ -37,9 +37,7 @@
 				<div class="card-body p-8">
 					<div class="flex flex-col items-center justify-between gap-6 lg:flex-row">
 						<div class="flex items-center gap-6">
-							<div
-								class="flex h-14 w-auto items-center justify-center grayscale transition-all duration-500 group-hover:grayscale-0"
-							>
+							<div class="flex h-14 w-auto items-center justify-center transition-all duration-500">
 								<enhanced:img
 									src={context.logo}
 									alt={`Logo de ${context.client}`}
@@ -57,9 +55,11 @@
 
 					<div class="divider"></div>
 
-					<h4 class="mb-2 text-sm font-bold tracking-widest text-primary/60 uppercase">
-						Problema Principal
-					</h4>
+					<div class="mb-4 flex items-center gap-3">
+						<ShieldAlert size={24} class="text-primary" />
+						<h4 class="text-sm font-bold tracking-widest uppercase">Problema Principal</h4>
+					</div>
+
 					<p class="text-lg text-pretty text-base-content/80">
 						{context.problem}
 					</p>
