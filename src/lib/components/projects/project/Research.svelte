@@ -61,8 +61,8 @@
 
 			<!-- Card: Hallazgos Clave -->
 			<article
-				in:fly={{ y: 40, duration: 1000, delay: 800 }}
-				class="card border border-white/10 bg-base-100/40 backdrop-blur-md transition-all duration-300 ease-out hover:border-primary/20"
+				in:fly={{ y: 40, duration: 1000, delay: 600 }}
+				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
 				<div class="card-body p-8 lg:p-12">
 					<h3 class="mb-8 flex items-center gap-3 text-sm font-bold tracking-widest uppercase">
@@ -90,8 +90,8 @@
 
 			<!-- Card: Insight Final (Golden Highlight) -->
 			<article
-				in:fly={{ y: 40, duration: 1000, delay: 1200 }}
-				class="card border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-transparent shadow-2xl shadow-primary/10 backdrop-blur-lg transition-all duration-300 ease-out hover:shadow-[0_0_40px_rgba(197,160,89,0.25)]"
+				in:fly={{ y: 40, duration: 1000, delay: 600 }}
+				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
 				<div class="card-body p-8 lg:p-12">
 					<div class="mb-4 flex items-center gap-3">
