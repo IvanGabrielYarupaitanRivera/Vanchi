@@ -64,11 +64,11 @@
 				in:fly={{ y: 40, duration: 1000, delay: 600 }}
 				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
-				<div class="card-body p-8 lg:p-12">
-					<h3 class="mb-8 flex items-center gap-3 text-sm font-bold tracking-widest uppercase">
+				<div class="card-body p-8">
+					<div class="mb-4 flex items-center gap-3">
 						<Lightbulb size={24} class="text-primary" />
-						Hallazgos Clave
-					</h3>
+						<h4 class="text-sm font-bold tracking-widest uppercase">Hallazgos Clave</h4>
+					</div>
 
 					<div class="grid gap-6 lg:grid-cols-2">
 						{#each research.findings as finding, i}
@@ -93,12 +93,10 @@
 				in:fly={{ y: 40, duration: 1000, delay: 600 }}
 				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
-				<div class="card-body p-8 lg:p-12">
+				<div class="card-body p-8">
 					<div class="mb-4 flex items-center gap-3">
-						<Lightbulb size={28} class="text-primary" />
-						<h3 class="text-sm font-bold tracking-widest text-primary uppercase">
-							Insight Principal
-						</h3>
+						<Lightbulb size={24} class="text-primary" />
+						<h4 class="text-sm font-bold tracking-widest uppercase">Insight Principal</h4>
 					</div>
 
 					<blockquote
