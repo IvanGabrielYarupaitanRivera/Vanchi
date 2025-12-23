@@ -66,7 +66,8 @@ export const junin360: CaseStudy = {
 			'Un sistema digital de "concierge" legal puede mejorar significativamente la eficiencia.'
 	},
 	solution: {
-		concept: 'Aplicación web centralizada para gestión de informes y notificaciones automatizadas.',
+		concept:
+			'Aplicación web centralizada para gestión de informes y notificaciones mediante Whatsapp y Correo Electrónico a los responsables de cada informe de control.',
 		decisions: [
 			'Interfaz minimalista para usuarios no técnicos.',
 			'Generación automática de PDFs.',
