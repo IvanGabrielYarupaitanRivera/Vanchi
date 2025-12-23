@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CheckCheckIcon } from '@lucide/svelte';
+	import { CheckCheckIcon, CircleCheck, Lightbulb } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	interface Solution {
@@ -32,7 +32,46 @@
 				in:fly={{ y: 40, duration: 1000, delay: 600 }}
 				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
-				<div class="card-body p-8"></div>
+				<div class="card-body p-8">
+					<div class="mb-4 flex items-center gap-3">
+						<Lightbulb size={24} class="text-primary" />
+						<h4 class="text-sm font-bold tracking-widest uppercase">Concepto</h4>
+					</div>
+
+					<p class="text-lg text-pretty text-base-content/80">
+						{solution.concept}
+					</p>
+				</div>
+			</article>
+
+			<!-- Card: Decisiones de Diseño -->
+			<article
+				in:fly={{ y: 40, duration: 1000, delay: 600 }}
+				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
+			>
+				<div class="card-body p-8">
+					<div class="mb-4 flex items-center gap-3">
+						<CircleCheck size={24} class="text-primary" />
+						<h4 class="text-sm font-bold tracking-widest uppercase">Decisiones de Diseño</h4>
+					</div>
+
+					<ul class="grid gap-6 lg:grid-cols-3">
+						{#each solution.decisions as decision, i}
+							<li
+								class="group card border border-white/5 bg-white/5 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-white/10"
+							>
+								<div class="flex items-center gap-4">
+									<span class="badge h-8 w-8 rounded-full text-xs font-bold badge-primary">
+										{String(i + 1).padStart(2, '0')}
+									</span>
+									<p class="text-sm leading-loose text-base-content/70 lg:text-base">
+										{decision}
+									</p>
+								</div>
+							</li>
+						{/each}
+					</ul>
+				</div>
 			</article>
 		</div>
 	</div>
