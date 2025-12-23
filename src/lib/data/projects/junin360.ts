@@ -1,6 +1,10 @@
 import type { CaseStudy } from '$lib/types/project';
 import bgJunin360 from '$lib/assets/images/projects/bg-junin360.webp';
 import goreJuninLogo from '$lib/assets/icons/logos/gore-junin.svg';
+import dashboardPrincipal from '$lib/assets/images/projects/junin360/junin360-dashboard-principal.webp';
+import informesControl from '$lib/assets/images/projects/junin360/junin360-tabla-informes-control.webp';
+import perfilUsuario from '$lib/assets/images/projects/junin360/junin360-perfil.webp';
+import modalNotificacion from '$lib/assets/images/projects/junin360/junin360-modal-notificaciones.webp';
 
 export const junin360: CaseStudy = {
 	id: 'junin360',
@@ -79,19 +83,28 @@ export const junin360: CaseStudy = {
 			'Diseño centrado en la simplicidad y legibilidad, con modos de alto contraste para lectura prolongada.',
 		gallery: [
 			{
-				src: 'https://placehold.co/400x800/1a1a1a/C5A059?text=Dashboard',
+				src: dashboardPrincipal,
 				alt: 'Dashboard Principal',
-				caption: 'Dashboard Principal'
+				caption:
+					'Esta es la vista del Dashboard Principal de Junin360, podemos ver que es una interfaz limpia y minimalista que muestra el estado de todos los informes de control.'
 			},
 			{
-				src: 'https://placehold.co/400x800/1a1a1a/C5A059?text=Reportes',
-				alt: 'Vista de Reportes',
-				caption: 'Gestión de Reportes'
+				src: informesControl,
+				alt: 'Vista de la Tabla de los Informes de Control',
+				caption:
+					'Esta es la vista de la Tabla de Informes de Control, en la tabla podemos ver columnas como el nombre del informe, su tipo de control, su fecha de recepción, fecha de límite y sus respectivas acciones.'
 			},
 			{
-				src: 'https://placehold.co/400x800/1a1a1a/C5A059?text=Mobile',
-				alt: 'Vista Móvil',
-				caption: 'Experiencia Responsive'
+				src: perfilUsuario,
+				alt: 'Vista del Perfil de Usuario en Junin360',
+				caption:
+					'Esta es la vista del perfil del usuario en Junin360, en esta vista el usuario puede ver que rol tiene asignado y editar su información básica.'
+			},
+			{
+				src: modalNotificacion,
+				alt: 'Vista del Modal de Notificaciones en Junin360',
+				caption:
+					'Esta es la vista del modal de notificaciones en Junin360, donde el usuario puede generar el mensaje de la notificación mediante IA y elegir Email o WhatsApp como canal de envío.'
 			}
 		]
 	},
