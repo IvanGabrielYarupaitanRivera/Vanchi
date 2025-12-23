@@ -33,7 +33,7 @@ export interface CaseStudy {
 	};
 	ui: {
 		description: string;
-		gallery: { src: string; alt: string; caption?: string }[];
+		gallery: { src: string; alt: string; caption: string }[];
 	};
 	tech: {
 		stackDetails: string;
