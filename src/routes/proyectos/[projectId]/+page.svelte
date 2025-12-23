@@ -5,6 +5,7 @@
 	import Role from '$lib/components/projects/project/Role.svelte';
 	import Research from '$lib/components/projects/project/Research.svelte';
 	import Solution from '$lib/components/projects/project/Solution.svelte';
+	import UI from '$lib/components/projects/project/UI.svelte';
 
 	let { data } = $props();
 	let { project } = $derived(data);
@@ -23,3 +24,4 @@
 <Role myRole={project.myRole} />
 <Research research={project.research} />
 <Solution solution={project.solution} />
+<UI ui={project.ui} />
