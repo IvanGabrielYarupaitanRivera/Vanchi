@@ -1,3 +1,5 @@
+import type { Component } from 'svelte';
+
 export interface CaseStudy {
 	id: string;
 	meta: {
@@ -37,7 +39,8 @@ export interface CaseStudy {
 	};
 	tech: {
 		stackDetails: string;
-		challenges: string[];
+		logos: Component[];
+		logosNombres: string[];
 	};
 	results: {
 		metrics: { value: string; label: string }[];
