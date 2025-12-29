@@ -146,10 +146,6 @@ export const junin360: CaseStudy = {
 		feedback:
 			'“La aplicación realmente es una mejora y moderniza la gestión de informes en el GORE Junín.”'
 	},
-	lessons: [
-		'Involucrar a los usuarios finales desde el principio es crucial.',
-		'La simplicidad en el diseño mejora la adopción en el sector público.'
-	],
 	assets: {
 		liveUrl: 'https://junin360.com'
 	}
