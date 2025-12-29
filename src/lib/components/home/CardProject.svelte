@@ -52,16 +52,24 @@
 		</span>
 
 		<h3 class="mb-3 font-serif text-3xl font-bold">
-			<a href={project.href} class="transition-colors duration-300 hover:text-primary">
+			<a
+				href={project.href}
+				class="transition-colors duration-300 hover:text-primary"
+				aria-label={`Ver detalles del proyecto ${project.title}`}
+				itemprop="url"
+			>
 				{project.title}
 			</a>
 		</h3>
 
-		<p class="line-clamp-2 text-sm leading-relaxed text-base-content/70 lg:text-base">
+		<p
+			class="line-clamp-2 text-sm leading-relaxed text-base-content/70 lg:text-base"
+			itemprop="description"
+		>
 			{project.description}
 		</p>
 
-		<div class="divider"></div>
+		<div class="divider" aria-hidden="true"></div>
 
 		<!-- Control Deck: Diseño unificado y minimalista -->
 		<div class="flex items-center gap-2 pt-2">
