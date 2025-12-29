@@ -83,7 +83,7 @@
 		<!-- Botón para ver todos los proyectos -->
 		<div class="mt-10 text-center">
 			<a
-				href="/proyectos#proyectos-destacados"
+				href="/proyectos"
 				type="button"
 				aria-label="Ver todos los proyectos"
 				class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
