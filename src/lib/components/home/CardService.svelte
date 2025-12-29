@@ -13,7 +13,7 @@
 		onSelectService: (title: string) => void;
 	} = $props();
 
-	const num = (i + 1).toString().padStart(2, '0');
+	const num = $derived((i + 1).toString().padStart(2, '0'));
 </script>
 
 <article
