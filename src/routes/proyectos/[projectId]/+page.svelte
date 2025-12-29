@@ -8,6 +8,7 @@
 	import UI from '$lib/components/projects/project/UI.svelte';
 	import Tech from '$lib/components/projects/project/Tech.svelte';
 	import Results from '$lib/components/projects/project/Results.svelte';
+	import Assets from '$lib/components/projects/project/Assets.svelte';
 
 	let { data } = $props();
 	let { project } = $derived(data);
@@ -29,3 +30,4 @@
 <UI ui={project.ui} />
 <Tech tech={project.tech} />
 <Results results={project.results} />
+<Assets assets={project.assets} />
