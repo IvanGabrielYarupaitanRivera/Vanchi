@@ -47,7 +47,7 @@
 
 				<!-- Glass Card Flotante (Detalle Premium) -->
 				<div
-					class="absolute right-4 bottom-4 max-w-[180px] rounded-xl border border-white/10 bg-base-100/80 p-4 shadow-2xl backdrop-blur-xl transition-transform duration-500 lg:-right-6 lg:-bottom-6 lg:max-w-[220px] lg:p-5 lg:group-hover:-translate-y-2"
+					class="absolute right-4 bottom-4 max-w-45 rounded-xl border border-white/10 bg-base-100/80 p-4 shadow-2xl backdrop-blur-xl transition-transform duration-500 lg:-right-6 lg:-bottom-6 lg:max-w-55 lg:p-5 lg:group-hover:-translate-y-2"
 				>
 					<div class="mb-2 flex items-center gap-3 lg:mb-3">
 						<span class="text-xs font-bold tracking-wider text-primary/60 uppercase">Enfoque</span>
@@ -96,7 +96,7 @@
 					</h4>
 					<div class="flex flex-wrap gap-2">
 						{#each skills as skill}
-							<div class="badge badge-md py-4">
+							<div class="badge py-4 badge-md">
 								<skill.icon size={18} />
 								<span>{skill.name}</span>
 							</div>
