@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import { page } from '$app/state';
 
 	interface SEOProps {
@@ -117,9 +116,4 @@
 
 	<!-- Datos estructurados JSON-LD -->
 	{@html `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`}
-
-	<!-- Favicon y iconos -->
-	<link rel="icon" href={favicon} type="image/svg+xml" />
-	<link rel="apple-touch-icon" href={favicon} />
-	<meta name="theme-color" content="#D3A329" />
 </svelte:head>
