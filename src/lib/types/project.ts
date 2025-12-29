@@ -46,9 +46,9 @@ export interface CaseStudy {
 		metrics: { value: string; label: string }[];
 		feedback: string;
 	};
-	lessons: string[];
 	assets: {
 		liveUrl?: string;
 		videoYoutube?: string;
+		repoUrl?: string;
 	};
 }
