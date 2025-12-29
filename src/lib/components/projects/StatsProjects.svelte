@@ -32,7 +32,7 @@
 	<!-- Grid de Estadísticas -->
 	<div class="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
 		{#each stats as stat (stat.label)}
-			<article class="group hover-3d">
+			<article class="group">
 				<div class="flex items-center justify-between gap-4 rounded-2xl bg-base-200 p-8 shadow-2xl">
 					<div class="flex flex-col gap-2">
 						<p
@@ -40,7 +40,9 @@
 						>
 							{stat.value}
 						</p>
-						<p class="text-xs font-bold tracking-widest text-base-content/60 uppercase">
+						<p
+							class="text-xs font-bold tracking-widest text-base-content/60 uppercase transition-colors duration-300 group-hover:text-primary/60"
+						>
 							{stat.label}
 						</p>
 					</div>
@@ -51,16 +53,6 @@
 						<stat.icon size={40} />
 					</div>
 				</div>
-
-				<!-- 8 empty divs needed for the 3D effect -->
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
 			</article>
 		{/each}
 	</div>
