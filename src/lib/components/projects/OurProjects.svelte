@@ -6,10 +6,19 @@
 	import ProjectsFilter from './ProjectsFilter.svelte';
 
 	let selectedCategory = $state<string>('Todos');
-	const categories = $derived.by<string[]>(() => [
-		'Todos',
-		...new Set(PROJECTS.map((p) => p.category))
-	]);
+
+	const categoriesWithCount = $derived.by(() => {
+		const allCategories = PROJECTS.map((p) => p.category);
+		const uniqueCategories = [...new Set(allCategories)];
+
+		return [
+			{ name: 'Todos', count: PROJECTS.length },
+			...uniqueCategories.map((cat) => ({
+				name: cat,
+				count: PROJECTS.filter((p) => p.category === cat).length
+			}))
+		];
+	});
 
 	const filteredProjects = $derived.by<Project[]>(() =>
 		selectedCategory === 'Todos'
@@ -44,7 +53,7 @@
 		<!-- Filtro de Proyectos -->
 		<div class="mt-10">
 			<ProjectsFilter
-				{categories}
+				categories={categoriesWithCount}
 				activeCategory={selectedCategory}
 				onCategoryChange={(category) => (selectedCategory = category)}
 			/>

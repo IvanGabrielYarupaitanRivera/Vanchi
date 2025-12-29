@@ -2,7 +2,7 @@
 	import { ListFilter } from '@lucide/svelte';
 
 	let { categories, activeCategory, onCategoryChange } = $props<{
-		categories: string[];
+		categories: { name: string; count: number }[];
 		activeCategory: string;
 		onCategoryChange: (category: string) => void;
 	}>();
@@ -19,16 +19,20 @@
 	</div>
 
 	<div class="flex w-full flex-wrap justify-center gap-2">
-		{#each categories as category (category)}
+		{#each categories as { name, count } (name)}
+			{@const isActive = activeCategory === name}
 			<button
 				type="button"
-				class="btn btn-sm"
-				class:btn-primary={activeCategory === category}
-				class:btn-neutral={activeCategory !== category}
-				aria-pressed={activeCategory === category}
-				onclick={() => selectCategory(category)}
+				class="group btn transition-all duration-300 ease-out btn-sm
+                {isActive ? 'btn-primary' : ''}"
+				aria-pressed={isActive}
+				onclick={() => selectCategory(name)}
 			>
-				{category}
+				<span class="text-xs">{name}</span>
+
+				<span class="badge badge-ghost badge-xs">
+					{count}
+				</span>
 			</button>
 		{/each}
 	</div>
