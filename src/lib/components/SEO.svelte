@@ -34,16 +34,12 @@
 	}: SEOProps = $props();
 
 	// Construir el robots content
-	const robotsContent = [
-		...(noindex ? ['noindex'] : ['index']),
-		...(nofollow ? ['nofollow'] : ['follow'])
-	].join(', ');
-
-	// Canonical URL (sin slash final forzado, respetando el estándar de SvelteKit)
-	const canonicalUrl = $derived(url);
+	const robotsContent = $derived(
+		[noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow'].join(', ')
+	);
 
 	// Datos estructurados JSON-LD: Usamos @graph para conectar Persona y Sitio Web
-	const structuredData = {
+	const structuredData = $derived({
 		'@context': 'https://schema.org',
 		'@graph': [
 			{
@@ -75,7 +71,7 @@
 				inLanguage: locale
 			}
 		]
-	};
+	});
 </script>
 
 <svelte:head>
