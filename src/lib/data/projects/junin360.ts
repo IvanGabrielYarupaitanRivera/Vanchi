@@ -5,6 +5,13 @@ import dashboardPrincipal from '$lib/assets/images/projects/junin360/junin360-da
 import informesControl from '$lib/assets/images/projects/junin360/junin360-tabla-informes-control.webp';
 import perfilUsuario from '$lib/assets/images/projects/junin360/junin360-perfil.webp';
 import modalNotificacion from '$lib/assets/images/projects/junin360/junin360-modal-notificaciones.webp';
+import SvelteKitLogo from '$lib/assets/icons/technologies/SvelteKitLogo.svelte';
+import TailwindLogo from '$lib/assets/icons/technologies/TailwindLogo.svelte';
+import OpenRouterLogo from '$lib/assets/icons/technologies/OpenRouterLogo.svelte';
+import SupabaseLogo from '$lib/assets/icons/technologies/SupabaseLogo.svelte';
+import N8nLogo from '$lib/assets/icons/technologies/N8nLogo.svelte';
+import EvolutionapiLogo from '$lib/assets/icons/technologies/EvolutionapiLogo.svelte';
+import EasypanelLogo from '$lib/assets/icons/technologies/EasypanelLogo.svelte';
 
 export const junin360: CaseStudy = {
 	id: 'junin360',
@@ -111,9 +118,23 @@ export const junin360: CaseStudy = {
 	tech: {
 		stackDetails:
 			'Arquitectura Serverless con SvelteKit y Supabase. Orquestación de flujos con n8n.',
-		challenges: [
-			'Gestión de VPS con recursos limitados.',
-			'Integración de API de WhatsApp no oficial.'
+		logos: [
+			SvelteKitLogo,
+			TailwindLogo,
+			OpenRouterLogo,
+			SupabaseLogo,
+			N8nLogo,
+			EvolutionapiLogo,
+			EasypanelLogo
+		],
+		logosNombres: [
+			'SvelteKit',
+			'Tailwind',
+			'OpenRouter',
+			'Supabase',
+			'n8n',
+			'Evolutionapi',
+			'Easypanel'
 		]
 	},
 	results: {
