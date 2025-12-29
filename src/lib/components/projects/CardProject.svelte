@@ -8,7 +8,7 @@
 
 <article
 	in:fly={{ y: 30, duration: 800, delay: 100 + i * 100 }}
-	class="group relative h-[750px] w-full rounded-2xl border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
+	class="group relative h-187.5 w-full rounded-2xl border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 >
 	<!-- 1. Background Image (Full Cover) -->
 	<div class="absolute inset-0 h-full w-full overflow-hidden rounded-2xl">
