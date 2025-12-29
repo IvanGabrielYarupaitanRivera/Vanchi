@@ -1,7 +1,7 @@
 export const prerender = true;
 
 export async function GET() {
-	const website = 'https://www.vanchi.pro/';
+	const website = 'https://www.vanchi.pro';
 
 	// Lista de tus rutas estáticas
 	const pages = ['', 'proyectos', 'proyectos/junin360'];
