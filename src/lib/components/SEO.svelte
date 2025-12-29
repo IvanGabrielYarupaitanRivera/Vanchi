@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import { page } from '$app/state';
 
 	interface SEOProps {
 		title?: string;
@@ -24,7 +25,7 @@
 		author = 'Vanchi',
 		type = 'website',
 		image = 'https://vanchi.pro/images/og-image.webp',
-		url = 'https://vanchi.pro/',
+		url = page.url.origin + page.url.pathname,
 		siteName = 'Vanchi',
 		locale = 'es_ES',
 		noindex = false,
@@ -39,8 +40,8 @@
 		...(nofollow ? ['nofollow'] : ['follow'])
 	].join(', ');
 
-	// Asegurar slash final en canonical
-	if (!url.endsWith('/')) url = url + '/';
+	// Canonical URL (sin slash final forzado, respetando el estándar de SvelteKit)
+	const canonicalUrl = $derived(url);
 
 	// Datos estructurados JSON-LD: Usamos @graph para conectar Persona y Sitio Web
 	const structuredData = {
