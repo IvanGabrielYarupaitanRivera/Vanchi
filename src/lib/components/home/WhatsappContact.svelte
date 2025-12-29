@@ -25,6 +25,14 @@
 	const whatsappUrl = $derived(
 		`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
 	);
+
+	const sendWhatsAppMessage = () => {
+		if (!name || !selectedService || !problem) {
+			return;
+		} else {
+			window.open(whatsappUrl, '_blank');
+		}
+	};
 </script>
 
 <section id="contacto" class="relative py-16 lg:py-36" aria-label="Contacto por WhatsApp">
@@ -55,7 +63,7 @@
 						<div class="space-y-5">
 							<fieldset class="fieldset w-full">
 								<legend class="fieldset-legend">¿Cuál es tu nombre?</legend>
-								<label class="input w-full rounded-xl">
+								<label class="validator input w-full rounded-xl">
 									<input
 										id="name"
 										name="name"
@@ -74,7 +82,7 @@
 								<select
 									id="services"
 									name="services"
-									class="select w-full rounded-xl"
+									class="validator select w-full rounded-xl"
 									title="Selecciona el servicio que estás buscando"
 									bind:value={selectedService}
 									required
@@ -94,7 +102,7 @@
 								<textarea
 									id="problem"
 									name="problem"
-									class="textarea w-full rounded-xl"
+									class="validator textarea w-full rounded-xl"
 									rows={4}
 									placeholder="Ej: necesito automatizar reportes, integrar IA, mejorar conversiones..."
 									bind:value={problem}
@@ -105,16 +113,14 @@
 						</div>
 
 						<div class="mt-8 card-actions justify-center">
-							<a
-								href={whatsappUrl}
-								target="_blank"
-								rel="noreferrer"
+							<button
+								onclick={sendWhatsAppMessage}
 								aria-label="Enviar WhatsApp a Iván con mensaje precargado"
 								class="btn w-full transition-all duration-300 ease-out btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(211,163,41,0.15)] lg:w-auto"
 							>
 								<span>Enviar WhatsApp</span>
 								<MessageCircle size={16} />
-							</a>
+							</button>
 						</div>
 					</form>
 
