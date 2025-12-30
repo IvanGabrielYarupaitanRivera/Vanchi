@@ -51,7 +51,7 @@
 			<!-- 3. Tagline: Clean & Readable -->
 			<p
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-16 max-w-lg text-lg text-pretty text-base-content/70 lg:text-xl"
+				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
 			>
 				{meta.tagline}
 			</p>

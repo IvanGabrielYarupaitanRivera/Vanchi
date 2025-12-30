@@ -68,7 +68,7 @@
 							>
 								<!-- Contenedor del Logo con Glassmorphism -->
 								<div
-									class="flex h-24 w-24 items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-2 opacity-60 grayscale transition-all duration-500 ease-out hover:scale-110 hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
+									class="flex h-20 w-20 items-center justify-center rounded-2xl border border-white/5 bg-white/5 p-2 opacity-60 grayscale transition-all duration-500 ease-out hover:scale-110 hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								>
 									<Logo size={48} />
 								</div>
