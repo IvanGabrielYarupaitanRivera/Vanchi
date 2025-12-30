@@ -1,6 +1,6 @@
 import type { CaseStudy } from '$lib/types/project';
-import bgJunin360 from '$lib/assets/images/projects/bg-junin360.webp';
-import goreJuninLogo from '$lib/assets/icons/logos/gore-junin.svg';
+import bgMediroosevelt from '$lib/assets/images/projects/bg-mediroosevelt.webp';
+import universidadRoosevelt from '$lib/assets/icons/logos/universidad-roosevelt.svg';
 import dashboardPrincipal from '$lib/assets/images/projects/junin360/junin360-dashboard-principal.webp';
 import informesControl from '$lib/assets/images/projects/junin360/junin360-tabla-informes-control.webp';
 import perfilUsuario from '$lib/assets/images/projects/junin360/junin360-perfil.webp';
@@ -13,77 +13,82 @@ import N8nLogo from '$lib/assets/icons/technologies/N8nLogo.svelte';
 import EvolutionapiLogo from '$lib/assets/icons/technologies/EvolutionapiLogo.svelte';
 import EasypanelLogo from '$lib/assets/icons/technologies/EasypanelLogo.svelte';
 
-export const junin360: CaseStudy = {
-	id: 'junin360',
+export const mediroosevelt: CaseStudy = {
+	id: 'mediroosevelt',
 	meta: {
-		title: 'Junin360',
+		title: 'MediRoosevelt',
 		description:
-			'Junin360 es una plataforma web diseñada para el Gobierno Regional de Junín que optimiza la gestión de informes de control.',
-		tagline: 'Modernizando la administración de informes en el Gobierno Regional de Junín',
-		date: 'Jun 2025 - Sep 2025',
+			'MediRoosevelt es una aplicación web construida para la Expociencia 2025 - II de la Universidad Roosevelt, que permite a los usuarios a acceder a recursos valiosos de medicina e interactuar con la inteligencia artificial para resolver sus dudas.',
+		tagline: 'Creando soluciones digitales para la salud.',
+		date: 'Oct 2025 - Nov 2025',
 		role: 'Desarrollador Full Stack',
-		keywords: ['Junin360', 'GORE Junín', 'SvelteKit', 'Supabase'],
-		stack: ['SvelteKit', 'Tailwind', 'OpenRouter', 'Supabase', 'n8n', 'evolutionapi', 'easypanel'],
+		keywords: [
+			'MediRoosevelt',
+			'Universidad Roosevelt',
+			'Escuela Profesional de Medicina Humana',
+			'Convex'
+		],
+		stack: ['SvelteKit', 'Tailwind', 'Convex', 'Gemini API', 'Better Auth', 'Google oAuth'],
 		bgHero: {
-			src: bgJunin360,
-			alt: 'Fondo Hero de Junín 360'
+			src: bgMediroosevelt,
+			alt: 'Fondo Hero de MediRoosevelt'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-junin360.webp',
-			alt: 'Imagen OG de Junín 360'
+			src: 'https://vanchi.pro/images/proyectos/og-mediroosevelt.webp',
+			alt: 'Imagen OG de MediRoosevelt'
 		}
 	},
 	context: {
-		client: 'Gobierno Regional de Junín',
-		logo: goreJuninLogo,
+		client: 'Alumnos de la Escuela Profesional de Medicina Humana de la Universidad Roosevelt',
+		logo: universidadRoosevelt,
 		problem:
-			'El GORE Junín no tenía un sistema moderno para poder administrar sus informes de control esto causaba retrasos en subsanar observaciones.',
+			'Los alumnos de medicina necesitaban una plataforma en la que puedan compartir recursos de medicina y resolver dudas médicas de la comunidad mediante el uso responsable de la inteligencia artificial.',
 		constraints: [
-			'Presupuesto gubernamental ajustado',
-			'Herramientas tecnológicas limitadas',
-			'Hay mucha rotación de personal'
+			'Público con conocimientos técnicos variados',
+			'Recursos limitados para desarrollo',
+			'Plazo de entrega ajustado'
 		]
 	},
 	myRole: {
 		description:
-			'Desarrollé un sistema a la medida que ayudaba en la administración de los informes, notificaciones mediante WhatsApp y seguimiento de observaciones.',
+			'Desarrollé la aplicación web completa, desde la arquitectura backend con Convex hasta la interfaz de usuario con SvelteKit y Tailwind CSS. Implementé la integración con Gemini API para las funcionalidades de IA y aseguré una autenticación segura con Better Auth y Google oAuth.',
 		deliverables: [
-			'Sistema Completo Junin360',
-			'Microservicio de Notificaciones',
-			'Backend escalable con Supabase'
+			'Aplicación Web Completa',
+			'Integración con Gemini API',
+			'Backend escalable con Convex'
 		]
 	},
 	research: {
 		methods: [
-			'Entrevistas a los abogados',
-			'Análisis de flujos de trabajo',
-			'Revisión de documentación legal'
+			'Entrevistas a los alumnos de medicina',
+			'Análisis de sistemas similares',
+			'Pruebas de usabilidad con prototipos'
 		],
 		findings: [
 			{
-				title: 'Procesos Manuales',
-				desc: 'Los abogados gestionan los informes de manera manual, causando errores.'
+				title: 'Interfaz Intuitiva',
+				desc: 'Los alumnos de medicina querían que la interfaz sea fácil de usar para todos los niveles técnicos.'
 			},
 			{
-				title: 'Falta de Notificaciones',
-				desc: 'Los ingenieros no recibían alertas oportunas sobre sus informes.'
+				title: 'Uso de IA',
+				desc: 'Los alumnos de medicina querían poder resolver las dudas médicas de los usuarios mediante inteligencia artificial.'
 			}
 		],
 		insight:
-			'Un sistema digital de "concierge" legal puede mejorar significativamente la eficiencia.'
+			'Una plataforma que combine recursos médicos y capacidades de IA puede mejorar significativamente el acceso a la información médica para la comunidad.'
 	},
 	solution: {
 		concept:
-			'Aplicación web centralizada para gestión de informes y notificaciones mediante Whatsapp y Correo Electrónico a los responsables de cada informe de control.',
+			'Aplicación web centralizada para gestión de recursos médicos y resolución de dudas mediante inteligencia artificial. Centrada en una experiencia de usuario sencilla y accesible.',
 		decisions: [
-			'Interfaz minimalista para usuarios no técnicos.',
-			'Generación automática de PDFs.',
-			'Notificaciones multicanal (WhatsApp/Email).'
+			'Interfaz limpia y minimalista con SvelteKit y Tailwind CSS.',
+			'Uso de Convex para un backend escalable y eficiente.',
+			'Integración con Gemini API para funcionalidades avanzadas de IA.'
 		]
 	},
 	ui: {
 		description:
-			'Diseño centrado en la simplicidad y legibilidad, con modos de alto contraste para lectura prolongada.',
+			'Diseño moderno y al mismo tiempo accesible, con un enfoque en la usabilidad para todos los niveles técnicos. La paleta de colores y la tipografía fueron seleccionadas para transmitir confianza y profesionalismo en el ámbito médico.',
 		gallery: [
 			{
 				src: dashboardPrincipal,

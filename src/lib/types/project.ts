@@ -11,7 +11,6 @@ export interface CaseStudy {
 		keywords: string[];
 		stack: string[];
 		bgHero: { src: string; alt: string };
-		heroImage: { src: string; alt: string };
 		ogImage?: { src: string; alt: string };
 	};
 	context: {
