@@ -140,7 +140,7 @@ export const junin360: CaseStudy = {
 			{ value: '-70%', label: 'Tasa de errores' }
 		],
 		feedback:
-			'“La aplicación realmente es una mejora y moderniza la gestión de informes en el GORE Junín.”'
+			'La aplicación realmente es una mejora y moderniza la gestión de informes en el GORE Junín.'
 	},
 	assets: {
 		liveUrl: 'https://junin360.com'
