@@ -9,10 +9,10 @@ import perfil from '$lib/assets/images/projects/mediroosevelt/perfil-usuario-med
 
 import SvelteKitLogo from '$lib/assets/icons/technologies/SvelteKitLogo.svelte';
 import TailwindLogo from '$lib/assets/icons/technologies/TailwindLogo.svelte';
-import OpenRouterLogo from '$lib/assets/icons/technologies/OpenRouterLogo.svelte';
 import ConvexLogo from '$lib/assets/icons/technologies/ConvexLogo.svelte';
 import BetterAuthLogo from '$lib/assets/icons/technologies/BetterAuthLogo.svelte';
 import GeminiIA from '$lib/assets/icons/technologies/GeminiIALogo.svelte';
+import PWALogo from '$lib/assets/icons/technologies/PWALogo.svelte';
 
 export const mediroosevelt: CaseStudy = {
 	id: 'mediroosevelt',
@@ -125,12 +125,12 @@ export const mediroosevelt: CaseStudy = {
 	tech: {
 		stackDetails:
 			'La aplicación web MediRoosevelt fue construida utilizando SvelteKit para el frontend, proporcionando una experiencia de usuario rápida y reactiva. Tailwind CSS se utilizó para un diseño responsivo y moderno. El backend fue desarrollado con Convex, permitiendo una gestión eficiente de datos y escalabilidad. La integración con Gemini API permitió implementar funcionalidades avanzadas de inteligencia artificial para resolver dudas médicas. Para la autenticación segura, se utilizó Better Auth junto con Google oAuth, garantizando una experiencia de inicio de sesión fluida para los usuarios.',
-		logos: [SvelteKitLogo, TailwindLogo, OpenRouterLogo, ConvexLogo, BetterAuthLogo, GeminiIA],
-		logosNombres: ['SvelteKit', 'Tailwind', 'OpenRouter', 'Convex', 'Better Auth', 'Gemini IA']
+		logos: [SvelteKitLogo, TailwindLogo, ConvexLogo, BetterAuthLogo, GeminiIA, PWALogo],
+		logosNombres: ['SvelteKit', 'Tailwind', 'Convex', 'Better Auth', 'Gemini IA', 'PWA']
 	},
 	results: {
 		metrics: [
-			{ value: '100%', label: 'Satisfacción del usuario' },
+			{ value: '1° Puesto', label: 'En la Expociencia-II' },
 			{ value: '100%', label: 'Acceso a la información en cualquier momento' },
 			{ value: '100%', label: 'Uso responsable de la IA' }
 		],

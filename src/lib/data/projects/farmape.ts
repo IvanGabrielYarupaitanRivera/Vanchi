@@ -10,10 +10,10 @@ import perfil from '$lib/assets/images/projects/farmape/perfil-usuario-farmape.w
 
 import SvelteKitLogo from '$lib/assets/icons/technologies/SvelteKitLogo.svelte';
 import TailwindLogo from '$lib/assets/icons/technologies/TailwindLogo.svelte';
-import OpenRouterLogo from '$lib/assets/icons/technologies/OpenRouterLogo.svelte';
 import ConvexLogo from '$lib/assets/icons/technologies/ConvexLogo.svelte';
 import BetterAuthLogo from '$lib/assets/icons/technologies/BetterAuthLogo.svelte';
 import GeminiIA from '$lib/assets/icons/technologies/GeminiIALogo.svelte';
+import PWALogo from '$lib/assets/icons/technologies/PWALogo.svelte';
 
 export const farmape: CaseStudy = {
 	id: 'farmape',
@@ -127,12 +127,12 @@ export const farmape: CaseStudy = {
 	tech: {
 		stackDetails:
 			'La aplicación web Farmape fue desarrollada utilizando SvelteKit para una experiencia de usuario rápida y reactiva, junto con Tailwind CSS para un diseño moderno y responsivo. Convex se utilizó como backend para manejar la lógica del servidor y la gestión de datos de manera eficiente. La integración con Gemini API permitió implementar funcionalidades avanzadas de inteligencia artificial para resolver dudas farmacéuticas. Además, se implementó Better Auth junto con Google oAuth para asegurar una autenticación segura y confiable para los usuarios.',
-		logos: [SvelteKitLogo, TailwindLogo, OpenRouterLogo, ConvexLogo, BetterAuthLogo, GeminiIA],
-		logosNombres: ['SvelteKit', 'Tailwind', 'OpenRouter', 'Convex', 'Better Auth', 'Gemini IA']
+		logos: [SvelteKitLogo, TailwindLogo, ConvexLogo, BetterAuthLogo, GeminiIA, PWALogo],
+		logosNombres: ['SvelteKit', 'Tailwind', 'Convex', 'Better Auth', 'Gemini IA', 'PWA']
 	},
 	results: {
 		metrics: [
-			{ value: '100%', label: 'Satisfacción del usuario' },
+			{ value: '1° Puesto', label: 'En la Expociencia-II' },
 			{ value: '100%', label: 'Acceso a la información en cualquier momento' },
 			{ value: '100%', label: 'Uso responsable de la IA' }
 		],
