@@ -35,21 +35,24 @@
 				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 			>
 				<div class="card-body p-8">
-					<div class="flex flex-col items-center justify-between gap-6 lg:flex-row">
-						<div class="flex items-center gap-6">
-							<div class="flex h-14 w-auto items-center justify-center transition-all duration-500">
-								<enhanced:img
-									src={context.logo}
-									alt={`Logo de ${context.client}`}
-									class="h-full w-full object-contain"
-								/>
-							</div>
-							<div>
-								<p class="text-xs font-bold tracking-widest text-primary/60 uppercase">Cliente</p>
-								<h3 class="text-xl font-bold text-pretty text-base-content lg:text-2xl">
-									{context.client}
-								</h3>
-							</div>
+					<div class="flex flex-col items-center gap-6 lg:flex-row">
+						<!-- Logo con efecto Hero -->
+						<div
+							class="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white/5 p-4 ring-1 ring-white/10 transition-all duration-500 group-hover:ring-primary/30"
+						>
+							<enhanced:img
+								src={context.logo}
+								alt={`Logo de ${context.client}`}
+								class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
+							/>
+						</div>
+
+						<!-- Información del Cliente -->
+						<div class="flex flex-col items-center gap-2 text-center lg:items-start lg:text-left">
+							<p class="text-xs font-bold tracking-widest text-primary/60 uppercase">Cliente</p>
+							<h3 class="text-2xl font-bold text-pretty lg:text-3xl">
+								{context.client}
+							</h3>
 						</div>
 					</div>
 
