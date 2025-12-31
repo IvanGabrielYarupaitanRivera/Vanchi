@@ -10,7 +10,10 @@ export async function GET() {
 		'proyectos/junin360',
 		'/proyectos/mediroosevelt',
 		'/proyectos/farmape',
-		'proyectos/obstetraconecta'
+		'proyectos/obstetraconecta',
+		'/proyectos/diapis',
+		'/proyectos/peralta-asociados',
+		'/proyectos/colegio-educere'
 	];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
