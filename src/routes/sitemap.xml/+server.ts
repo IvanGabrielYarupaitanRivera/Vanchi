@@ -4,7 +4,14 @@ export async function GET() {
 	const website = 'https://www.vanchi.pro';
 
 	// Lista de tus rutas estáticas
-	const pages = ['', 'proyectos', 'proyectos/junin360'];
+	const pages = [
+		'',
+		'proyectos',
+		'proyectos/junin360',
+		'/proyectos/mediroosevelt',
+		'/proyectos/farmape',
+		'proyectos/obstetraconecta'
+	];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
