@@ -1,17 +1,18 @@
 import type { CaseStudy } from '$lib/types/project';
 import bgMediroosevelt from '$lib/assets/images/projects/bg-mediroosevelt.webp';
 import universidadRoosevelt from '$lib/assets/icons/logos/universidad-roosevelt.svg';
-import dashboardPrincipal from '$lib/assets/images/projects/junin360/junin360-dashboard-principal.webp';
-import informesControl from '$lib/assets/images/projects/junin360/junin360-tabla-informes-control.webp';
-import perfilUsuario from '$lib/assets/images/projects/junin360/junin360-perfil.webp';
-import modalNotificacion from '$lib/assets/images/projects/junin360/junin360-modal-notificaciones.webp';
+import pantallaPrincipal from '$lib/assets/images/projects/mediroosevelt/pantalla-principal-mediroosevelt.webp';
+import chatbotMediroosevelt from '$lib/assets/images/projects/mediroosevelt/chatbot-mediroosevelt.webp';
+import conoceTuMedicamento from '$lib/assets/images/projects/mediroosevelt/conoce-tu-medicamento-mediroosevelt.webp';
+import consejosSalud from '$lib/assets/images/projects/mediroosevelt/consejos-salud-mediroosevelt.webp';
+import perfil from '$lib/assets/images/projects/mediroosevelt/perfil-usuario-mediroosevelt.webp';
+
 import SvelteKitLogo from '$lib/assets/icons/technologies/SvelteKitLogo.svelte';
 import TailwindLogo from '$lib/assets/icons/technologies/TailwindLogo.svelte';
 import OpenRouterLogo from '$lib/assets/icons/technologies/OpenRouterLogo.svelte';
-import SupabaseLogo from '$lib/assets/icons/technologies/SupabaseLogo.svelte';
-import N8nLogo from '$lib/assets/icons/technologies/N8nLogo.svelte';
-import EvolutionapiLogo from '$lib/assets/icons/technologies/EvolutionapiLogo.svelte';
-import EasypanelLogo from '$lib/assets/icons/technologies/EasypanelLogo.svelte';
+import ConvexLogo from '$lib/assets/icons/technologies/ConvexLogo.svelte';
+import BetterAuthLogo from '$lib/assets/icons/technologies/BetterAuthLogo.svelte';
+import GeminiIA from '$lib/assets/icons/technologies/GeminiIALogo.svelte';
 
 export const mediroosevelt: CaseStudy = {
 	id: 'mediroosevelt',
@@ -39,7 +40,7 @@ export const mediroosevelt: CaseStudy = {
 		}
 	},
 	context: {
-		client: 'Alumnos de la Escuela Profesional de Medicina Humana de la Universidad Roosevelt',
+		client: 'Escuela Profesional de Medicina Humana',
 		logo: universidadRoosevelt,
 		problem:
 			'Los alumnos de medicina necesitaban una plataforma en la que puedan compartir recursos de medicina y resolver dudas médicas de la comunidad mediante el uso responsable de la inteligencia artificial.',
@@ -91,63 +92,53 @@ export const mediroosevelt: CaseStudy = {
 			'Diseño moderno y al mismo tiempo accesible, con un enfoque en la usabilidad para todos los niveles técnicos. La paleta de colores y la tipografía fueron seleccionadas para transmitir confianza y profesionalismo en el ámbito médico.',
 		gallery: [
 			{
-				src: dashboardPrincipal,
-				alt: 'Dashboard Principal',
-				caption:
-					'Esta es la vista del Dashboard Principal de Junin360, podemos ver que es una interfaz limpia y minimalista que muestra el estado de todos los informes de control.'
+				src: pantallaPrincipal,
+				alt: 'Pantalla Principal',
+				caption: 'Esta es la pantalla principal de la aplicación web MediRoosevelt.'
 			},
 			{
-				src: informesControl,
-				alt: 'Vista de la Tabla de los Informes de Control',
+				src: chatbotMediroosevelt,
+				alt: 'Vista del Chatbot de MediRoosevelt',
 				caption:
-					'Esta es la vista de la Tabla de Informes de Control, en la tabla podemos ver columnas como el nombre del informe, su tipo de control, su fecha de recepción, fecha de límite y sus respectivas acciones.'
+					'Esta es la vista del chatbot de MediRoosevelt, donde los usuarios pueden interactuar para resolver dudas médicas mediante inteligencia artificial.'
 			},
 			{
-				src: perfilUsuario,
-				alt: 'Vista del Perfil de Usuario en Junin360',
+				src: conoceTuMedicamento,
+				alt: 'Vista de la función Conoce tu Medicamento en MediRoosevelt',
 				caption:
-					'Esta es la vista del perfil del usuario en Junin360, en esta vista el usuario puede ver que rol tiene asignado y editar su información básica.'
+					'Básicamente esta función permite a los usuarios ingresar el nombre de un medicamento y obtener información detallada sobre indicaciones principales, contraindicaciones y efectos secundarios.'
 			},
 			{
-				src: modalNotificacion,
-				alt: 'Vista del Modal de Notificaciones en Junin360',
+				src: consejosSalud,
+				alt: 'Vista de la sección Consejos de Salud en MediRoosevelt',
 				caption:
-					'Esta es la vista del modal de notificaciones en Junin360, donde el usuario puede generar el mensaje de la notificación mediante IA y elegir Email o WhatsApp como canal de envío.'
+					'Esta es la sección de Consejos de Salud en MediRoosevelt, donde los usuarios pueden encontrar consejos útiles y están clasificados por categorías para facilitar su búsqueda.'
+			},
+			{
+				src: perfil,
+				alt: 'Vista del Perfil de Usuario en MediRoosevelt',
+				caption:
+					'Esta es la vista del perfil de usuario en MediRoosevelt, donde el usuario puede ver y editar su información personal.'
 			}
 		]
 	},
 	tech: {
 		stackDetails:
-			'Arquitectura Serverless con SvelteKit y Supabase. Orquestación de flujos con n8n.',
-		logos: [
-			SvelteKitLogo,
-			TailwindLogo,
-			OpenRouterLogo,
-			SupabaseLogo,
-			N8nLogo,
-			EvolutionapiLogo,
-			EasypanelLogo
-		],
-		logosNombres: [
-			'SvelteKit',
-			'Tailwind',
-			'OpenRouter',
-			'Supabase',
-			'n8n',
-			'Evolutionapi',
-			'Easypanel'
-		]
+			'La aplicación web MediRoosevelt fue construida utilizando SvelteKit para el frontend, proporcionando una experiencia de usuario rápida y reactiva. Tailwind CSS se utilizó para un diseño responsivo y moderno. El backend fue desarrollado con Convex, permitiendo una gestión eficiente de datos y escalabilidad. La integración con Gemini API permitió implementar funcionalidades avanzadas de inteligencia artificial para resolver dudas médicas. Para la autenticación segura, se utilizó Better Auth junto con Google oAuth, garantizando una experiencia de inicio de sesión fluida para los usuarios.',
+		logos: [SvelteKitLogo, TailwindLogo, OpenRouterLogo, ConvexLogo, BetterAuthLogo, GeminiIA],
+		logosNombres: ['SvelteKit', 'Tailwind', 'OpenRouter', 'Convex', 'Better Auth', 'Gemini IA']
 	},
 	results: {
 		metrics: [
-			{ value: '50%', label: 'Reducción tiempo gestión' },
-			{ value: '80%', label: 'Satisfacción usuario' },
-			{ value: '-70%', label: 'Tasa de errores' }
+			{ value: '100%', label: 'Satisfacción del usuario' },
+			{ value: '100%', label: 'Acceso a la información en cualquier momento' },
+			{ value: '100%', label: 'Uso responsable de la IA' }
 		],
 		feedback:
-			'“La aplicación realmente es una mejora y moderniza la gestión de informes en el GORE Junín.”'
+			'La aplicación MediRoosevelt ha sido una herramienta invaluable para nuestra comunidad. Nos ha permitido acceder a información médica confiable y resolver nuestras dudas de manera rápida y eficiente. La integración de inteligencia artificial ha mejorado significativamente nuestra experiencia'
 	},
 	assets: {
-		liveUrl: 'https://junin360.com'
+		liveUrl: 'https://www.mediroosevelt.com/',
+		videoYoutube: 'https://www.youtube.com/watch?v=2RlIn3JFajc'
 	}
 };
