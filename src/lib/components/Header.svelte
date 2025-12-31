@@ -101,7 +101,10 @@
 				<ul class="flex flex-col gap-2">
 					{#each navItems as item}
 						<!-- 2. Determinar si es la ruta activa -->
-						{@const isActive = page.url.pathname.startsWith(item.href)}
+						{@const isActive =
+							item.href === '/'
+								? page.url.pathname === '/'
+								: page.url.pathname.startsWith(item.href)}
 						<li>
 							<a
 								href={item.href}
