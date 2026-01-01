@@ -1,20 +1,19 @@
+import { projectsData } from '$lib/data/projects';
+
 export const prerender = true;
 
 export async function GET() {
 	const website = 'https://www.vanchi.pro';
 
-	// Lista de tus rutas estáticas
-	const pages = [
-		'',
-		'proyectos',
-		'proyectos/junin360',
-		'/proyectos/mediroosevelt',
-		'/proyectos/farmape',
-		'proyectos/obstetraconecta',
-		'/proyectos/diapis',
-		'/proyectos/peralta-asociados',
-		'/proyectos/colegio-educere'
-	];
+	// 1. Rutas estáticas fijas
+	const staticPages = ['', 'proyectos'];
+
+	// 2. Rutas dinámicas generadas desde tus datos (Automático)
+	// Usamos Object.keys para obtener los slugs ('junin360', 'peralta-asociados', etc.)
+	const projectPages = Object.keys(projectsData).map((slug) => `proyectos/${slug}`);
+
+	// 3. Lista final combinada
+	const pages = [...staticPages, ...projectPages];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
@@ -41,7 +40,8 @@ export async function GET() {
 
 	return new Response(sitemap, {
 		headers: {
-			'Content-Type': 'application/xml'
+			'Content-Type': 'application/xml',
+			'Cache-Control': 'max-age=0, s-maxage=3600'
 		}
 	});
 }
