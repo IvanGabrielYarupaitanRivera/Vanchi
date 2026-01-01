@@ -4,11 +4,15 @@ import { mediroosevelt } from './mediroosevelt';
 import { farmape } from './farmape';
 import { obstetraconecta } from './obstetraconecta';
 import { diapis } from './diapis';
+import { peraltaAsociados } from './peralta-asociados';
+import { colegioEducere } from './colegio-educere';
 
 export const projectsData: Record<string, CaseStudy> = {
 	junin360,
 	mediroosevelt,
 	farmape,
 	obstetraconecta,
-	diapis
+	diapis,
+	'peralta-asociados': peraltaAsociados,
+	'colegio-educere': colegioEducere
 };
