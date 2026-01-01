@@ -86,7 +86,7 @@
 						href={project.link}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="btn btn-circle btn-soft btn-accent"
+						class="btn btn-circle btn-soft btn-sm btn-accent lg:btn-md"
 						aria-label={`Visitar Sitio Web ${project.title}`}
 					>
 						<Globe size={18} />
@@ -100,7 +100,7 @@
 						href={project.video}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="btn btn-circle btn-soft btn-accent"
+						class="btn btn-circle btn-soft btn-sm btn-accent lg:btn-md"
 						aria-label={`Ver Video del Proyecto ${project.title}`}
 					>
 						<Play size={18} />
