@@ -138,6 +138,7 @@ export const peraltaAsociados: CaseStudy = {
 			'El sitio superó las expectativas del cliente: es estético, funcional y ha mejorado su visibilidad en línea y la captación de nuevos clientes.'
 	},
 	assets: {
-		liveUrl: 'https://peraltaasociados.com/'
+		liveUrl: 'https://peraltaasociados.com/',
+		repoUrl: 'https://github.com/IvanGabrielYarupaitanRivera/PeraltaAsociados'
 	}
 };
