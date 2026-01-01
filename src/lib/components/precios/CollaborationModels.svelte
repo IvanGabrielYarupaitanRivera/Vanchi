@@ -1,0 +1,163 @@
+<script lang="ts">
+	import { ArrowDown, ArrowRight, Briefcase, Clock, Sparkles } from '@lucide/svelte';
+	import { fly } from 'svelte/transition';
+	import bgPricing from '$lib/assets/images/pricing/bg-pricing.webp';
+	const servicesList = [
+		{
+			name: 'Sitios Web',
+			price: '800',
+			currency: 'S/',
+			period: 'base',
+			description: 'Experiencias digitales de alto impacto para marcas que buscan diferenciación.',
+			features: [
+				'Diseño UI/UX High-End',
+				'SEO Técnico Avanzado',
+				'Performance Ultrarrápida',
+				'Integración con CMS'
+			],
+			recommended: false,
+			cta: 'Iniciar Proyecto'
+		},
+		{
+			name: 'Sistemas SaaS',
+			price: '2,500',
+			currency: 'S/',
+			period: 'base',
+			description: 'Plataformas a medida para la gestión y optimización de procesos complejos.',
+			features: [
+				'Dashboards Interactivos',
+				'Gestión de Usuarios y Roles',
+				'Automatización de Procesos',
+				'Base de Datos Escalable',
+				'API Rest / GraphQL'
+			],
+			recommended: true,
+			cta: 'Cotizar Sistema'
+		},
+		{
+			name: 'Inteligencia Artificial',
+			price: '1,200',
+			currency: 'S/',
+			period: 'módulo',
+			description: 'Implementación de agentes y modelos predictivos para potenciar su negocio.',
+			features: [
+				'Chatbots con RAG (Data Propia)',
+				'Análisis de Datos Predictivo',
+				'Automatización de Workflows',
+				'Fine-tuning de Modelos'
+			],
+			recommended: false,
+			cta: 'Implementar IA'
+		},
+		{
+			name: 'Infraestructura',
+			price: '400',
+			currency: 'S/',
+			period: 'mes',
+			description: 'Mantenimiento de servidores y garantía de estabilidad operativa.',
+			features: [
+				'Monitoreo 24/7',
+				'Backups Automáticos',
+				'Seguridad y Firewall',
+				'Despliegue CI/CD'
+			],
+			recommended: false,
+			cta: 'Ver Planes'
+		}
+	];
+</script>
+
+<section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
+	<enhanced:img
+		src={bgPricing}
+		alt="Fondo Hero de la Página de Precios"
+		fetchpriority="high"
+		loading="eager"
+		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% object-cover object-center opacity-10"
+	/>
+
+	<div class="relative hero-content z-10 text-center text-base-content">
+		<div class="max-w-4xl">
+			<!-- Badge: Magic Border Effect -->
+			<div
+				in:fly={{ y: 30, duration: 1000, delay: 200 }}
+				class="relative mb-8 inline-flex overflow-hidden rounded-full p-px"
+			>
+				<span
+					class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#C5A059_50%,transparent_100%)]"
+				></span>
+				<div
+					class="inline-flex h-full w-full items-center gap-2 rounded-full bg-base-100/90 px-4 py-1.5 backdrop-blur-3xl"
+				>
+					<div class="inline-grid *:[grid-area:1/1]">
+						<div class="status animate-ping status-primary"></div>
+						<div class="status status-primary"></div>
+					</div>
+					<span class="flex gap-1 text-xs font-medium tracking-widest text-base-content uppercase">
+						Propuesta de Valor
+					</span>
+				</div>
+			</div>
+
+			<!-- H1: Mezcla de Sans (Tech) y Serif (Lujo) -->
+			<h1
+				in:fly={{ y: 30, duration: 1000, delay: 400 }}
+				class="mb-8 text-5xl font-bold lg:text-7xl"
+			>
+				Inversión
+				<br />
+				<span
+					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text px-1 font-serif text-transparent italic"
+				>
+					Transparente
+				</span>
+			</h1>
+
+			<p
+				in:fly={{ y: 30, duration: 1000, delay: 600 }}
+				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
+			>
+				Soluciones tecnológicas diseñadas para escalar. Revise nuestro catálogo de servicios y elija
+				el modelo de colaboración que mejor se adapte a su empresa.
+			</p>
+
+			<!-- Botón Scroll Down -->
+			<div in:fly={{ y: 30, duration: 1000, delay: 800 }}>
+				<a
+					href="/precios#services-table"
+					class="group btn shadow-[0_0_20px_rgba(211,163,41,0.3)] btn-primary hover:shadow-[0_0_30px_rgba(211,163,41,0.5)]"
+					aria-label="Ver tabla de servicios detallada"
+				>
+					<span>Ver Servicios</span>
+					<ArrowDown
+						size={20}
+						class="transition-transform duration-300 group-hover:translate-y-1"
+					/>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="w-full py-20 lg:py-32" id="services-table">
+	<div class="container mx-auto px-4">
+		<!-- Header de Sección -->
+		<div class="mb-8 text-center">
+			<h2 in:fly={{ y: 30, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-5xl">
+				Especialidades y
+				<span
+					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
+				>
+					Soluciones.
+				</span>
+			</h2>
+			<p
+				in:fly={{ y: 30, duration: 800, delay: 400 }}
+				class="mx-auto max-w-2xl text-base text-base-content/60 lg:text-lg"
+			>
+				Arquitectura de software y estrategias de inteligencia artificial diseñadas para elevar la
+				eficiencia operativa y la competitividad digital de su organización.
+			</p>
+		</div>
+	</div>
+</section>
