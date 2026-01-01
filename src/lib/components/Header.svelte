@@ -13,7 +13,7 @@
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Inicio', icon: House },
 		{ href: '/#servicios', label: 'Servicios', icon: Box },
-		{ href: '/pricing', label: 'Precios', icon: DollarSign },
+		{ href: '/precios', label: 'Precios', icon: DollarSign },
 		{ href: '/proyectos', label: 'Proyectos', icon: Code }
 	];
 
