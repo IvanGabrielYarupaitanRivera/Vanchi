@@ -6,7 +6,7 @@ export async function GET() {
 	const website = 'https://www.vanchi.pro';
 
 	// 1. Rutas estáticas fijas
-	const staticPages = ['', 'proyectos'];
+	const staticPages = ['', 'proyectos', 'precios'];
 
 	// 2. Rutas dinámicas generadas desde tus datos (Automático)
 	// Usamos Object.keys para obtener los slugs ('junin360', 'peralta-asociados', etc.)
