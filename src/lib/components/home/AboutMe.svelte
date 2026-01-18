@@ -2,8 +2,16 @@
 	import { fly } from 'svelte/transition';
 	import Me from './Me.svelte';
 
-	const birthday = new Date(2002, 1, 10);
-	const edad = Math.floor((new Date().getTime() - birthday.getTime()) / 3.15576e10);
+	const birthday = $state(new Date(2002, 0, 10));
+	const edad = $derived.by(() => {
+		const today = new Date();
+		let age = today.getFullYear() - birthday.getFullYear();
+		const m = today.getMonth() - birthday.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < birthday.getDate())) {
+			age--;
+		}
+		return age;
+	});
 </script>
 
 <section class="w-full py-20 lg:py-32" id="about-me">

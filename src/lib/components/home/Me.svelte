@@ -8,9 +8,6 @@
 	import DaisyLogo from '$lib/assets/icons/technologies/DaisyLogo.svelte';
 	import ivan from '$lib/assets/images/ivan.webp';
 
-	const birthday = new Date(2002, 1, 10);
-	const edad = Math.floor((new Date().getTime() - birthday.getTime()) / 3.15576e10);
-
 	const skills = [
 		{ name: 'SvelteKit', icon: SvelteKitLogo },
 		{ name: 'TypeScript', icon: TypeScriptLogo },
