@@ -6,7 +6,8 @@
 		Search,
 		LayoutGrid,
 		Bot,
-		Database
+		Database,
+		ShieldCheck
 	} from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import { resolve } from '$app/paths';
@@ -188,11 +189,19 @@
 				</ul>
 
 				<div
-					class="mb-8 rounded-xl border border-white/5 bg-base-200/50 p-4 text-sm text-base-content/70"
+					class="mb-6 rounded-xl border border-white/5 bg-base-200/50 p-4 text-sm text-base-content/70"
 				>
-					<span class="mb-1 block font-medium text-warning">¡Importante!</span>
-					Se requiere firma de contrato con permanencia mínima de 12 meses. Garantiza nuestro compromiso
-					mutuo.
+					Suscripción SaaS. Conoce las políticas de permanencia, gestión de propiedad, liberación de
+					código y garantías contractuales en nuestro documento legal.
+					<div class="mt-3">
+						<a
+							href={resolve('/terminos-y-condiciones')}
+							class="inline-flex items-center gap-1.5 font-medium text-primary transition-colors hover:underline"
+						>
+							<ShieldCheck size={16} />
+							Ver Acuerdo del Servicio
+						</a>
+					</div>
 				</div>
 
 				<a
