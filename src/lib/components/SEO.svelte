@@ -18,8 +18,8 @@
 	}
 
 	let {
-		title = 'Vanchi — Desarrollo de Sistemas',
-		description = 'Portafolio de Ivan Yarupaitan Rivera. Ingeniero de Sistemas especializado en Inteligencia Artificial, desarrollo web moderno con SvelteKit y diseño de interfaces de alto impacto.',
+		title = 'Vanchi — Desarrollo de Sistemas e Integración de Inteligencia Artificial',
+		description = 'Vanchi es un ingeniero de sistemas especializado en desarrollo web, inteligencia artificial y diseño UI/UX. Con un enfoque en soluciones innovadoras y de alta calidad, Vanchi ofrece servicios personalizados para llevar tu proyecto al siguiente nivel.',
 		keywords = 'ingeniería de sistemas, desarrollo web, sveltekit, inteligencia artificial, diseño ui/ux, vanchi, portafolio, typescript, full stack, programador',
 		author = 'Vanchi',
 		type = 'website',
