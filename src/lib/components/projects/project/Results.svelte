@@ -53,7 +53,7 @@
 					<div
 						class="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:divide-x lg:divide-white/10"
 					>
-						{#each results.metrics as metric}
+						{#each results.metrics as metric (metric.label)}
 							<div class="flex flex-col items-center justify-center gap-6 px-4">
 								<span class="font-serif text-5xl font-bold text-success lg:text-6xl">
 									{metric.value}
