@@ -119,6 +119,76 @@ Toda navegación interna debe usar `resolve()` de `$app/paths` para que SvelteKi
 
 > **Nota práctica para este proyecto:** Usa siempre `href={resolve('/ruta')}` en los `<a>` de navegación interna (Header, Footer, botones CTA). Para enlaces a secciones de la misma página (`/#servicios`), usa anclas con `href="#servicios"` cuando ya estés en la raíz, o `resolve('/#servicios')` si navegas desde otra ruta.
 
+### Aprendizajes prácticos de este proyecto
+
+#### 4.1 `resolve()` exige rutas tipadas, no `string` genérico
+
+Si un `href` interno está tipado como `string`, TypeScript puede rechazar `resolve(...)`.
+En esos casos, tipa la ruta como literal o template literal.
+
+```ts
+type NavHref = '/' | '/#servicios' | '/precios' | '/proyectos';
+
+type ProjectHref = `/proyectos/${string}`;
+```
+
+```svelte
+<a href={resolve('/proyectos')}>Proyectos</a>
+<a href={resolve(project.href)}>Ver proyecto</a>
+```
+
+> **Regla interna:** para rutas internas del proyecto, evita `href: string`; prefiere tipos literales como `'/' | '/precios'` o template literals como `` `/proyectos/${string}` ``.
+
+#### 4.2 URLs externas literales sí suelen pasar sin problemas
+
+Cuando la URL externa está definida de forma literal en el mismo archivo o dentro de un array `as const`, el linter suele reconocerla correctamente como externa.
+
+```svelte
+<a href="https://example.com" target="_blank" rel="external noopener noreferrer"> Externo </a>
+```
+
+```ts
+const systems = [
+  { href: 'https://example.com', label: 'Sistema externo' }
+] as const;
+```
+
+#### 4.3 URLs externas dinámicas pueden dar falso positivo
+
+Si una URL externa viene por props o por datos tipados como `string`, por ejemplo:
+
+```ts
+interface Assets {
+  liveUrl?: string;
+  repoUrl?: string;
+}
+```
+
+el rule `svelte/no-navigation-without-resolve` puede marcarla incorrectamente como si fuera navegación interna, incluso usando `rel="external noopener noreferrer"`.
+
+En ese caso, la estrategia recomendada es:
+
+1. Mantener el enlace como `<a>` si semánticamente es un link externo.
+2. Usar `rel="external noopener noreferrer"`.
+3. Si el valor es opcional dentro de un `{#if ...}`, afirmar no-null con `!`.
+4. Si el linter sigue fallando, desactivar **solo localmente** esa regla alrededor del bloque.
+
+```svelte
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
+{#if assets.liveUrl}
+  <a
+    href={assets.liveUrl!}
+    target="_blank"
+    rel="external noopener noreferrer"
+  >
+    Sitio en vivo
+  </a>
+{/if}
+<!-- eslint-enable svelte/no-navigation-without-resolve -->
+```
+
+> **Regla interna:** desactiva `svelte/no-navigation-without-resolve` **solo** para enlaces externos dinámicos que el linter no pueda inferir correctamente. No lo uses para rutas internas.
+
 ---
 
 ## Resumen rápido
