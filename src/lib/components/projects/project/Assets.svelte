@@ -4,6 +4,10 @@
 	import type { ProjectAssets } from '$lib/types/project';
 
 	let { assets }: { assets: ProjectAssets } = $props();
+
+	function openExternal(url: string) {
+		window.open(url, '_blank', 'noopener,noreferrer');
+	}
 </script>
 
 <section class="w-full py-20 lg:py-32">
@@ -36,12 +40,10 @@
 
 					<!-- Grid de enlaces con glassmorphism -->
 					<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-						<!-- eslint-disable svelte/no-navigation-without-resolve -->
 						{#if assets.liveUrl}
-							<a
-								href={assets.liveUrl!}
-								target="_blank"
-								rel="external noopener noreferrer"
+							<button
+								type="button"
+								onclick={() => openExternal(assets.liveUrl!)}
 								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								aria-label="Visitar sitio web en vivo"
 							>
@@ -58,14 +60,13 @@
 										Explora el proyecto desplegado
 									</span>
 								</div>
-							</a>
+							</button>
 						{/if}
 
 						{#if assets.videoYoutube}
-							<a
-								href={assets.videoYoutube!}
-								target="_blank"
-								rel="external noopener noreferrer"
+							<button
+								type="button"
+								onclick={() => openExternal(assets.videoYoutube!)}
 								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								aria-label="Ver demostración en video"
 							>
@@ -82,14 +83,13 @@
 										Mira el proyecto en acción
 									</span>
 								</div>
-							</a>
+							</button>
 						{/if}
 
 						{#if assets.repoUrl}
-							<a
-								href={assets.repoUrl!}
-								target="_blank"
-								rel="external noopener noreferrer"
+							<button
+								type="button"
+								onclick={() => openExternal(assets.repoUrl!)}
 								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								aria-label="Ver código fuente en GitHub"
 							>
@@ -106,9 +106,8 @@
 										Revisa el código fuente
 									</span>
 								</div>
-							</a>
+							</button>
 						{/if}
-						<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					</div>
 				</div>
 			</article>
