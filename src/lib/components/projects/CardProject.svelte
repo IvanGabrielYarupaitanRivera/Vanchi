@@ -2,6 +2,7 @@
 	import { Globe, Play } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import type { Project } from '$lib/constants/projects';
+	import { resolve } from '$app/paths';
 
 	let { project, i }: { project: Project; i: number } = $props();
 </script>
@@ -44,7 +45,7 @@
 
 		<h3 class="mb-4 flex flex-col items-start justify-between gap-2">
 			<a
-				href={project.href}
+				href={resolve(project.href)}
 				class="font-serif text-3xl font-bold text-base-content transition-all duration-300 ease-out hover:text-primary"
 			>
 				<span class="block truncate">{project.title}</span>
@@ -66,7 +67,7 @@
 			<!-- 1. Acción Principal: Botón extendido con etiqueta -->
 			<div class="tooltip tooltip-primary" data-tip="Leer Estudio de Caso">
 				<a
-					href={project.href}
+					href={resolve(project.href)}
 					class="btn btn-soft btn-primary"
 					aria-label={`Ver Estudio de Caso ${project.title}`}
 				>
