@@ -2,8 +2,8 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import { Home, ArrowLeft, House, Mouse, ChevronsRight } from '@lucide/svelte';
-	import { fly, fade } from 'svelte/transition';
+	import { ChevronsRight } from '@lucide/svelte';
+	import { fly } from 'svelte/transition';
 	import bgError from '$lib/assets/images/bg-error.webp';
 
 	const errorCode = $derived(page.status);
@@ -92,7 +92,7 @@
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
 						<a
-							href="/"
+							href={resolve('/')}
 							type="button"
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 							aria-label="Volver al inicio"
