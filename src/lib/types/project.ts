@@ -1,5 +1,13 @@
 import type { Component } from 'svelte';
 
+export type ExternalUrl = `https://${string}` | `http://${string}`;
+
+export interface ProjectAssets {
+	liveUrl?: ExternalUrl;
+	videoYoutube?: ExternalUrl;
+	repoUrl?: ExternalUrl;
+}
+
 export interface CaseStudy {
 	id: string;
 	meta: {
@@ -45,9 +53,5 @@ export interface CaseStudy {
 		metrics: { value: string; label: string }[];
 		feedback: string;
 	};
-	assets: {
-		liveUrl?: string;
-		videoYoutube?: string;
-		repoUrl?: string;
-	};
+	assets: ProjectAssets;
 }
