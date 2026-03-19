@@ -1,15 +1,14 @@
 <script lang="ts">
-	import { CirclePlay, Globe, Play } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import { resolve } from '$app/paths';
 
 	type Project = {
-		id: number;
 		title: string;
 		category: string;
 		description: string;
 		image: string;
 		tags: string[];
-		href: string;
+		href: `/proyectos/${string}`;
 	};
 
 	let { project, i }: { project: Project; i: number } = $props();
@@ -53,7 +52,7 @@
 
 		<h3 class="mb-3 font-serif text-3xl font-bold">
 			<a
-				href={project.href}
+				href={resolve(project.href)}
 				class="transition-colors duration-300 hover:text-primary"
 				aria-label={`Ver detalles del proyecto ${project.title}`}
 				itemprop="url"
@@ -74,9 +73,8 @@
 		<!-- Control Deck: Diseño unificado y minimalista -->
 		<div class="flex items-center gap-2 pt-2">
 			<!-- 1. Acción Principal: Botón extendido con etiqueta -->
-
 			<a
-				href={project.href}
+				href={resolve(project.href)}
 				class="btn btn-soft btn-primary"
 				aria-label={`Ver Más Información del Proyecto ${project.title}`}
 			>
