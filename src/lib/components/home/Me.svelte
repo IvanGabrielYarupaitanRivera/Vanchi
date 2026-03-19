@@ -37,7 +37,7 @@
 				>
 					<enhanced:img
 						src={ivan}
-						alt="Iván - Ingeniero de Sistemas"
+						alt="Ivan - Ingeniero de Sistemas"
 						class="aspect-3/4 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
 					/>
 				</div>
@@ -73,7 +73,7 @@
 				<!-- Cuerpo -->
 				<div class="space-y-6 font-sans text-sm text-base-content/70 lg:text-base">
 					<p>
-						Hola, soy Iván. Como Ingeniero de Sistemas, mi trabajo es simple: construir herramientas
+						Hola, soy Ivan. Como Ingeniero de Sistemas, mi trabajo es simple: construir herramientas
 						digitales que solucionen problemas reales. Opero con tecnologías como Svelte y Convex,
 						enfocándome en la arquitectura limpia y la máxima velocidad para que tu producto
 						funcione sin fallos.
