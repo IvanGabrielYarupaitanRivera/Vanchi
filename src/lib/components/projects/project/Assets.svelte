@@ -1,14 +1,9 @@
 <script lang="ts">
 	import { ExternalLink, Github, Link, PanelTop, Youtube } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import type { ProjectAssets } from '$lib/types/project';
 
-	interface Assets {
-		liveUrl?: string;
-		videoYoutube?: string;
-		repoUrl?: string;
-	}
-
-	let { assets }: { assets: Assets } = $props();
+	let { assets }: { assets: ProjectAssets } = $props();
 </script>
 
 <section class="w-full py-20 lg:py-32">
@@ -113,7 +108,7 @@
 								</div>
 							</a>
 						{/if}
-						<!-- eslint-enable svelte/no-navigation-without-resolve -->
+							<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					</div>
 				</div>
 			</article>
