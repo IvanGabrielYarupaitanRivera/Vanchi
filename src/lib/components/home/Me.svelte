@@ -92,7 +92,7 @@
 						Tech DNA
 					</h4>
 					<div class="flex flex-wrap gap-2">
-						{#each skills as skill}
+						{#each skills as skill (skill.name)}
 							<div class="badge py-4 badge-md">
 								<skill.icon size={18} />
 								<span>{skill.name}</span>
