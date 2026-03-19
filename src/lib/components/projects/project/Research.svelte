@@ -41,7 +41,7 @@
 					</div>
 
 					<ul class="grid gap-6 lg:grid-cols-3">
-						{#each research.methods as method, i}
+						{#each research.methods as method, i (i)}
 							<li
 								class="group card border border-white/5 bg-white/5 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-white/10"
 							>
@@ -71,7 +71,7 @@
 					</div>
 
 					<div class="grid gap-6 lg:grid-cols-2">
-						{#each research.findings as finding, i}
+						{#each research.findings as finding, i (finding.title)}
 							<div
 								in:fly={{ y: 20, duration: 800, delay: 1000 + i * 100 }}
 								class="card border border-white/5 bg-white/5 p-6 transition-all duration-300 ease-out hover:border-primary/20 hover:bg-white/10"
