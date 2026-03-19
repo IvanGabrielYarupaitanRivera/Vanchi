@@ -2,6 +2,7 @@
 	import { ArrowUpRight } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import type { Service } from '$lib/constants/services';
+	import { resolve } from '$app/paths';
 
 	let {
 		service,
@@ -56,7 +57,7 @@
 	<div class="mt-6 card-actions justify-start">
 		<a
 			onclick={() => onSelectService(service.title)}
-			href="/#contacto"
+			href={resolve('/#contacto')}
 			class="btn btn-primary"
 			aria-label={`Ver detalles de ${service.title}`}
 		>
