@@ -56,7 +56,7 @@
 					</div>
 
 					<ul class="grid gap-6 lg:grid-cols-3">
-						{#each solution.decisions as decision, i}
+						{#each solution.decisions as decision, i (i)}
 							<li
 								class="group card border border-white/5 bg-white/5 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-white/10"
 							>
