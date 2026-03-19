@@ -26,7 +26,7 @@
 
 	<!-- 2. Floating Tags (Top Left - HUD Style) -->
 	<div class="absolute top-4 left-4 z-20 flex flex-wrap gap-2">
-		{#each project.tags as tag}
+		{#each project.tags as tag (tag)}
 			<span class="badge badge-soft badge-sm badge-accent">
 				{tag}
 			</span>
