@@ -2,6 +2,7 @@
 	import bgHero from '$lib/assets/images/bg-hero.webp';
 	import { ArrowRight, Play } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import { resolve } from '$app/paths';
 </script>
 
 <section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
