@@ -189,6 +189,32 @@ En ese caso, la estrategia recomendada es:
 
 > **Regla interna:** desactiva `svelte/no-navigation-without-resolve` **solo** para enlaces externos dinámicos que el linter no pueda inferir correctamente. No lo uses para rutas internas.
 
+#### 4.4 Si no quieres usar `eslint-disable`, usa navegación externa programática
+
+En este proyecto comprobamos que hay casos donde ni el tipado como `ExternalUrl` ni `rel="external noopener noreferrer"` eliminan el falso positivo del linter cuando el `href` viene por props dinámicas.
+
+Si no quieres usar comentarios `eslint-disable`, la alternativa más estable es **no renderizar un `<a href={...}>` dinámico**, sino usar un `<button>` que abra la URL externamente.
+
+```svelte
+<script lang="ts">
+	function openExternal(url: string) {
+		window.open(url, '_blank', 'noopener,noreferrer');
+	}
+</script>
+
+{#if assets.liveUrl}
+	<button
+		type="button"
+		onclick={() => openExternal(assets.liveUrl!)}
+		aria-label="Visitar sitio web en vivo"
+	>
+		Sitio en vivo
+	</button>
+{/if}
+```
+
+> **Regla interna:** si un enlace externo dinámico sigue generando `Unexpected href link without resolve()` y no quieres usar `eslint-disable`, cambia ese caso puntual a navegación programática con `window.open(...)`.
+
 ---
 
 ## Resumen rápido
