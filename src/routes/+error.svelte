@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
 	import { Home, ArrowLeft, House, Mouse, ChevronsRight } from '@lucide/svelte';
 	import { fly, fade } from 'svelte/transition';
