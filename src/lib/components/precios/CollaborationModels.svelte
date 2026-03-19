@@ -1,71 +1,8 @@
 <script lang="ts">
-	import { ArrowDown, ArrowRight, Briefcase, Clock, Sparkles } from '@lucide/svelte';
+	import { ArrowDown } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import { resolve } from '$app/paths';
 	import bgPricing from '$lib/assets/images/pricing/bg-pricing.webp';
-	const servicesList = [
-		{
-			name: 'Sitios Web',
-			price: '800',
-			currency: 'S/',
-			period: 'base',
-			description: 'Experiencias digitales de alto impacto para marcas que buscan diferenciación.',
-			features: [
-				'Diseño UI/UX High-End',
-				'SEO Técnico Avanzado',
-				'Performance Ultrarrápida',
-				'Integración con CMS'
-			],
-			recommended: false,
-			cta: 'Iniciar Proyecto'
-		},
-		{
-			name: 'Sistemas SaaS',
-			price: '2,500',
-			currency: 'S/',
-			period: 'base',
-			description: 'Plataformas a medida para la gestión y optimización de procesos complejos.',
-			features: [
-				'Dashboards Interactivos',
-				'Gestión de Usuarios y Roles',
-				'Automatización de Procesos',
-				'Base de Datos Escalable',
-				'API Rest / GraphQL'
-			],
-			recommended: true,
-			cta: 'Cotizar Sistema'
-		},
-		{
-			name: 'Inteligencia Artificial',
-			price: '1,200',
-			currency: 'S/',
-			period: 'módulo',
-			description: 'Implementación de agentes y modelos predictivos para potenciar su negocio.',
-			features: [
-				'Chatbots con RAG (Data Propia)',
-				'Análisis de Datos Predictivo',
-				'Automatización de Workflows',
-				'Fine-tuning de Modelos'
-			],
-			recommended: false,
-			cta: 'Implementar IA'
-		},
-		{
-			name: 'Infraestructura',
-			price: '400',
-			currency: 'S/',
-			period: 'mes',
-			description: 'Mantenimiento de servidores y garantía de estabilidad operativa.',
-			features: [
-				'Monitoreo 24/7',
-				'Backups Automáticos',
-				'Seguridad y Firewall',
-				'Despliegue CI/CD'
-			],
-			recommended: false,
-			cta: 'Ver Planes'
-		}
-	];
 </script>
 
 <section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
