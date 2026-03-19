@@ -1,12 +1,5 @@
 <script lang="ts">
-	import {
-		ChartBarIncreasing,
-		CheckCheckIcon,
-		CircleCheck,
-		CircleUserRound,
-		Lightbulb,
-		MemoryStick
-	} from '@lucide/svelte';
+	import { ChartBarIncreasing, CheckCheckIcon, CircleUserRound } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	interface Metrics {
