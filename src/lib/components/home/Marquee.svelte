@@ -48,7 +48,7 @@
 >
 	<!-- Bloque 1 -->
 	<div class="animate-marquee flex items-center gap-8 px-4">
-		{#each clients as client}
+		{#each clients as client (client.id)}
 			<!-- Card: Vertical Holographic Style -->
 			<div
 				class="group/card flex h-50 w-44 shrink-0 flex-col items-center justify-center gap-5 rounded-2xl border border-white/5 bg-white/5 px-4 py-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:border-primary/30 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
@@ -88,7 +88,7 @@
 
 	<!-- Bloque 2  -->
 	<div class="animate-marquee flex items-center gap-8 px-4">
-		{#each clients as client}
+		{#each clients as client (client.id)}
 			<!-- Card: Vertical Holographic Style -->
 			<div
 				class="group/card flex h-50 w-44 shrink-0 flex-col items-center justify-center gap-5 rounded-2xl border border-white/5 bg-white/5 px-4 py-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:border-primary/30 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
@@ -128,7 +128,7 @@
 
 	<!-- Bloque 3  -->
 	<div class="animate-marquee flex items-center gap-8 px-4">
-		{#each clients as client}
+		{#each clients as client (client.id)}
 			<!-- Card: Vertical Holographic Style -->
 			<div
 				class="group/card flex h-50 w-44 shrink-0 flex-col items-center justify-center gap-5 rounded-2xl border border-white/5 bg-white/5 px-4 py-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:border-primary/30 hover:bg-white/10 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
