@@ -3,10 +3,7 @@
 	import CardProject from './CardProject.svelte';
 	import junin360 from '$lib/assets/images/projects/junin360.webp';
 	import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
-	import farmape from '$lib/assets/images/projects/farmape.webp';
-	import obstetraconecta from '$lib/assets/images/projects/obstetraconecta.webp';
 	import diapis from '$lib/assets/images/projects/diapis.webp';
-	import peraltaasociados from '$lib/assets/images/projects/peraltaasociados.webp';
 	import { ArrowRight } from '@lucide/svelte';
 	import { resolve } from '$app/paths';
 
