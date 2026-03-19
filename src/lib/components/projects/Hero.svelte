@@ -2,6 +2,7 @@
 	import bgProjects from '$lib/assets/images/projects/bg-projects.webp';
 	import { ArrowDown } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import { resolve } from '$app/paths';
 </script>
 
 <section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
