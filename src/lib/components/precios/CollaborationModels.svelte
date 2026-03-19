@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ArrowDown, ArrowRight, Briefcase, Clock, Sparkles } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import { resolve } from '$app/paths';
 	import bgPricing from '$lib/assets/images/pricing/bg-pricing.webp';
 	const servicesList = [
 		{
@@ -124,7 +125,7 @@
 			<!-- Botón Scroll Down -->
 			<div in:fly={{ y: 30, duration: 1000, delay: 800 }}>
 				<a
-					href="/precios#services-table"
+					href={resolve('/precios#services-table')}
 					class="group btn shadow-[0_0_20px_rgba(211,163,41,0.3)] btn-primary hover:shadow-[0_0_30px_rgba(211,163,41,0.5)]"
 					aria-label="Ver tabla de servicios detallada"
 				>
