@@ -23,7 +23,7 @@
 
 <header class="sticky top-2 z-50 px-4 lg:top-4">
 	<nav
-		class="navbar mx-auto max-w-5xl rounded-full border border-white/10 bg-base-300/70 p-2 shadow-lg backdrop-blur-xl transition-all duration-300"
+		class="navbar mx-auto max-w-5xl rounded-full border border-white/10 bg-base-300/70 p-2 shadow-lg backdrop-blur-xs transition-all duration-300"
 	>
 		<div class="ml-2 navbar-start">
 			<a href="/" class="" aria-label="Ir al inicio">
