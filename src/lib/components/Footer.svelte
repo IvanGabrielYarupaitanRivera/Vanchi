@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { Github, Linkedin, Mail, ArrowUpRight } from '@lucide/svelte';
+	import { ArrowUpRight } from '@lucide/svelte';
+	import { resolve } from '$app/paths';
 	import vanchi from '$lib/assets/icons/vanchi.svg';
 	import GithubLogo from '$lib/assets/icons/network/GithubLogo.svelte';
 	import LinkedInLogo from '$lib/assets/icons/network/LinkedInLogo.svelte';
@@ -8,8 +9,9 @@
 	import FacebookLogo from '$lib/assets/icons/network/FacebookLogo.svelte';
 
 	const year = new Date().getFullYear();
+	type FooterLinkHref = '/#servicios' | '/#about-me' | '/#contacto';
 
-	const links = [
+	const links: { label: string; href: FooterLinkHref }[] = [
 		{ label: 'Servicios', href: '/#servicios' },
 		{ label: 'Sobre mí', href: '/#about-me' },
 		{ label: 'Contacto', href: '/#contacto' }
@@ -39,7 +41,7 @@
 			class="footer grid grid-cols-1 gap-10 rounded-2xl border border-white/10 bg-base-100 p-8 shadow-2xl lg:grid-cols-3 lg:p-10"
 		>
 			<aside class="space-y-4">
-				<a href="/" aria-label="Ir al inicio">
+				<a href={resolve('/')} aria-label="Ir al inicio">
 					<enhanced:img src={vanchi} alt="Vanchi Logo" class="h-8" />
 				</a>
 
@@ -48,7 +50,7 @@
 					listos para escalar.
 				</p>
 
-				<a href="/#contacto" class="btn btn-primary">
+				<a href={resolve('/#contacto')} class="btn btn-primary">
 					Comenzar una consulta
 					<ArrowUpRight size={16} />
 				</a>
@@ -57,11 +59,11 @@
 			<nav aria-label="Navegación del sitio" class="flex w-full flex-col lg:items-center">
 				<h3 class="footer-title text-base-content/70">Navegación</h3>
 				<ul class="space-y-2">
-					{#each links as item}
+					{#each links as item (item.href)}
 						<li>
 							<a
 								class="link text-base-content/70 link-hover transition-all duration-300"
-								href={item.href}
+								href={resolve(item.href)}
 							>
 								{item.label}
 							</a>
@@ -74,12 +76,12 @@
 				<h3 class="footer-title text-base-content/70">Conectar</h3>
 
 				<div class="flex flex-wrap gap-3">
-					{#each socials as s}
+					{#each socials as s (s.label)}
 						<a
-							class="badge badge-md py-4 transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+							class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
 							href={s.href}
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							aria-label={s.label}
 							title={s.label}
 						>
