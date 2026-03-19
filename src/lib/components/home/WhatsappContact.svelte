@@ -88,7 +88,7 @@
 									required
 								>
 									<option value="" disabled>Selecciona</option>
-									{#each serviceOptions as service}
+									{#each serviceOptions as service (service)}
 										<option value={service}>{service}</option>
 									{/each}
 								</select>
