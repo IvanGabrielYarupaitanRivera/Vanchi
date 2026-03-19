@@ -65,7 +65,7 @@
 					</div>
 
 					<div class="grid gap-8 lg:grid-cols-2">
-						{#each ui.gallery as image}
+						{#each ui.gallery as image (image.src)}
 							<button
 								class="group relative flex flex-col items-center text-left focus:outline-none"
 								onclick={() => (selectedImage = image)}
