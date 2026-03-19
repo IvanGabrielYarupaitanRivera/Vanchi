@@ -5,6 +5,22 @@ import obstetraconecta from '$lib/assets/images/projects/obstetraconecta.webp';
 import diapis from '$lib/assets/images/projects/diapis.webp';
 import peraltaasociados from '$lib/assets/images/projects/peraltaasociados.webp';
 import colegioeducere from '$lib/assets/images/projects/colegioeducere.webp';
+import type { ExternalUrl } from '$lib/types/project';
+
+type ProjectLinkUrl =
+	| 'https://junin360.com/'
+	| 'https://mediroosevelt.com/'
+	| 'https://www.farmape.net/'
+	| 'https://www.obstetraconecta.com/'
+	| 'https://diapis.vercel.app/'
+	| 'https://peraltaasociados.com/'
+	| 'https://colegioeducere.edu.pe/';
+
+type ProjectVideoUrl =
+	| 'https://www.youtube.com/watch?v=2RlIn3JFajc'
+	| 'https://www.youtube.com/watch?v=6-3bhIxR4-k'
+	| 'https://www.youtube.com/watch?v=tVvpd5Wp98k'
+	| 'https://www.youtube.com/watch?v=nHPqMsQJLFw';
 
 export interface Project {
 	id: number;
@@ -14,8 +30,8 @@ export interface Project {
 	image: string;
 	tags: string[];
 	href: `/proyectos/${string}`;
-	link: string;
-	video?: string;
+	link: ProjectLinkUrl | ExternalUrl;
+	video?: ProjectVideoUrl | ExternalUrl;
 	date: string;
 }
 
