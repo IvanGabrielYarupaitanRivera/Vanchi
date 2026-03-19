@@ -61,7 +61,7 @@
 							class="grid gap-6
 						lg:grid-cols-2"
 						>
-							{#each myRole.deliverables as deliverable, i}
+							{#each myRole.deliverables as deliverable, i (i)}
 								<li
 									in:fly={{ y: 20, duration: 800, delay: 800 + i * 100 }}
 									class="group card border border-white/5 bg-white/5 p-6 transition-colors duration-500 hover:border-primary/30 hover:bg-white/10"
