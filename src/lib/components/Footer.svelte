@@ -16,23 +16,6 @@
 		{ label: 'Sobre mí', href: '/#about-me' },
 		{ label: 'Contacto', href: '/#contacto' }
 	];
-
-	// TODO: reemplaza con tus URLs reales
-	const socials = [
-		{ label: 'GitHub', href: 'https://github.com/IvanGabrielYarupaitanRivera', icon: GithubLogo },
-		{
-			label: 'LinkedIn',
-			href: 'https://www.linkedin.com/in/ivan-yarupaitan-rivera/',
-			icon: LinkedInLogo
-		},
-		{
-			label: 'Facebook',
-			href: 'https://www.facebook.com/vanchi.desarrollador',
-			icon: FacebookLogo
-		},
-		{ label: 'WhatsApp', href: 'https://wa.me/985942670', icon: WhatsAppLogo },
-		{ label: 'Email', href: 'mailto:ivangyr321@gmail.com', icon: GmailLogo }
-	];
 </script>
 
 <footer class="relative border-t border-white/10 bg-base-300" aria-label="Footer">
@@ -76,19 +59,61 @@
 				<h3 class="footer-title text-base-content/70">Conectar</h3>
 
 				<div class="flex flex-wrap gap-3">
-					{#each socials as s (s.label)}
-						<a
-							class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
-							href={s.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							aria-label={s.label}
-							title={s.label}
-						>
-							<s.icon size={18} />
-							<span>{s.label}</span>
-						</a>
-					{/each}
+					<a
+						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						href="https://github.com/IvanGabrielYarupaitanRivera"
+						target="_blank"
+						rel="external noopener noreferrer"
+						aria-label="GitHub"
+						title="GitHub"
+					>
+						<GithubLogo size={18} />
+						<span>GitHub</span>
+					</a>
+					<a
+						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						href="https://www.linkedin.com/in/ivan-yarupaitan-rivera/"
+						target="_blank"
+						rel="external noopener noreferrer"
+						aria-label="LinkedIn"
+						title="LinkedIn"
+					>
+						<LinkedInLogo size={18} />
+						<span>LinkedIn</span>
+					</a>
+					<a
+						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						href="https://www.facebook.com/vanchi.desarrollador"
+						target="_blank"
+						rel="external noopener noreferrer"
+						aria-label="Facebook"
+						title="Facebook"
+					>
+						<FacebookLogo size={18} />
+						<span>Facebook</span>
+					</a>
+					<a
+						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						href="https://wa.me/985942670"
+						target="_blank"
+						rel="external noopener noreferrer"
+						aria-label="WhatsApp"
+						title="WhatsApp"
+					>
+						<WhatsAppLogo size={18} />
+						<span>WhatsApp</span>
+					</a>
+					<a
+						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						href="mailto:ivangyr321@gmail.com"
+						target="_blank"
+						rel="external noopener noreferrer"
+						aria-label="Email"
+						title="Email"
+					>
+						<GmailLogo size={18} />
+						<span>Email</span>
+					</a>
 				</div>
 
 				<p class="mt-6 text-sm text-base-content/50">
