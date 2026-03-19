@@ -1,6 +1,6 @@
 <script lang="ts">
 	import bgHero from '$lib/assets/images/bg-hero.webp';
-	import { ArrowRight, Play } from '@lucide/svelte';
+	import { ArrowRight } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import { resolve } from '$app/paths';
 </script>
@@ -66,7 +66,7 @@
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
 						<a
-							href="/#contacto"
+							href={resolve('/#contacto')}
 							type="button"
 							aria-label="Iniciar un proyecto con Vanchi"
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
