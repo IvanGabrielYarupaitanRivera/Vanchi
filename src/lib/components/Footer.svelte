@@ -9,11 +9,11 @@
 	import FacebookLogo from '$lib/assets/icons/network/FacebookLogo.svelte';
 
 	const year = new Date().getFullYear();
-	type FooterLinkHref = '/#servicios' | '/#about-me' | '/#contacto';
+	type FooterLinkHref = '/#servicios' | '/ivan-yarupaitan-rivera' | '/#contacto';
 
 	const links: { label: string; href: FooterLinkHref }[] = [
 		{ label: 'Servicios', href: '/#servicios' },
-		{ label: 'Sobre mí', href: '/#about-me' },
+		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' },
 		{ label: 'Contacto', href: '/#contacto' }
 	];
 </script>
