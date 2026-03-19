@@ -29,7 +29,7 @@
 
 		<!-- Grid de Servicios -->
 		<div class="grid grid-cols-1 gap-8 py-8 lg:grid-cols-2">
-			{#each SERVICES as service, i}
+			{#each SERVICES as service, i (service.id)}
 				<CardService {service} {i} {onSelectService} />
 			{/each}
 		</div>
