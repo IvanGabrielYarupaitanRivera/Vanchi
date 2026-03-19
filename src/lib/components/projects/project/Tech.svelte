@@ -61,7 +61,7 @@
 
 					<!-- Grid de Logos -->
 					<div class="flex flex-wrap justify-between gap-4">
-						{#each tech.logos as Logo, i}
+						{#each tech.logos as Logo, i (i)}
 							<div
 								in:fly={{ y: 20, duration: 800, delay: 1000 + i * 100 }}
 								class="group flex flex-col items-center gap-3"
