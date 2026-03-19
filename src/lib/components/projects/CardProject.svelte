@@ -5,6 +5,10 @@
 	import { resolve } from '$app/paths';
 
 	let { project, i }: { project: Project; i: number } = $props();
+
+	function openExternal(url: string) {
+		window.open(url, '_blank', 'noopener,noreferrer');
+	}
 </script>
 
 <article
@@ -83,29 +87,27 @@
 			<!-- 2. Acciones Secundarias: Botones circulares 'Glass' -->
 			{#if project.link}
 				<div class="tooltip tooltip-accent" data-tip="Visitar Web">
-					<a
-						href={project.link}
-						target="_blank"
-						rel="noopener noreferrer"
+					<button
+						type="button"
+						onclick={() => openExternal(project.link)}
 						class="btn btn-circle btn-soft btn-sm btn-accent lg:btn-md"
 						aria-label={`Visitar Sitio Web ${project.title}`}
 					>
 						<Globe size={18} />
-					</a>
+					</button>
 				</div>
 			{/if}
 
 			{#if project.video}
 				<div class="tooltip tooltip-accent" data-tip="Ver Demo">
-					<a
-						href={project.video}
-						target="_blank"
-						rel="noopener noreferrer"
+					<button
+						type="button"
+						onclick={() => openExternal(project.video!)}
 						class="btn btn-circle btn-soft btn-sm btn-accent lg:btn-md"
 						aria-label={`Ver Video del Proyecto ${project.title}`}
 					>
 						<Play size={18} />
-					</a>
+					</button>
 				</div>
 			{/if}
 		</div>
