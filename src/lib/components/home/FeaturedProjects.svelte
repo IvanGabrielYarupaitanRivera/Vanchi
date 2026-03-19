@@ -75,7 +75,7 @@
 
 		<!-- Grid de Proyectos -->
 		<div class="grid grid-cols-1 gap-8 py-8 lg:grid-cols-3">
-			{#each projects as project, i}
+			{#each projects as project, i (project.id)}
 				<CardProject {project} {i} />
 			{/each}
 		</div>
