@@ -74,13 +74,68 @@ Todo enlace con `target="_blank"` **debe** incluir `rel="noopener noreferrer"` p
 
 ---
 
+## 4. svelte/no-navigation-without-resolve — Navegación interna con `resolve()`
+
+Toda navegación interna debe usar `resolve()` de `$app/paths` para que SvelteKit prefije correctamente el `base path` y los enlaces sean verificados en tiempo de compilación.
+
+**Excepciones que NO requieren `resolve()`:**
+
+- URLs absolutas (`https://...`)
+- Anclas (`#top`, `#seccion`)
+- `<a rel="external">` (navegación externa explícita)
+- Shallow routing con string vacío (`pushState('', {})`)
+
+```svelte
+<!-- ✅ CORRECTO -->
+<script lang="ts">
+  import { goto, pushState, replaceState } from '$app/navigation';
+  import { resolve } from '$app/paths';
+
+  goto(resolve('/proyectos'));
+  pushState(resolve('/proyectos'), {});
+  replaceState(resolve('/proyectos'), {});
+
+  // Shallow routing (string vacío = sin cambio de URL real)
+  pushState('', {});
+  replaceState('', {});
+</script>
+
+<a href={resolve('/proyectos')}>Proyectos</a>
+<a href="https://github.com/vanchi">GitHub</a>   <!-- URL absoluta: OK -->
+<a href={someURL} rel="external">Externo</a>     <!-- rel=external: OK -->
+<a href="#contacto">Contacto</a>                 <!-- Ancla: OK -->
+
+<!-- ❌ INCORRECTO: string literal interno sin resolve() -->
+<a href="/proyectos">Proyectos</a>
+<a href={'/proyectos'}>Proyectos</a>
+
+<script lang="ts">
+  goto('/proyectos');                            // ❌
+  goto('/foo' + resolve('/bar'));                 // ❌ concatenación parcial
+  pushState('/proyectos', {});                   // ❌
+  replaceState('/proyectos', {});                // ❌
+</script>
+```
+
+> **Nota práctica para este proyecto:** Usa siempre `href={resolve('/ruta')}` en los `<a>` de navegación interna (Header, Footer, botones CTA). Para enlaces a secciones de la misma página (`/#servicios`), usa anclas con `href="#servicios"` cuando ya estés en la raíz, o `resolve('/#servicios')` si navegas desde otra ruta.
+
+---
+
 ## Resumen rápido
 
 ```svelte
+<script lang="ts">
+	import { resolve } from '$app/paths';
+</script>
+
 <!-- ✅ Patrón correcto completo -->
 {#each items as item (item.id)}
-	<a href={item.url} target="_blank" rel="noopener noreferrer">
+	<a href={resolve(item.url)} target="_blank" rel="noopener noreferrer">
 		{item.label}
 	</a>
 {/each}
+
+<!-- Anclas y URLs absolutas: sin resolve() -->
+<a href="#contacto">Contacto</a>
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">Externo</a>
 ```
