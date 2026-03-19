@@ -30,7 +30,7 @@
 				in:fly={{ y: 30, duration: 800, delay: 400 }}
 				class="mx-auto max-w-2xl text-base text-base-content/60 lg:text-lg"
 			>
-				Iván, Ingeniero de Sistemas y Computación ({edad}). Apasionado por la IA y el desarrollo
+				Ivan, Ingeniero de Sistemas y Computación ({edad}). Apasionado por la IA y el desarrollo
 				web.
 			</p>
 		</div>
