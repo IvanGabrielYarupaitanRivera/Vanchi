@@ -65,7 +65,7 @@
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
 						<a
-							href="/proyectos#proyectos-destacados"
+							href={resolve('/proyectos#proyectos-destacados')}
 							type="button"
 							aria-label="Ver proyectos destacados"
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
