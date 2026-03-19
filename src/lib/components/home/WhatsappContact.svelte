@@ -14,7 +14,7 @@
 		'Infraestructura y Soporte'
 	] as const;
 
-	const whatsappMessage = $derived(`¡Hola, Iván!
+	const whatsappMessage = $derived(`¡Hola, Ivan!
         Estoy contactándote desde tu portafolio web.
         Me interesa tu servicio de: *${selectedService}*.
         Mi nombre es: *${name}*.
@@ -115,7 +115,7 @@
 						<div class="mt-8 card-actions justify-center">
 							<button
 								onclick={sendWhatsAppMessage}
-								aria-label="Enviar WhatsApp a Iván con mensaje precargado"
+								aria-label="Enviar WhatsApp a Ivan con mensaje precargado"
 								class="btn w-full transition-all duration-300 ease-out btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(211,163,41,0.15)] lg:w-auto"
 							>
 								<span>Enviar WhatsApp</span>
