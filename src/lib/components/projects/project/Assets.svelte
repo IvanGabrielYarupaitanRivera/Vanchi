@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExternalLink, Github, Link, Network, PanelTop, Youtube } from '@lucide/svelte';
+	import { ExternalLink, Github, Link, PanelTop, Youtube } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 
 	interface Assets {
@@ -41,11 +41,12 @@
 
 					<!-- Grid de enlaces con glassmorphism -->
 					<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+						<!-- eslint-disable svelte/no-navigation-without-resolve -->
 						{#if assets.liveUrl}
 							<a
-								href={assets.liveUrl}
+								href={assets.liveUrl!}
 								target="_blank"
-								rel="noopener noreferrer"
+								rel="external noopener noreferrer"
 								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								aria-label="Visitar sitio web en vivo"
 							>
@@ -67,9 +68,9 @@
 
 						{#if assets.videoYoutube}
 							<a
-								href={assets.videoYoutube}
+								href={assets.videoYoutube!}
 								target="_blank"
-								rel="noopener noreferrer"
+								rel="external noopener noreferrer"
 								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								aria-label="Ver demostración en video"
 							>
@@ -91,9 +92,9 @@
 
 						{#if assets.repoUrl}
 							<a
-								href={assets.repoUrl}
+								href={assets.repoUrl!}
 								target="_blank"
-								rel="noopener noreferrer"
+								rel="external noopener noreferrer"
 								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
 								aria-label="Ver código fuente en GitHub"
 							>
@@ -112,6 +113,7 @@
 								</div>
 							</a>
 						{/if}
+						<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					</div>
 				</div>
 			</article>
