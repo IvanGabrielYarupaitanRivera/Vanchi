@@ -13,7 +13,7 @@ export interface Project {
 	description: string;
 	image: string;
 	tags: string[];
-	href: string;
+	href: `/proyectos/${string}`;
 	link: string;
 	video?: string;
 	date: string;
