@@ -8,6 +8,7 @@
 	import diapis from '$lib/assets/images/projects/diapis.webp';
 	import peraltaasociados from '$lib/assets/images/projects/peraltaasociados.webp';
 	import { ArrowRight } from '@lucide/svelte';
+	import { resolve } from '$app/paths';
 
 	type Project = {
 		id: number;
@@ -16,7 +17,7 @@
 		description: string;
 		image: string;
 		tags: string[];
-		href: string;
+		href: `/proyectos/${string}`;
 	};
 
 	const projects: Project[] = [
@@ -83,7 +84,7 @@
 		<!-- Botón para ver todos los proyectos -->
 		<div class="mt-10 text-center">
 			<a
-				href="/proyectos"
+				href={resolve('/proyectos')}
 				type="button"
 				aria-label="Ver todos los proyectos"
 				class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
