@@ -1,4 +1,5 @@
 import type { CaseStudy } from '$lib/types/project';
+import { encap } from './encap';
 import { junin360 } from './junin360';
 import { mediroosevelt } from './mediroosevelt';
 import { farmape } from './farmape';
@@ -8,6 +9,7 @@ import { peraltaAsociados } from './peralta-asociados';
 import { colegioEducere } from './colegio-educere';
 
 export const projectsData: Record<string, CaseStudy> = {
+	encap,
 	junin360,
 	mediroosevelt,
 	farmape,
