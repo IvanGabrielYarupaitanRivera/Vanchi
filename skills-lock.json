@@ -10,6 +10,11 @@
       "source": "sveltejs/ai-tools",
       "sourceType": "github",
       "computedHash": "bec11e369679027edf9d4acbe6d9788f8da33dc14b48b874f231d3ba13705324"
+    },
+    "tailwind-best-practices": {
+      "source": "mastra-ai/mastra",
+      "sourceType": "github",
+      "computedHash": "b5720fe165b13c35122f15fa78cea523e9dda48e666fcc71daf1ba71827f0386"
     }
   }
 }
