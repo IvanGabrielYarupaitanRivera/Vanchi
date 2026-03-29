@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "bb2f668762af2b525bfb494f9ebfdad5738270001fbce4da3eba72aa89d86d86"
     },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "516bd2154eb843a8240e43d5b285229129853114ad7075a5e141e1c08e408c84"
+    },
     "svelte-code-writer": {
       "source": "sveltejs/ai-tools",
       "sourceType": "github",
