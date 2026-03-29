@@ -3,7 +3,7 @@
 	import CardProject from './CardProject.svelte';
 	import junin360 from '$lib/assets/images/projects/junin360.webp';
 	import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
-	import diapis from '$lib/assets/images/projects/diapis.webp';
+	import encap from '$lib/assets/images/projects/encap.webp';
 	import { ArrowRight } from '@lucide/svelte';
 	import { resolve } from '$app/paths';
 
@@ -20,6 +20,16 @@
 	const projects: Project[] = [
 		{
 			id: 1,
+			title: 'ENCAP',
+			category: 'Tutor AI',
+			description:
+				'Integración del tutor ENCAP con inteligencia artificial para mejorar la experiencia de aprendizaje de los estudiantes, el tutor tiene conocimiento general y específico de cada curso, brindando apoyo personalizado y eficiente.',
+			image: encap,
+			tags: ['SvelteKit', 'Lit', 'OpenRouter', 'Convex'],
+			href: '/proyectos/encap'
+		},
+		{
+			id: 2,
 			title: 'Junin360',
 			category: 'Optimización de Procesos',
 			description:
@@ -29,7 +39,7 @@
 			href: '/proyectos/junin360'
 		},
 		{
-			id: 2,
+			id: 3,
 			title: 'MediRoosevelt',
 			category: 'HealthTech Innovation',
 			description:
@@ -37,17 +47,6 @@
 			image: mediroosevelt,
 			tags: ['Svelte', 'Convex', 'TypeScript', 'Gemini API'],
 			href: '/proyectos/mediroosevelt'
-		},
-
-		{
-			id: 3,
-			title: 'Diapis',
-			category: 'EduTech Innovation',
-			description:
-				'Sistema de IA que revoluciona el aprendizaje en el aula. Genera rondas de preguntas y respuestas personalizadas a partir del material de clase para impulsar la atención y la participación estudiantil.',
-			image: diapis,
-			tags: ['SvelteKit', 'Convex', 'Livekit', 'Gemini API'],
-			href: '/proyectos/diapis'
 		}
 	];
 </script>

@@ -62,7 +62,7 @@
 		</h3>
 
 		<p
-			class="line-clamp-2 text-sm leading-relaxed text-base-content/70 lg:text-base"
+			class="line-clamp-3 text-sm leading-relaxed text-base-content/70 lg:text-base"
 			itemprop="description"
 		>
 			{project.description}
