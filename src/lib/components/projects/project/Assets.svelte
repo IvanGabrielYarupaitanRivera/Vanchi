@@ -34,13 +34,8 @@
 					type="button"
 					onclick={() => openExternal(assets.liveUrl!)}
 					aria-label="Visitar sitio web en vivo"
-					class="group relative w-full overflow-hidden rounded-2xl border border-white/5 bg-base-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-base-200/80 hover:shadow-[0_0_30px_rgba(197,160,89,0.12)]"
+					class="group card cursor-pointer border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 				>
-					<!-- Accent bar izquierda -->
-					<div
-						class="absolute top-0 left-0 h-full w-0.5 bg-primary/0 transition-all duration-500 group-hover:bg-primary/60"
-					></div>
-
 					<div class="flex items-center gap-6 p-6 lg:p-8">
 						<!-- Número + Icono -->
 						<div class="flex shrink-0 flex-col items-center gap-2">
@@ -86,12 +81,8 @@
 					type="button"
 					onclick={() => openExternal(assets.videoYoutube!)}
 					aria-label="Ver demostración en video"
-					class="group relative w-full overflow-hidden rounded-2xl border border-white/5 bg-base-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-base-200/80 hover:shadow-[0_0_30px_rgba(197,160,89,0.12)]"
+					class="group card cursor-pointer border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 				>
-					<div
-						class="absolute top-0 left-0 h-full w-0.5 bg-primary/0 transition-all duration-500 group-hover:bg-primary/60"
-					></div>
-
 					<div class="flex items-center gap-6 p-6 lg:p-8">
 						<div class="flex shrink-0 flex-col items-center gap-2">
 							<span
@@ -132,12 +123,8 @@
 					type="button"
 					onclick={() => openExternal(assets.repoUrl!)}
 					aria-label="Ver código fuente en GitHub"
-					class="group relative w-full overflow-hidden rounded-2xl border border-white/5 bg-base-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-base-200/80 hover:shadow-[0_0_30px_rgba(197,160,89,0.12)]"
+					class="group card cursor-pointer border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
 				>
-					<div
-						class="absolute top-0 left-0 h-full w-0.5 bg-primary/0 transition-all duration-500 group-hover:bg-primary/60"
-					></div>
-
 					<div class="flex items-center gap-6 p-6 lg:p-8">
 						<div class="flex shrink-0 flex-col items-center gap-2">
 							<span
