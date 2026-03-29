@@ -5,6 +5,7 @@
 	import colegioEducereLogo from '$lib/assets/icons/logos/colegio-educere.svg';
 	import universidadRooseveltLogo from '$lib/assets/icons/logos/universidad-roosevelt.svg';
 	import diapisLogo from '$lib/assets/icons/logos/diapis.svg';
+	import EncapLogo from '$lib/assets/icons/logos/encap.svg';
 
 	// Datos de Clientes enriquecidos con Categoría para el estilo "Asset Card"
 	const clients = [
@@ -36,6 +37,12 @@
 			name: 'Diapis',
 			id: 5,
 			logo: diapisLogo,
+			category: 'EdTech'
+		},
+		{
+			name: 'ENCAP',
+			id: 6,
+			logo: EncapLogo,
 			category: 'EdTech'
 		}
 	];
