@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "daisyui": {
+      "source": "1naichii/ai-code-tools",
+      "sourceType": "github",
+      "computedHash": "bb2f668762af2b525bfb494f9ebfdad5738270001fbce4da3eba72aa89d86d86"
+    },
     "svelte-code-writer": {
       "source": "sveltejs/ai-tools",
       "sourceType": "github",
