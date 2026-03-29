@@ -1,3 +1,4 @@
+import encap from '$lib/assets/images/projects/encap.webp';
 import junin360 from '$lib/assets/images/projects/junin360.webp';
 import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
 import farmape from '$lib/assets/images/projects/farmape.webp';
@@ -8,6 +9,7 @@ import colegioeducere from '$lib/assets/images/projects/colegioeducere.webp';
 import type { ExternalUrl } from '$lib/types/project';
 
 type ProjectLinkUrl =
+	| 'https://www.encap.edu.pe/'
 	| 'https://junin360.com/'
 	| 'https://mediroosevelt.com/'
 	| 'https://www.farmape.net/'
@@ -38,6 +40,18 @@ export interface Project {
 export const PROJECTS: Project[] = [
 	{
 		id: 1,
+		title: 'ENCAP',
+		category: 'Tutor AI',
+		description:
+			'Integración del tutor ENCAP con inteligencia artificial para mejorar la experiencia de aprendizaje de los estudiantes, el tutor tiene conocimiento general y específico de cada curso, brindando apoyo personalizado y eficiente.',
+		image: encap,
+		tags: ['SvelteKit', 'Lit', 'OpenRouter', 'Convex'],
+		href: '/proyectos/encap',
+		link: 'https://www.encap.edu.pe/',
+		date: 'Enero 2026'
+	},
+	{
+		id: 2,
 		title: 'Junin360',
 		category: 'Optimización de Procesos',
 		description:
@@ -49,7 +63,7 @@ export const PROJECTS: Project[] = [
 		date: 'Setiembre 2025'
 	},
 	{
-		id: 2,
+		id: 3,
 		title: 'MediRoosevelt',
 		category: 'HealthTech',
 		description:
@@ -62,7 +76,7 @@ export const PROJECTS: Project[] = [
 		date: 'Noviembre 2025'
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'Farmape',
 		category: 'HealthTech',
 		description:
@@ -75,7 +89,7 @@ export const PROJECTS: Project[] = [
 		date: 'Noviembre 2025'
 	},
 	{
-		id: 4,
+		id: 5,
 		title: 'Obstetra Conecta',
 		category: 'HealthTech',
 		description:
@@ -88,7 +102,7 @@ export const PROJECTS: Project[] = [
 		date: 'Noviembre 2025'
 	},
 	{
-		id: 5,
+		id: 6,
 		title: 'Diapis',
 		category: 'EduTech',
 		description:
@@ -101,7 +115,7 @@ export const PROJECTS: Project[] = [
 		date: 'Octubre 2025'
 	},
 	{
-		id: 6,
+		id: 7,
 		title: 'Peralta Asociados',
 		category: 'LegalTech',
 		description:
@@ -113,7 +127,7 @@ export const PROJECTS: Project[] = [
 		date: 'Enero 2025'
 	},
 	{
-		id: 7,
+		id: 8,
 		title: 'Colegio Educere',
 		category: 'EduTech',
 		description:
