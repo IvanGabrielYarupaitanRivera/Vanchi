@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExternalLink, Github, Link, PanelTop, Youtube } from '@lucide/svelte';
+	import { ExternalLink, Github, PanelTop, Youtube, ArrowUpRight } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import type { ProjectAssets } from '$lib/types/project';
 
@@ -26,91 +26,150 @@
 			</h2>
 		</div>
 
-		<div class="flex flex-col gap-8">
-			<!-- Card: Para mostrar recursos como la página en vivo, video de youtube, repositorios, etc -->
-			<article
-				in:fly={{ y: 40, duration: 1000, delay: 600 }}
-				class="group card border border-white/5 bg-base-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(211,163,41,0.15)]"
-			>
-				<div class="card-body p-8">
-					<div class="mb-4 flex items-center gap-3">
-						<Link size={24} class="text-primary" />
-						<h4 class="text-sm font-bold tracking-widest uppercase">Enlaces</h4>
+		<div class="flex flex-col gap-4">
+			<!-- Enlace: Sitio en Vivo -->
+			{#if assets.liveUrl}
+				<button
+					in:fly={{ y: 30, duration: 800, delay: 600 }}
+					type="button"
+					onclick={() => openExternal(assets.liveUrl!)}
+					aria-label="Visitar sitio web en vivo"
+					class="group relative w-full overflow-hidden rounded-2xl border border-white/5 bg-base-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-base-200/80 hover:shadow-[0_0_30px_rgba(197,160,89,0.12)]"
+				>
+					<!-- Accent bar izquierda -->
+					<div
+						class="absolute top-0 left-0 h-full w-0.5 bg-primary/0 transition-all duration-500 group-hover:bg-primary/60"
+					></div>
+
+					<div class="flex items-center gap-6 p-6 lg:p-8">
+						<!-- Número + Icono -->
+						<div class="flex shrink-0 flex-col items-center gap-2">
+							<span
+								class="font-mono text-xs font-bold text-base-content/20 transition-colors duration-300 group-hover:text-primary/40"
+								>01</span
+							>
+							<div
+								class="flex size-12 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary/20"
+							>
+								<ExternalLink size={22} class="text-primary" />
+							</div>
+						</div>
+
+						<!-- Contenido central -->
+						<div class="flex flex-1 flex-col items-start gap-1 text-left">
+							<span class="text-xs font-bold tracking-widest text-primary/70 uppercase"
+								>Sitio en Vivo</span
+							>
+							<p class="text-base font-semibold text-base-content">
+								Explora el proyecto desplegado
+							</p>
+							<p class="text-sm text-base-content/50">Versión de producción activa</p>
+						</div>
+
+						<!-- Flecha CTA -->
+						<div
+							class="flex size-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-base-100/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:border-primary/40 group-hover:bg-primary/10"
+						>
+							<ArrowUpRight
+								size={18}
+								class="text-base-content/40 transition-colors duration-300 group-hover:text-primary"
+							/>
+						</div>
 					</div>
+				</button>
+			{/if}
 
-					<!-- Grid de enlaces con glassmorphism -->
-					<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-						{#if assets.liveUrl}
-							<button
-								type="button"
-								onclick={() => openExternal(assets.liveUrl!)}
-								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
-								aria-label="Visitar sitio web en vivo"
-							>
-								<div
-									class="flex size-10 items-center justify-center rounded-full bg-primary/20 transition-transform duration-300 group-hover/link:scale-110"
-								>
-									<ExternalLink size={18} class="text-primary" />
-								</div>
-								<div class="flex flex-col gap-1">
-									<span class="text-xs font-bold tracking-widest text-primary uppercase">
-										Sitio en Vivo
-									</span>
-									<span class="text-sm leading-loose text-base-content/60">
-										Explora el proyecto desplegado
-									</span>
-								</div>
-							</button>
-						{/if}
+			<!-- Enlace: Demo en Video -->
+			{#if assets.videoYoutube}
+				<button
+					in:fly={{ y: 30, duration: 800, delay: 700 }}
+					type="button"
+					onclick={() => openExternal(assets.videoYoutube!)}
+					aria-label="Ver demostración en video"
+					class="group relative w-full overflow-hidden rounded-2xl border border-white/5 bg-base-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-base-200/80 hover:shadow-[0_0_30px_rgba(197,160,89,0.12)]"
+				>
+					<div
+						class="absolute top-0 left-0 h-full w-0.5 bg-primary/0 transition-all duration-500 group-hover:bg-primary/60"
+					></div>
 
-						{#if assets.videoYoutube}
-							<button
-								type="button"
-								onclick={() => openExternal(assets.videoYoutube!)}
-								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
-								aria-label="Ver demostración en video"
+					<div class="flex items-center gap-6 p-6 lg:p-8">
+						<div class="flex shrink-0 flex-col items-center gap-2">
+							<span
+								class="font-mono text-xs font-bold text-base-content/20 transition-colors duration-300 group-hover:text-primary/40"
+								>02</span
 							>
-								<div
-									class="flex size-10 items-center justify-center rounded-full bg-primary/20 transition-transform duration-300 group-hover/link:scale-110"
-								>
-									<Youtube size={18} class="text-primary" />
-								</div>
-								<div class="flex flex-col gap-1">
-									<span class="text-xs font-bold tracking-widest text-primary uppercase">
-										Ver Demo
-									</span>
-									<span class="text-sm leading-loose text-base-content/60">
-										Mira el proyecto en acción
-									</span>
-								</div>
-							</button>
-						{/if}
+							<div
+								class="flex size-12 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary/20"
+							>
+								<Youtube size={22} class="text-primary" />
+							</div>
+						</div>
 
-						{#if assets.repoUrl}
-							<button
-								type="button"
-								onclick={() => openExternal(assets.repoUrl!)}
-								class="group/link flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-white/5 p-6 grayscale transition-all duration-500 ease-out hover:scale-[102%] hover:border-primary/30 hover:bg-white/10 hover:opacity-100 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:grayscale-0"
-								aria-label="Ver código fuente en GitHub"
+						<div class="flex flex-1 flex-col items-start gap-1 text-left">
+							<span class="text-xs font-bold tracking-widest text-primary/70 uppercase"
+								>Demo en Video</span
 							>
-								<div
-									class="flex size-10 items-center justify-center rounded-full bg-primary/20 transition-transform duration-300 group-hover/link:scale-110"
-								>
-									<Github size={18} class="text-primary" />
-								</div>
-								<div class="flex flex-col gap-1">
-									<span class="text-xs font-bold tracking-widest text-primary uppercase">
-										Repositorio
-									</span>
-									<span class="text-sm leading-loose text-base-content/60">
-										Revisa el código fuente
-									</span>
-								</div>
-							</button>
-						{/if}
+							<p class="text-base font-semibold text-base-content">Mira el proyecto en acción</p>
+							<p class="text-sm text-base-content/50">Demostración completa en YouTube</p>
+						</div>
+
+						<div
+							class="flex size-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-base-100/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:border-primary/40 group-hover:bg-primary/10"
+						>
+							<ArrowUpRight
+								size={18}
+								class="text-base-content/40 transition-colors duration-300 group-hover:text-primary"
+							/>
+						</div>
 					</div>
-				</div>
-			</article>
+				</button>
+			{/if}
+
+			<!-- Enlace: Repositorio -->
+			{#if assets.repoUrl}
+				<button
+					in:fly={{ y: 30, duration: 800, delay: 800 }}
+					type="button"
+					onclick={() => openExternal(assets.repoUrl!)}
+					aria-label="Ver código fuente en GitHub"
+					class="group relative w-full overflow-hidden rounded-2xl border border-white/5 bg-base-200/60 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-base-200/80 hover:shadow-[0_0_30px_rgba(197,160,89,0.12)]"
+				>
+					<div
+						class="absolute top-0 left-0 h-full w-0.5 bg-primary/0 transition-all duration-500 group-hover:bg-primary/60"
+					></div>
+
+					<div class="flex items-center gap-6 p-6 lg:p-8">
+						<div class="flex shrink-0 flex-col items-center gap-2">
+							<span
+								class="font-mono text-xs font-bold text-base-content/20 transition-colors duration-300 group-hover:text-primary/40"
+								>03</span
+							>
+							<div
+								class="flex size-12 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary/20"
+							>
+								<Github size={22} class="text-primary" />
+							</div>
+						</div>
+
+						<div class="flex flex-1 flex-col items-start gap-1 text-left">
+							<span class="text-xs font-bold tracking-widest text-primary/70 uppercase"
+								>Repositorio</span
+							>
+							<p class="text-base font-semibold text-base-content">Revisa el código fuente</p>
+							<p class="text-sm text-base-content/50">Repositorio abierto en GitHub</p>
+						</div>
+
+						<div
+							class="flex size-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-base-100/50 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:border-primary/40 group-hover:bg-primary/10"
+						>
+							<ArrowUpRight
+								size={18}
+								class="text-base-content/40 transition-colors duration-300 group-hover:text-primary"
+							/>
+						</div>
+					</div>
+				</button>
+			{/if}
 		</div>
 	</div>
 </section>
