@@ -4,9 +4,9 @@
 </script>
 
 <SEO
-	title="Tabla de Precios | Vanchi"
-	description="Explora nuestra tabla de precios transparente y competitiva para servicios de desarrollo web y soluciones digitales personalizadas. Encuentra el plan perfecto que se adapta a tus necesidades y presupuesto, con opciones flexibles para proyectos de todos los tamaños."
-	keywords="tabla de precios, desarrollo web, soluciones digitales, planes de precios, servicios de desarrollo, presupuesto de desarrollo web"
+	title="Precios de Desarrollo Web por Suscripción | Vanchi"
+	description="Activa tu plan Socio Tecnológico desde S/ 30 al mes. Modelo WaaS con landing profesional, hosting, SSL, soporte y módulos escalables como SEO, catálogo, sistema interno e IA."
+	keywords="waas peru, desarrollo web por suscripción, socio tecnológico, landing page mensual, precios desarrollo web peru, plan web s/30, mantenimiento web y hosting"
 	url="https://vanchi.pro/precios"
 />
 

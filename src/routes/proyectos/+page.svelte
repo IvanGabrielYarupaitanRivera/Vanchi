@@ -6,8 +6,8 @@
 
 <SEO
 	title="Proyectos Realizados | Vanchi"
-	description="Explora los proyectos realizados por Vanchi, donde la innovación y la calidad se unen para crear soluciones digitales excepcionales."
-	keywords="Proyectos Vanchi, Portafolio de Proyectos, Desarrollo Web, Diseño de Software, Soluciones Digitales, Casos de Éxito, Innovación Tecnológica, Servicios de Desarrollo, Proyectos Destacados, Vanchi Proyectos"
+	description="Descubre casos de estudio reales desarrollados por Vanchi: landing pages de alto rendimiento, sistemas internos, automatización con IA e integraciones modernas en SvelteKit."
+	keywords="portafolio desarrollo web peru, casos de estudio software, proyectos sveltekit, automatización con inteligencia artificial, desarrollo de sistemas a medida"
 	url="https://vanchi.pro/proyectos"
 	image="https://vanchi.pro/images/proyectos.webp"
 />

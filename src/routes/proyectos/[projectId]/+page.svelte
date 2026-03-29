@@ -12,6 +12,8 @@
 
 	let { data } = $props();
 	let { project } = $derived(data);
+
+	const ogImage = $derived(project.meta.ogImage?.src ?? 'https://vanchi.pro/images/og-image.webp');
 </script>
 
 <SEO
@@ -19,7 +21,7 @@
 	description={project.meta.description}
 	keywords={project.meta.keywords.join(', ')}
 	url={`https://vanchi.pro/proyectos/${project.id}`}
-	image={project.meta.ogImage?.src}
+	image={ogImage}
 />
 
 <Hero meta={project.meta} />

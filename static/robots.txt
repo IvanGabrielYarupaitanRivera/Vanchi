@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Agregar enlace al sitemap
-Sitemap: https://www.vanchi.pro/sitemap.xml
+Sitemap: https://vanchi.pro/sitemap.xml

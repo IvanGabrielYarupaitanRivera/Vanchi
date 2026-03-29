@@ -10,12 +10,16 @@
 		image?: string;
 		url?: string;
 		siteName?: string;
+		twitterSite?: string;
+		twitterCreator?: string;
 		locale?: 'es_ES' | 'en_US' | string;
 		noindex?: boolean;
 		nofollow?: boolean;
 		ogImageWidth?: number;
 		ogImageHeight?: number;
 	}
+
+	const SITE_URL = 'https://vanchi.pro';
 
 	let {
 		title = 'Vanchi — Desarrollo de Sistemas e Integración de Inteligencia Artificial',
@@ -24,8 +28,10 @@
 		author = 'Vanchi',
 		type = 'website',
 		image = 'https://vanchi.pro/images/og-image.webp',
-		url = page.url.origin + page.url.pathname,
+		url = `${SITE_URL}${page.url.pathname}`,
 		siteName = 'Vanchi',
+		twitterSite = '',
+		twitterCreator = '',
 		locale = 'es_ES',
 		noindex = false,
 		nofollow = false,
@@ -38,19 +44,25 @@
 		[noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow'].join(', ')
 	);
 
+	const canonicalUrl = $derived(url.split('#')[0].split('?')[0]);
+
 	// Datos estructurados JSON-LD: Usamos @graph para conectar Persona y Sitio Web
 	const structuredData = $derived({
 		'@context': 'https://schema.org',
 		'@graph': [
 			{
 				'@type': 'Person',
-				'@id': `${url}#person`,
+				'@id': `${SITE_URL}/#person`,
 				name: 'Ivan',
 				alternateName: 'Vanchi',
 				description: description,
-				url: url,
+				url: `${SITE_URL}/ivan-yarupaitan-rivera`,
 				image: image,
 				jobTitle: 'Ingeniero de Sistemas',
+				sameAs: [
+					'https://www.linkedin.com/in/ivan-yarupaitan-rivera/',
+					'https://github.com/IvanGabrielYarupaitanRivera'
+				],
 				knowsAbout: [
 					'SvelteKit',
 					'TypeScript',
@@ -61,12 +73,12 @@
 			},
 			{
 				'@type': 'WebSite',
-				'@id': `${url}#website`,
-				url: url,
+				'@id': `${SITE_URL}/#website`,
+				url: SITE_URL,
 				name: siteName,
 				description: description,
 				publisher: {
-					'@id': `${url}#person`
+					'@id': `${SITE_URL}/#person`
 				},
 				inLanguage: locale
 			}
@@ -94,7 +106,7 @@
 	<meta property="og:image" content={image} />
 	<meta property="og:image:width" content={String(ogImageWidth)} />
 	<meta property="og:image:height" content={String(ogImageHeight)} />
-	<meta property="og:url" content={url} />
+	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:site_name" content={siteName} />
 	<meta property="og:locale" content={locale} />
 
@@ -103,11 +115,15 @@
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={image} />
-	<meta name="twitter:site" content={siteName} />
-	<meta name="twitter:creator" content={author} />
+	{#if twitterSite}
+		<meta name="twitter:site" content={twitterSite} />
+	{/if}
+	{#if twitterCreator}
+		<meta name="twitter:creator" content={twitterCreator} />
+	{/if}
 
 	<!-- Canonical URL -->
-	<link rel="canonical" href={url} />
+	<link rel="canonical" href={canonicalUrl} />
 
 	<!-- Manifest para PWA -->
 	<link rel="manifest" href="/manifest.json" />

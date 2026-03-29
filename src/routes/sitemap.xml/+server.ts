@@ -3,14 +3,25 @@ import { projectsData } from '$lib/data/projects';
 export const prerender = true;
 
 export async function GET() {
-	const website = 'https://www.vanchi.pro';
+	const website = 'https://vanchi.pro';
+	const generatedAt = new Date().toISOString();
 
 	// 1. Rutas estáticas fijas
-	const staticPages = ['', 'proyectos', 'precios'];
+	const staticPages = [
+		{ path: '', priority: '1.0', changefreq: 'weekly' },
+		{ path: 'proyectos', priority: '0.8', changefreq: 'weekly' },
+		{ path: 'precios', priority: '0.8', changefreq: 'weekly' },
+		{ path: 'ivan-yarupaitan-rivera', priority: '0.6', changefreq: 'monthly' },
+		{ path: 'terminos-y-condiciones', priority: '0.4', changefreq: 'yearly' }
+	];
 
 	// 2. Rutas dinámicas generadas desde tus datos (Automático)
 	// Usamos Object.keys para obtener los slugs ('junin360', 'peralta-asociados', etc.)
-	const projectPages = Object.keys(projectsData).map((slug) => `proyectos/${slug}`);
+	const projectPages = Object.keys(projectsData).map((slug) => ({
+		path: `proyectos/${slug}`,
+		priority: '0.7',
+		changefreq: 'monthly'
+	}));
 
 	// 3. Lista final combinada
 	const pages = [...staticPages, ...projectPages];
@@ -26,12 +37,13 @@ export async function GET() {
 >
   ${pages
 		.map((page) => {
+			const location = page.path ? `${website}/${page.path}` : `${website}/`;
 			return `
   <url>
-    <loc>${website}/${page}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>${page === '' ? '1.0' : '0.8'}</priority>
+		<loc>${location}</loc>
+		<lastmod>${generatedAt}</lastmod>
+		<changefreq>${page.changefreq}</changefreq>
+		<priority>${page.priority}</priority>
   </url>
   `;
 		})
