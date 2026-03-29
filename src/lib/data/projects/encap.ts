@@ -129,7 +129,6 @@ export const encap: CaseStudy = {
 			'Los estudiantes de ENCAP han expresado una alta satisfacción con el Tutor AI, destacando su capacidad para proporcionar respuestas rápidas y personalizadas. El equipo de ENCAP también ha reportado una mejora significativa en la experiencia de aprendizaje de los estudiantes desde la implementación del tutor.'
 	},
 	assets: {
-		liveUrl: 'https://www.encap.edu.pe/',
-		videoYoutube: 'https://www.youtube.com/watch?v=nHPqMsQJLFw'
+		liveUrl: 'https://www.encap.edu.pe/'
 	}
 };
