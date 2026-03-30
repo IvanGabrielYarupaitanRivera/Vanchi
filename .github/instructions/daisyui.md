@@ -391,7 +391,7 @@ Buttons allow the user to take actions
 
 - component: `btn`
 - color: `btn-neutral`, `btn-primary`, `btn-secondary`, `btn-accent`, `btn-info`, `btn-success`, `btn-warning`, `btn-error`
-- style: `btn-outline`, `btn-dash`, `btn-soft`, `btn-ghost`, `btn-link`
+- style: ``, `btn-dash`, `btn-soft`, `btn-ghost`, `btn-link`
 - behavior: `btn-active`, `btn-disabled`
 - size: `btn-xs`, `btn-sm`, `btn-md`, `btn-lg`, `btn-xl`
 - modifier: `btn-wide`, `btn-block`, `btn-square`, `btn-circle`
