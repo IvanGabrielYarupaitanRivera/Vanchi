@@ -2,6 +2,32 @@
 	import SEO from '$lib/components/SEO.svelte';
 	import { resolve } from '$app/paths';
 	import { ArrowLeft, ShieldCheck } from '@lucide/svelte';
+
+	const updatedAt = '30 de marzo de 2026';
+	const author = 'Ivan Yarupaitan Rivera';
+
+	const directQnA = [
+		{
+			question: '¿El cliente compra el código con la mensualidad?',
+			answer:
+				'No. La mensualidad cubre derecho de uso, mantenimiento y continuidad del servicio. El código puede liberarse mediante la cuota de liberación definida en el acuerdo.'
+		},
+		{
+			question: '¿Qué sucede si hay cancelación antes de 12 meses?',
+			answer:
+				'Se aplica penalidad contractual equivalente al 50% de las mensualidades restantes, como recuperación parcial de la inversión inicial de desarrollo.'
+		},
+		{
+			question: '¿El dominio pertenece al cliente?',
+			answer:
+				'Sí. El dominio es del cliente y puede gestionarlo directamente o delegar la compra técnica, siempre a su nombre.'
+		},
+		{
+			question: '¿Cómo se escalan nuevas funcionalidades?',
+			answer:
+				'Con módulos adicionales que ajustan la mensualidad total. Este enfoque evita rehacer el proyecto desde cero y permite crecimiento progresivo.'
+		}
+	] as const;
 </script>
 
 <SEO
@@ -37,6 +63,14 @@
 				Al contratar el servicio de suscripción mensual de Vanchi (Socio Tecnológico), el Cliente
 				acepta los siguientes puntos del acuerdo.
 			</p>
+			<div class="mt-5 flex flex-wrap gap-2 text-sm text-base-content/60">
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1"
+					>Autor: {author}</span
+				>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1"
+					>Actualizado: {updatedAt}</span
+				>
+			</div>
 		</header>
 
 		<!-- Contenido Legal -->
@@ -225,8 +259,28 @@
 			</section>
 		</article>
 
+		<section class="mt-16" aria-labelledby="legal-qa">
+			<h2 id="legal-qa" class="mb-6 text-3xl font-bold lg:text-4xl">Q&A directo</h2>
+			<div class="flex flex-col gap-4">
+				{#each directQnA as item (item.question)}
+					<details
+						class="rounded-2xl border border-white/10 bg-base-200/40 p-5 open:border-primary/30"
+					>
+						<summary class="cursor-pointer list-none text-base font-semibold text-base-content">
+							{item.question}
+						</summary>
+						<p class="mt-3 leading-loose text-base-content/70">{item.answer}</p>
+					</details>
+				{/each}
+			</div>
+		</section>
+
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
-			<a href={resolve('/precios')} class="btn btn-wide btn-outline"> Regresar a Precios </a>
+			<div class="flex flex-wrap justify-center gap-3">
+				<a href={resolve('/precios')} class="btn btn-outline">Regresar a Precios</a>
+				<a href={resolve('/waas')} class="btn btn-outline">Ver metodología WaaS</a>
+				<a href={resolve('/proyectos')} class="btn btn-outline">Ver casos de estudio</a>
+			</div>
 		</div>
 	</div>
 </main>

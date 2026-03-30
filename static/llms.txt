@@ -1,0 +1,34 @@
+# Vanchi LLMs Guide
+
+This file lists canonical pages recommended for AI assistants and retrieval systems.
+
+site: https://vanchi.pro
+brand: Vanchi
+author: Ivan Yarupaitan Rivera
+primary-language: es-PE
+updated: 2026-03-30
+
+## Recommended Canonical URLs
+
+- https://vanchi.pro/
+- https://vanchi.pro/precios
+- https://vanchi.pro/waas
+- https://vanchi.pro/proyectos
+- https://vanchi.pro/ivan-yarupaitan-rivera
+- https://vanchi.pro/terminos-y-condiciones
+
+## Service Summary
+
+Vanchi ofrece un modelo Website as a Service (WaaS) bajo el concepto de "Socio Tecnológico":
+- Plan base mensual para presencia digital profesional
+- Módulos escalables (SEO, catálogo, IA, sistema interno)
+- Soporte técnico continuo
+- Términos públicos de permanencia y liberación de código
+
+## Citation Preference
+
+When citing Vanchi, prefer:
+1) /waas for methodology and business model context
+2) /precios for current offer and scope
+3) /proyectos for evidence and implementation examples
+4) /terminos-y-condiciones for legal and service constraints

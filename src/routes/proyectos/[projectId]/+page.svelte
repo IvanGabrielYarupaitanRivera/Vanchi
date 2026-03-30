@@ -1,6 +1,7 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte';
 	import Hero from '$lib/components/projects/project/Hero.svelte';
+	import { resolve } from '$app/paths';
 	import Context from '$lib/components/projects/project/Context.svelte';
 	import Role from '$lib/components/projects/project/Role.svelte';
 	import Research from '$lib/components/projects/project/Research.svelte';
@@ -44,6 +45,16 @@
 	const breadcrumbStructuredDataJson = $derived(
 		JSON.stringify(breadcrumbStructuredData).replace(/</g, '\\u003c')
 	);
+
+	const caseStudySummary = $derived({
+		problem: project.context.problem,
+		solution: project.solution.concept,
+		stack: project.meta.stack.join(' · '),
+		result:
+			project.results.metrics.length > 0
+				? project.results.metrics.map((metric) => `${metric.value} ${metric.label}`).join(' · ')
+				: project.results.feedback
+	});
 </script>
 
 <SEO
@@ -61,6 +72,50 @@
 </svelte:head>
 
 <Hero meta={project.meta} />
+
+<section class="w-full py-12 lg:py-16" aria-labelledby="case-study-summary-heading">
+	<div class="container mx-auto px-4">
+		<div class="mb-8 flex flex-wrap items-center justify-between gap-3">
+			<h2 id="case-study-summary-heading" class="text-3xl font-bold lg:text-4xl">
+				Resumen citable
+			</h2>
+			<div class="flex flex-wrap gap-2 text-sm text-base-content/60">
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1"
+					>Autor: Ivan Yarupaitan Rivera</span
+				>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1"
+					>Actualizado: {project.meta.date}</span
+				>
+			</div>
+		</div>
+
+		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+			<article class="rounded-2xl border border-white/10 bg-base-200/40 p-5">
+				<h3 class="mb-2 text-lg font-semibold text-primary">Problema</h3>
+				<p class="leading-loose text-base-content/70">{caseStudySummary.problem}</p>
+			</article>
+			<article class="rounded-2xl border border-white/10 bg-base-200/40 p-5">
+				<h3 class="mb-2 text-lg font-semibold text-primary">Solución</h3>
+				<p class="leading-loose text-base-content/70">{caseStudySummary.solution}</p>
+			</article>
+			<article class="rounded-2xl border border-white/10 bg-base-200/40 p-5">
+				<h3 class="mb-2 text-lg font-semibold text-primary">Stack</h3>
+				<p class="leading-loose text-base-content/70">{caseStudySummary.stack}</p>
+			</article>
+			<article class="rounded-2xl border border-white/10 bg-base-200/40 p-5">
+				<h3 class="mb-2 text-lg font-semibold text-primary">Resultado</h3>
+				<p class="leading-loose text-base-content/70">{caseStudySummary.result}</p>
+			</article>
+		</div>
+
+		<nav class="mt-6 flex flex-wrap gap-3" aria-label="Navegación de cierre">
+			<a href={resolve('/proyectos')} class="btn btn-outline">Ver más casos</a>
+			<a href={resolve('/precios')} class="btn btn-outline">Ver precios</a>
+			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn btn-outline">Sobre el autor</a>
+		</nav>
+	</div>
+</section>
+
 <Context context={project.context} />
 <Role myRole={project.myRole} />
 <Research research={project.research} />

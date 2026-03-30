@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
 	import CollaborationModels from '$lib/components/precios/CollaborationModels.svelte';
+	import { projectsData } from '$lib/data/projects';
 
 	const serviceStructuredData = {
 		'@context': 'https://schema.org',
@@ -64,11 +66,14 @@
 
 	const serviceStructuredDataJson = JSON.stringify(serviceStructuredData).replace(/</g, '\\u003c');
 	const faqStructuredDataJson = JSON.stringify(faqStructuredData).replace(/</g, '\\u003c');
+	const updatedAt = '30 de marzo de 2026';
+	const author = 'Ivan Yarupaitan Rivera';
+	const publishedCases = Object.keys(projectsData).length;
 </script>
 
 <SEO
 	title="Precios de Desarrollo Web por Suscripción | Vanchi"
-	description="Activa tu plan Socio Tecnológico desde S/ 30 al mes. Modelo WaaS con landing profesional, hosting, SSL, soporte y módulos escalables como SEO, catálogo, sistema interno e IA."
+	description="Activa tu plan Socio Tecnológico en Perú desde S/ 30 al mes. Modelo WaaS con landing profesional, hosting, SSL, soporte continuo y módulos escalables para crecer sin fricción."
 	keywords="waas peru, desarrollo web por suscripción, socio tecnológico, landing page mensual, precios desarrollo web peru, plan web s/30, mantenimiento web y hosting"
 	url="https://vanchi.pro/precios"
 />
@@ -83,6 +88,32 @@
 </svelte:head>
 
 <CollaborationModels />
+
+<section class="w-full py-12 lg:py-16" aria-labelledby="pricing-local-intent">
+	<div class="container mx-auto px-4">
+		<div
+			class="mx-auto max-w-4xl rounded-2xl border border-white/10 bg-base-200/40 p-6 backdrop-blur-sm lg:p-8"
+		>
+			<h2 id="pricing-local-intent" class="mb-3 text-2xl font-bold lg:text-3xl">
+				Diseñado para negocios en
+				<span class="font-serif text-primary italic">Perú</span>
+			</h2>
+			<p class="leading-loose text-base-content/70">
+				Este modelo está pensado para marcas, profesionales y pymes peruanas que quieren lanzar o
+				escalar su presencia digital sin asumir una inversión inicial alta. El objetivo es que
+				empieces rápido, vendas mejor y escales por módulos según resultados reales.
+			</p>
+			<div class="mt-4 flex flex-wrap gap-2 text-sm text-base-content/60">
+				<span class="rounded-full border border-white/10 bg-base-100/40 px-3 py-1"
+					>Autor: {author}</span
+				>
+				<span class="rounded-full border border-white/10 bg-base-100/40 px-3 py-1"
+					>Actualizado: {updatedAt}</span
+				>
+			</div>
+		</div>
+	</div>
+</section>
 
 <section
 	class="w-full border-t border-white/10 py-20 lg:py-28"
@@ -115,5 +146,30 @@
 				</details>
 			{/each}
 		</div>
+
+		<div class="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-4 lg:grid-cols-3">
+			<article class="rounded-xl border border-white/10 bg-base-200/50 p-4">
+				<p class="text-2xl font-bold text-primary">{publishedCases}</p>
+				<p class="text-sm text-base-content/65">casos de estudio públicos</p>
+			</article>
+			<article class="rounded-xl border border-white/10 bg-base-200/50 p-4">
+				<p class="text-2xl font-bold text-primary">1</p>
+				<p class="text-sm text-base-content/65">acuerdo legal público</p>
+			</article>
+			<article class="rounded-xl border border-white/10 bg-base-200/50 p-4">
+				<p class="text-2xl font-bold text-primary">100%</p>
+				<p class="text-sm text-base-content/65">stack visible y verificable</p>
+			</article>
+		</div>
+
+		<nav
+			class="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3"
+			aria-label="Accesos clave"
+		>
+			<a href={resolve('/waas')} class="btn btn-outline">Ver metodología WaaS</a>
+			<a href={resolve('/proyectos')} class="btn btn-outline">Ver proyectos</a>
+			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn btn-outline">Conocer al autor</a>
+			<a href={resolve('/terminos-y-condiciones')} class="btn btn-outline">Ver términos</a>
+		</nav>
 	</div>
 </section>

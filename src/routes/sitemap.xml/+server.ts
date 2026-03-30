@@ -9,6 +9,7 @@ export async function GET() {
 	// 1. Rutas estáticas fijas
 	const staticPages = [
 		{ path: '', priority: '1.0', changefreq: 'weekly' },
+		{ path: 'waas', priority: '0.8', changefreq: 'monthly' },
 		{ path: 'proyectos', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'precios', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'ivan-yarupaitan-rivera', priority: '0.6', changefreq: 'monthly' },

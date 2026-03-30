@@ -9,11 +9,22 @@
 	import FacebookLogo from '$lib/assets/icons/network/FacebookLogo.svelte';
 
 	const year = new Date().getFullYear();
-	type FooterLinkHref = '/#servicios' | '/ivan-yarupaitan-rivera' | '/#contacto';
+	type FooterLinkHref =
+		| '/#servicios'
+		| '/precios'
+		| '/waas'
+		| '/proyectos'
+		| '/ivan-yarupaitan-rivera'
+		| '/terminos-y-condiciones'
+		| '/#contacto';
 
 	const links: { label: string; href: FooterLinkHref }[] = [
 		{ label: 'Servicios', href: '/#servicios' },
+		{ label: 'Precios', href: '/precios' },
+		{ label: 'Modelo WaaS', href: '/waas' },
+		{ label: 'Proyectos', href: '/proyectos' },
 		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' },
+		{ label: 'Términos', href: '/terminos-y-condiciones' },
 		{ label: 'Contacto', href: '/#contacto' }
 	];
 </script>
