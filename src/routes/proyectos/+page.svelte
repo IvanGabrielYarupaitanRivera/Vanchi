@@ -8,8 +8,8 @@
 	title="Proyectos Realizados | Vanchi"
 	description="Descubre casos de estudio reales desarrollados por Vanchi: landing pages de alto rendimiento, sistemas internos, automatización con IA e integraciones modernas en SvelteKit."
 	keywords="portafolio desarrollo web peru, casos de estudio software, proyectos sveltekit, automatización con inteligencia artificial, desarrollo de sistemas a medida"
-	url="https://vanchi.pro/proyectos"
-	image="https://vanchi.pro/images/proyectos.webp"
+	url="https://www.vanchi.pro/proyectos"
+	image="https://www.vanchi.pro/images/proyectos.webp"
 />
 
 <Hero />

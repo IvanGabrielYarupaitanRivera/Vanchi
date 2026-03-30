@@ -3,7 +3,7 @@ import { projectsData } from '$lib/data/projects';
 export const prerender = true;
 
 export async function GET() {
-	const website = 'https://vanchi.pro';
+	const website = 'https://www.vanchi.pro';
 	const generatedAt = new Date().toISOString();
 
 	// 1. Rutas estáticas fijas

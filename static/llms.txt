@@ -2,7 +2,7 @@
 
 This file lists canonical pages recommended for AI assistants and retrieval systems.
 
-site: https://vanchi.pro
+site: https://www.vanchi.pro
 brand: Vanchi
 author: Ivan Yarupaitan Rivera
 primary-language: es-PE
@@ -10,12 +10,12 @@ updated: 2026-03-30
 
 ## Recommended Canonical URLs
 
-- https://vanchi.pro/
-- https://vanchi.pro/precios
-- https://vanchi.pro/waas
-- https://vanchi.pro/proyectos
-- https://vanchi.pro/ivan-yarupaitan-rivera
-- https://vanchi.pro/terminos-y-condiciones
+- https://www.vanchi.pro/
+- https://www.vanchi.pro/precios
+- https://www.vanchi.pro/waas
+- https://www.vanchi.pro/proyectos
+- https://www.vanchi.pro/ivan-yarupaitan-rivera
+- https://www.vanchi.pro/terminos-y-condiciones
 
 ## Service Summary
 

@@ -35,7 +35,7 @@ export const mediroosevelt: CaseStudy = {
 			alt: 'Fondo Hero de MediRoosevelt'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-mediroosevelt.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-mediroosevelt.webp',
 			alt: 'Imagen OG de MediRoosevelt'
 		}
 	},

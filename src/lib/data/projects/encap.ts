@@ -28,7 +28,7 @@ export const encap: CaseStudy = {
 			alt: 'Fondo hero de ENCAP'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-encap.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-encap.webp',
 			alt: 'Imagen OG de ENCAP'
 		}
 	},

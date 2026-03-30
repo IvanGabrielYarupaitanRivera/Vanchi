@@ -37,7 +37,7 @@ export const obstetraconecta: CaseStudy = {
 			alt: 'Fondo Hero de ObstetraConecta'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-obstetraconecta.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-obstetraconecta.webp',
 			alt: 'Imagen OG de ObstetraConecta'
 		}
 	},

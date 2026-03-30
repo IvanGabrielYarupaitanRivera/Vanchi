@@ -19,7 +19,7 @@
 		ogImageHeight?: number;
 	}
 
-	const SITE_URL = 'https://vanchi.pro';
+	const SITE_URL = 'https://www.vanchi.pro';
 
 	let {
 		title = 'Vanchi — Desarrollo de Sistemas e Integración de Inteligencia Artificial',
@@ -27,7 +27,7 @@
 		keywords = 'ingeniería de sistemas, desarrollo web, sveltekit, inteligencia artificial, diseño ui/ux, vanchi, portafolio, typescript, full stack, programador',
 		author = 'Vanchi',
 		type = 'website',
-		image = 'https://vanchi.pro/images/og-image.webp',
+		image = 'https://www.vanchi.pro/images/og-image.webp',
 		url = `${SITE_URL}${page.url.pathname}`,
 		siteName = 'Vanchi',
 		twitterSite = '',

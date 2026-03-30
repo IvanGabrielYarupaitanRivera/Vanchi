@@ -14,8 +14,10 @@
 	let { data } = $props();
 	let { project } = $derived(data);
 
-	const ogImage = $derived(project.meta.ogImage?.src ?? 'https://vanchi.pro/images/og-image.webp');
-	const projectUrl = $derived(`https://vanchi.pro/proyectos/${project.id}`);
+	const ogImage = $derived(
+		project.meta.ogImage?.src ?? 'https://www.vanchi.pro/images/og-image.webp'
+	);
+	const projectUrl = $derived(`https://www.vanchi.pro/proyectos/${project.id}`);
 
 	const breadcrumbStructuredData = $derived({
 		'@context': 'https://schema.org',
@@ -25,13 +27,13 @@
 				'@type': 'ListItem',
 				position: 1,
 				name: 'Inicio',
-				item: 'https://vanchi.pro/'
+				item: 'https://www.vanchi.pro/'
 			},
 			{
 				'@type': 'ListItem',
 				position: 2,
 				name: 'Proyectos',
-				item: 'https://vanchi.pro/proyectos'
+				item: 'https://www.vanchi.pro/proyectos'
 			},
 			{
 				'@type': 'ListItem',

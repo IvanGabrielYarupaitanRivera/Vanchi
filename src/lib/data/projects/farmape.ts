@@ -31,7 +31,7 @@ export const farmape: CaseStudy = {
 			alt: 'Fondo Hero de Farmape'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-farmape.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-farmape.webp',
 			alt: 'Imagen OG de Farmape'
 		}
 	},

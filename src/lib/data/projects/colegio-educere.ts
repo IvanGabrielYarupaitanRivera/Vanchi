@@ -29,7 +29,7 @@ export const colegioEducere: CaseStudy = {
 			alt: 'Fondo hero del Colegio Educere'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-colegio-educere.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-colegio-educere.webp',
 			alt: 'Imagen OG del Colegio Educere'
 		}
 	},

@@ -12,7 +12,7 @@
 			'Servicio de desarrollo web por suscripción mensual con plan base y módulos escalables de SEO, catálogo, sistema interno e IA.',
 		provider: {
 			'@type': 'Person',
-			'@id': 'https://vanchi.pro/#person'
+			'@id': 'https://www.vanchi.pro/#person'
 		},
 		areaServed: {
 			'@type': 'Country',
@@ -24,7 +24,7 @@
 			price: '30',
 			priceCurrency: 'PEN',
 			availability: 'https://schema.org/InStock',
-			url: 'https://vanchi.pro/precios'
+			url: 'https://www.vanchi.pro/precios'
 		}
 	};
 
@@ -75,7 +75,7 @@
 	title="Precios de Desarrollo Web por Suscripción | Vanchi"
 	description="Activa tu plan Socio Tecnológico en Perú desde S/ 30 al mes. Modelo WaaS con landing profesional, hosting, SSL, soporte continuo y módulos escalables para crecer sin fricción."
 	keywords="waas peru, desarrollo web por suscripción, socio tecnológico, landing page mensual, precios desarrollo web peru, plan web s/30, mantenimiento web y hosting"
-	url="https://vanchi.pro/precios"
+	url="https://www.vanchi.pro/precios"
 />
 
 <svelte:head>

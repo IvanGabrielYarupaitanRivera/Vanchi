@@ -30,7 +30,7 @@ export const peraltaAsociados: CaseStudy = {
 			alt: 'Fondo hero de Peralta Asociados'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-peralta-asociados.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-peralta-asociados.webp',
 			alt: 'Imagen OG — Peralta Asociados'
 		}
 	},

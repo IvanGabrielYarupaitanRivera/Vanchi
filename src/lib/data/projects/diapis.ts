@@ -32,7 +32,7 @@ export const diapis: CaseStudy = {
 			alt: 'Fondo hero de Diapis'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-diapis.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-diapis.webp',
 			alt: 'Imagen OG de Diapis'
 		}
 	},

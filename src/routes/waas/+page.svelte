@@ -32,7 +32,7 @@
 	title="WaaS en Perú: Modelo Socio Tecnológico | Vanchi"
 	description="Conoce el modelo WaaS de Vanchi: web por suscripción mensual, módulos escalables, soporte continuo y enfoque comercial para negocios en Perú."
 	keywords="waas peru, website as a service peru, socio tecnológico, desarrollo web por suscripción, servicio web mensual"
-	url="https://vanchi.pro/waas"
+	url="https://www.vanchi.pro/waas"
 />
 
 <main class="min-h-screen py-24 lg:py-32">

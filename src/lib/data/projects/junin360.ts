@@ -29,7 +29,7 @@ export const junin360: CaseStudy = {
 			alt: 'Fondo Hero de Junín 360'
 		},
 		ogImage: {
-			src: 'https://vanchi.pro/images/proyectos/og-junin360.webp',
+			src: 'https://www.vanchi.pro/images/proyectos/og-junin360.webp',
 			alt: 'Imagen OG de Junín 360'
 		}
 	},

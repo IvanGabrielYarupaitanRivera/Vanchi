@@ -50,28 +50,28 @@
 		'@graph': [
 			{
 				'@type': 'ProfilePage',
-				'@id': 'https://vanchi.pro/ivan-yarupaitan-rivera#profile',
-				url: 'https://vanchi.pro/ivan-yarupaitan-rivera',
+				'@id': 'https://www.vanchi.pro/ivan-yarupaitan-rivera#profile',
+				url: 'https://www.vanchi.pro/ivan-yarupaitan-rivera',
 				name: 'Ivan Gabriel Yarupaitan Rivera',
 				description:
 					'Ingeniero de Sistemas y Computación. Construyo productos digitales que combinan arquitectura limpia, inteligencia artificial y diseño de alto impacto.',
 				isPartOf: {
-					'@id': 'https://vanchi.pro/#website'
+					'@id': 'https://www.vanchi.pro/#website'
 				},
 				mainEntity: {
-					'@id': 'https://vanchi.pro/#person'
+					'@id': 'https://www.vanchi.pro/#person'
 				}
 			},
 			{
 				'@type': 'Person',
-				'@id': 'https://vanchi.pro/#person',
+				'@id': 'https://www.vanchi.pro/#person',
 				name: 'Ivan Gabriel Yarupaitan Rivera',
 				givenName: 'Ivan Gabriel',
 				familyName: 'Yarupaitan Rivera',
 				alternateName: ['Ivan Yarupaitan Rivera', 'Vanchi'],
-				url: 'https://vanchi.pro/ivan-yarupaitan-rivera',
+				url: 'https://www.vanchi.pro/ivan-yarupaitan-rivera',
 				mainEntityOfPage: {
-					'@id': 'https://vanchi.pro/ivan-yarupaitan-rivera#profile'
+					'@id': 'https://www.vanchi.pro/ivan-yarupaitan-rivera#profile'
 				},
 				description:
 					'Ingeniero de Sistemas y Computación especializado en SvelteKit, TypeScript e integración de inteligencia artificial.',
@@ -102,7 +102,7 @@
 	description="Ingeniero de Sistemas y Computación. Construyo productos digitales que combinan arquitectura limpia, inteligencia artificial y diseño de alto impacto."
 	keywords="Ivan Gabriel Yarupaitan Rivera, ingeniero de sistemas, SvelteKit, inteligencia artificial, desarrollo web, portafolio personal"
 	type="profile"
-	url="https://vanchi.pro/ivan-yarupaitan-rivera"
+	url="https://www.vanchi.pro/ivan-yarupaitan-rivera"
 />
 
 <svelte:head>
