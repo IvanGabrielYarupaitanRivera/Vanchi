@@ -313,7 +313,7 @@
 				</a>
 				<a
 					href={resolve('/#contacto')}
-					class="btn transition-all duration-300 btn-outline btn-lg hover:-translate-y-1"
+					class="btn transition-all duration-300 btn-lg hover:-translate-y-1"
 				>
 					Enviar mensaje
 					<ArrowUpRight size={18} />

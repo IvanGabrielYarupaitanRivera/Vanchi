@@ -109,9 +109,9 @@
 		</div>
 
 		<nav class="mt-6 flex flex-wrap gap-3" aria-label="Navegación de cierre">
-			<a href={resolve('/proyectos')} class="btn btn-outline">Ver más casos</a>
-			<a href={resolve('/precios')} class="btn btn-outline">Ver precios</a>
-			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn btn-outline">Sobre el autor</a>
+			<a href={resolve('/proyectos')} class="btn">Ver más casos</a>
+			<a href={resolve('/precios')} class="btn">Ver precios</a>
+			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn">Sobre el autor</a>
 		</nav>
 	</div>
 </section>

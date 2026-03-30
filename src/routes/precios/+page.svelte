@@ -166,10 +166,10 @@
 			class="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3"
 			aria-label="Accesos clave"
 		>
-			<a href={resolve('/waas')} class="btn btn-outline">Ver metodología WaaS</a>
-			<a href={resolve('/proyectos')} class="btn btn-outline">Ver proyectos</a>
-			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn btn-outline">Conocer al autor</a>
-			<a href={resolve('/terminos-y-condiciones')} class="btn btn-outline">Ver términos</a>
+			<a href={resolve('/waas')} class="btn">Ver metodología WaaS</a>
+			<a href={resolve('/proyectos')} class="btn">Ver proyectos</a>
+			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn">Conocer al autor</a>
+			<a href={resolve('/terminos-y-condiciones')} class="btn">Ver términos</a>
 		</nav>
 	</div>
 </section>

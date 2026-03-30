@@ -277,9 +277,9 @@
 
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
-				<a href={resolve('/precios')} class="btn btn-outline">Regresar a Precios</a>
-				<a href={resolve('/waas')} class="btn btn-outline">Ver metodología WaaS</a>
-				<a href={resolve('/proyectos')} class="btn btn-outline">Ver casos de estudio</a>
+				<a href={resolve('/precios')} class="btn">Regresar a Precios</a>
+				<a href={resolve('/waas')} class="btn">Ver metodología WaaS</a>
+				<a href={resolve('/proyectos')} class="btn">Ver casos de estudio</a>
 			</div>
 		</div>
 	</div>
