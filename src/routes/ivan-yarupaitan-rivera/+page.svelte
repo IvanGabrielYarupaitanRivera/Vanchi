@@ -44,6 +44,57 @@
 		{ name: 'Vercel', icon: VercelLogo },
 		{ name: 'Netlify', icon: NetlifyLogo }
 	];
+
+	const profileStructuredData = {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'ProfilePage',
+				'@id': 'https://vanchi.pro/ivan-yarupaitan-rivera#profile',
+				url: 'https://vanchi.pro/ivan-yarupaitan-rivera',
+				name: 'Ivan Gabriel Yarupaitan Rivera',
+				description:
+					'Ingeniero de Sistemas y Computación. Construyo productos digitales que combinan arquitectura limpia, inteligencia artificial y diseño de alto impacto.',
+				isPartOf: {
+					'@id': 'https://vanchi.pro/#website'
+				},
+				mainEntity: {
+					'@id': 'https://vanchi.pro/#person'
+				}
+			},
+			{
+				'@type': 'Person',
+				'@id': 'https://vanchi.pro/#person',
+				name: 'Ivan Gabriel Yarupaitan Rivera',
+				givenName: 'Ivan Gabriel',
+				familyName: 'Yarupaitan Rivera',
+				alternateName: ['Ivan Yarupaitan Rivera', 'Vanchi'],
+				url: 'https://vanchi.pro/ivan-yarupaitan-rivera',
+				mainEntityOfPage: {
+					'@id': 'https://vanchi.pro/ivan-yarupaitan-rivera#profile'
+				},
+				description:
+					'Ingeniero de Sistemas y Computación especializado en SvelteKit, TypeScript e integración de inteligencia artificial.',
+				jobTitle: 'Ingeniero de Sistemas y Computación',
+				knowsLanguage: ['es', 'en'],
+				nationality: {
+					'@type': 'Country',
+					name: 'Perú'
+				},
+				homeLocation: {
+					'@type': 'Place',
+					name: 'Huancayo, Perú'
+				},
+				sameAs: [
+					'https://www.linkedin.com/in/ivan-yarupaitan-rivera/',
+					'https://github.com/IvanGabrielYarupaitanRivera'
+				],
+				knowsAbout: skills.map((skill) => skill.name)
+			}
+		]
+	};
+
+	const profileStructuredDataJson = JSON.stringify(profileStructuredData).replace(/</g, '\\u003c');
 </script>
 
 <SEO
@@ -53,6 +104,12 @@
 	type="profile"
 	url="https://vanchi.pro/ivan-yarupaitan-rivera"
 />
+
+<svelte:head>
+	<svelte:element this={'script'} type="application/ld+json">
+		{profileStructuredDataJson}
+	</svelte:element>
+</svelte:head>
 
 <main class="min-h-screen">
 	<!-- ====================== -->
