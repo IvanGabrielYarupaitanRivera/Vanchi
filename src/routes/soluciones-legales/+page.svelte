@@ -3,6 +3,7 @@
 	import Hero from '$lib/components/soluciones-legales/Hero.svelte';
 	import PhaseBentoGrid from '$lib/components/soluciones-legales/PhaseBentoGrid.svelte';
 	import PhaseDetails from '$lib/components/soluciones-legales/PhaseDetails.svelte';
+	import TrustAndFaq from '$lib/components/soluciones-legales/TrustAndFaq.svelte';
 </script>
 
 <SEO
@@ -18,3 +19,6 @@
 
 <!-- Detalles flexibles modo "Addon" por fases -->
 <PhaseDetails />
+
+<!-- Confianza, comparativa y FAQ para cierre de objeciones -->
+<TrustAndFaq />

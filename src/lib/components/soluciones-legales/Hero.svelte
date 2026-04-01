@@ -56,10 +56,10 @@
 		<nav in:fly={{ y: 30, duration: 1000, delay: 700 }} aria-label="Acciones principales">
 			<a
 				href={resolve('/#contacto')}
-				aria-label="Agendar una consulta sobre Legal Tech con Vanchi"
+				aria-label="Iniciar la modernización legal con Vanchi"
 				class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 			>
-				Agendar consulta
+				Inicia tu modernización hoy
 				<ArrowRight size={18} aria-hidden="true" />
 			</a>
 		</nav>

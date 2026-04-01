@@ -12,10 +12,11 @@
 			description:
 				'Una página web profesional que refleja el nivel real de tu firma. Primera impresión que genera confianza y hace que los clientes quieran contactarte antes incluso de leer tu bio.',
 			core: 'Página web rápida y elegante, optimizada para aparecer en Google, que se ve perfecta desde el celular.',
+			entryPrice: 'Comienza hoy por solo S/ 30/mes.',
 			addons: [
 				'Sección de artículos donde puedes publicar contenido de tu área',
-				'Botón de pago para cobrar consultas o servicios online',
-				'Chat en vivo para responder dudas al instante desde tu web'
+				'Sección de testimonios para mostrar casos de éxito y generar más confianza',
+				'Botón flotante de WhatsApp para que te escriban directamente desde la web'
 			]
 		},
 		{
@@ -24,11 +25,11 @@
 			shortTitle: 'Fase 2',
 			description:
 				'Tu firma empieza a trabajar sola para conseguir y agendar cliente. Un prospecto llega, completa un formulario, recibe confirmación y queda agendado — todo sin que tú muevas un dedo.',
-			core: 'Formulario de contacto inteligente, calendario de citas online y notificaciones automáticas por WhatsApp o correo cuando alguien agenda.',
+			core: 'Formulario de contacto inteligente, calendario de citas online y notificaciones automáticas por correo cuando alguien agenda.',
 			addons: [
 				'Zona privada donde el prospecto puede subir documentos antes de la reunión',
-				'Calculadora de honorarios para que el cliente tenga una idea del costo antes de llamar',
-				'Enlace personalizado para que clientes actuales recomienden tu firma'
+				'Calculadora de honorarios como herramienta de captación: el cliente la usa, te deja sus datos y tú recibes un lead calificado',
+				'Notificaciones automáticas por WhatsApp para confirmar, recordar o reprogramar citas'
 			]
 		},
 		{
@@ -39,8 +40,8 @@
 				'Todo tu estudio en un solo lugar. Expedientes, comunicaciones y documentos centralizados para que tú y tu equipo siempre estén en la misma página, sin perder nada.',
 			core: 'Sistema de gestión de clientes y expedientes hecho a medida, con historial completo, área privada para que cada cliente vea el avance de su caso.',
 			addons: [
-				'Conexión con tu sistema de facturación para emitir recibos desde el mismo lugar',
-				'Firma de documentos de forma digital con validez legal',
+				'Panel de reportes para ver casos activos, carga de trabajo y avances del estudio',
+				'Notificaciones por WhatsApp cuando haya avances importantes en el expediente',
 				'Aplicación en el celular para que tus clientes consulten su expediente cuando quieran'
 			]
 		},
@@ -147,6 +148,13 @@
 							<p class="text-sm leading-relaxed text-base-content/80">
 								{phaseDetails[activeTab].core}
 							</p>
+							{#if phaseDetails[activeTab].entryPrice}
+								<p
+									class="mt-4 inline-flex w-fit items-center gap-2 rounded-xl border border-primary/30 bg-primary/15 px-3 py-1.5 text-sm font-bold text-primary"
+								>
+									🔥 {phaseDetails[activeTab].entryPrice}
+								</p>
+							{/if}
 						</div>
 					</div>
 
@@ -157,8 +165,8 @@
 							Add-ons Disponibles
 						</h4>
 						<p class="mb-6 text-sm text-base-content/50">
-							Personaliza y potencia esta fase integrando características específicas que resuelvan
-							las particularidades de tu firma legal.
+							Estos add-ons son ejemplos. Cada fase se puede personalizar según las necesidades
+							reales de tu firma legal.
 						</p>
 
 						<ul class="flex flex-col gap-3">
