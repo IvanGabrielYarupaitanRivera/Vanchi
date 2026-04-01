@@ -89,6 +89,45 @@
 
 <CollaborationModels />
 
+<section class="w-full pb-6 lg:pb-10" aria-labelledby="pricing-fit-heading">
+	<div class="container mx-auto px-4">
+		<div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 lg:grid-cols-3">
+			<article
+				class="rounded-2xl border border-primary/20 bg-base-100/40 p-6 backdrop-blur-sm lg:col-span-2"
+			>
+				<h2 id="pricing-fit-heading" class="mb-3 text-2xl font-bold lg:text-3xl">
+					¿Este plan es para
+					<span class="font-serif text-primary italic">ti?</span>
+				</h2>
+				<p class="leading-loose text-base-content/70">
+					Sí, si quieres lanzar rápido, mantener costos predecibles y evolucionar sin reempezar de
+					cero. Dentro del acompañamiento puedes activar capacidades por etapas: SEO, IA, catálogo y
+					sistema interno, según tus objetivos reales y tu momento de negocio.
+				</p>
+				<div class="mt-4 flex flex-wrap gap-2 text-sm">
+					<span class="rounded-full border border-white/10 bg-base-200/50 px-3 py-1">SEO</span>
+					<span class="rounded-full border border-white/10 bg-base-200/50 px-3 py-1">IA</span>
+					<span class="rounded-full border border-white/10 bg-base-200/50 px-3 py-1">Catálogo</span>
+					<span class="rounded-full border border-white/10 bg-base-200/50 px-3 py-1"
+						>Sistema interno</span
+					>
+				</div>
+			</article>
+
+			<aside class="rounded-2xl border border-white/10 bg-base-200/40 p-6 backdrop-blur-sm">
+				<h3 class="mb-2 text-lg font-semibold">¿Necesitas algo más personalizado?</h3>
+				<p class="text-sm leading-loose text-base-content/65">
+					Conversemos y evaluamos tu caso sin fricción. Te diremos si encaja en WaaS o si conviene
+					un camino distinto.
+				</p>
+				<a href={resolve('/#contacto')} class="btn mt-4 border border-white/10 btn-ghost btn-sm">
+					Conversemos
+				</a>
+			</aside>
+		</div>
+	</div>
+</section>
+
 <section class="w-full py-12 lg:py-16" aria-labelledby="pricing-local-intent">
 	<div class="container mx-auto px-4">
 		<div
@@ -166,6 +205,7 @@
 			class="mx-auto mt-8 flex max-w-4xl flex-wrap justify-center gap-3"
 			aria-label="Accesos clave"
 		>
+			<a href={resolve('/#servicios')} class="btn">Ver soluciones</a>
 			<a href={resolve('/waas')} class="btn">Ver metodología WaaS</a>
 			<a href={resolve('/proyectos')} class="btn">Ver proyectos</a>
 			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn">Conocer al autor</a>
