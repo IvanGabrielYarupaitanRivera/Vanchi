@@ -18,7 +18,6 @@
 		| '/politica-de-privacidad'
 		| '/condiciones-del-servicio'
 		| '/eliminacion-de-datos-de-usuario'
-		| '/terminos-y-condiciones'
 		| '/#contacto';
 
 	const navLinks: { label: string; href: FooterLinkHref }[] = [
@@ -32,7 +31,6 @@
 	const legalLinks: { label: string; href: FooterLinkHref }[] = [
 		{ label: 'P. de Privacidad', href: '/politica-de-privacidad' },
 		{ label: 'Condiciones', href: '/condiciones-del-servicio' },
-		{ label: 'Términos', href: '/terminos-y-condiciones' },
 		{ label: 'Elim. de datos', href: '/eliminacion-de-datos-de-usuario' }
 	];
 </script>

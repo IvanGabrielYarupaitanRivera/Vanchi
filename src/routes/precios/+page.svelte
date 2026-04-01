@@ -209,7 +209,6 @@
 			<a href={resolve('/waas')} class="btn">Ver metodología WaaS</a>
 			<a href={resolve('/proyectos')} class="btn">Ver proyectos</a>
 			<a href={resolve('/ivan-yarupaitan-rivera')} class="btn">Conocer al autor</a>
-			<a href={resolve('/terminos-y-condiciones')} class="btn">Ver términos</a>
 		</nav>
 	</div>
 </section>

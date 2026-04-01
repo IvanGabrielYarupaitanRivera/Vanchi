@@ -145,7 +145,6 @@
 						<ArrowUpRight size={16} />
 					</a>
 					<a href={resolve('/proyectos')} class="btn">Ver proyectos</a>
-					<a href={resolve('/terminos-y-condiciones')} class="btn">Ver términos</a>
 				</div>
 			</div>
 		</div>

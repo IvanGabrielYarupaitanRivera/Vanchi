@@ -195,11 +195,11 @@
 					código y garantías contractuales en nuestro documento legal.
 					<div class="mt-3">
 						<a
-							href={resolve('/terminos-y-condiciones')}
+							href={resolve('/condiciones-del-servicio')}
 							class="inline-flex items-center gap-1.5 font-medium text-primary transition-colors hover:underline"
 						>
 							<ShieldCheck size={16} />
-							Ver Acuerdo del Servicio
+							Ver Condiciones del Servicio
 						</a>
 					</div>
 				</div>

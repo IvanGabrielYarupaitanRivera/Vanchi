@@ -131,7 +131,6 @@
 			<div class="flex flex-wrap justify-center gap-3">
 				<a href={resolve('/precios')} class="btn">Ver planes y precios</a>
 				<a href={resolve('/waas')} class="btn">Ver modelo WaaS</a>
-				<a href={resolve('/terminos-y-condiciones')} class="btn">Ver términos vigentes</a>
 				<a href={resolve('/politica-de-privacidad')} class="btn">Ver política de privacidad</a>
 				<a href={resolve('/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
 			</div>

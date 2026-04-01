@@ -14,7 +14,6 @@ export async function GET() {
 		{ path: 'precios', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'soluciones-legales', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'ivan-yarupaitan-rivera', priority: '0.6', changefreq: 'monthly' },
-		{ path: 'terminos-y-condiciones', priority: '0.4', changefreq: 'yearly' },
 		{ path: 'politica-de-privacidad', priority: '0.4', changefreq: 'yearly' },
 		{ path: 'condiciones-del-servicio', priority: '0.4', changefreq: 'yearly' },
 		{ path: 'eliminacion-de-datos-de-usuario', priority: '0.4', changefreq: 'yearly' }
