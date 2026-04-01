@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { ScrollText } from '@lucide/svelte';
 
 	const faqs = [
@@ -64,7 +65,7 @@
 		<p class="text-sm text-base-content/40">
 			Al contratar, aceptas nuestras
 			<a
-				href="/condiciones-del-servicio"
+				href={resolve('/condiciones-del-servicio')}
 				class="text-primary/60 underline underline-offset-2 transition-colors duration-300 hover:text-primary"
 			>
 				Condiciones del Servicio
