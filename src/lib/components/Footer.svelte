@@ -21,48 +21,57 @@
 		| '/terminos-y-condiciones'
 		| '/#contacto';
 
-	const links: { label: string; href: FooterLinkHref }[] = [
+	const navLinks: { label: string; href: FooterLinkHref }[] = [
 		{ label: 'Servicios', href: '/#servicios' },
-		{ label: 'Precios', href: '/precios' },
-		{ label: 'Modelo WaaS', href: '/waas' },
 		{ label: 'Proyectos', href: '/proyectos' },
-		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' },
-		{ label: 'Privacidad', href: '/politica-de-privacidad' },
-		{ label: 'Condiciones del servicio', href: '/condiciones-del-servicio' },
-		{ label: 'Eliminación de datos', href: '/eliminacion-de-datos-de-usuario' },
+		{ label: 'Modelo WaaS', href: '/waas' },
+		{ label: 'Precios', href: '/precios' },
+		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' }
+	];
+
+	const legalLinks: { label: string; href: FooterLinkHref }[] = [
+		{ label: 'P. de Privacidad', href: '/politica-de-privacidad' },
+		{ label: 'Condiciones', href: '/condiciones-del-servicio' },
 		{ label: 'Términos', href: '/terminos-y-condiciones' },
-		{ label: 'Contacto', href: '/#contacto' }
+		{ label: 'Elim. de datos', href: '/eliminacion-de-datos-de-usuario' }
 	];
 </script>
 
 <footer class="relative border-t border-white/10 bg-base-300" aria-label="Footer">
 	<div class="container mx-auto px-4 py-10">
 		<div
-			class="footer grid grid-cols-1 gap-10 rounded-2xl border border-white/10 bg-base-100 p-8 shadow-2xl lg:grid-cols-3 lg:p-10"
+			class="grid grid-cols-1 gap-12 rounded-3xl border border-white/10 bg-base-100/60 p-8 shadow-2xl backdrop-blur-lg sm:grid-cols-2 lg:grid-cols-4 lg:p-12"
 		>
-			<aside class="space-y-4">
-				<a href={resolve('/')} aria-label="Ir al inicio">
+			<aside class="flex flex-col space-y-6">
+				<a
+					href={resolve('/')}
+					class="w-fit transition-transform hover:scale-105"
+					aria-label="Ir al inicio"
+				>
 					<enhanced:img src={vanchi} alt="Vanchi Logo" class="h-8" />
 				</a>
 
-				<p class="max-w-md text-base-content/70">
+				<p class="text-sm leading-relaxed text-base-content/70">
 					Ingeniería de software y diseño digital de alto impacto. Sistemas elegantes, rápidos y
 					listos para escalar.
 				</p>
 
-				<a href={resolve('/#contacto')} class="btn btn-primary">
-					Comenzar una consulta
+				<a
+					href={resolve('/#contacto')}
+					class="btn w-fit shadow-[0_0_15px_rgba(197,160,89,0.15)] btn-sm btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.3)]"
+				>
+					Iniciar consulta
 					<ArrowUpRight size={16} />
 				</a>
 			</aside>
 
-			<nav aria-label="Navegación del sitio" class="flex w-full flex-col lg:items-center">
-				<h3 class="footer-title text-base-content/70">Navegación</h3>
-				<ul class="space-y-2">
-					{#each links as item (item.href)}
+			<nav aria-label="Explorar sitio" class="flex flex-col space-y-4">
+				<h3 class="text-sm font-semibold tracking-wider text-base-content uppercase">Explorar</h3>
+				<ul class="flex flex-col space-y-3">
+					{#each navLinks as item (item.href)}
 						<li>
 							<a
-								class="link text-base-content/70 link-hover transition-all duration-300"
+								class="inline-block text-sm text-base-content/60 transition-all duration-300 hover:translate-x-1 hover:text-primary"
 								href={resolve(item.href)}
 							>
 								{item.label}
@@ -72,77 +81,86 @@
 				</ul>
 			</nav>
 
-			<nav aria-label="Redes y contacto" class="flex w-full flex-col lg:items-center">
-				<h3 class="footer-title text-base-content/70">Conectar</h3>
+			<nav aria-label="Legal" class="flex flex-col space-y-4">
+				<h3 class="text-sm font-semibold tracking-wider text-base-content uppercase">Legal</h3>
+				<ul class="flex flex-col space-y-3">
+					{#each legalLinks as item (item.href)}
+						<li>
+							<a
+								class="inline-block text-sm text-base-content/60 transition-all duration-300 hover:translate-x-1 hover:text-primary"
+								href={resolve(item.href)}
+							>
+								{item.label}
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</nav>
 
-				<div class="flex flex-wrap gap-3">
+			<nav aria-label="Redes y contacto" class="flex flex-col space-y-4">
+				<h3 class="text-sm font-semibold tracking-wider text-base-content uppercase">Conectar</h3>
+
+				<div class="flex flex-wrap gap-2">
 					<a
-						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
 						href="https://github.com/IvanGabrielYarupaitanRivera"
 						target="_blank"
 						rel="external noopener noreferrer"
 						aria-label="GitHub"
-						title="GitHub"
 					>
-						<GithubLogo size={18} />
-						<span>GitHub</span>
+						<GithubLogo size={16} />
 					</a>
 					<a
-						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
 						href="https://www.linkedin.com/in/ivan-yarupaitan-rivera/"
 						target="_blank"
 						rel="external noopener noreferrer"
 						aria-label="LinkedIn"
-						title="LinkedIn"
 					>
-						<LinkedInLogo size={18} />
-						<span>LinkedIn</span>
+						<LinkedInLogo size={16} />
 					</a>
 					<a
-						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
 						href="https://www.facebook.com/vanchi.desarrollador"
 						target="_blank"
 						rel="external noopener noreferrer"
 						aria-label="Facebook"
-						title="Facebook"
 					>
-						<FacebookLogo size={18} />
-						<span>Facebook</span>
+						<FacebookLogo size={16} />
 					</a>
 					<a
-						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
 						href="https://wa.me/985942670"
 						target="_blank"
 						rel="external noopener noreferrer"
 						aria-label="WhatsApp"
-						title="WhatsApp"
 					>
-						<WhatsAppLogo size={18} />
-						<span>WhatsApp</span>
+						<WhatsAppLogo size={16} />
 					</a>
 					<a
-						class="badge py-4 badge-md transition-all duration-300 hover:-translate-y-1 hover:bg-base-300"
+						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
 						href="mailto:ivangyr321@gmail.com"
 						target="_blank"
 						rel="external noopener noreferrer"
 						aria-label="Email"
-						title="Email"
 					>
-						<GmailLogo size={18} />
-						<span>Email</span>
+						<GmailLogo size={16} />
 					</a>
 				</div>
 
-				<p class="mt-6 text-sm text-base-content/50">
-					Respuesta en aproximado 12 horas. Trabajo remoto y proyectos con alcance claro.
+				<p class="mt-4 text-xs leading-relaxed text-base-content/40">
+					Respuesta promedio en 12 horas.<br />Trabajo remoto y alcance claro.
 				</p>
 			</nav>
 		</div>
 
 		<div
-			class="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 lg:flex-row lg:items-center lg:justify-between"
+			class="mt-8 flex flex-col items-center justify-between space-y-4 px-4 sm:flex-row sm:space-y-0"
 		>
-			<p class="text-sm text-base-content/50">© {year} Vanchi. Todos los derechos reservados.</p>
+			<p class="text-xs text-base-content/40">© {year} Vanchi. Todos los derechos reservados.</p>
+			<p class="flex items-center gap-1 text-xs text-base-content/40">
+				Diseñado con <span class="text-primary">SvelteKit</span>
+			</p>
 		</div>
 	</div>
 </footer>
