@@ -97,16 +97,11 @@
 		</div>
 
 		<!-- Tabs DaisyUI -->
-		<div
-			role="tablist"
-			class="tabs-bordered no-scrollbar mb-8 tabs overflow-x-auto pb-1 tabs-lg whitespace-nowrap"
-		>
+		<div role="tablist" class="tabs-box mb-8 tabs">
 			{#each phaseDetails as phase, i (phase.id)}
 				<button
 					role="tab"
-					class="tab text-base font-bold transition-all {activeTab === i
-						? 'tab-active border-primary! text-primary'
-						: 'text-base-content/40 hover:text-base-content/80'}"
+					class="tab font-bold transition-all {activeTab === i ? 'tab-active  text-primary' : ' '}"
 					onclick={() => (activeTab = i)}
 				>
 					{phase.shortTitle}
@@ -187,14 +182,3 @@
 		</div>
 	</div>
 </section>
-
-<style>
-	/* Esconder scrollbar horizontal para los tabs en mobile */
-	.no-scrollbar::-webkit-scrollbar {
-		display: none;
-	}
-	.no-scrollbar {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
-	}
-</style>
