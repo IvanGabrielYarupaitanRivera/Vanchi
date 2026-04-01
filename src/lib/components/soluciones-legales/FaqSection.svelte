@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { Files } from '@lucide/svelte';
-
 	const faqs = [
 		{
 			id: 'uso',
@@ -56,32 +54,5 @@
 				</div>
 			{/each}
 		</div>
-	</div>
-
-	<!-- Bloque de cierre -->
-	<div
-		class="relative overflow-hidden rounded-3xl border border-primary/20 bg-base-100/60 px-8 py-14 text-center shadow-2xl backdrop-blur-lg lg:px-16"
-	>
-		<div
-			class="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-transparent"
-		></div>
-
-		<div
-			class="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20"
-		>
-			<Files class="text-primary" size={20} />
-		</div>
-
-		<p class="mx-auto max-w-2xl text-xl leading-loose text-base-content/75 lg:text-2xl">
-			No somos una agencia de marketing, somos el
-			<strong
-				class="bg-linear-to-r from-primary via-yellow-200 to-primary bg-clip-text font-bold text-transparent"
-				>brazo tecnológico</strong
-			> de tu estudio jurídico.
-		</p>
-
-		<p class="mt-6 text-sm font-bold tracking-[0.2em] text-primary/50 uppercase">
-			— Vanchi Legal &nbsp;·&nbsp; Ingeniería real para abogados de élite
-		</p>
 	</div>
 </div>
