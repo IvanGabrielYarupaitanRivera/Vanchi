@@ -14,10 +14,22 @@
 
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Inicio', icon: House },
-		{ href: '/#servicios', label: 'Servicios', icon: Box },
-		{ href: '/precios', label: 'Precios', icon: DollarSign },
+		{ href: '/precios', label: 'WaaS', icon: DollarSign },
+		{ href: '/#servicios', label: 'Soluciones', icon: Box },
 		{ href: '/proyectos', label: 'Proyectos', icon: Code }
 	];
+
+	const isNavItemActive = (href: NavHref) => {
+		if (href === '/') {
+			return page.url.pathname === '/' && page.url.hash === '';
+		}
+
+		if (href === '/#servicios') {
+			return page.url.pathname === '/' && page.url.hash === '#servicios';
+		}
+
+		return page.url.pathname === href;
+	};
 
 	// Estado reactivo con Runes (Svelte 5)
 	let open = $state(false);
@@ -36,13 +48,11 @@
 		<div class="navbar-center hidden lg:flex">
 			<ul class="flex gap-2">
 				{#each navItems as item (item.href)}
-					<!-- 2. Determinar si es la ruta activa -->
-					{@const isActive =
-						item.href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(item.href)}
+					{@const isActive = isNavItemActive(item.href)}
 					<li>
 						<a
 							href={resolve(item.href)}
-							class="} rounded-full px-4 py-2 text-sm transition-all hover:bg-neutral hover:text-primary
+							class="rounded-full px-4 py-2 text-sm transition-all hover:bg-neutral hover:text-primary
 							{isActive ? 'bg-white/10 text-white ' : 'text-base-content/80'}"
 						>
 							{item.label}
@@ -102,11 +112,7 @@
 			<nav class="flex-1">
 				<ul class="flex flex-col gap-2">
 					{#each navItems as item (item.href)}
-						<!-- 2. Determinar si es la ruta activa -->
-						{@const isActive =
-							item.href === '/'
-								? page.url.pathname === '/'
-								: page.url.pathname.startsWith(item.href)}
+						{@const isActive = isNavItemActive(item.href)}
 						<li>
 							<a
 								href={resolve(item.href)}

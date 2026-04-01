@@ -22,10 +22,10 @@
 		| '/#contacto';
 
 	const navLinks: { label: string; href: FooterLinkHref }[] = [
-		{ label: 'Servicios', href: '/#servicios' },
+		{ label: 'WaaS', href: '/precios' },
+		{ label: 'Soluciones', href: '/#servicios' },
 		{ label: 'Proyectos', href: '/proyectos' },
-		{ label: 'Modelo WaaS', href: '/waas' },
-		{ label: 'Precios', href: '/precios' },
+		{ label: 'Metodología WaaS', href: '/waas' },
 		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' }
 	];
 
@@ -52,15 +52,15 @@
 				</a>
 
 				<p class="text-sm leading-relaxed text-base-content/70">
-					Ingeniería de software y diseño digital de alto impacto. Sistemas elegantes, rápidos y
-					listos para escalar.
+					WaaS para marcas que quieren lanzar rápido, escalar con criterio y activar nuevas
+					capacidades sin reconstruir todo desde cero.
 				</p>
 
 				<a
-					href={resolve('/#contacto')}
+					href={resolve('/precios')}
 					class="btn w-fit shadow-[0_0_15px_rgba(197,160,89,0.15)] btn-sm btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.3)]"
 				>
-					Iniciar consulta
+					Ver plan WaaS
 					<ArrowUpRight size={16} />
 				</a>
 			</aside>

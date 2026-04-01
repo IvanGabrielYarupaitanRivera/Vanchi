@@ -32,8 +32,8 @@
 						<div class="status status-primary"></div>
 					</div>
 					<span class="flex gap-1 text-xs font-medium tracking-widest text-base-content uppercase">
-						Disponible
-						<span class="hidden lg:inline">para nuevos proyectos</span>
+						WaaS disponible
+						<span class="hidden lg:inline">para marcas que quieren escalar</span>
 					</span>
 				</div>
 			</div>
@@ -56,9 +56,9 @@
 				in:fly={{ y: 30, duration: 1000, delay: 600 }}
 				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
 			>
-				Diseño y desarrollo sistemas modernos y robustos con tecnologías de vanguardia y
-				arquitecturas escalables. Transformamos ideas en productos digitales que impulsan el éxito
-				de tu negocio.
+				Activa tu presencia digital con un modelo <strong class="text-primary">WaaS</strong>
+				claro y escalable. Empieza con una base sólida y evoluciona con SEO, IA, catálogo o sistemas
+				internos según el momento real de tu negocio.
 			</p>
 
 			<!-- Buttons: CTA Principal -->
@@ -66,13 +66,21 @@
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
 						<a
-							href={resolve('/#contacto')}
-							type="button"
-							aria-label="Iniciar un proyecto con Vanchi"
+							href={resolve('/precios')}
+							aria-label="Ver el plan WaaS de Vanchi"
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 						>
-							Iniciar proyecto
+							Ver plan WaaS
 							<ArrowRight size={18} aria-hidden="true" />
+						</a>
+					</li>
+					<li role="listitem">
+						<a
+							href={resolve('/#servicios')}
+							aria-label="Explorar soluciones que se pueden activar con Vanchi"
+							class="btn border border-white/10 bg-base-100/40 btn-ghost transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:text-primary"
+						>
+							Explorar soluciones
 						</a>
 					</li>
 				</ul>

@@ -10,20 +10,28 @@
 	<div class="container mx-auto px-4">
 		<!-- Header de Sección -->
 		<div class="mb-8 text-center">
+			<p
+				in:fly={{ y: 30, duration: 800, delay: 100 }}
+				class="mb-4 inline-flex rounded-full border border-primary/20 bg-primary/8 px-4 py-1 text-xs font-semibold tracking-[0.2em] text-primary uppercase"
+			>
+				Soluciones activables dentro de WaaS
+			</p>
 			<h2 in:fly={{ y: 30, duration: 800, delay: 200 }} class="mb-4 text-3xl font-bold lg:text-5xl">
-				Servicios que
+				Soluciones que puedes
 				<span
 					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
 				>
-					Ofrecemos.
+					escalar.
 				</span>
 			</h2>
 			<p
 				in:fly={{ y: 30, duration: 800, delay: 400 }}
-				class="mx-auto max-w-2xl text-base text-base-content/60 lg:text-lg"
+				class="mx-auto max-w-3xl text-base text-base-content/60 lg:text-lg"
 			>
-				Desde consultoría en IA hasta desarrollo de aplicaciones modernas personalizadas, ofrecemos
-				soluciones integrales para transformar tu negocio y potenciar tu presencia digital.
+				Estas soluciones no compiten con el plan principal: lo fortalecen. Con
+				<span class="font-semibold text-base-content">WaaS</span> empiezas con una base sólida y, según
+				tu etapa, activas capacidades como SEO, IA, catálogo o sistemas internos sin entrar en un proceso
+				de cotización confuso desde el primer clic.
 			</p>
 		</div>
 
