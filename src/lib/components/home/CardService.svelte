@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowUpRight } from '@lucide/svelte';
+	import { ArrowUpRight, MessageCircle } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
 	import type { Service } from '$lib/constants/services';
 	import { resolve } from '$app/paths';
@@ -67,10 +67,11 @@
 		<a
 			onclick={() => onSelectService(service.title)}
 			href={resolve('/#contacto')}
-			class="btn px-0 text-base-content/60 btn-ghost hover:bg-transparent hover:text-primary"
+			class="btn"
 			aria-label={`Solicitar una evaluación personalizada para ${service.title}`}
 		>
-			Caso especial
+			<span> Caso especial </span>
+			<MessageCircle size={16} />
 		</a>
 	</div>
 </article>
