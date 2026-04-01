@@ -71,7 +71,7 @@
 <main class="min-h-screen py-24 lg:py-32">
 	<div class="container mx-auto max-w-4xl px-4">
 		<a
-			href="https://www.vanchi.pro/politica-de-privacidad"
+			href={resolve('/politica-de-privacidad')}
 			class="mb-8 inline-flex items-center gap-2 text-sm text-base-content/60 transition-colors hover:text-primary"
 		>
 			<ArrowLeft size={16} />
@@ -129,13 +129,11 @@
 
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
-				<a href="https://www.vanchi.pro/politica-de-privacidad" class="btn"
-					>Ver política de privacidad</a
-				>
-				<a href="https://www.vanchi.pro/condiciones-del-servicio" class="btn"
-					>Ver condiciones del servicio</a
-				>
+				<a href={resolve('/precios')} class="btn">Ver planes y precios</a>
 				<a href={resolve('/waas')} class="btn">Ver modelo WaaS</a>
+				<a href={resolve('/terminos-y-condiciones')} class="btn">Ver términos vigentes</a>
+				<a href={resolve('/politica-de-privacidad')} class="btn">Ver política de privacidad</a>
+				<a href={resolve('/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
 			</div>
 			<p class="mx-auto mt-6 max-w-2xl text-sm leading-loose text-base-content/60">
 				Para iniciar una solicitud, escríbenos a <strong>{legalEmail}</strong> con el asunto “Eliminación

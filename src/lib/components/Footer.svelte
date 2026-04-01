@@ -15,6 +15,9 @@
 		| '/waas'
 		| '/proyectos'
 		| '/ivan-yarupaitan-rivera'
+		| '/politica-de-privacidad'
+		| '/condiciones-del-servicio'
+		| '/eliminacion-de-datos-de-usuario'
 		| '/terminos-y-condiciones'
 		| '/#contacto';
 
@@ -24,6 +27,9 @@
 		{ label: 'Modelo WaaS', href: '/waas' },
 		{ label: 'Proyectos', href: '/proyectos' },
 		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' },
+		{ label: 'Privacidad', href: '/politica-de-privacidad' },
+		{ label: 'Condiciones del servicio', href: '/condiciones-del-servicio' },
+		{ label: 'Eliminación de datos', href: '/eliminacion-de-datos-de-usuario' },
 		{ label: 'Términos', href: '/terminos-y-condiciones' },
 		{ label: 'Contacto', href: '/#contacto' }
 	];

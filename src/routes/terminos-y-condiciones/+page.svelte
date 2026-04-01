@@ -71,6 +71,15 @@
 					>Actualizado: {updatedAt}</span
 				>
 			</div>
+			<p
+				class="mt-6 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3 text-sm text-base-content/80"
+			>
+				Esta página se mantiene activa temporalmente. La versión principal de condiciones para
+				nuevos acuerdos está en
+				<a href={resolve('/condiciones-del-servicio')} class="ml-1 link text-primary link-hover">
+					Condiciones del Servicio
+				</a>.
+			</p>
 		</header>
 
 		<!-- Contenido Legal -->
@@ -277,6 +286,7 @@
 
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
+				<a href={resolve('/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
 				<a href={resolve('/precios')} class="btn">Regresar a Precios</a>
 				<a href={resolve('/waas')} class="btn">Ver metodología WaaS</a>
 				<a href={resolve('/proyectos')} class="btn">Ver casos de estudio</a>

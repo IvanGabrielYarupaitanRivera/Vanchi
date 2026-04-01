@@ -148,13 +148,13 @@
 
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
-				<a href="https://www.vanchi.pro/condiciones-del-servicio" class="btn"
-					>Ver condiciones del servicio</a
-				>
-				<a href="https://www.vanchi.pro/eliminacion-de-datos-de-usuario" class="btn"
+				<a href={resolve('/precios')} class="btn">Ver planes y precios</a>
+				<a href={resolve('/waas')} class="btn">Ver modelo WaaS</a>
+				<a href={resolve('/terminos-y-condiciones')} class="btn">Ver términos vigentes</a>
+				<a href={resolve('/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
+				<a href={resolve('/eliminacion-de-datos-de-usuario')} class="btn"
 					>Solicitar eliminación de datos</a
 				>
-				<a href={resolve('/waas')} class="btn">Ver modelo WaaS</a>
 			</div>
 		</div>
 	</div>
