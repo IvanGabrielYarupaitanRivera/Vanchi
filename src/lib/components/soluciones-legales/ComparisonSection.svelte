@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SearchCheck, X, Check, Clock3, Bot, Smartphone } from '@lucide/svelte';
+	import { X, Check, Clock3, Bot, Smartphone } from '@lucide/svelte';
 
 	const comparisonRows = [
 		{
@@ -47,14 +47,14 @@
 <div
 	class="rounded-3xl border border-white/10 bg-base-100/60 p-8 shadow-2xl backdrop-blur-lg lg:p-12"
 >
-	<div class="mb-8 flex items-center gap-4">
-		<div class="rounded-2xl bg-primary/10 p-3 ring-1 ring-primary/20">
-			<SearchCheck class="text-primary" size={28} />
-		</div>
-		<div>
-			<h3 class="text-2xl font-bold text-base-content lg:text-3xl">Antes vs. Después</h3>
-			<p class="mt-0.5 text-sm text-base-content/50">La diferencia en la práctica diaria</p>
-		</div>
+	<div class="mb-8 lg:w-2/3">
+		<span class="mb-2 block text-sm font-bold tracking-widest text-primary uppercase"
+			>Transformación Real</span
+		>
+		<h3 class="mb-4 text-3xl leading-tight font-bold lg:text-4xl">
+			El antes y el después, <br />
+			<span class="font-serif text-base-content/50 italic">en tu práctica diaria.</span>
+		</h3>
 	</div>
 
 	<!-- Column headers (desktop only) -->

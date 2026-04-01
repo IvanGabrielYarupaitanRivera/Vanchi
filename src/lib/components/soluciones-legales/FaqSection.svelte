@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { HelpCircleIcon } from '@lucide/svelte';
+	import { Files } from '@lucide/svelte';
 
 	const faqs = [
 		{
@@ -28,14 +28,14 @@
 	<div
 		class="rounded-3xl border border-white/10 bg-base-100/60 p-8 shadow-2xl backdrop-blur-lg lg:p-12"
 	>
-		<div class="mb-8 flex items-center gap-4">
-			<div class="rounded-2xl bg-primary/10 p-3 ring-1 ring-primary/20">
-				<HelpCircleIcon class="text-primary" size={28} />
-			</div>
-			<div>
-				<h3 class="text-2xl font-bold text-base-content lg:text-3xl">Preguntas Frecuentes</h3>
-				<p class="mt-0.5 text-sm text-base-content/50">Las dudas más comunes, respondidas.</p>
-			</div>
+		<div class="mb-8 lg:w-2/3">
+			<span class="mb-2 block text-sm font-bold tracking-widest text-primary uppercase"
+				>Resolvemos tus dudas</span
+			>
+			<h3 class="mb-4 text-3xl leading-tight font-bold lg:text-4xl">
+				Todo lo que necesitas saber, <br />
+				<span class="font-serif text-base-content/50 italic">antes de decidir.</span>
+			</h3>
 		</div>
 
 		<div class="space-y-3">
@@ -56,5 +56,32 @@
 				</div>
 			{/each}
 		</div>
+	</div>
+
+	<!-- Bloque de cierre -->
+	<div
+		class="relative overflow-hidden rounded-3xl border border-primary/20 bg-base-100/60 px-8 py-14 text-center shadow-2xl backdrop-blur-lg lg:px-16"
+	>
+		<div
+			class="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-transparent"
+		></div>
+
+		<div
+			class="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20"
+		>
+			<Files class="text-primary" size={20} />
+		</div>
+
+		<p class="mx-auto max-w-2xl text-xl leading-loose text-base-content/75 lg:text-2xl">
+			No somos una agencia de marketing, somos el
+			<strong
+				class="bg-linear-to-r from-primary via-yellow-200 to-primary bg-clip-text font-bold text-transparent"
+				>brazo tecnológico</strong
+			> de tu estudio jurídico.
+		</p>
+
+		<p class="mt-6 text-sm font-bold tracking-[0.2em] text-primary/50 uppercase">
+			— Vanchi Legal &nbsp;·&nbsp; Ingeniería real para abogados de élite
+		</p>
 	</div>
 </div>

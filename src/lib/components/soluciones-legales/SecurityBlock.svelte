@@ -37,20 +37,21 @@
 	<div class="relative flex flex-col gap-10 lg:flex-row lg:items-center">
 		<!-- Content -->
 		<div class="flex-1">
-			<div class="mb-5 flex items-center gap-4">
-				<div class="rounded-2xl bg-primary/10 p-3 ring-1 ring-primary/20">
-					<ShieldCheck class="text-primary" size={28} />
-				</div>
-				<div>
-					<h3 class="text-2xl font-bold text-base-content lg:text-3xl">Seguridad y Privacidad</h3>
-					<p class="mt-0.5 text-sm text-primary/60">Estándares de nivel bancario</p>
-				</div>
+			<div class="mb-8">
+				<span class="mb-2 block text-sm font-bold tracking-widest text-primary uppercase"
+					>Seguridad</span
+				>
+				<h3 class="mb-4 text-3xl leading-tight font-bold lg:text-4xl">
+					Tus datos, blindados. <br />
+					<span class="font-serif text-base-content/50 italic">desde el primer día.</span>
+				</h3>
+				<p class="max-w-xl leading-loose text-base-content/70">
+					Arquitectura diseñada para cumplir con los estándares más exigentes del sector legal
+					peruano. Encriptación de nivel bancario y cumplimiento con la <strong
+						>Ley de Protección de Datos Personales</strong
+					>.
+				</p>
 			</div>
-
-			<p class="mb-8 max-w-xl leading-loose text-base-content/70">
-				Tus datos están blindados desde el primer día. Arquitectura diseñada para cumplir con los
-				estándares más exigentes del sector legal peruano.
-			</p>
 
 			<div class="grid grid-cols-1 gap-3 lg:grid-cols-3">
 				{#each features as feature (feature.id)}
