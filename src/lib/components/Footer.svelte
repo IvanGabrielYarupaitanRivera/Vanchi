@@ -159,7 +159,7 @@
 		>
 			<p class="text-xs text-base-content/40">© {year} Vanchi. Todos los derechos reservados.</p>
 			<p class="flex items-center gap-1 text-xs text-base-content/40">
-				Diseñado con <span class="text-primary">SvelteKit</span>
+				Diseñado con <span class="text-primary">Profesionalismo</span>
 			</p>
 		</div>
 	</div>
