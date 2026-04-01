@@ -5,16 +5,14 @@
 	import { ArrowRight } from '@lucide/svelte';
 </script>
 
-<section
-	class="relative -mt-24 flex min-h-screen w-full flex-col items-center justify-start overflow-hidden pt-40 lg:pt-48"
->
+<section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
 	<!-- Imagen de fondo (igual al Hero principal) -->
 	<enhanced:img
 		src={bgHero}
 		alt="Fondo para el Hero de Soluciones Legales"
 		fetchpriority="high"
 		loading="eager"
-		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% object-cover object-center opacity-5"
+		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% object-cover object-center opacity-10"
 	/>
 
 	<!-- ── Texto superior centrado ── -->
