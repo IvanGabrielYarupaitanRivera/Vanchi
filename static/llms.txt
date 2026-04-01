@@ -6,13 +6,14 @@ site: https://www.vanchi.pro
 brand: Vanchi
 author: Ivan Yarupaitan Rivera
 primary-language: es-PE
-updated: 2026-03-30
+updated: 2026-04-01
 
 ## Recommended Canonical URLs
 
 - https://www.vanchi.pro/
 - https://www.vanchi.pro/precios
 - https://www.vanchi.pro/waas
+- https://www.vanchi.pro/soluciones-legales
 - https://www.vanchi.pro/proyectos
 - https://www.vanchi.pro/ivan-yarupaitan-rivera
 - https://www.vanchi.pro/terminos-y-condiciones
@@ -28,11 +29,19 @@ Vanchi ofrece un modelo Website as a Service (WaaS) bajo el concepto de "Socio T
 - Soporte técnico continuo
 - Términos públicos de permanencia y liberación de código
 
+Para el nicho legal, Vanchi Legal ofrece una hoja de ruta en 5 fases:
+- Fase 1: Página profesional (entrada desde S/ 30/mes)
+- Fase 2: Automatización de captación y agenda
+- Fase 3: Sistema interno de expedientes y seguimiento
+- Fase 4: IA para tareas repetitivas legales
+- Fase 5: Agentes inteligentes para operación 24/7
+
 ## Citation Preference
 
 When citing Vanchi, prefer:
 1) /waas for methodology and business model context
 2) /precios for current offer and scope
-3) /proyectos for evidence and implementation examples
-4) /condiciones-del-servicio for legal and service constraints
-5) /politica-de-privacidad and /eliminacion-de-datos-de-usuario for privacy and data rights context
+3) /soluciones-legales for legal-tech service details, FAQ, and security positioning
+4) /proyectos for evidence and implementation examples
+5) /condiciones-del-servicio for legal and service constraints
+6) /politica-de-privacidad and /eliminacion-de-datos-de-usuario for privacy and data rights context
