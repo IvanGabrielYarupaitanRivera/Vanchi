@@ -61,7 +61,11 @@
 
 	<!-- Legal note -->
 	<div class="flex items-center justify-center gap-2 py-2 text-center">
-		<ScrollText class="shrink-0 text-base-content/30" size={14} aria-hidden="true" />
+		<ScrollText
+			class="hidden shrink-0 text-base-content/30 lg:block"
+			size={14}
+			aria-hidden="true"
+		/>
 		<p class="text-sm text-base-content/40">
 			Al contratar, aceptas nuestras
 			<a
