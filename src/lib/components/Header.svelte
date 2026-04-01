@@ -9,7 +9,7 @@
 	import { fade, fly } from 'svelte/transition';
 
 	// Definición del tipo de props para los iconos
-	type NavHref = '/' | '/#servicios' | '/precios' | '/proyectos';
+	type NavHref = '/' | '/#servicios' | '/precios' | '/soluciones-legales' | '/proyectos';
 	type NavItem = { href: NavHref; label: string; icon: Component<IconProps> };
 
 	const navItems: NavItem[] = [
