@@ -1,6 +1,5 @@
 <script lang="ts">
 	import bgHero from '$lib/assets/images/soluciones/legales/bgHero.webp';
-	import { resolve } from '$app/paths';
 	import { fly } from 'svelte/transition';
 	import { ArrowRight } from '@lucide/svelte';
 </script>
@@ -55,8 +54,10 @@
 		<!-- CTA único -->
 		<nav in:fly={{ y: 30, duration: 1000, delay: 700 }} aria-label="Acciones principales">
 			<a
-				href={resolve('/#contacto')}
-				aria-label="Iniciar la modernización legal con Vanchi"
+				href="https://wa.me/51985942670?text=Hola%20Vanchi%2C%20quiero%20iniciar%20la%20modernizaci%C3%B3n%20de%20mi%20estudio%20jur%C3%ADdico."
+				target="_blank"
+				rel="external noopener noreferrer"
+				aria-label="Iniciar la modernización legal por WhatsApp"
 				class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 			>
 				Inicia tu modernización hoy
