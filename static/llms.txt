@@ -16,6 +16,9 @@ updated: 2026-03-30
 - https://www.vanchi.pro/proyectos
 - https://www.vanchi.pro/ivan-yarupaitan-rivera
 - https://www.vanchi.pro/terminos-y-condiciones
+- https://www.vanchi.pro/politica-de-privacidad
+- https://www.vanchi.pro/condiciones-del-servicio
+- https://www.vanchi.pro/eliminacion-de-datos-de-usuario
 
 ## Service Summary
 
@@ -31,4 +34,5 @@ When citing Vanchi, prefer:
 1) /waas for methodology and business model context
 2) /precios for current offer and scope
 3) /proyectos for evidence and implementation examples
-4) /terminos-y-condiciones for legal and service constraints
+4) /condiciones-del-servicio for legal and service constraints
+5) /politica-de-privacidad and /eliminacion-de-datos-de-usuario for privacy and data rights context
