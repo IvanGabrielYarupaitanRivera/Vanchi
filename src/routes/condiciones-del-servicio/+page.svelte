@@ -8,48 +8,75 @@
 	const legalRuc = '10710480031';
 	const legalEmail = 'ivangyr321@gmail.com';
 
+	const directQnA = [
+		{
+			question: '¿El cliente compra el código con la mensualidad?',
+			answer:
+				'No. La mensualidad cubre derecho de uso, mantenimiento y continuidad del servicio. El código puede liberarse mediante la cuota de liberación definida en el acuerdo.'
+		},
+		{
+			question: '¿Qué sucede si hay cancelación antes de 12 meses?',
+			answer:
+				'Se aplica penalidad contractual equivalente al 50% de las mensualidades restantes, como recuperación parcial de la inversión inicial de desarrollo.'
+		},
+		{
+			question: '¿El dominio pertenece al cliente?',
+			answer:
+				'Sí. El dominio es del cliente y puede gestionarlo directamente o delegar la compra técnica, siempre a su nombre.'
+		},
+		{
+			question: '¿Cómo se escalan nuevas funcionalidades?',
+			answer:
+				'Con módulos adicionales que ajustan la mensualidad total. Este enfoque evita rehacer el proyecto desde cero y permite crecimiento progresivo.'
+		}
+	] as const;
+
 	const termsSections = [
 		{
-			title: '01. Objeto del servicio',
+			title: '01. El Modelo de Suscripción (SaaS)',
 			content: [
-				'Estas condiciones regulan la relación entre Vanchi y el cliente para la prestación del servicio Socio Tecnológico (WaaS).',
-				'El servicio consiste en diseño, desarrollo, mantenimiento y evolución de activos digitales bajo suscripción.'
+				'El cliente entiende que no está comprando un software a perpetuidad de un solo pago, sino contratando un derecho de uso mensual.',
+				'El código fuente, la lógica del sistema y la infraestructura base son propiedad de Vanchi durante la vigencia de la suscripción.',
+				'El pago mensual garantiza continuidad del servicio, mantenimiento técnico y soporte operativo según el plan contratado.'
 			]
 		},
 		{
-			title: '02. Alcance del servicio',
+			title: '02. Compromiso de Permanencia (12 meses)',
 			content: [
-				'El alcance específico de cada plan se define en la propuesta comercial aceptada por el cliente.',
-				'Solicitudes fuera del alcance inicial se evalúan como ampliaciones, módulos o reajustes de tarifa.'
+				'Para reducir el costo inicial de arquitectura y diseño, el cliente asume una permanencia mínima de doce (12) meses consecutivos.',
+				'Si el cliente cancela antes de cumplir ese periodo, se aplica una penalidad equivalente al 50% de las mensualidades restantes.'
 			]
 		},
 		{
-			title: '03. Pagos y modalidad de suscripción',
+			title: '03. Propiedad del Dominio (La Identidad)',
 			content: [
-				'El servicio opera bajo pago recurrente según la frecuencia acordada. El incumplimiento de pago puede activar suspensión temporal.',
-				'Los importes y fechas de facturación se detallan en la propuesta o acuerdo comercial vigente.'
+				'El dominio oficial del proyecto es propiedad del cliente en todo momento.',
+				'La renovación del dominio corre por cuenta del cliente y puede gestionarse directamente o delegarse técnicamente a Vanchi, siempre a nombre del cliente.',
+				'Si el servicio se cancela, el cliente mantiene control total del dominio; el dominio no implica transferencia automática del código del sistema.'
 			]
 		},
 		{
-			title: '04. Permanencia, suspensión y terminación',
+			title: '04. Cuota de Liberación (si se requiere el código)',
 			content: [
-				'La relación comercial puede incluir plazos mínimos de permanencia según la modalidad contratada.',
-				'Si existe mora o incumplimiento grave, Vanchi podrá suspender parcial o totalmente el servicio hasta regularización.',
-				'La terminación anticipada puede generar cargos pendientes definidos contractualmente.'
+				'El cliente puede solicitar la liberación del código bajo una cuota de liberación definida en el acuerdo comercial.',
+				'Como referencia, la cuota base para landing pages es S/ 600; para sistemas más complejos se cotiza según volumen de código y datos.',
+				'Luego de la liberación y entrega de repositorios, el cliente asume costos y operación de hosting, SSL y mantenimiento técnico.'
 			]
 		},
 		{
-			title: '05. Soporte y niveles de atención',
+			title: '05. Suspensión por Falta de Pago',
 			content: [
-				'El soporte cubre incidencias operativas y ajustes contemplados en el plan activo.',
-				'Los tiempos de respuesta son referenciales y dependen de la criticidad del incidente y del canal de contacto.'
+				'La facturación debe atenderse en las fechas acordadas para mantener continuidad operativa.',
+				'Con 5 días de retraso puede aplicarse suspensión temporal del servicio.',
+				'Con 30 días de retraso y sin comunicación activa puede ejecutarse baja remota, sin eximir de deudas contractuales vigentes.'
 			]
 		},
 		{
-			title: '06. Propiedad intelectual y código fuente',
+			title: '06. Actualizaciones, Modificaciones y Módulos',
 			content: [
-				'Los derechos de propiedad intelectual se rigen por el acuerdo comercial aceptado por las partes.',
-				'Cuando aplique, la liberación de código y entrega de repositorios se realiza bajo condiciones y costos previamente definidos.'
+				'La mensualidad incluye mantenimiento preventivo y ajustes menores contemplados en el plan.',
+				'Cambios estructurales, nuevas páginas o funcionalidades inéditas se consideran módulos adicionales y pueden ajustar la tarifa mensual.',
+				'Este modelo permite escalar progresivamente sin rehacer el proyecto desde cero.'
 			]
 		},
 		{
@@ -145,6 +172,22 @@
 				</section>
 			{/each}
 		</article>
+
+		<section class="mt-16" aria-labelledby="legal-qa">
+			<h2 id="legal-qa" class="mb-6 text-3xl font-bold lg:text-4xl">Q&A directo</h2>
+			<div class="flex flex-col gap-4">
+				{#each directQnA as item (item.question)}
+					<details
+						class="rounded-2xl border border-white/10 bg-base-200/40 p-5 open:border-primary/30"
+					>
+						<summary class="cursor-pointer list-none text-base font-semibold text-base-content">
+							{item.question}
+						</summary>
+						<p class="mt-3 leading-loose text-base-content/70">{item.answer}</p>
+					</details>
+				{/each}
+			</div>
+		</section>
 
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
