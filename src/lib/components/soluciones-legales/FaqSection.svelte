@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { ScrollText } from '@lucide/svelte';
+
 	const faqs = [
 		{
 			id: 'uso',
@@ -54,5 +56,19 @@
 				</div>
 			{/each}
 		</div>
+	</div>
+
+	<!-- Legal note -->
+	<div class="flex items-center justify-center gap-2 py-2 text-center">
+		<ScrollText class="shrink-0 text-base-content/30" size={14} aria-hidden="true" />
+		<p class="text-sm text-base-content/40">
+			Al contratar, aceptas nuestras
+			<a
+				href="/condiciones-del-servicio"
+				class="text-primary/60 underline underline-offset-2 transition-colors duration-300 hover:text-primary"
+			>
+				Condiciones del Servicio
+			</a>.
+		</p>
 	</div>
 </div>
