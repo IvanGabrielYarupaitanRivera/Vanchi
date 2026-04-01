@@ -4,6 +4,8 @@
 	import { ArrowLeft, Trash2 } from '@lucide/svelte';
 
 	const updatedAt = '31 de marzo de 2026';
+	const effectiveFrom = '1 de abril de 2026';
+	const documentVersion = 'v1.1';
 	const legalOwner = 'Ivan Yarupaitan Rivera';
 	const legalRuc = '10710480031';
 	const legalEmail = 'ivangyr321@gmail.com';
@@ -21,7 +23,7 @@
 			title: '02. Validación de identidad',
 			content: [
 				'Para proteger tus datos, validaremos que quien solicita la eliminación sea el titular o su representante autorizado.',
-				'Podremos solicitar información adicional mínima para confirmar identidad antes de ejecutar cualquier acción.'
+				'La validación mínima requiere correo registrado y documento firmado de identificación del solicitante antes de ejecutar cualquier acción.'
 			]
 		},
 		{
@@ -42,6 +44,7 @@
 			title: '05. Excepciones legales y contractuales',
 			content: [
 				'Podremos conservar datos cuando exista obligación legal, prevención de fraude, defensa ante reclamos o contrato vigente que exija custodia mínima de información.',
+				'También pueden conservarse temporalmente registros técnicos en respaldos de seguridad hasta por 30 días post-cierre del servicio.',
 				'En esos casos, limitaremos el tratamiento al mínimo necesario y por el tiempo estrictamente requerido.'
 			]
 		},
@@ -53,7 +56,14 @@
 			]
 		},
 		{
-			title: '07. Datos del responsable',
+			title: '07. Alcance técnico de la eliminación',
+			content: [
+				'La eliminación aplica a datos en entornos activos administrados por Vanchi y a respaldos según la ventana técnica vigente de 30 días.',
+				'Si existiera restauración operativa dentro de esa ventana, se reejecutará el proceso de eliminación para mantener consistencia.'
+			]
+		},
+		{
+			title: '08. Datos del responsable',
 			content: [
 				`Responsable: ${legalOwner} (RUC ${legalRuc}).`,
 				`Contacto oficial para eliminación y privacidad: ${legalEmail}.`
@@ -102,6 +112,12 @@
 					RUC: {legalRuc}
 				</span>
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
+					Versión: {documentVersion}
+				</span>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
+					Vigente desde: {effectiveFrom}
+				</span>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
 					Plazo de atención: {responseWindow}
 				</span>
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
@@ -136,7 +152,7 @@
 			</div>
 			<p class="mx-auto mt-6 max-w-2xl text-sm leading-loose text-base-content/60">
 				Para iniciar una solicitud, escríbenos a <strong>{legalEmail}</strong> con el asunto “Eliminación
-				de datos” y los datos de identificación necesarios para validar titularidad.
+				de datos” y adjunta correo registrado + documento firmado para validar titularidad.
 			</p>
 		</div>
 	</div>

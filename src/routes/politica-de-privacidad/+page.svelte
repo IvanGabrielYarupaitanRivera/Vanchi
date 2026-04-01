@@ -4,6 +4,8 @@
 	import { ArrowLeft, ShieldCheck } from '@lucide/svelte';
 
 	const updatedAt = '31 de marzo de 2026';
+	const effectiveFrom = '1 de abril de 2026';
+	const documentVersion = 'v1.1';
 	const legalOwner = 'Ivan Yarupaitan Rivera';
 	const legalRuc = '10710480031';
 	const legalEmail = 'ivangyr321@gmail.com';
@@ -41,40 +43,49 @@
 		{
 			title: '05. Conservación de datos',
 			content: [
-				'Toda solicitud comercial se conserva por un plazo referencial de 12 meses para seguimiento de atención, auditoría interna y continuidad de la conversación comercial.',
+				'Toda solicitud comercial de leads no clientes se conserva por un plazo referencial de 12 meses para seguimiento de atención y continuidad comercial.',
+				'Los registros técnicos y de seguridad se conservan solo por el tiempo razonablemente necesario para operación, prevención de fraude y trazabilidad.',
 				'Podemos conservar información por más tiempo cuando exista obligación legal, defensa ante reclamos o cumplimiento contractual vigente.'
 			]
 		},
 		{
 			title: '06. Proveedores y plataformas de terceros',
 			content: [
-				'Para operar como agencia tecnológica utilizamos plataformas de infraestructura, mensajería y servicios técnicos de terceros. Estas plataformas actúan como encargados del tratamiento según corresponda.',
+				'Para operar como agencia tecnológica usamos subencargados por categorías: infraestructura en la nube, mensajería, analítica, correo transaccional y herramientas de soporte.',
+				'No publicamos listado nominal en esta página por seguridad operativa, pero podemos informar categorías y finalidad de tratamiento cuando corresponda.',
 				'Cuando usamos canales de Meta/WhatsApp, el tratamiento también puede quedar sujeto a las políticas de esas plataformas.'
 			]
 		},
 		{
-			title: '07. Derechos ARCO',
+			title: '07. Transferencias internacionales',
+			content: [
+				'Algunos servicios de terceros pueden implicar transferencia internacional de datos bajo estándares contractuales y medidas razonables de seguridad.',
+				'En todos los casos aplicamos criterios de minimización, necesidad y proporcionalidad para reducir exposición de datos personales.'
+			]
+		},
+		{
+			title: '08. Derechos ARCO',
 			content: [
 				'Puedes solicitar acceso, rectificación, cancelación u oposición sobre tus datos personales (derechos ARCO).',
 				`Para ejercerlos, envía una solicitud a ${legalEmail} indicando tu identificación y el derecho que deseas ejercer.`
 			]
 		},
 		{
-			title: '08. Seguridad',
+			title: '09. Seguridad',
 			content: [
 				'Aplicamos medidas técnicas y organizativas razonables para proteger los datos frente a accesos no autorizados, pérdida, alteración o uso indebido.',
 				'Ningún sistema es absolutamente infalible, pero mantenemos prácticas de mejora continua en seguridad y operación.'
 			]
 		},
 		{
-			title: '09. Cookies y tecnologías similares',
+			title: '10. Cookies y tecnologías similares',
 			content: [
 				'Actualmente usamos únicamente cookies técnicas mínimas necesarias para el funcionamiento del sitio web y su seguridad.',
 				'En caso de incorporar cookies analíticas o publicitarias en el futuro, esta política será actualizada para reflejarlo con transparencia.'
 			]
 		},
 		{
-			title: '10. Cambios de esta política',
+			title: '11. Cambios de esta política',
 			content: [
 				'Podemos actualizar esta política cuando cambie la normativa aplicable, la forma de prestar el servicio o la infraestructura tecnológica utilizada.',
 				`La versión vigente se identifica por su fecha de actualización: ${updatedAt}.`
@@ -122,6 +133,12 @@
 				</span>
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
 					RUC: {legalRuc}
+				</span>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
+					Versión: {documentVersion}
+				</span>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
+					Vigente desde: {effectiveFrom}
 				</span>
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
 					Actualizado: {updatedAt}

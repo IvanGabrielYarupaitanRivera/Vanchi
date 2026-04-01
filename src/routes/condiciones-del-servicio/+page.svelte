@@ -4,6 +4,8 @@
 	import { ArrowLeft, FileText } from '@lucide/svelte';
 
 	const updatedAt = '31 de marzo de 2026';
+	const effectiveFrom = '1 de abril de 2026';
+	const documentVersion = 'v1.1';
 	const legalOwner = 'Ivan Yarupaitan Rivera';
 	const legalRuc = '10710480031';
 	const legalEmail = 'ivangyr321@gmail.com';
@@ -68,40 +70,58 @@
 			content: [
 				'La facturación debe atenderse en las fechas acordadas para mantener continuidad operativa.',
 				'Con 5 días de retraso puede aplicarse suspensión temporal del servicio.',
-				'Con 30 días de retraso y sin comunicación activa puede ejecutarse baja remota, sin eximir de deudas contractuales vigentes.'
+				'Con 30 días de retraso y sin comunicación activa puede ejecutarse baja remota, sin eximir de deudas contractuales vigentes.',
+				'Tras terminación del servicio, los respaldos técnicos se conservan por 30 días y luego se eliminan de forma permanente.'
 			]
 		},
 		{
 			title: '06. Actualizaciones, Modificaciones y Módulos',
 			content: [
 				'La mensualidad incluye mantenimiento preventivo y ajustes menores contemplados en el plan.',
-				'Cambios estructurales, nuevas páginas o funcionalidades inéditas se consideran módulos adicionales y pueden ajustar la tarifa mensual.',
+				'Se consideran ajustes menores cambios puntuales de texto, correcciones visuales y ajustes simples dentro de la estructura existente.',
+				'Cambios estructurales, nuevas páginas, integraciones externas o funcionalidades inéditas se consideran módulos adicionales y pueden ajustar la tarifa mensual.',
 				'Este modelo permite escalar progresivamente sin rehacer el proyecto desde cero.'
 			]
 		},
 		{
-			title: '07. Limitación de responsabilidad',
+			title: '07. SLA y niveles de respuesta',
+			content: [
+				'Para incidencias críticas, el tiempo referencial de primera respuesta es de hasta 12 horas.',
+				'Para soporte estándar y solicitudes no críticas, el tiempo referencial de respuesta es de 24 a 48 horas.',
+				'Estos tiempos no aplican en casos de fuerza mayor, caídas de terceros o eventos fuera del control razonable de Vanchi.'
+			]
+		},
+		{
+			title: '08. Limitación de responsabilidad',
 			content: [
 				'Vanchi no garantiza ausencia absoluta de interrupciones, errores de terceros o contingencias externas a su control razonable.',
 				'La responsabilidad se limita al marco legal aplicable y a lo expresamente pactado en el servicio contratado.'
 			]
 		},
 		{
-			title: '08. Protección de datos y confidencialidad',
+			title: '09. Protección de datos y confidencialidad',
 			content: [
 				'El tratamiento de datos personales se rige por la Política de Privacidad vigente.',
 				'Las partes se comprometen a usar la información compartida de forma confidencial y conforme a la finalidad del servicio.'
 			]
 		},
 		{
-			title: '09. Modificaciones de estas condiciones',
+			title: '10. Jurisdicción y resolución de disputas',
+			content: [
+				'Estas condiciones se interpretan y ejecutan conforme a las leyes de la República del Perú.',
+				'Para cualquier controversia, las partes se someten a la competencia de los juzgados de Huancayo, Junín.',
+				`Los reclamos formales deben enviarse a ${legalEmail}; Vanchi responderá en un plazo referencial de hasta 5 días hábiles.`
+			]
+		},
+		{
+			title: '11. Modificaciones de estas condiciones',
 			content: [
 				'Vanchi puede actualizar estas condiciones para reflejar cambios legales, operativos o del modelo de servicio.',
 				`Las versiones actualizadas se publicarán en este sitio y entrarán en vigencia desde su fecha de publicación (${updatedAt}).`
 			]
 		},
 		{
-			title: '10. Contacto legal',
+			title: '12. Contacto legal',
 			content: [
 				`Titular: ${legalOwner} — RUC: ${legalRuc}.`,
 				`Para consultas legales o contractuales puedes escribir a ${legalEmail}.`
@@ -149,6 +169,12 @@
 				</span>
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
 					RUC: {legalRuc}
+				</span>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
+					Versión: {documentVersion}
+				</span>
+				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
+					Vigente desde: {effectiveFrom}
 				</span>
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
 					Actualizado: {updatedAt}
