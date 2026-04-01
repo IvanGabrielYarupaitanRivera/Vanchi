@@ -3,6 +3,7 @@
 	import { ArrowRight, ArrowUpRight, Shield, Globe, Cpu, Scale, Sparkles } from '@lucide/svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import Hero from '$lib/components/soluciones-legales/Hero.svelte';
+	import PhaseBentoGrid from '$lib/components/soluciones-legales/PhaseBentoGrid.svelte';
 
 	const cards = [
 		{
@@ -48,6 +49,7 @@
 />
 
 <Hero />
+<PhaseBentoGrid />
 
 <!-- 2. The Gap / Executive Summary -->
 <section id="explore" class="relative border-t border-white/5 bg-base-100/50 py-24">
