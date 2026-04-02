@@ -13,6 +13,7 @@
 		| '/#servicios'
 		| '/precios'
 		| '/waas'
+		| '/soluciones-legales'
 		| '/proyectos'
 		| '/ivan-yarupaitan-rivera'
 		| '/politica-de-privacidad'
@@ -23,6 +24,7 @@
 	const navLinks: { label: string; href: FooterLinkHref }[] = [
 		{ label: 'WaaS', href: '/precios' },
 		{ label: 'Soluciones', href: '/#servicios' },
+		{ label: 'Legal Tech', href: '/soluciones-legales' },
 		{ label: 'Proyectos', href: '/proyectos' },
 		{ label: 'Metodología WaaS', href: '/waas' },
 		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' }

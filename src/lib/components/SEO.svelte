@@ -20,6 +20,8 @@
 	}
 
 	const SITE_URL = 'https://www.vanchi.pro';
+	const LEGAL_OWNER = 'Ivan Yarupaitan Rivera';
+	const LEGAL_EMAIL = 'ivangyr321@gmail.com';
 
 	let {
 		title = 'Vanchi — Desarrollo de Sistemas e Integración de Inteligencia Artificial',
@@ -41,15 +43,37 @@
 
 	// Construir el robots content
 	const robotsContent = $derived(
-		[noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow'].join(', ')
+		[
+			noindex ? 'noindex' : 'index',
+			nofollow ? 'nofollow' : 'follow',
+			'max-snippet:160',
+			'max-image-preview:large',
+			'max-video-preview:-1'
+		].join(', ')
 	);
 
 	const canonicalUrl = $derived(url.split('#')[0].split('?')[0]);
 
-	// Datos estructurados JSON-LD: Usamos @graph para conectar Persona y Sitio Web
+	// Datos estructurados JSON-LD: Usamos @graph para conectar Organización, Persona y Sitio Web
 	const structuredData = $derived({
 		'@context': 'https://schema.org',
 		'@graph': [
+			{
+				'@type': 'Organization',
+				'@id': `${SITE_URL}/#organization`,
+				name: 'Vanchi',
+				legalName: LEGAL_OWNER,
+				url: SITE_URL,
+				email: LEGAL_EMAIL,
+				areaServed: {
+					'@type': 'Country',
+					name: 'Perú'
+				},
+				sameAs: [
+					'https://www.linkedin.com/in/ivan-yarupaitan-rivera/',
+					'https://github.com/IvanGabrielYarupaitanRivera'
+				]
+			},
 			{
 				'@type': 'Person',
 				'@id': `${SITE_URL}/#person`,
@@ -78,7 +102,7 @@
 				name: siteName,
 				description: description,
 				publisher: {
-					'@id': `${SITE_URL}/#person`
+					'@id': `${SITE_URL}/#organization`
 				},
 				inLanguage: locale
 			}

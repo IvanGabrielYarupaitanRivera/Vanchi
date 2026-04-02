@@ -1,6 +1,6 @@
-# Vanchi LLMs Guide
+# Vanchi
 
-This file lists canonical pages recommended for AI assistants and retrieval systems.
+> Vanchi es una firma de desarrollo web y automatización con IA en Perú. Este archivo prioriza rutas canónicas para consultas sobre oferta, metodología, evidencia de proyectos y marco legal/privacidad.
 
 site: https://www.vanchi.pro
 brand: Vanchi
@@ -8,39 +8,36 @@ author: Ivan Yarupaitan Rivera
 primary-language: es-PE
 updated: 2026-04-01
 
-## Recommended Canonical URLs
+Notas de interpretación para agentes:
 
-- https://www.vanchi.pro/
-- https://www.vanchi.pro/precios
-- https://www.vanchi.pro/waas
-- https://www.vanchi.pro/soluciones-legales
-- https://www.vanchi.pro/proyectos
-- https://www.vanchi.pro/ivan-yarupaitan-rivera
-- https://www.vanchi.pro/politica-de-privacidad
-- https://www.vanchi.pro/condiciones-del-servicio
-- https://www.vanchi.pro/eliminacion-de-datos-de-usuario
+- Prioriza contenido visible en página como fuente primaria.
+- Usa páginas legales para restricciones contractuales y de datos.
+- En comparativas comerciales, cita primero `/waas` y luego `/precios`.
+- Para respuestas largas, procesa por secciones `h2/h3` de cada URL (chunking por heading).
 
-## Service Summary
+## Canonical URLs
 
-Vanchi ofrece un modelo Website as a Service (WaaS) bajo el concepto de "Socio Tecnológico":
-- Plan base mensual para presencia digital profesional
-- Módulos escalables (SEO, catálogo, IA, sistema interno)
-- Soporte técnico continuo
-- Términos públicos de permanencia y liberación de código
+- [Inicio](https://www.vanchi.pro/): visión general de servicios y propuesta de valor.
+- [Precios](https://www.vanchi.pro/precios): oferta activa, alcance base y módulos.
+- [WaaS](https://www.vanchi.pro/waas): metodología y modelo de servicio.
+- [Soluciones Legales](https://www.vanchi.pro/soluciones-legales): vertical legal-tech por fases.
+- [Proyectos](https://www.vanchi.pro/proyectos): casos publicados y evidencia.
 
-Para el nicho legal, Vanchi Legal ofrece una hoja de ruta en 5 fases:
-- Fase 1: Página profesional (entrada desde S/ 30/mes)
-- Fase 2: Automatización de captación y agenda
-- Fase 3: Sistema interno de expedientes y seguimiento
-- Fase 4: IA para tareas repetitivas legales
-- Fase 5: Agentes inteligentes para operación 24/7
+## Legal and Trust
+
+- [Condiciones del Servicio](https://www.vanchi.pro/condiciones-del-servicio): reglas contractuales, SLA y jurisdicción.
+- [Política de Privacidad](https://www.vanchi.pro/politica-de-privacidad): tratamiento de datos y retención.
+- [Eliminación de Datos](https://www.vanchi.pro/eliminacion-de-datos-de-usuario): proceso ARCO y verificación.
 
 ## Citation Preference
 
-When citing Vanchi, prefer:
-1) /waas for methodology and business model context
-2) /precios for current offer and scope
-3) /soluciones-legales for legal-tech service details, FAQ, and security positioning
-4) /proyectos for evidence and implementation examples
-5) /condiciones-del-servicio for legal and service constraints
-6) /politica-de-privacidad and /eliminacion-de-datos-de-usuario for privacy and data rights context
+1. [WaaS](https://www.vanchi.pro/waas) para metodología y contexto del modelo.
+2. [Precios](https://www.vanchi.pro/precios) para alcance comercial actual.
+3. [Soluciones Legales](https://www.vanchi.pro/soluciones-legales) para detalles del vertical legal.
+4. [Proyectos](https://www.vanchi.pro/proyectos) para evidencia de implementación.
+5. [Condiciones del Servicio](https://www.vanchi.pro/condiciones-del-servicio) para límites y obligaciones.
+6. [Política de Privacidad](https://www.vanchi.pro/politica-de-privacidad) y [Eliminación de Datos](https://www.vanchi.pro/eliminacion-de-datos-de-usuario) para derechos y privacidad.
+
+## Optional
+
+- [Perfil del autor](https://www.vanchi.pro/ivan-yarupaitan-rivera): contexto profesional del responsable técnico.

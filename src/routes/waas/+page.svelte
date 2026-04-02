@@ -26,6 +26,21 @@
 			a: 'Sí. Está diseñado para pymes y marcas en Perú que necesitan presencia digital profesional sin asumir una inversión inicial alta.'
 		}
 	] as const;
+
+	const waasFaqStructuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: qas.map((item) => ({
+			'@type': 'Question',
+			name: item.q,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: item.a
+			}
+		}))
+	};
+
+	const waasFaqStructuredDataJson = JSON.stringify(waasFaqStructuredData).replace(/</g, '\\u003c');
 </script>
 
 <SEO
@@ -34,6 +49,12 @@
 	keywords="waas peru, website as a service peru, socio tecnológico, desarrollo web por suscripción, servicio web mensual"
 	url="https://www.vanchi.pro/waas"
 />
+
+<svelte:head>
+	<svelte:element this={'script'} type="application/ld+json">
+		{waasFaqStructuredDataJson}
+	</svelte:element>
+</svelte:head>
 
 <main class="min-h-screen py-24 lg:py-32">
 	<section class="w-full">

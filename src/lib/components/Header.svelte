@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
-	import { Box, ArrowUpRight, Menu, House, Code, DollarSign, X } from '@lucide/svelte';
+	import { Box, ArrowUpRight, Menu, House, Code, DollarSign, Scale, X } from '@lucide/svelte';
 	import icon from '$lib/assets/icons/icon.svg';
 	import vanchi from '$lib/assets/icons/vanchi.svg';
 	import type { Component } from 'svelte';
@@ -16,6 +16,7 @@
 		{ href: '/', label: 'Inicio', icon: House },
 		{ href: '/precios', label: 'WaaS', icon: DollarSign },
 		{ href: '/#servicios', label: 'Soluciones', icon: Box },
+		{ href: '/soluciones-legales', label: 'Legal Tech', icon: Scale },
 		{ href: '/proyectos', label: 'Proyectos', icon: Code }
 	];
 

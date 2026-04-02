@@ -33,6 +33,24 @@
 		}
 	] as const;
 
+	const termsFaqStructuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: directQnA.map((item) => ({
+			'@type': 'Question',
+			name: item.question,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: item.answer
+			}
+		}))
+	};
+
+	const termsFaqStructuredDataJson = JSON.stringify(termsFaqStructuredData).replace(
+		/</g,
+		'\\u003c'
+	);
+
 	const termsSections = [
 		{
 			title: '01. El Modelo de Suscripción (SaaS)',
@@ -135,6 +153,12 @@
 	description="Condiciones generales del servicio Socio Tecnológico (WaaS): alcance, pagos, soporte, propiedad intelectual, responsabilidad y terminación."
 	url="https://www.vanchi.pro/condiciones-del-servicio"
 />
+
+<svelte:head>
+	<svelte:element this={'script'} type="application/ld+json">
+		{termsFaqStructuredDataJson}
+	</svelte:element>
+</svelte:head>
 
 <main class="min-h-screen py-24 lg:py-32">
 	<div class="container mx-auto max-w-4xl px-4">

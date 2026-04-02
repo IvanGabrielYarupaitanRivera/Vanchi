@@ -14,7 +14,12 @@
 	};
 </script>
 
-<SEO />
+<SEO
+	title="Desarrollo Web, IA y WaaS en Perú | Vanchi"
+	description="Creamos presencia digital premium, sistemas web e inteligencia artificial para marcas y estudios en Perú. Empieza con modelo WaaS desde S/ 30/mes."
+	keywords="desarrollo web peru, waas peru, inteligencia artificial para negocios, socio tecnológico, sveltekit, automatización"
+	url="https://www.vanchi.pro/"
+/>
 
 <Hero />
 <SocialProof />
