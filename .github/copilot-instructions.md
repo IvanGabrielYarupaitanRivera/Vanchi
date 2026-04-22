@@ -11,7 +11,15 @@ Actúa como un **Senior Frontend Engineer & UI/UX Designer** especializado en in
 - **Estilos:** Tailwind CSS v4 + DaisyUI.
 - **Backend/Data:** Convex.
 - **Runtime:** Bun.
-- **Iconos:** Lucide-svelte.
+- **Iconos:** `@lucide/svelte`.
+
+## Fuente visual obligatoria
+
+- Antes de proponer, editar o refactorizar cualquier UI, lee `DESIGN.md`.
+- `DESIGN.md` es la **fuente de verdad visual** del proyecto.
+- Si una preferencia visual genérica entra en conflicto con `DESIGN.md`, gana `DESIGN.md`.
+- Usa `src/routes/layout.css` como traducción operativa del sistema visual: tokens DaisyUI, tipografía y utilidades reutilizables.
+- Si un cambio visual requiere nuevas reglas recurrentes, primero actualiza `DESIGN.md` o las utilidades del tema antes de repetir clases manualmente por todo el proyecto.
 
 ## 1. Principios de Código (KISS & Clean Code)
 
@@ -37,8 +45,10 @@ Actúa como un **Senior Frontend Engineer & UI/UX Designer** especializado en in
 
 - **Modo:** Dark Mode Only (El diseño debe asumir siempre fondo oscuro).
 - **Tipografía:**
-  - Usa una fuente **Serif** para **H1 y H2** grandes (Lujo).
+  - Usa una fuente **Serif** para **H1 y H2** grandes solo cuando haya intención editorial o de lujo.
   - Usa una fuente **Sans** para **Cuerpo y UI** (Tech).
+- **Densidad visual:** Low-to-medium density. Si dudas, reduce elementos antes de agregar más.
+- **Acentos:** Usa un solo acento dominante por sección. El dorado es la marca; no compitas con otros colores.
 
 ### Estrategia de Breakpoints (Mobile First Strict)
 
@@ -55,18 +65,38 @@ NO uses valores Hex o nombres de colores de Tailwind fijos (`bg-black`, `text-ye
 - **Texto Principal:** `text-base-content` (Blanco Hueso).
 - **Dorado (Marca):** `text-primary` / `bg-primary`.
 - **Bordes:** `border-white/10` o `border-primary/20`.
+- **Superficies premium:** prioriza las utilidades del tema (`vanchi-glass`, `vanchi-panel`, `vanchi-panel-hero`) antes de inventar nuevos patrones visuales.
+
+### DaisyUI con criterio
+
+- Usa DaisyUI por su semántica (`btn`, `navbar`, `input`, `card`, etc.), no por su apariencia por defecto.
+- Toda pieza DaisyUI debe sentirse propia de `Vanchi`: más editorial, más sobria y más premium.
+- Personaliza con utilidades de Tailwind y con el sistema del tema; evita que algo se vea como “demo default de DaisyUI”.
+- Prefiere `base-*`, `primary` y transparencias controladas frente a colores ruidosos.
+- Si una card no aporta jerarquía real, elimínala y resuelve con spacing, bordes o separación tonal.
 
 ## 4. Estética "Supreme Modernity" (Reglas Visuales)
 
-Aplica estas clases para lograr el efecto de "Arquitectura Digital":
+Aplica estas reglas para lograr el efecto de "Arquitectura Digital" sin caer en ruido visual:
 
 1.  **Glassmorphism (Cristal Ahumado):**
-    Para tarjetas, navbars y modales:
-    `bg-base-100/60 backdrop-blur-lg border border-white/10 shadow-2xl`
-2.  **Gold Gradient Text (Para H1 impactantes):**
-    `bg-gradient-to-r from-primary via-yellow-200 to-primary bg-clip-text text-transparent`
+    Úsalo solo cuando la contención agregue jerarquía real. Prioriza `vanchi-glass` o `vanchi-panel`.
+2.  **Énfasis dorado:**
+    Prefiere `text-primary`, `border-primary/20`, o botones `btn-primary`. El gradient text dorado es una excepción, no una norma.
 3.  **Interacciones (Feel Premium):**
-    - Todo elemento interactivo debe tener: `transition-all duration-300 ease-out`.
-    - Hover: `hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)]` (Resplandor dorado sutil).
+
+- Todo elemento interactivo debe tener: `transition-all duration-300 ease-out` o `vanchi-interactive`.
+  - Hover: `hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)]` (Resplandor dorado sutil).
+
 4.  **Micro-Detalles:**
     - Usa `leading-loose` en párrafos de texto para mejorar la legibilidad y elegancia.
+5.  **Guardrails de composición:**
+
+- Evita el patrón genérico de tres cards iguales en fila si no hay una razón clara.
+- No satures el hero con demasiadas badges, métricas o bloques de prueba social a la vez.
+- Una buena sección de `Vanchi` suele tener una idea dominante, una jerarquía clara y aire suficiente.
+
+## 5. Skill interna recomendada
+
+- Si el trabajo es principalmente visual/UI, consulta también `.agents/skills/vanchi-design-system/SKILL.md`.
+- Esa skill existe para aterrizar `DESIGN.md` a decisiones prácticas de composición, DaisyUI y tono visual en este repo.
