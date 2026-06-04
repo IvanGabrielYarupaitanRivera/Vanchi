@@ -31,6 +31,17 @@ Copia y pega este bloque al inicio de la lista (después de esta sección) y com
 
 ## 2026-06-04
 
+**Qué cambió:** Archivada la especificación TASK-001 (hub de documentación `docs/`).
+
+**Por qué:** El hub fue completado con 27 archivos, 0 broken links, mapa de relaciones, quickstart agéntico, y todas las correcciones de coherencia aplicadas.
+
+**Archivos afectados:**
+- `tasks/archived/todo-docs-hub.md` — Spec archivada
+
+---
+
+## 2026-06-04
+
 **Qué cambió:** Creación del hub de documentación `docs/` con estructura completa.
 
 **Por qué:** La documentación estaba dispersa (solo `DESIGN.md` + `README.md` genérico). Se necesitaba un hub estructurado para que el agente pi y desarrolladores humanos accedan rápido al contexto del proyecto.
