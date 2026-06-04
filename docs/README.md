@@ -60,3 +60,4 @@ docs/
 ---
 
 > 💡 **Primera vez aquí?** Empieza por [`00-GUIDE/CONTEXT.md`](./00-GUIDE/CONTEXT.md).
+> 📜 **¿Qué cambió recientemente?** Revisa [`CHANGELOG.md`](./CHANGELOG.md).

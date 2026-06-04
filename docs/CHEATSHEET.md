@@ -76,39 +76,24 @@ Vanchi/
 
 ---
 
-## 🎨 Convenciones de estilo (Tailwind v4 + DaisyUI)
+## 🎨 Estilo rápido
 
-```css
-/* Usar tokens DaisyUI, NO colores raw */
-bg-base-100       /* Fondo carbón */
-text-base-content /* Texto bone white */
-text-primary      /* Dorado antiguo (solo acento) */
-border-white/10   /* Bordes sutiles */
-backdrop-blur-lg  /* Vidrio ahumado */
-```
+> ⚠️ **Las reglas completas del stack están en [`00-GUIDE/STACK-PATTERNS.md`](./00-GUIDE/STACK-PATTERNS.md).**
+> Aquí solo un recordatorio mínimo.
 
-### Layout
+| Concepto | Regla |
+|----------|-------|
+| Colores | Solo tokens DaisyUI (`base-100`, `primary`, etc.) |
+| Breakpoint | Solo `lg:` para escritorio |
+| Layout | Mobile-first, `max-w-5xl` a `max-w-6xl` centrado |
+| Animaciones | `transition-all duration-300 ease-out` |
 
-- `mobile-first` siempre
-- Solo `lg:` como breakpoint de escritorio
-- Contenido centrado: `max-w-5xl` a `max-w-6xl`
-- Hero: `min-h-[100dvh]`
+### Tipografía
 
-### Animaciones
-
-```css
-transition-all duration-300 ease-out
-hover:-translate-y-1
-```
-
----
-
-## 🖋️ Tipografía
-
-| Uso                           | Font             |
-| ----------------------------- | ---------------- |
-| Display / títulos editoriales | Playfair Display |
-| UI / body / nav / botones     | Geist            |
+| Uso | Font |
+|-----|------|
+| Display | Playfair Display |
+| UI / body | Geist |
 
 ---
 

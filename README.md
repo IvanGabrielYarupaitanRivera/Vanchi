@@ -1,38 +1,30 @@
-# sv
+# Vanchi
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+> Portafolio profesional de **Iván Yarupaitán Rivera** — desarrollador full-stack y consultor tecnológico.
 
-## Creating a project
+## 📚 Documentación del proyecto
 
-If you're seeing this, you've probably already done this step. Congrats!
+**⬅️ Antes de empezar a trabajar, lee la documentación del proyecto:**
 
-```sh
-# create a new project in the current directory
-npx sv create
+👉 [`docs/00-GUIDE/CONTEXT.md`](./docs/00-GUIDE/CONTEXT.md) — Contexto del proyecto, stack, estructura e identidad visual
 
-# create a new project in my-app
-npx sv create my-app
+El hub completo de documentación está en [`docs/`](./docs/README.md).
+
+## Stack
+
+| Capa | Tecnología |
+|------|------------|
+| Framework | SvelteKit 2 |
+| UI | Svelte 5 (runes) |
+| Estilos | Tailwind CSS v4 + DaisyUI v5 |
+| Runtime | Bun |
+| Hosting | Vercel |
+
+## Comandos rápidos
+
+```bash
+bun dev          # Servidor de desarrollo
+bun build        # Build de producción
+bun run check    # Type-check + lint
+bun run format   # Prettier --write
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
