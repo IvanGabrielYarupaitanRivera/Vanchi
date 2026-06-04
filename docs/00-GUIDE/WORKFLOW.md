@@ -65,5 +65,5 @@ Validar que todo funciona.
 
 - No saltarse la fase **Spec** para cambios significativos
 - Las specs completadas **nunca se borran**, se archivan
-- Cada cambio significativo se registra en `CHANGELOG.md`
+- Cada cambio significativo se registra en [`CHANGELOG.md`](../CHANGELOG.md)
 - Si algo falla en Verify, se vuelve a Code

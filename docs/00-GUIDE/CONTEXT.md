@@ -79,7 +79,7 @@ Vanchi/
 
 ## 🚦 Estado actual del proyecto
 
-El proyecto está **en producción activa**, desplegado en Vercel. Las páginas principales (home, proyectos, precios, legales) ya están construidas. La documentación (`docs/`) está en fase de creación inicial.
+El proyecto está **en producción activa**, desplegado en Vercel. Las páginas principales (home, proyectos, precios, legales) ya están construidas. La documentación (`docs/`) está completa con estructura de hub documental y 25 archivos.
 
 ---
 
@@ -93,5 +93,6 @@ El proyecto está **en producción activa**, desplegado en Vercel. Las páginas 
 | Reglas del stack | [`STACK-PATTERNS.md`](./STACK-PATTERNS.md) |
 | Comandos rápidos | [`/docs/CHEATSHEET.md`](../CHEATSHEET.md) |
 | Skills / aliados IA | [`/docs/ALIADAS.md`](../ALIADAS.md) |
+| Historial de cambios | [`/docs/CHANGELOG.md`](../CHANGELOG.md) |
 | Design system completo | [`/DESIGN.md`](../../DESIGN.md) |
 | Especificaciones activas | [`/tasks/`](../../tasks/) |

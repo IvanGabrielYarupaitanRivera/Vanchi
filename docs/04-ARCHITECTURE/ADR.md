@@ -98,9 +98,9 @@
 - **Deno** — Buen runtime, pero menos compatible con ecosistema SvelteKit
 
 **Razones:**
-- Instalación de dependencias más rápida que npm/pnpm
-- Compatibilidad nativa con TypeScript
-- Bun es el runtime recomendado por la skill de Bun del agente
+- Instalación de dependencias hasta 10x más rápida que npm/pnpm
+- Compatibilidad nativa con TypeScript sin configuración extra
+- Integración directa con el ecosistema SvelteKit y Vite
 
 ---
 

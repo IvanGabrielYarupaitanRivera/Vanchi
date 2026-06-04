@@ -25,7 +25,7 @@
 
 - [ ] Blog técnico con artículos sobre desarrollo, tecnología y casos de estudio
 - [ ] Sección de testimonios de clientes (si el autor los recopila)
-- [ 】Internacionalización (i18n) para audiencia en inglés
+- [ ] Internacionalización (i18n) para audiencia en inglés
 - [ ] Dark mode ya implementado (único modo) — mantener así
 
 ---

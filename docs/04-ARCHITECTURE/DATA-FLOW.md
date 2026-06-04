@@ -87,6 +87,20 @@
    └── Retorna Response con Content-Type: application/xml
 ```
 
+### Otras rutas estáticas
+
+Todas las siguientes rutas tienen datos estáticos definidos directamente en sus componentes o páginas. No requieren `load()` ni data layer:
+
+| Ruta | Archivo | Tipo de datos |
+|------|---------|---------------|
+| `/waas` | `waas/+page.svelte` | Contenido estático en el componente |
+| `/soluciones-legales` | `soluciones-legales/+page.svelte` | Contenido estático + componentes específicos |
+| `/ivan-yarupaitan-rivera` | `ivan-yarupaitan-rivera/+page.svelte` | Contenido estático en el componente |
+| `/precios` | `precios/+page.svelte` | Contenido estático + CollaborationModels.svelte |
+| `/politica-de-privacidad` | `politica-de-privacidad/+page.svelte` | Contenido estático |
+| `/condiciones-del-servicio` | `condiciones-del-servicio/+page.svelte` | Contenido estático |
+| `/eliminacion-de-datos-de-usuario` | `eliminacion-de-datos-de-usuario/+page.svelte` | Contenido estático |
+
 ---
 
 ## Data layer interno

@@ -1,6 +1,6 @@
 # 📄 01-PROJECT — Visión del proyecto
 
-> Esta carpeta contiene la visión general del producto Vanchi, su propósito de largo plazo, los hitos planificados y el historial cronológico de cambios.
+> Esta carpeta contiene la visión general del producto Vanchi, su propósito de largo plazo y los hitos planificados.
 
 ## ¿Qué contiene?
 
