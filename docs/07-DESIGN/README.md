@@ -137,3 +137,14 @@ hover:-translate-y-1
 | Design System completo | [`/DESIGN.md`](../../DESIGN.md) |
 | Tokens CSS reales | [`/src/routes/layout.css`](../../src/routes/layout.css) |
 | Stack y patrones | [`/docs/00-GUIDE/STACK-PATTERNS.md`](../00-GUIDE/STACK-PATTERNS.md) |
+
+---
+
+## 🔗 Relaciones con otras carpetas
+
+| Documento relacionado | ¿Por qué? |
+|-----------------------|-----------|
+| [`02-FRONTEND/README.md`](../02-FRONTEND/README.md) | Los componentes del frontend usan estos tokens |
+| [`00-GUIDE/STACK-PATTERNS.md`](../00-GUIDE/STACK-PATTERNS.md) | Reglas de Tailwind + DaisyUI que implementan el diseño |
+| [`06-BUSINESS-RULES/CORE-PRINCIPLES.md`](../06-BUSINESS-RULES/CORE-PRINCIPLES.md) | Principios de diseño que guían la identidad visual |
+| [`/DESIGN.md`](../../DESIGN.md) | Source of truth completo del design system |

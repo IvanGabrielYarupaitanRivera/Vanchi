@@ -19,3 +19,14 @@
 3. `WORKFLOW.md` — entender cómo trabajamos
 4. `STACK-PATTERNS.md` — antes de escribir código
 5. `LECCIONES-APRENDIDAS/` — cuando quieras evitar errores pasados
+
+---
+
+## 🔗 Relaciones con otras carpetas
+
+| Documento relacionado | ¿Por qué? |
+|-----------------------|-----------|
+| [`02-FRONTEND/README.md`](../02-FRONTEND/README.md) | `STACK-PATTERNS.md` define las reglas que el frontend debe seguir |
+| [`07-DESIGN/README.md`](../07-DESIGN/README.md) | El design system es parte integral del stack |
+| [`05-SETUP/LOCAL-DEV.md`](../05-SETUP/LOCAL-DEV.md) | Para ejecutar el proyecto localmente |
+| [`06-BUSINESS-RULES/CORE-PRINCIPLES.md`](../06-BUSINESS-RULES/CORE-PRINCIPLES.md) | Los principios core refuerzan las reglas del stack |

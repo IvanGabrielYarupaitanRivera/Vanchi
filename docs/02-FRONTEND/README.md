@@ -146,3 +146,38 @@
 
 - `SEO.svelte` es un componente que se usa en cada página para inyectar meta tags
 - Sitemap generado dinámicamente en `sitemap.xml/+server.ts`
+
+---
+
+## 🎨 Design System
+
+El proyecto usa el design system definido en [`/DESIGN.md`](../../DESIGN.md) en la raíz del proyecto.
+
+Para consulta rápida de tokens:
+
+| Token | Valor | Uso |
+|-------|-------|-----|
+| `base-100` | `oklch(15% 0.005 85)` | Fondo carbón |
+| `base-content` | `oklch(92% 0.005 90)` | Texto bone white |
+| `primary` | `oklch(74% 0.14 85)` | Dorado antiguo (único acento) |
+| Tipografía UI | Geist | Body, nav, botones |
+| Tipografía display | Playfair Display | Títulos editoriales |
+
+> 📖 **Documentación completa:** [`/docs/07-DESIGN/README.md`](../07-DESIGN/README.md) y [`/DESIGN.md`](../../DESIGN.md).
+
+---
+
+## 📎 Nota sobre la numeración
+
+No existe `03-BACKEND` porque Vanchi es un proyecto **frontend-only** con datos estáticos en TypeScript. No hay base de datos, API propia ni backend externo. El salto de `02-FRONTEND` a `04-ARCHITECTURE` es intencional para mantener consistencia con el framework numerado del hub.
+
+---
+
+## 🔗 Relaciones con otras carpetas
+
+| Documento relacionado | ¿Por qué? |
+|-----------------------|-----------|
+| [`00-GUIDE/STACK-PATTERNS.md`](../00-GUIDE/STACK-PATTERNS.md) | Reglas que el frontend debe seguir |
+| [`07-DESIGN/README.md`](../07-DESIGN/README.md) | Tokens visuales que los componentes usan |
+| [`04-ARCHITECTURE/DATA-FLOW.md`](../04-ARCHITECTURE/DATA-FLOW.md) | Cómo fluyen los datos a los componentes |
+| [`04-ARCHITECTURE/OVERVIEW.md`](../04-ARCHITECTURE/OVERVIEW.md) | Diagrama general del sistema |

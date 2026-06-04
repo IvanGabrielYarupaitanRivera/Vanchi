@@ -9,12 +9,34 @@
 ```bash
 bun dev             # Iniciar servidor de desarrollo
 bun build           # Build de producción
-bun preview         # Previsualizar build
+bun preview         # Previsualizar build localmente
 bun run check       # Type-check + lint
+bun run prepare     # Sincronizar SvelteKit (svelte-kit sync)
 bun add <pkg>       # Instalar dependencia
 bun remove <pkg>    # Eliminar dependencia
 bunx <cmd>          # Ejecutar comando sin instalar
 ```
+
+---
+
+## 🐙 Git
+
+```bash
+git status                    # Ver estado del working tree
+git add -A                    # Agregar todos los cambios
+git commit -m "mensaje"       # Crear commit
+git push origin main          # Subir cambios a main
+git pull origin main          # Traer cambios remotos
+git log --oneline             # Ver historial resumido
+git diff                      # Ver cambios sin staged
+git checkout -b feature/xxx   # Crear y cambiar a nueva rama
+git branch                    # Listar ramas
+git merge feature/xxx         # Fusionar rama a la actual
+git stash                     # Guardar cambios temporalmente
+git stash pop                 # Recuperar cambios guardados
+```
+
+> **Nota:** El proyecto usa `.prettierrc` y `.prettierignore`. Siempre ejecuta `bun run format` antes de commitear para mantener el estilo consistente.
 
 ---
 
@@ -87,6 +109,39 @@ hover:-translate-y-1
 | ----------------------------- | ---------------- |
 | Display / títulos editoriales | Playfair Display |
 | UI / body / nav / botones     | Geist            |
+
+---
+
+## 🔍 SEO — Checklist rápido
+
+### Meta tags esenciales
+
+Cada página debe tener:
+
+```html
+<!-- SEO.svelte se encarga de esto -->
+<title>Vanchi — Portafolio Profesional</title>
+<meta name="description" content="Portafolio de Iván Yarupaitán Rivera, desarrollador full-stack.">
+<meta property="og:title" content="...">
+<meta property="og:description" content="...">
+<meta property="og:image" content="...">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.vanchi.pro/ruta">
+```
+
+### Rendimiento (Core Web Vitals)
+
+- Imágenes en **WebP** optimizadas
+- `@sveltejs/enhanced-img` para lazy loading automático
+- Sin librerías JS pesadas
+- Animaciones solo `transition-all duration-300 ease-out`
+
+### Estructura
+
+- Sitemap dinámico en `/sitemap.xml` (generado en build)
+- Headers de seguridad desde `vercel.json` (HSTS, X-Frame-Options, etc.)
+- URLs limpias (sin `.html`, sin query params)
+- Semantic HTML (`<header>`, `<main>`, `<section>`, `<footer>`)
 
 ---
 

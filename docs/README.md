@@ -10,6 +10,7 @@ docs/
 ├── README.md                           # ← ESTE ARCHIVO — Portal de entrada
 ├── ALIADAS.md                          # Aliados IA: qué consultar según el problema
 ├── CHEATSHEET.md                       # Referencia rápida: comandos, helpers, convenciones
+├── CHANGELOG.md                        # 📜 Historial de cambios del proyecto
 ├── 00-GUIDE/                           # 🔴 Guía principal (LEER PRIMERO)
 │   ├── README.md                       #   Presentación de la guía
 │   ├── CONTEXT.md                      #   Contexto del proyecto (⬅️ empezar aquí)
@@ -22,8 +23,7 @@ docs/
 ├── 01-PROJECT/                         # 🟡 Visión del proyecto
 │   ├── README.md                       #   Visión general
 │   ├── VISION.md                       #   Propósito y objetivos
-│   ├── ROADMAP.md                      #   Hitos planificados
-│   └── CHANGELOG.md                    #   Historial de cambios
+│   └── ROADMAP.md                      #   Hitos planificados
 ├── 02-FRONTEND/                        # 🟡 Frontend
 │   └── README.md                       #   Rutas, componentes, patrones UI
 ├── 04-ARCHITECTURE/                    # 🟡 Arquitectura
@@ -45,6 +45,7 @@ docs/
 
 ### 📋 Referencia rápida
 
+- [`CHANGELOG.md`](./CHANGELOG.md) — 📜 Historial de cambios del proyecto
 - [`CHEATSHEET.md`](./CHEATSHEET.md) — Comandos, helpers y convenciones en 1 página
 - [`ALIADAS.md`](./ALIADAS.md) — Skills y aliados IA
 

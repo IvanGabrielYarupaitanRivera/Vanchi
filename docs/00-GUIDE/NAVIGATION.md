@@ -72,7 +72,30 @@
 
 ---
 
-## Tarea 5: Agregar / modificar documentación
+## Tarea 5: Mejorar SEO del portafolio
+
+**Secuencia de lectura:**
+
+1. [`STACK-PATTERNS.md`](./STACK-PATTERNS.md) — reglas del stack (rendimiento, imágenes)
+2. [`/docs/02-FRONTEND/README.md`](../02-FRONTEND/README.md) — SEO.svelte, sitemap, meta tags
+3. [`/docs/04-ARCHITECTURE/DATA-FLOW.md`](../04-ARCHITECTURE/DATA-FLOW.md) — flujo del sitemap dinámico
+4. [`/docs/05-SETUP/INTEGRATIONS.md`](../05-SETUP/INTEGRATIONS.md) — headers de seguridad Vercel
+5. [`/docs/06-BUSINESS-RULES/CORE-PRINCIPLES.md`](../06-BUSINESS-RULES/CORE-PRINCIPLES.md) — rendimiento como feature
+6. [`/docs/CHEATSHEET.md`](../CHEATSHEET.md) — sección SEO con checklist rápido
+
+**Skills a cargar:**
+- `seo` — optimizar meta tags, structured data, sitemaps
+- `vanchi-design-system` — mantener coherencia visual
+
+**Referencias externas:**
+- `/src/lib/components/SEO.svelte` — componente de meta tags
+- `/src/routes/sitemap.xml/+server.ts` — generación de sitemap
+- `/DESIGN.md` — coherencia visual en OG images
+- `vercel.json` — headers de seguridad
+
+---
+
+## Tarea 6: Agregar / modificar documentación
 
 **Secuencia de lectura:**
 
