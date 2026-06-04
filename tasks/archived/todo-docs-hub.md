@@ -1,9 +1,9 @@
 # 📋 Crear Hub de Documentación `docs/`
 
 > **ID:** TASK-001
-> **Estado:** Pendiente
+> **Estado:** Completada
 > **Creada:** 2026-06-04
-> **Completada:** —
+> **Completada:** 2026-06-04
 
 ---
 

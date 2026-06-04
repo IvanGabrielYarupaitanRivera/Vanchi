@@ -7,23 +7,23 @@
 
 | Skill                                                                                    | Cuándo usarla                                                          |
 | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [`accessibility`](../../.agents/skills/accessibility/SKILL.md)                           | Auditar o mejorar accesibilidad WCAG 2.2, screen readers, keyboard nav |
-| [`Bun`](../../.agents/skills/bun/SKILL.md)                                               | Ejecutar scripts, manejar paquetes, testear o empaquetar con Bun       |
-| [`daisyui`](../../.agents/skills/daisyui/SKILL.md)                                       | Usar componentes DaisyUI con Tailwind v4                               |
-| [`design-taste-frontend`](../../.agents/skills/design-taste-frontend/SKILL.md)           | UI engineering, métricas visuales, CSS hardware acceleration           |
-| [`frontend-design`](../../.agents/skills/frontend-design/SKILL.md)                       | Crear interfaces de alta calidad de diseño                             |
-| [`full-output-enforcement`](../../.agents/skills/full-output-enforcement/SKILL.md)       | Evitar truncamiento en outputs largos (código completo)                |
-| [`gpt-taste`](../../.agents/skills/gpt-taste/SKILL.md)                                   | Motion design con GSAP, bento grids, layouts editoriales               |
-| [`redesign-existing-projects`](../../.agents/skills/redesign-existing-projects/SKILL.md) | Rediseñar sitios existentes a calidad premium                          |
-| [`seo`](../../.agents/skills/seo/SKILL.md)                                               | Optimizar SEO, meta tags, structured data, sitemaps                    |
-| [`svelte-code-writer`](../../.agents/skills/svelte-code-writer/SKILL.md)                 | Consultar docs Svelte 5 al crear/editar `.svelte`                      |
-| [`svelte-core-bestpractices`](../../.agents/skills/svelte-core-bestpractices/SKILL.md)   | Buenas prácticas Svelte: reactividad, eventos, estilos                 |
-| [`svelte5-best-practices`](../../.agents/skills/svelte5-best-practices/SKILL.md)         | Runes, snippets, SvelteKit patterns, migración Svelte 4 → 5            |
-| [`tailwind-best-practices`](../../.agents/skills/tailwind-best-practices/SKILL.md)       | Guías de Tailwind CSS para el proyecto                                 |
-| [`tailwind-css-patterns`](../../.agents/skills/tailwind-css-patterns/SKILL.md)           | Patrones responsive, layout, flexbox, grid, spacing                    |
-| [`typescript-advanced-types`](../../.agents/skills/typescript-advanced-types/SKILL.md)   | Tipos avanzados: genéricos, condicionales, mapped types                |
-| [`vanchi-design-system`](../../.agents/skills/vanchi-design-system/SKILL.md)             | **Skill específica de Vanchi** — aplicar DESIGN.md                     |
-| [`vite`](../../.agents/skills/vite/SKILL.md)                                             | Configuración de Vite, plugins, SSR                                    |
+| [`accessibility`](../.agents/skills/accessibility/SKILL.md)                           | Auditar o mejorar accesibilidad WCAG 2.2, screen readers, keyboard nav |
+| [`Bun`](../.agents/skills/bun/SKILL.md)                                               | Ejecutar scripts, manejar paquetes, testear o empaquetar con Bun       |
+| [`daisyui`](../.agents/skills/daisyui/SKILL.md)                                       | Usar componentes DaisyUI con Tailwind v4                               |
+| [`design-taste-frontend`](../.agents/skills/design-taste-frontend/SKILL.md)           | UI engineering, métricas visuales, CSS hardware acceleration           |
+| [`frontend-design`](../.agents/skills/frontend-design/SKILL.md)                       | Crear interfaces de alta calidad de diseño                             |
+| [`full-output-enforcement`](../.agents/skills/full-output-enforcement/SKILL.md)       | Evitar truncamiento en outputs largos (código completo)                |
+| [`gpt-taste`](../.agents/skills/gpt-taste/SKILL.md)                                   | Motion design con GSAP, bento grids, layouts editoriales               |
+| [`redesign-existing-projects`](../.agents/skills/redesign-existing-projects/SKILL.md) | Rediseñar sitios existentes a calidad premium                          |
+| [`seo`](../.agents/skills/seo/SKILL.md)                                               | Optimizar SEO, meta tags, structured data, sitemaps                    |
+| [`svelte-code-writer`](../.agents/skills/svelte-code-writer/SKILL.md)                 | Consultar docs Svelte 5 al crear/editar `.svelte`                      |
+| [`svelte-core-bestpractices`](../.agents/skills/svelte-core-bestpractices/SKILL.md)   | Buenas prácticas Svelte: reactividad, eventos, estilos                 |
+| [`svelte5-best-practices`](../.agents/skills/svelte5-best-practices/SKILL.md)         | Runes, snippets, SvelteKit patterns, migración Svelte 4 → 5            |
+| [`tailwind-best-practices`](../.agents/skills/tailwind-best-practices/SKILL.md)       | Guías de Tailwind CSS para el proyecto                                 |
+| [`tailwind-css-patterns`](../.agents/skills/tailwind-css-patterns/SKILL.md)           | Patrones responsive, layout, flexbox, grid, spacing                    |
+| [`typescript-advanced-types`](../.agents/skills/typescript-advanced-types/SKILL.md)   | Tipos avanzados: genéricos, condicionales, mapped types                |
+| [`vanchi-design-system`](../.agents/skills/vanchi-design-system/SKILL.md)             | **Skill específica de Vanchi** — aplicar DESIGN.md                     |
+| [`vite`](../.agents/skills/vite/SKILL.md)                                             | Configuración de Vite, plugins, SSR                                    |
 
 ## 🧠 Flujo recomendado
 
