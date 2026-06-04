@@ -1,6 +1,7 @@
 import encap from '$lib/assets/images/projects/encap.webp';
 import junin360 from '$lib/assets/images/projects/junin360.webp';
 import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
+import molaric from '$lib/assets/images/projects/molaric.webp';
 import farmape from '$lib/assets/images/projects/farmape.webp';
 import obstetraconecta from '$lib/assets/images/projects/obstetraconecta.webp';
 import diapis from '$lib/assets/images/projects/diapis.webp';
@@ -40,6 +41,19 @@ export interface Project {
 export const PROJECTS: Project[] = [
 	{
 		id: 1,
+		title: 'Molaric',
+		category: 'HealthTech',
+		description:
+			'Agente de IA para clínicas dentales que atiende pacientes 24/7 vía WhatsApp. Gestiona citas, sincroniza con Google Calendar, envía recordatorios automáticos y proporciona un dashboard web para el doctor.',
+		image: molaric,
+		tags: ['SvelteKit', 'Convex', 'Gemini API', 'Google Calendar'],
+		href: '/proyectos/molaric',
+		link: 'https://molaric.com/' as ExternalUrl,
+		video: 'https://www.youtube.com/watch?v=6OByh4IlgTU' as ExternalUrl,
+		date: 'Abril 2026'
+	},
+	{
+		id: 2,
 		title: 'ENCAP',
 		category: 'Tutor AI',
 		description:
@@ -49,18 +63,6 @@ export const PROJECTS: Project[] = [
 		href: '/proyectos/encap',
 		link: 'https://www.encap.edu.pe/',
 		date: 'Enero 2026'
-	},
-	{
-		id: 2,
-		title: 'Junin360',
-		category: 'Optimización de Procesos',
-		description:
-			'Plataforma de control de informes de control para el GORE Junín utilizando tecnologías modernas e IA para alertar a los responsables y eliminar el riesgo de responsabilidades legales.',
-		image: junin360,
-		tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'n8n'],
-		href: '/proyectos/junin360',
-		link: 'https://junin360.com/',
-		date: 'Setiembre 2025'
 	},
 	{
 		id: 3,
@@ -116,18 +118,6 @@ export const PROJECTS: Project[] = [
 	},
 	{
 		id: 7,
-		title: 'Peralta Asociados',
-		category: 'LegalTech',
-		description:
-			'Construcción de identidad digital de alto impacto para el estudio jurídico. Sitio web diseñado con la arquitectura más moderna (Astro/Tailwind) para garantizar la máxima velocidad, posicionamiento SEO y la atracción de nuevos clientes.',
-		image: peraltaasociados,
-		tags: ['Astro', 'Tailwind', 'Netlify Forms'],
-		href: '/proyectos/peralta-asociados',
-		link: 'https://peraltaasociados.com/',
-		date: 'Enero 2025'
-	},
-	{
-		id: 8,
 		title: 'Colegio Educere',
 		category: 'EduTech',
 		description:
@@ -137,5 +127,29 @@ export const PROJECTS: Project[] = [
 		href: '/proyectos/colegio-educere',
 		link: 'https://colegioeducere.edu.pe/',
 		date: 'Diciembre 2025'
+	},
+	{
+		id: 8,
+		title: 'Junin360',
+		category: 'Optimización de Procesos',
+		description:
+			'Plataforma de control de informes de control para el GORE Junín utilizando tecnologías modernas e IA para alertar a los responsables y eliminar el riesgo de responsabilidades legales.',
+		image: junin360,
+		tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'n8n'],
+		href: '/proyectos/junin360',
+		link: 'https://junin360.com/',
+		date: 'Setiembre 2025'
+	},
+	{
+		id: 9,
+		title: 'Peralta Asociados',
+		category: 'LegalTech',
+		description:
+			'Construcción de identidad digital de alto impacto para el estudio jurídico. Sitio web diseñado con la arquitectura más moderna (Astro/Tailwind) para garantizar la máxima velocidad, posicionamiento SEO y la atracción de nuevos clientes.',
+		image: peraltaasociados,
+		tags: ['Astro', 'Tailwind', 'Netlify Forms'],
+		href: '/proyectos/peralta-asociados',
+		link: 'https://peraltaasociados.com/',
+		date: 'Enero 2025'
 	}
 ];
