@@ -8,6 +8,7 @@
 ```
 docs/
 ├── README.md                           # ← ESTE ARCHIVO — Portal de entrada
+├── AGENT-QUICKSTART.md                 # 🤖 Reglas de oro para el agente (5 reglas)
 ├── ALIADAS.md                          # Aliados IA: qué consultar según el problema
 ├── CHEATSHEET.md                       # Referencia rápida: comandos, helpers, convenciones
 ├── CHANGELOG.md                        # 📜 Historial de cambios del proyecto
@@ -45,6 +46,7 @@ docs/
 
 ### 📋 Referencia rápida
 
+- [`AGENT-QUICKSTART.md`](./AGENT-QUICKSTART.md) — 🤖 5 reglas de oro para empezar rápido
 - [`CHANGELOG.md`](./CHANGELOG.md) — 📜 Historial de cambios del proyecto
 - [`CHEATSHEET.md`](./CHEATSHEET.md) — Comandos, helpers y convenciones en 1 página
 - [`ALIADAS.md`](./ALIADAS.md) — Skills y aliados IA

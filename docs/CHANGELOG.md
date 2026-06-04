@@ -1,7 +1,31 @@
 # 📜 CHANGELOG — Historial de cambios
 
 > Registro cronológico de cambios significativos en el proyecto.
-> Formato: Fecha | Qué cambió | Por qué | Archivos afectados
+
+## ✍️ Cómo agregar una entrada
+
+Copia y pega este bloque al inicio de la lista (después de esta sección) y complétalo:
+
+```markdown
+## YYYY-MM-DD
+
+**Qué cambió:** [Descripción breve del cambio]
+
+**Por qué:** [Razón del cambio]
+
+**Archivos afectados:**
+- `ruta/al/archivo` — [Propósito]
+```
+
+---
+
+## Formato de cada entrada
+
+| Campo | Qué escribir |
+|-------|-------------|
+| **Qué cambió** | Descripción en 1 línea, presente simple |
+| **Por qué** | Contexto: problema que resolvía o decisión que se tomó |
+| **Archivos afectados** | Lista de archivos con ruta relativa desde la raíz del proyecto. Incluir `tasks/*` si la spec se archivó |
 
 ---
 

@@ -104,3 +104,35 @@
 3. [`/docs/00-GUIDE/WORKFLOW.md`](./WORKFLOW.md) — ciclo de trabajo
 
 **Nota:** Documentar en el mismo estilo que los archivos existentes. Markdown, enlaces relativos, español, nombres de archivo en MAYÚSCULA.
+
+---
+
+## Tarea 7: Agregar un nuevo documento al hub `docs/`
+
+**Secuencia de lectura:**
+
+1. [`/docs/README.md`](../README.md) — entender la estructura actual del hub
+2. [`/docs/CHANGELOG.md`](../CHANGELOG.md) — ver el historial de cambios recientes
+
+**Pasos para agregar un nuevo archivo:**
+
+1. Identificar la carpeta temática correcta según el contenido:
+   - ¿Es una guía general? → `00-GUIDE/`
+   - ¿Es del frontend? → `02-FRONTEND/`
+   - ¿Es arquitectura? → `04-ARCHITECTURE/`
+   - ¿Es setup/infra? → `05-SETUP/`
+   - ¿Es regla de negocio? → `06-BUSINESS-RULES/`
+   - ¿Es diseño? → `07-DESIGN/`
+2. Nombrar el archivo en MAYÚSCULA (ej: `SEO.md`, `ANALYTICS.md`)
+3. Agregar un README.md en la carpeta (si no existe) que enumere los archivos
+4. Actualizar el árbol de [`/docs/README.md`](../README.md) con el nuevo archivo
+5. Agregar una entrada en [`/docs/CHANGELOG.md`](../CHANGELOG.md)
+6. Si el documento se relaciona con otras carpetas, actualizar la sección "🔗 Relaciones con otras carpetas" en los READMEs afectados
+7. Verificar que todos los enlaces relativos funcionan
+
+**Skills a cargar:**
+- `vanchi-design-system` — mantener consistencia visual
+
+**Referencias externas:**
+- `/docs/README.md` — árbol maestro del hub
+- `/docs/CHANGELOG.md` — registro de cambios

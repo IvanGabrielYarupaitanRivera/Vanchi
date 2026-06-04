@@ -27,4 +27,4 @@ YYYY-MM-DD-TITULO-BREVE.md
 
 ## Lecciones registradas
 
-*(Aquí se listarán las lecciones a medida que se agreguen)*
+*(No hay lecciones aún — estado normal. Las lecciones se crean cuando ocurre un error significativo o se toma una decisión clave durante el desarrollo. Mientras no estemos codeando activamente, esta carpeta permanecerá vacía por diseño.)*

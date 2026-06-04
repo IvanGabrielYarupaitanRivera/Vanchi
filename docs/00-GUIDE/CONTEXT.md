@@ -79,7 +79,7 @@ Vanchi/
 
 ## 🚦 Estado actual del proyecto
 
-El proyecto está **en producción activa**, desplegado en Vercel. Las páginas principales (home, proyectos, precios, legales) ya están construidas. La documentación (`docs/`) está completa con estructura de hub documental y 25 archivos.
+El proyecto está **en producción activa**, desplegado en Vercel. Las páginas principales (home, proyectos, precios, legales) ya están construidas. La documentación (`docs/`) está completa con estructura de hub documental. Cada carpeta sigue una numeración por prioridad de lectura y todas están interconectadas mediante enlaces relativos y mapas de relaciones.
 
 ---
 
@@ -88,6 +88,7 @@ El proyecto está **en producción activa**, desplegado en Vercel. Las páginas 
 | Si necesitas… | Ve a… |
 |---------------|-------|
 | Entender el proyecto | Este documento ✅ |
+| Arrancar rápido como agente | [`/docs/AGENT-QUICKSTART.md`](../AGENT-QUICKSTART.md) |
 | Saber qué leer según tu tarea | [`NAVIGATION.md`](./NAVIGATION.md) |
 | El ciclo de trabajo | [`WORKFLOW.md`](./WORKFLOW.md) |
 | Reglas del stack | [`STACK-PATTERNS.md`](./STACK-PATTERNS.md) |
