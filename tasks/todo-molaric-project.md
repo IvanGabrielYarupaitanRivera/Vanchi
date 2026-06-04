@@ -66,28 +66,53 @@ Molaric es un **agente de IA para clínicas dentales** que funciona 24/7 vía Wh
 
 ## 4. Pasos de implementación
 
-### Paso 1 — Actualizar `FeaturedProjects.svelte` (sección home)
+### Paso 1 — Reordenar `FeaturedProjects.svelte` (sección home)
 
-Reemplazar MediRoosevelt por Molaric en el array hardcodeado de proyectos destacados.
+Eliminar MediRoosevelt del array hardcodeado y agregar Molaric en **primer lugar**, seguido de ENCAP y Junin360.
 
 **Archivos involucrados:** `src/lib/components/home/FeaturedProjects.svelte`
 
 **Detalle:**
-- Cambiar el import de `mediroosevelt.webp` por `molaric.webp`
-- Reemplazar el objeto `{ id: 3, title: 'MediRoosevelt', ... }` por:
+- Remover el import de `mediroosevelt.webp`
+- Agregar `import molaric from '$lib/assets/images/projects/molaric.webp';`
+- Reemplazar todo el array `projects` por el siguiente orden:
 
 ```ts
-{
-    id: 3,
-    title: 'Molaric',
-    category: 'HealthTech',
-    description:
-        'Agente de IA para clínicas dentales que atiende pacientes 24/7 vía WhatsApp. Gestiona citas, sincroniza con Google Calendar, envía recordatorios automáticos y proporciona un dashboard web para el doctor.',
-    image: molaric,
-    tags: ['SvelteKit', 'Convex', 'Gemini API', 'Google Calendar'],
-    href: '/proyectos/molaric'
-}
+const projects: Project[] = [
+    {
+        id: 3,
+        title: 'Molaric',
+        category: 'HealthTech',
+        description:
+            'Agente de IA para clínicas dentales que atiende pacientes 24/7 vía WhatsApp. Gestiona citas, sincroniza con Google Calendar, envía recordatorios automáticos y proporciona un dashboard web para el doctor.',
+        image: molaric,
+        tags: ['SvelteKit', 'Convex', 'Gemini API', 'Google Calendar'],
+        href: '/proyectos/molaric'
+    },
+    {
+        id: 1,
+        title: 'ENCAP',
+        category: 'Tutor AI',
+        description:
+            'Integración del tutor ENCAP con inteligencia artificial para mejorar la experiencia de aprendizaje de los estudiantes, el tutor tiene conocimiento general y específico de cada curso, brindando apoyo personalizado y eficiente.',
+        image: encap,
+        tags: ['SvelteKit', 'Lit', 'OpenRouter', 'Convex'],
+        href: '/proyectos/encap'
+    },
+    {
+        id: 2,
+        title: 'Junin360',
+        category: 'Optimización de Procesos',
+        description:
+            'Plataforma de control de informes de control para el GORE Junín utilizando tecnologías modernas e IA para alertar a los responsables y eliminar el riesgo de responsabilidades legales.',
+        image: junin360,
+        tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'N8N'],
+        href: '/proyectos/junin360'
+    }
+];
 ```
+
+**Orden final:** Molaric (1°) → ENCAP (2°) → Junin360 (3°)
 
 ---
 
@@ -191,7 +216,7 @@ Confirmar que los componentes que usan `PROJECTS` y `projectsData` detectan Mola
 
 ## 5. Checklist de cierre
 
-- [ ] FeaturedProjects.svelte actualizado (MediRoosevelt reemplazado por Molaric)
+- [ ] FeaturedProjects.svelte actualizado (orden: Molaric 1° → ENCAP 2° → Junin360 3°)
 - [ ] constants/projects.ts con Molaric en PROJECTS (id: 9)
 - [ ] molaric.webp creado (thumbnail)
 - [ ] data/projects/molaric.ts creado (caso de estudio con stack real)

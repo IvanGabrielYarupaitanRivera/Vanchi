@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
 	import CardProject from './CardProject.svelte';
-	import junin360 from '$lib/assets/images/projects/junin360.webp';
-	import mediroosevelt from '$lib/assets/images/projects/mediroosevelt.webp';
+	import molaric from '$lib/assets/images/projects/molaric.webp';
 	import encap from '$lib/assets/images/projects/encap.webp';
+	import junin360 from '$lib/assets/images/projects/junin360.webp';
 	import { ArrowRight } from '@lucide/svelte';
 	import { resolve } from '$app/paths';
 
@@ -18,6 +18,16 @@
 	};
 
 	const projects: Project[] = [
+		{
+			id: 3,
+			title: 'Molaric',
+			category: 'HealthTech',
+			description:
+				'Agente de IA para clínicas dentales que atiende pacientes 24/7 vía WhatsApp. Gestiona citas, sincroniza con Google Calendar, envía recordatorios automáticos y proporciona un dashboard web para el doctor.',
+			image: molaric,
+			tags: ['SvelteKit', 'Convex', 'Gemini API', 'Google Calendar'],
+			href: '/proyectos/molaric'
+		},
 		{
 			id: 1,
 			title: 'ENCAP',
@@ -37,16 +47,6 @@
 			image: junin360,
 			tags: ['SvelteKit', 'Supabase', 'OpenRouter', 'N8N'],
 			href: '/proyectos/junin360'
-		},
-		{
-			id: 3,
-			title: 'MediRoosevelt',
-			category: 'HealthTech Innovation',
-			description:
-				'Proyecto para los alumnos de la escuela profesional de Medicina Humana de la Universidad Roosevelt, ganó el primer puesto en la Expociencia 2025 - II.',
-			image: mediroosevelt,
-			tags: ['Svelte', 'Convex', 'TypeScript', 'Gemini API'],
-			href: '/proyectos/mediroosevelt'
 		}
 	];
 </script>
