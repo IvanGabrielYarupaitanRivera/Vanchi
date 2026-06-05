@@ -31,6 +31,24 @@ Copia y pega este bloque al inicio de la lista (después de esta sección) y com
 
 ## 2026-06-04
 
+**Qué cambió:** Agregado proyecto Molaric al portafolio.
+
+**Por qué:** Se necesitaba mostrar el proyecto más reciente del autor: un agente IA para clínicas dentales. Molaric reemplazó a MediRoosevelt en la sección destacada del home y se agregó como caso de estudio completo.
+
+**Archivos afectados:**
+- `src/lib/components/home/FeaturedProjects.svelte` — Molaric 1°, ENCAP 2°, Junin360 3°
+- `src/lib/constants/projects.ts` — Molaric como id:1 con link y video
+- `src/lib/data/projects/molaric.ts` — Caso de estudio con stack real, galería de 7 imágenes, logos tecnológicos
+- `src/lib/data/projects/index.ts` — Molaric registrado en projectsData
+- `src/routes/sitemap.xml/+server.ts` — slug molaric agregado
+- `src/lib/assets/icons/technologies/GoogleCalendarLogo.svelte` — Nuevo logo
+- `src/lib/assets/icons/technologies/DeepgramLogo.svelte` — Nuevo logo
+- `tasks/archived/todo-molaric-project.md` — Spec archivada
+
+---
+
+## 2026-06-04
+
 **Qué cambió:** Archivada la especificación TASK-001 (hub de documentación `docs/`).
 
 **Por qué:** El hub fue completado con 27 archivos, 0 broken links, mapa de relaciones, quickstart agéntico, y todas las correcciones de coherencia aplicadas.
