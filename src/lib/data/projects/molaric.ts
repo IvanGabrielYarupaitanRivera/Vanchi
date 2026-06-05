@@ -16,6 +16,8 @@ import TailwindLogo from '$lib/assets/icons/technologies/TailwindLogo.svelte';
 import BetterAuthLogo from '$lib/assets/icons/technologies/BetterAuthLogo.svelte';
 import TypeScriptLogo from '$lib/assets/icons/technologies/TypeScriptLogo.svelte';
 import VercelLogo from '$lib/assets/icons/technologies/VercelLogo.svelte';
+import GoogleCalendarLogo from '$lib/assets/icons/technologies/GoogleCalendarLogo.svelte';
+import DeepgramLogo from '$lib/assets/icons/technologies/DeepgramLogo.svelte';
 
 export const molaric: CaseStudy = {
 	id: 'molaric',
@@ -164,18 +166,22 @@ export const molaric: CaseStudy = {
 		logos: [
 			SvelteKitLogo,
 			ConvexLogo,
+			GoogleCalendarLogo,
 			TailwindLogo,
 			BetterAuthLogo,
 			TypeScriptLogo,
-			VercelLogo
+			VercelLogo,
+			DeepgramLogo
 		],
 		logosNombres: [
 			'SvelteKit',
 			'Convex',
+			'Google Calendar',
 			'TailwindCSS',
 			'Better Auth',
 			'TypeScript',
-			'Vercel'
+			'Vercel',
+			'Deepgram'
 		]
 	},
 	results: {
