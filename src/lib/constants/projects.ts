@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
 		description:
 			'Agente de IA para clínicas dentales que atiende pacientes 24/7 vía WhatsApp. Gestiona citas, sincroniza con Google Calendar, envía recordatorios automáticos y proporciona un dashboard web para el doctor.',
 		image: molaric,
-		tags: ['SvelteKit', 'Convex', 'Gemini API', 'Google Calendar'],
+		tags: ['SvelteKit', 'Convex', 'Google Calendar', 'TailwindCSS'],
 		href: '/proyectos/molaric',
 		link: 'https://molaric.com/' as ExternalUrl,
 		video: 'https://www.youtube.com/watch?v=6OByh4IlgTU' as ExternalUrl,

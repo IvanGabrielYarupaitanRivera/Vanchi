@@ -1,9 +1,17 @@
 import type { CaseStudy } from '$lib/types/project';
 import bgMolaric from '$lib/assets/images/projects/bg-molaric.webp';
 
+import dashboardPrincipal from '$lib/assets/images/projects/molaric/dashboardPrincipal.webp';
+import gestionPacientes from '$lib/assets/images/projects/molaric/gestionPacientes.webp';
+import gestionCitas from '$lib/assets/images/projects/molaric/gestionCitas.webp';
+import gestionHorarios from '$lib/assets/images/projects/molaric/gestionHorarios.webp';
+import gestionProcedimientos from '$lib/assets/images/projects/molaric/gestionProcedimientos.webp';
+import gestionSucursales from '$lib/assets/images/projects/molaric/gestionSucursales.webp';
+import conversacionWhatsapp from '$lib/assets/images/projects/molaric/conversacionWhatsapp.webp';
+import clinicaDentalLogo from '$lib/assets/icons/logos/clinica-dental.svg';
+
 import SvelteKitLogo from '$lib/assets/icons/technologies/SvelteKitLogo.svelte';
 import ConvexLogo from '$lib/assets/icons/technologies/ConvexLogo.svelte';
-import GeminiIALogo from '$lib/assets/icons/technologies/GeminiIALogo.svelte';
 import TailwindLogo from '$lib/assets/icons/technologies/TailwindLogo.svelte';
 import BetterAuthLogo from '$lib/assets/icons/technologies/BetterAuthLogo.svelte';
 import TypeScriptLogo from '$lib/assets/icons/technologies/TypeScriptLogo.svelte';
@@ -26,7 +34,7 @@ export const molaric: CaseStudy = {
 			'Google Calendar',
 			'Inteligencia Artificial'
 		],
-		stack: ['SvelteKit', 'Convex', 'Gemini API', 'Google Calendar', 'TailwindCSS', 'Better Auth'],
+		stack: ['SvelteKit', 'Convex', 'Vercel AI Gateway', 'Google Calendar', 'TailwindCSS', 'Better Auth'],
 		bgHero: {
 			src: bgMolaric,
 			alt: 'Fondo hero de Molaric'
@@ -38,7 +46,7 @@ export const molaric: CaseStudy = {
 	},
 	context: {
 		client: 'Clínicas Dentales',
-		logo: '',
+		logo: clinicaDentalLogo,
 		problem:
 			'Las clínicas dentales enfrentan desafíos significativos en la gestión de citas: llamadas telefónicas constantes, pacientes que olvidan sus citas, disponibilidad limitada del personal para atender fuera del horario laboral, y errores en la sincronización del calendario. Los pacientes necesitan una forma rápida y sencilla de agendar citas 24/7, mientras que los doctores requieren un sistema que centralice toda la gestión sin aumentar su carga operativa.',
 		constraints: [
@@ -94,7 +102,7 @@ export const molaric: CaseStudy = {
 		decisions: [
 			'Utilizar Convex como backend completo (base de datos + lógica del agente) para mantener todo en un solo ecosistema',
 			'Implementar @convex-dev/agent como framework del agente IA con tools unificadas por dominio',
-			'Usar Gemini API como LLM principal a través de Vercel AI Gateway para balanceo de carga',
+			'Usar Vercel AI Gateway como LLM gateway para balanceo de carga y routing de modelos',
 			'Integrar Google Calendar API REST v3 con Service Account para sincronización bidireccional',
 			'Diseñar el agente con orientación a metas (goal-oriented) en lugar de pasos fijos',
 			'Implementar multi-tenancy desde el inicio con datos aislados por clínica',
@@ -107,32 +115,55 @@ export const molaric: CaseStudy = {
 			'El dashboard de Molaric sigue un diseño Nike-inspired: monocromático, pill geometry, tipografía limpia y máxima expresión editorial en las imágenes. Las pantallas se organizan en secciones independientes siguiendo el principio de responsabilidad única: pacientes, citas, recordatorios, configuración y miembros del equipo.',
 		gallery: [
 			{
-				src: '',
+				src: dashboardPrincipal,
 				alt: 'Dashboard principal de Molaric con estadísticas',
 				caption:
 					'Vista del dashboard principal con métricas en tiempo real: citas del día, pacientes registrados, recordatorios enviados.'
 			},
 			{
-				src: '',
+				src: gestionPacientes,
 				alt: 'Gestión de pacientes en Molaric',
 				caption:
 					'Panel de pacientes con filtros, búsqueda y acciones rápidas para crear, editar o eliminar pacientes.'
 			},
 			{
-				src: '',
-				alt: 'Calendario de citas sincronizado',
+				src: gestionCitas,
+				alt: 'Gestión de citas sincronizada con Google Calendar',
 				caption:
-					'Vista del calendario de citas con sincronización bidireccional automática con Google Calendar.'
+					'Calendario de citas con sincronización bidireccional automática con Google Calendar.'
+			},
+			{
+				src: gestionHorarios,
+				alt: 'Gestión de horarios de la clínica',
+				caption:
+					'Configuración de horarios con excepciones y simulador de disponibilidad.'
+			},
+			{
+				src: gestionProcedimientos,
+				alt: 'Gestión de procedimientos dentales',
+				caption:
+					'Panel de procedimientos con precios, duración y descripción.'
+			},
+			{
+				src: gestionSucursales,
+				alt: 'Gestión de sucursales y ubicación',
+				caption:
+					'Configuración de múltiples sucursales con direcciones y Google Maps.'
+			},
+			{
+				src: conversacionWhatsapp,
+				alt: 'Conversación con el agente IA vía WhatsApp',
+				caption:
+					'El agente Molaric atendiendo a un paciente vía WhatsApp: agenda citas, verifica disponibilidad y responde dudas 24/7.'
 			}
 		]
 	},
 	tech: {
 		stackDetails:
-			'Construido con SvelteKit 5 para el dashboard frontend, Convex como backend y base de datos (schema + queries + agentes), Gemini API como LLM principal vía Vercel AI Gateway, Google Calendar API REST v3 para sincronización de calendario, Kapso para comunicación WhatsApp, Better Auth para autenticación, TailwindCSS v4 para estilos y Deepgram STT para transcripción de voz.',
+			'Construido con SvelteKit 5 para el dashboard frontend, Convex como backend y base de datos (schema + queries + agentes), Vercel AI Gateway como LLM gateway, Google Calendar API REST v3 para sincronización de calendario, Kapso para comunicación WhatsApp, Better Auth para autenticación, TailwindCSS v4 para estilos y Deepgram STT para transcripción de voz.',
 		logos: [
 			SvelteKitLogo,
 			ConvexLogo,
-			GeminiIALogo,
 			TailwindLogo,
 			BetterAuthLogo,
 			TypeScriptLogo,
@@ -141,7 +172,6 @@ export const molaric: CaseStudy = {
 		logosNombres: [
 			'SvelteKit',
 			'Convex',
-			'Gemini API',
 			'TailwindCSS',
 			'Better Auth',
 			'TypeScript',

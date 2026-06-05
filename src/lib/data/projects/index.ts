@@ -7,6 +7,7 @@ import { obstetraconecta } from './obstetraconecta';
 import { diapis } from './diapis';
 import { peraltaAsociados } from './peralta-asociados';
 import { colegioEducere } from './colegio-educere';
+import { molaric } from './molaric';
 
 export const projectsData: Record<string, CaseStudy> = {
 	encap,
@@ -16,5 +17,6 @@ export const projectsData: Record<string, CaseStudy> = {
 	obstetraconecta,
 	diapis,
 	'peralta-asociados': peraltaAsociados,
-	'colegio-educere': colegioEducere
+	'colegio-educere': colegioEducere,
+	molaric
 };

@@ -24,6 +24,7 @@ export async function GET() {
 		farmape: '2025-11-30',
 		junin360: '2025-09-30',
 		mediroosevelt: '2025-11-30',
+		molaric: '2026-06-04',
 		obstetraconecta: '2025-11-30',
 		'peralta-asociados': '2025-03-31'
 	};
