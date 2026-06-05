@@ -120,43 +120,43 @@ export const molaric: CaseStudy = {
 				src: dashboardPrincipal,
 				alt: 'Dashboard principal de Molaric con estadísticas',
 				caption:
-					'Vista del dashboard principal con métricas en tiempo real: citas del día, pacientes registrados, recordatorios enviados.'
+					'Dashboard principal con métricas en tiempo real: total de pacientes registrados, citas creadas, citas sincronizadas con Google Calendar y un interruptor para desactivar el agente IA desde el panel de control.'
 			},
 			{
 				src: gestionPacientes,
 				alt: 'Gestión de pacientes en Molaric',
 				caption:
-					'Panel de pacientes con filtros, búsqueda y acciones rápidas para crear, editar o eliminar pacientes.'
+					'Panel de pacientes con opciones para crear, editar y eliminar pacientes. Se muestra información detallada de cada paciente incluyendo nombres, teléfono, email y la sede a la que pertenece.'
 			},
 			{
 				src: gestionCitas,
 				alt: 'Gestión de citas sincronizada con Google Calendar',
 				caption:
-					'Calendario de citas con sincronización bidireccional automática con Google Calendar.'
+					'Gestión de citas con sincronización bidireccional automática con Google Calendar. Es posible acceder a los recordatorios de cada cita y filtrar por estado (pendiente, confirmada, completada, cancelada).'
 			},
 			{
 				src: gestionHorarios,
 				alt: 'Gestión de horarios de la clínica',
 				caption:
-					'Configuración de horarios con excepciones y simulador de disponibilidad.'
+					'Configuración flexible de horarios de atención con la posibilidad de añadir fechas especiales o excepciones para días festivos o cierres temporales.'
 			},
 			{
 				src: gestionProcedimientos,
 				alt: 'Gestión de procedimientos dentales',
 				caption:
-					'Panel de procedimientos con precios, duración y descripción.'
+					'Panel de procedimientos dentales: crear, editar y eliminar procedimientos con su precio, duración estimada y descripción detallada.'
 			},
 			{
 				src: gestionSucursales,
 				alt: 'Gestión de sucursales y ubicación',
 				caption:
-					'Configuración de múltiples sucursales con direcciones y Google Maps.'
+					'Configuración de múltiples sucursales, cada una con su propia dirección, horarios de atención independientes y enlace a Google Maps.'
 			},
 			{
 				src: conversacionWhatsapp,
 				alt: 'Conversación con el agente IA vía WhatsApp',
 				caption:
-					'El agente Molaric atendiendo a un paciente vía WhatsApp: agenda citas, verifica disponibilidad y responde dudas 24/7.'
+					'El agente Molaric atendiendo a un paciente vía WhatsApp: agenda citas, verifica disponibilidad en tiempo real, responde dudas 24/7, gestiona recordatorios y confirma asistencia mediante respuestas Sí/No.'
 			}
 		]
 	},
