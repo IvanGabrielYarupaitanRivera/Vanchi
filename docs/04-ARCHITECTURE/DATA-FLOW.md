@@ -116,6 +116,7 @@ lib/
 │       ├── farmape.ts              → Proyecto: Farmape
 │       ├── junin360.ts             → Proyecto: Junín360
 │       ├── mediroosevelt.ts        → Proyecto: Med Roosevelt
+│       ├── molaric.ts              → Proyecto: Molaric
 │       ├── obstetraconecta.ts      → Proyecto: ObstetraConecta
 │       └── peralta-asociados.ts    → Proyecto: Peralta & Asociados
 ├── services/

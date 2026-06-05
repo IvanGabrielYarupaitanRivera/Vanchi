@@ -96,4 +96,4 @@ El proyecto está **en producción activa**, desplegado en Vercel. Las páginas 
 | Skills / aliados IA | [`/docs/ALIADAS.md`](../ALIADAS.md) |
 | Historial de cambios | [`/docs/CHANGELOG.md`](../CHANGELOG.md) |
 | Design system completo | [`/DESIGN.md`](../../DESIGN.md) |
-| Especificaciones activas | [`/tasks/`](../../tasks/) |
+| Especificaciones archivadas | [`/tasks/archived/`](../../tasks/archived/) |
