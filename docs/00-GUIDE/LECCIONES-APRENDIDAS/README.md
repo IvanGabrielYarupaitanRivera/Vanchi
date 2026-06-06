@@ -27,4 +27,7 @@ YYYY-MM-DD-TITULO-BREVE.md
 
 ## Lecciones registradas
 
-*(No hay lecciones aún — estado normal. Las lecciones se crean cuando ocurre un error significativo o se toma una decisión clave durante el desarrollo. Mientras no estemos codeando activamente, esta carpeta permanecerá vacía por diseño.)*
+### 2026-06-04
+
+- [`2026-06-04-CONVEX-COMO-BASE-DE-DATOS.md`](./2026-06-04-CONVEX-COMO-BASE-DE-DATOS.md) — Schema escalable (documentos, chunks, embeddings), vector search solo en actions, seed de embeddings, migraciones widen-migrate-narrow.
+- [`2026-06-04-CONVEX-COMO-AGENTE.md`](./2026-06-04-CONVEX-COMO-AGENTE.md) — Component Agent, tools con createTool + zod, listUIMessages, Vercel AI Gateway con openai.chat(), env vars correctas, rate limiting, seguridad.
