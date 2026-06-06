@@ -15,7 +15,11 @@ export const createThread = action({
 
 		console.log(`[createThread] Generando respuesta...`);
 		const result = await thread.generateText({ prompt });
-		console.log(`[createThread] Respuesta recibida: ${result.text.slice(0, 100)}...`);
+		console.log(`[createThread] Result keys: ${Object.keys(result)}`);
+		console.log(`[createThread] result.text type: ${typeof result.text}`);
+		console.log(`[createThread] result.text length: ${result.text?.length}`);
+		console.log(`[createThread] result.text raw: ${JSON.stringify(result.text)}`);
+		console.log(`[createThread] result full: ${JSON.stringify(result).slice(0, 500)}`);
 
 		return { threadId, text: result.text };
 	},
@@ -33,7 +37,10 @@ export const continueThread = action({
 		console.log(`[continueThread] Thread recuperado, generando respuesta...`);
 
 		const result = await thread.generateText({ prompt });
-		console.log(`[continueThread] Respuesta recibida: ${result.text.slice(0, 100)}...`);
+		console.log(`[continueThread] Result keys: ${Object.keys(result)}`);
+		console.log(`[continueThread] result.text type: ${typeof result.text}`);
+		console.log(`[continueThread] result.text length: ${result.text?.length}`);
+		console.log(`[continueThread] result.text raw: ${JSON.stringify(result.text)}`);
 
 		return { text: result.text };
 	},

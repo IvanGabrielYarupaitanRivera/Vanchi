@@ -1,4 +1,4 @@
-import { internalMutation } from "../_generated/server";
+import { internalMutation, internalQuery } from "../_generated/server";
 import { v } from "convex/values";
 
 /**
@@ -38,5 +38,18 @@ export const patchChunkEmbedding = internalMutation({
 	},
 	handler: async (ctx, args) => {
 		await ctx.db.patch(args.chunkId, { embeddingId: args.embeddingId });
+	},
+});
+
+/**
+ * Obtiene un chunk por su embeddingId.
+ */
+export const getChunkByEmbeddingId = internalQuery({
+	args: { embeddingId: v.id("embeddings") },
+	handler: async (ctx, { embeddingId }) => {
+		const embedding = await ctx.db.get(embeddingId);
+		if (!embedding) return null;
+		const chunk = await ctx.db.get(embedding.chunkId);
+		return chunk;
 	},
 });
