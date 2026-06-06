@@ -15,7 +15,11 @@ export const searchKnowledgeBase = createTool({
 		query: z.string().describe('La consulta del usuario para buscar en la base de conocimiento')
 	}),
 	execute: async (ctx, { query }): Promise<string> => {
+		console.log(`[searchKnowledgeBase] Buscando: "${query.slice(0, 100)}..."`);
+
 		const results = await ctx.runAction(internal.rag.search.searchChunks, { query });
+
+		console.log(`[searchKnowledgeBase] Resultados encontrados: ${JSON.stringify(results).length} bytes`);
 		return JSON.stringify(results);
 	}
 });
