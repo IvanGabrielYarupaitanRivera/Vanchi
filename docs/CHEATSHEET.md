@@ -81,19 +81,19 @@ Vanchi/
 > ⚠️ **Las reglas completas del stack están en [`00-GUIDE/STACK-PATTERNS.md`](./00-GUIDE/STACK-PATTERNS.md).**
 > Aquí solo un recordatorio mínimo.
 
-| Concepto | Regla |
-|----------|-------|
-| Colores | Solo tokens DaisyUI (`base-100`, `primary`, etc.) |
-| Breakpoint | Solo `lg:` para escritorio |
-| Layout | Mobile-first, `max-w-5xl` a `max-w-6xl` centrado |
-| Animaciones | `transition-all duration-300 ease-out` |
+| Concepto    | Regla                                             |
+| ----------- | ------------------------------------------------- |
+| Colores     | Solo tokens DaisyUI (`base-100`, `primary`, etc.) |
+| Breakpoint  | Solo `lg:` para escritorio                        |
+| Layout      | Mobile-first, `max-w-5xl` a `max-w-6xl` centrado  |
+| Animaciones | `transition-all duration-300 ease-out`            |
 
 ### Tipografía
 
-| Uso | Font |
-|-----|------|
-| Display | Playfair Display |
-| UI / body | Geist |
+| Uso       | Font             |
+| --------- | ---------------- |
+| Display   | Playfair Display |
+| UI / body | Geist            |
 
 ---
 
@@ -106,12 +106,15 @@ Cada página debe tener:
 ```html
 <!-- SEO.svelte se encarga de esto -->
 <title>Vanchi — Portafolio Profesional</title>
-<meta name="description" content="Portafolio de Iván Yarupaitán Rivera, desarrollador full-stack.">
-<meta property="og:title" content="...">
-<meta property="og:description" content="...">
-<meta property="og:image" content="...">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.vanchi.pro/ruta">
+<meta
+	name="description"
+	content="Portafolio de Ivan Yarupaitan Rivera, desarrollador full-stack."
+/>
+<meta property="og:title" content="..." />
+<meta property="og:description" content="..." />
+<meta property="og:image" content="..." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.vanchi.pro/ruta" />
 ```
 
 ### Rendimiento (Core Web Vitals)

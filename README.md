@@ -1,6 +1,6 @@
 # Vanchi
 
-> Portafolio profesional de **Iván Yarupaitán Rivera** — desarrollador full-stack y consultor tecnológico.
+> Portafolio profesional de **Ivan Yarupaitan Rivera** — desarrollador full-stack y consultor tecnológico.
 
 ## 📚 Documentación del proyecto
 
@@ -12,13 +12,13 @@ El hub completo de documentación está en [`docs/`](./docs/README.md).
 
 ## Stack
 
-| Capa | Tecnología |
-|------|------------|
-| Framework | SvelteKit 2 |
-| UI | Svelte 5 (runes) |
-| Estilos | Tailwind CSS v4 + DaisyUI v5 |
-| Runtime | Bun |
-| Hosting | Vercel |
+| Capa      | Tecnología                   |
+| --------- | ---------------------------- |
+| Framework | SvelteKit 2                  |
+| UI        | Svelte 5 (runes)             |
+| Estilos   | Tailwind CSS v4 + DaisyUI v5 |
+| Runtime   | Bun                          |
+| Hosting   | Vercel                       |
 
 ## Comandos rápidos
 

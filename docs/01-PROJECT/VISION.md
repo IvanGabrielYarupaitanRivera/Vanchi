@@ -6,7 +6,7 @@
 
 ## Propósito
 
-Vanchi es el portafolio profesional de **Iván Yarupaitán Rivera**, desarrollador full-stack y consultor tecnológico. Su propósito es:
+Vanchi es el portafolio profesional de **Ivan Yarupaitan Rivera**, desarrollador full-stack y consultor tecnológico. Su propósito es:
 
 1. **Mostrar expertise técnico** a través de proyectos reales y casos de estudio detallados
 2. **Transmitir una identidad premium** que refleje la calidad del trabajo del autor
