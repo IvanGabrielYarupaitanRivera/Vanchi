@@ -3,6 +3,34 @@
 	import { api } from '$convex/_generated/api';
 	import { X } from '@lucide/svelte';
 	import { fly, fade } from 'svelte/transition';
+	import { marked } from 'marked';
+	import DOMPurify from 'dompurify';
+
+	function setMarkdown(node: HTMLElement, text: string) {
+		const html = marked.parse(text, { async: false }) as string;
+		node.innerHTML = DOMPurify.sanitize(html);
+		return {
+			update(newText: string) {
+				node.innerHTML = DOMPurify.sanitize(marked.parse(newText, { async: false }) as string);
+			}
+		};
+	}
+
+	// Para HTML ya sanitizado (typing animation en vivo)
+	function setHtml(node: HTMLElement, html: string) {
+		node.innerHTML = html;
+		return {
+			update(newHtml: string) {
+				node.innerHTML = newHtml;
+			}
+		};
+	}
+
+	// Renderiza Markdown parcial durante typing
+	function renderPartial(text: string): string {
+		if (!text) return '';
+		return DOMPurify.sanitize(marked.parse(text, { async: false }) as string);
+	}
 
 	let { isOpen = false, onToggle = () => {} } = $props();
 
@@ -15,11 +43,12 @@
 	let messages: { role: string; text: string }[] = $state([]);
 	let messagesContainer: HTMLDivElement | undefined = $state();
 
-	// Estado de la typing animation
-
-	let typingVisible = $state('');
+	let typingHtml = $state('');
 	let cursorPhase = $state<'blink' | 'fadeout' | 'hidden'>('hidden');
 	let rafId: number | null = $state(null);
+
+	// Trackear si hay scroll disponible en el contenedor
+	let hasScroll = $state(false);
 
 	// ─── Efectos ────────────────────────────────────
 	$effect(() => {
@@ -27,21 +56,16 @@
 		if (saved) threadId = saved;
 	});
 
+	// Detectar si el contenedor tiene scroll
 	$effect(() => {
-		if (messagesContainer && (messages.length > 0 || isLoading || isTyping)) {
-			const raf = requestAnimationFrame(() => {
-				messagesContainer!.scrollTop = messagesContainer!.scrollHeight;
-			});
-			return () => cancelAnimationFrame(raf);
+		if (messagesContainer) {
+			hasScroll = messagesContainer.scrollHeight > messagesContainer.clientHeight;
 		}
 	});
 
 	$effect(() => {
 		const handleKey = (e: KeyboardEvent) => {
-			if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-				e.preventDefault();
-				onToggle();
-			}
+			if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); onToggle(); }
 			if (e.key === 'Escape' && isOpen) onToggle();
 		};
 		window.addEventListener('keydown', handleKey);
@@ -55,58 +79,53 @@
 	});
 
 	$effect(() => {
-		if (isOpen) {
-			setTimeout(() => document.getElementById('commandbar-input')?.focus(), 100);
-		}
+		if (isOpen) setTimeout(() => document.getElementById('commandbar-input')?.focus(), 100);
 	});
 
-	// ─── Typing animation premium ───────────────────
+	// ─── Typing animation con Markdown en vivo ──────
 	function startTyping(text: string) {
-		typingVisible = '';
+		typingHtml = '';
 		isTyping = true;
 		cursorPhase = 'blink';
 		isLoading = false;
 
-		// Limpiar RAF anterior si existe
 		if (rafId !== null) cancelAnimationFrame(rafId);
 
-		// Determinar velocidad base según longitud del texto
-		// Textos cortos (~100 chars) → 5ms por char
-		// Textos largos (~1000 chars) → 15ms por char
-		const baseDelay = Math.min(15, Math.max(5, text.length / 80));
-		let lastTime = 0;
-		let charIndex = 0;
-
-		function step(timestamp: number) {
-			if (!lastTime) lastTime = timestamp;
-			const elapsed = timestamp - lastTime;
-
-			if (elapsed >= baseDelay && charIndex < text.length) {
-				// Revelar entre 1-3 caracteres por frame para fluidez
-				const charsToReveal = Math.min(
-					Math.max(1, Math.floor(elapsed / baseDelay)),
-					text.length - charIndex
-				);
-				typingVisible = text.slice(0, charIndex + charsToReveal);
-				charIndex += charsToReveal;
-				lastTime = timestamp;
+		// Scroll inmediato al inicio de typing: subir el user message
+		if (messagesContainer) {
+			// Ir al último mensaje del usuario (que está arriba)
+			const lastUserIndex = messages.length - 1;
+			const userMsgEl = messagesContainer.children[lastUserIndex];
+			if (userMsgEl && hasScroll) {
+				const rect = userMsgEl.getBoundingClientRect();
+				const containerRect = messagesContainer.getBoundingClientRect();
+				// Posicionar el user message a ~30% del viewport
+				const targetOffset = rect.top - containerRect.top - containerRect.height * 0.35;
+				messagesContainer.scrollTop = messagesContainer.scrollTop + targetOffset;
 			}
+		}
 
-			if (charIndex < text.length) {
+		const totalFrames = Math.min(30, Math.max(10, Math.floor(1800 / text.length)));
+		let frame = 0;
+
+		function step() {
+			frame++;
+			const pct = frame / totalFrames;
+			const reveal = Math.floor(text.length * Math.min(pct, 1));
+			const partial = text.slice(0, reveal);
+			typingHtml = renderPartial(partial);
+
+			if (reveal < text.length) {
 				rafId = requestAnimationFrame(step);
 			} else {
-				// Texto completo mostrado → cursor parpadea y se desvanece
-				typingVisible = text;
+				typingHtml = renderPartial(text);
 				cursorPhase = 'fadeout';
-
-				// Después de 600ms, ocultar cursor y marcar fin
 				setTimeout(() => {
 					cursorPhase = 'hidden';
 					isTyping = false;
 					messages = [...messages, { role: 'assistant', text }];
-
-					typingVisible = '';
-				}, 600);
+					typingHtml = '';
+				}, 300);
 			}
 		}
 
@@ -115,25 +134,13 @@
 
 	// ─── Helpers ────────────────────────────────────
 	function getLS(key: string): string | null {
-		try {
-			return localStorage.getItem(key);
-		} catch {
-			return null;
-		}
+		try { return localStorage.getItem(key); } catch { return null; }
 	}
 	function setLS(key: string, value: string) {
-		try {
-			localStorage.setItem(key, value);
-		} catch {
-			/* incógnito */
-		}
+		try { localStorage.setItem(key, value); } catch { /* incógnito */ }
 	}
 	function removeLS(key: string) {
-		try {
-			localStorage.removeItem(key);
-		} catch {
-			/* incógnito */
-		}
+		try { localStorage.removeItem(key); } catch { /* incógnito */ }
 	}
 
 	// ─── Envío ──────────────────────────────────────
@@ -144,6 +151,15 @@
 		isLoading = true;
 		messages = [...messages, { role: 'user', text: msg }];
 
+		// Si hay scroll, forzar scroll abajo para mostrar el mensaje nuevo
+		if (messagesContainer) {
+			requestAnimationFrame(() => {
+				messagesContainer!.scrollTop = messagesContainer!.scrollHeight;
+				// Luego verificar si hay scroll
+				hasScroll = messagesContainer!.scrollHeight > messagesContainer!.clientHeight;
+			});
+		}
+
 		try {
 			let text: string;
 			if (!threadId) {
@@ -152,10 +168,7 @@
 				setLS('vanchi-thread-id', result.threadId!);
 				text = result.text;
 			} else {
-				const result = await convex.action(api.agent.conversations.continueThread, {
-					prompt: msg,
-					threadId
-				});
+				const result = await convex.action(api.agent.conversations.continueThread, { prompt: msg, threadId });
 				text = result.text;
 			}
 			startTyping(text);
@@ -167,10 +180,7 @@
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' && !e.shiftKey) {
-			e.preventDefault();
-			send();
-		}
+		if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
 	}
 
 	function newConversation() {
@@ -180,8 +190,9 @@
 		input = '';
 		isLoading = false;
 		isTyping = false;
-		typingVisible = '';
+		typingHtml = '';
 		cursorPhase = 'hidden';
+		hasScroll = false;
 	}
 
 	function selectSuggestion(text: string) {
@@ -196,29 +207,24 @@
 		class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
 		role="dialog"
 		aria-modal="true"
-		onclick={(e) => {
-			if (e.target === e.currentTarget) onToggle();
-		}}
-		onkeydown={(e) => {
-			if (e.key === 'Escape') onToggle();
-		}}
+		onclick={(e) => { if (e.target === e.currentTarget) onToggle(); }}
+		onkeydown={(e) => { if (e.key === 'Escape') onToggle(); }}
 	>
 		<div
 			transition:fly={{ y: 20, duration: 200 }}
-			class="mx-4 w-full max-w-xl overflow-hidden rounded-2xl border border-white/10 bg-base-100/80 shadow-2xl backdrop-blur-2xl"
+			class="mx-4 flex w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-base-100/80 shadow-2xl backdrop-blur-2xl"
+			style="max-height: min(70vh, 600px)"
 		>
-			<div class="flex items-center justify-between border-b border-white/10 px-6 py-4">
+			<!-- header -->
+			<div class="flex shrink-0 items-center justify-between border-b border-white/10 px-6 py-4">
 				<div>
 					<h2 class="font-display text-lg text-base-content">¿En qué puedo ayudarte?</h2>
-					<button
-						class="text-xs text-base-content/40 transition-colors hover:text-base-content/60"
-						onclick={newConversation}
-					>
+					<button class="text-xs text-base-content/40 transition-colors hover:text-base-content/60" onclick={newConversation}>
 						Nueva conversación
 					</button>
 				</div>
 				<button
-					class="flex h-8 w-8 items-center justify-center rounded-lg transition-all duration-300 hover:bg-white/5"
+					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-all duration-300 hover:bg-white/5"
 					onclick={() => onToggle()}
 					aria-label="Cerrar"
 				>
@@ -226,80 +232,68 @@
 				</button>
 			</div>
 
-			<div bind:this={messagesContainer} class="max-h-[55vh] space-y-4 overflow-y-auto px-6 py-4">
+			<!-- messages -->
+			<div bind:this={messagesContainer} class="min-h-0 flex-1 space-y-4 overflow-y-auto px-6 py-4">
 				{#if messages.length === 0 && !isTyping}
-					<p class="text-sm leading-relaxed text-base-content/60">
-						Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre
-						proyectos, tecnologías o servicios.
-					</p>
-					<div class="space-y-2 pt-4">
-						<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
-						<button
-							class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
-							onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}
-						>
-							¿Qué tipo de proyectos has hecho?
-						</button>
-						<button
-							class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
-							onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}
-						>
-							¿Puedes construir un CRM o sistema web?
-						</button>
-						<button
-							class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
-							onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}
-						>
-							¿Cuánto cuesta un proyecto con Vanchi?
-						</button>
+					<div class="flex flex-col justify-center py-8">
+						<p class="text-sm leading-relaxed text-base-content/60">
+							Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre proyectos, tecnologías o servicios.
+						</p>
+						<div class="space-y-2 pt-4">
+							<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
+							<button class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content" onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}>
+								¿Qué tipo de proyectos has hecho?
+							</button>
+							<button class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content" onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}>
+								¿Puedes construir un CRM o sistema web?
+							</button>
+							<button class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content" onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}>
+								¿Cuánto cuesta un proyecto con Vanchi?
+							</button>
+						</div>
 					</div>
 				{/if}
 
-				<!-- Mensajes ya completados -->
+				<!-- Mensajes completados -->
 				{#each messages as msg, i (i)}
 					<div class="space-y-1">
 						{#if msg.role === 'user'}
 							<p class="text-sm font-medium text-base-content">{msg.text}</p>
 						{:else}
-							<div class="border-l border-primary/30 pl-3">
-								<p class="text-sm leading-relaxed text-base-content/80">{msg.text}</p>
+							<div class="border-l border-primary/30 pl-3 prose prose-sm prose-invert max-w-none">
+								<div use:setMarkdown={msg.text}></div>
 							</div>
 						{/if}
-						{#if i < messages.length - 1}
-							<div class="border-b border-white/5"></div>
-						{/if}
+						{#if i < messages.length - 1}<div class="border-b border-white/5"></div>{/if}
 					</div>
 				{/each}
 
-				<!-- Mensaje en typing animation -->
+				<!-- Respuesta en typing (sin scroll, el user message ya está arriba) -->
 				{#if isTyping}
 					<div class="space-y-1">
-						<div class="border-l border-primary/30 pl-3">
-							<span class="text-sm leading-relaxed text-base-content/80">{typingVisible}</span>
+						<div class="border-l border-primary/30 pl-3 prose prose-sm prose-invert max-w-none">
+							<div use:setHtml={typingHtml}></div>
 							{#if cursorPhase === 'blink'}
-								<span
-									class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"
-								></span>
+								<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"></span>
 							{:else if cursorPhase === 'fadeout'}
-								<span
-									class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"
-									transition:fade={{ duration: 600 }}
-								></span>
+								<span class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom" transition:fade={{ duration: 300 }}></span>
 							{/if}
 						</div>
-						<div class="border-b border-white/5"></div>
 					</div>
 				{/if}
 
-				<!-- Loading initial (esperando respuesta) -->
+				<!-- Loading -->
 				{#if isLoading}
-					<div class="h-px w-full overflow-hidden rounded-full bg-white/10">
-						<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
+					<div class="flex items-center justify-center py-4">
+						<div class="h-px w-24 overflow-hidden rounded-full bg-white/10">
+							<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
+						</div>
 					</div>
 				{/if}
 			</div>
 
-			<div class="border-t border-white/10 px-6 py-4">
+			<!-- input -->
+			<div class="shrink-0 border-t border-white/10 px-6 py-4">
 				<textarea
 					id="commandbar-input"
 					bind:value={input}
@@ -309,9 +303,7 @@
 					class="w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
 					disabled={isLoading || isTyping}
 				></textarea>
-				<p class="mt-2 text-xs text-base-content/30">
-					Enter para enviar · Shift+Enter para salto de línea · Esc para cerrar
-				</p>
+				<p class="mt-2 text-xs text-base-content/30">Enter para enviar · Shift+Enter para salto de línea · Esc para cerrar</p>
 			</div>
 		</div>
 	</div>
