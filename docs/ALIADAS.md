@@ -5,25 +5,60 @@
 
 ## 📦 Skills instaladas
 
-| Skill                                                                                    | Cuándo usarla                                                          |
+| Skill | Cuándo usarla |
 | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [`accessibility`](../.agents/skills/accessibility/SKILL.md)                           | Auditar o mejorar accesibilidad WCAG 2.2, screen readers, keyboard nav |
-| [`Bun`](../.agents/skills/bun/SKILL.md)                                               | Ejecutar scripts, manejar paquetes, testear o empaquetar con Bun       |
-| [`daisyui`](../.agents/skills/daisyui/SKILL.md)                                       | Usar componentes DaisyUI con Tailwind v4                               |
-| [`design-taste-frontend`](../.agents/skills/design-taste-frontend/SKILL.md)           | UI engineering, métricas visuales, CSS hardware acceleration           |
-| [`frontend-design`](../.agents/skills/frontend-design/SKILL.md)                       | Crear interfaces de alta calidad de diseño                             |
-| [`full-output-enforcement`](../.agents/skills/full-output-enforcement/SKILL.md)       | Evitar truncamiento en outputs largos (código completo)                |
-| [`gpt-taste`](../.agents/skills/gpt-taste/SKILL.md)                                   | Motion design con GSAP, bento grids, layouts editoriales               |
-| [`redesign-existing-projects`](../.agents/skills/redesign-existing-projects/SKILL.md) | Rediseñar sitios existentes a calidad premium                          |
-| [`seo`](../.agents/skills/seo/SKILL.md)                                               | Optimizar SEO, meta tags, structured data, sitemaps                    |
-| [`svelte-code-writer`](../.agents/skills/svelte-code-writer/SKILL.md)                 | Consultar docs Svelte 5 al crear/editar `.svelte`                      |
-| [`svelte-core-bestpractices`](../.agents/skills/svelte-core-bestpractices/SKILL.md)   | Buenas prácticas Svelte: reactividad, eventos, estilos                 |
-| [`svelte5-best-practices`](../.agents/skills/svelte5-best-practices/SKILL.md)         | Runes, snippets, SvelteKit patterns, migración Svelte 4 → 5            |
-| [`tailwind-best-practices`](../.agents/skills/tailwind-best-practices/SKILL.md)       | Guías de Tailwind CSS para el proyecto                                 |
-| [`tailwind-css-patterns`](../.agents/skills/tailwind-css-patterns/SKILL.md)           | Patrones responsive, layout, flexbox, grid, spacing                    |
-| [`typescript-advanced-types`](../.agents/skills/typescript-advanced-types/SKILL.md)   | Tipos avanzados: genéricos, condicionales, mapped types                |
-| [`vanchi-design-system`](../.agents/skills/vanchi-design-system/SKILL.md)             | **Skill específica de Vanchi** — aplicar DESIGN.md                     |
-| [`vite`](../.agents/skills/vite/SKILL.md)                                             | Configuración de Vite, plugins, SSR                                    |
+| [`accessibility`](../.agents/skills/accessibility/SKILL.md) | Auditar o mejorar accesibilidad WCAG 2.2, screen readers, keyboard nav |
+| [`Bun`](../.agents/skills/bun/SKILL.md) | Ejecutar scripts, manejar paquetes, testear o empaquetar con Bun |
+| [`convex`](../.agents/skills/convex/SKILL.md) | Backend Convex en general, routing a skills Convex específicas |
+| [`convex-create-component`](../.agents/skills/convex-create-component/SKILL.md) | Crear componentes reutilizables Convex con tablas aisladas |
+| [`convex-migration-helper`](../.agents/skills/convex-migration-helper/SKILL.md) | Migraciones de schema y datos Convex (widen-migrate-narrow) |
+| [`convex-performance-audit`](../.agents/skills/convex-performance-audit/SKILL.md) | Auditar rendimiento: reads, writes, OCC conflicts, suscripciones |
+| [`convex-quickstart`](../.agents/skills/convex-quickstart/SKILL.md) | Nuevos proyectos Convex, agregar Convex a una app existente |
+| [`convex-setup-auth`](../.agents/skills/convex-setup-auth/SKILL.md) | Autenticación en Convex: providers, users, roles |
+| [`daisyui`](../.agents/skills/daisyui/SKILL.md) | Usar componentes DaisyUI con Tailwind v4 |
+| [`design-taste-frontend`](../.agents/skills/design-taste-frontend/SKILL.md) | UI engineering, métricas visuales, CSS hardware acceleration |
+| [`frontend-design`](../.agents/skills/frontend-design/SKILL.md) | Crear interfaces de alta calidad de diseño |
+| [`full-output-enforcement`](../.agents/skills/full-output-enforcement/SKILL.md) | Evitar truncamiento en outputs largos (código completo) |
+| [`gpt-taste`](../.agents/skills/gpt-taste/SKILL.md) | Motion design con GSAP, bento grids, layouts editoriales |
+| [`redesign-existing-projects`](../.agents/skills/redesign-existing-projects/SKILL.md) | Rediseñar sitios existentes a calidad premium |
+| [`seo`](../.agents/skills/seo/SKILL.md) | Optimizar SEO, meta tags, structured data, sitemaps |
+| [`svelte-code-writer`](../.agents/skills/svelte-code-writer/SKILL.md) | Consultar docs Svelte 5 al crear/editar `.svelte` |
+| [`svelte-core-bestpractices`](../.agents/skills/svelte-core-bestpractices/SKILL.md) | Buenas prácticas Svelte: reactividad, eventos, estilos |
+| [`svelte5-best-practices`](../.agents/skills/svelte5-best-practices/SKILL.md) | Runes, snippets, SvelteKit patterns, migración Svelte 4 → 5 |
+| [`tailwind-best-practices`](../.agents/skills/tailwind-best-practices/SKILL.md) | Guías de Tailwind CSS para el proyecto |
+| [`tailwind-css-patterns`](../.agents/skills/tailwind-css-patterns/SKILL.md) | Patrones responsive, layout, flexbox, grid, spacing |
+| [`typescript-advanced-types`](../.agents/skills/typescript-advanced-types/SKILL.md) | Tipos avanzados: genéricos, condicionales, mapped types |
+| [`vanchi-design-system`](../.agents/skills/vanchi-design-system/SKILL.md) | **Skill específica de Vanchi** — aplicar DESIGN.md |
+| [`vite`](../.agents/skills/vite/SKILL.md) | Configuración de Vite, plugins, SSR |
+
+## 🧠 Aliadas externas para consultas
+
+Además de las skills instaladas, podemos consultar a **IA externa** (Gemini, ChatGPT, Claude, etc.) cuando el agente necesite:
+- Sintaxis correcta de APIs que no tenemos cubiertas
+- Decisiones arquitectónicas
+- Depuración de bugs complejos
+
+### Aliadas disponibles
+
+| Aliada | Para qué consultarla | Cómo acceder |
+|--------|---------------------|--------------|
+| **Gemini** | Opiniones de diseño UX, edge cases, decisiones de arquitectura general | El usuario copia el mensaje y lo pega en Gemini |
+| **Vercel AI Gateway** | Dudas sobre AI SDK, sintaxis de embeddings, configuración del Gateway, modelos, failover, rate limits | El usuario copia el mensaje y lo consulta |
+| **Convex AI** | Dudas sobre @convex-dev/agent, schema, vectores, componentes, rate limiting | El usuario copia el mensaje y lo consulta |
+
+### Flujo para consultar a una aliada
+
+1. El agente detecta una duda que no puede resolver con skills o docs
+2. **Se detiene** (no gasta tokens en código incorrecto)
+3. Prepara un mensaje estructurado con:
+   - Contexto del proyecto
+   - Stack relevante
+   - El problema concreto
+   - Código / archivos involucrados
+   - Lo que se intentó y por qué no funcionó
+4. El usuario lleva el mensaje a la aliada correspondiente
+5. El usuario trae la respuesta
+6. El agente la incorpora
 
 ## 🧠 Flujo recomendado
 
