@@ -3,6 +3,7 @@
 	import { api } from '$convex/_generated/api';
 	import { X } from '@lucide/svelte';
 	import { fly, fade } from 'svelte/transition';
+	import { tick } from 'svelte';
 	import { marked } from 'marked';
 	import DOMPurify from 'dompurify';
 
@@ -56,13 +57,6 @@
 		if (saved) threadId = saved;
 	});
 
-	// Detectar si el contenedor tiene scroll
-	$effect(() => {
-		if (messagesContainer) {
-			hasScroll = messagesContainer.scrollHeight > messagesContainer.clientHeight;
-		}
-	});
-
 	$effect(() => {
 		const handleKey = (e: KeyboardEvent) => {
 			if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); onToggle(); }
@@ -90,20 +84,6 @@
 		isLoading = false;
 
 		if (rafId !== null) cancelAnimationFrame(rafId);
-
-		// Scroll inmediato al inicio de typing: subir el user message
-		if (messagesContainer) {
-			// Ir al último mensaje del usuario (que está arriba)
-			const lastUserIndex = messages.length - 1;
-			const userMsgEl = messagesContainer.children[lastUserIndex];
-			if (userMsgEl && hasScroll) {
-				const rect = userMsgEl.getBoundingClientRect();
-				const containerRect = messagesContainer.getBoundingClientRect();
-				// Posicionar el user message a ~30% del viewport
-				const targetOffset = rect.top - containerRect.top - containerRect.height * 0.35;
-				messagesContainer.scrollTop = messagesContainer.scrollTop + targetOffset;
-			}
-		}
 
 		const totalFrames = Math.min(30, Math.max(10, Math.floor(1800 / text.length)));
 		let frame = 0;
@@ -151,13 +131,32 @@
 		isLoading = true;
 		messages = [...messages, { role: 'user', text: msg }];
 
-		// Si hay scroll, forzar scroll abajo para mostrar el mensaje nuevo
+		// Esperar a que Svelte monte el nuevo mensaje en el DOM
+		await tick();
+
+		// Centrar el mensaje del usuario al 50% del contenedor
 		if (messagesContainer) {
-			requestAnimationFrame(() => {
-				messagesContainer!.scrollTop = messagesContainer!.scrollHeight;
-				// Luego verificar si hay scroll
-				hasScroll = messagesContainer!.scrollHeight > messagesContainer!.clientHeight;
-			});
+			hasScroll = messagesContainer.scrollHeight > messagesContainer.clientHeight;
+			if (hasScroll) {
+				// El mensaje del usuario está en el índice messages.length - 1
+				// (el último hijo podría ser el loading indicator)
+				const userMsgEl = messagesContainer.children[messages.length - 1] as HTMLElement | undefined;
+				if (userMsgEl) {
+					const msgRect = userMsgEl.getBoundingClientRect();
+					const containerRect = messagesContainer.getBoundingClientRect();
+					const relativeTop = msgRect.top - containerRect.top + messagesContainer.scrollTop;
+
+					const targetScroll =
+						relativeTop -
+						messagesContainer.clientHeight * 0.5 +
+						userMsgEl.clientHeight * 0.5;
+
+					messagesContainer.scrollTo({
+						top: Math.max(0, targetScroll),
+						behavior: 'smooth'
+					});
+				}
+			}
 		}
 
 		try {
