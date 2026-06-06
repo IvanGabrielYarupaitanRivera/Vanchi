@@ -326,7 +326,7 @@ export default app;
 **Archivos involucrados:** `src/convex/schema.ts`
 
 **Detalle:**
-- Crear `src/convex/schema.ts` con la tabla `documents` para almacenar los documentos del portafolio con embeddings:
+- Crear `src/convex/schema.ts` con **tres tablas separadas** siguiendo el patrón escalable de Convex:
 
 ```ts
 // src/convex/schema.ts
@@ -334,38 +334,92 @@ import { defineSchema, defineTable } from 'convex/server';
 import { v } from 'convex/values';
 
 export default defineSchema({
-  documents: defineTable({
-    title: v.string(),
-    slug: v.string(),
-    content: v.string(),
-    category: v.string(),
+  // 📄 Documentos fuente: el contenido original del portafolio
+  // Cada fila es un documento atómico (proyecto, servicio, etc.)
+  documentos: defineTable({
+    title: v.string(),      // "Molaric"
+    slug: v.string(),       // "proyecto-molaric"  
+    category: v.string(),   // "proyecto" | "stack" | "servicio" | "about" | "pricing"
+  }).index("bySlug", ["slug"]),
+
+  // 🧩 Chunks: fragmentos de cada documento para búsqueda semántica
+  // Almacenan el texto real que se busca
+  chunks: defineTable({
+    documentId: v.id("documentos"),
+    text: v.string(),
+    embeddingId: v.union(v.id("embeddings"), v.null()),
+  })
+    .index("byDocumentId", ["documentId"])
+    .index("byEmbeddingId", ["embeddingId"]),
+
+  // 📐 Embeddings: vectores numéricos separados del texto
+  // Separarlos evita cargar vectores pesados en lecturas normales
+  embeddings: defineTable({
     embedding: v.array(v.float64()),
-  }).vectorIndex('byEmbedding', {
-    vectorField: 'embedding',
-    dimensions: 1536, // Dimensiones de text-embedding-3-small
-  }),
+    chunkId: v.id("chunks"),
+  })
+    .index("byChunkId", ["chunkId"])
+    .vectorIndex("byEmbedding", {
+      vectorField: "embedding",
+      dimensions: 1536, // text-embedding-3-small
+    }),
 });
 ```
+
+**¿Por qué tres tablas en vez de una?**
+
+| Escenario | Tabla única | Tres tablas (este diseño) |
+|-----------|------------|--------------------------|
+| 15 documentos | ✅ Simple | ✅ También funciona |
+| 100+ documentos | ❌ Los embeddings (arrays grandes) ralentizan lecturas | ✅ Los vectores solo se cargan al buscar |
+| Re-embeder sin tocar texto | ❌ Hay que reescribir toda la fila | ✅ Solo se actualiza `embeddings` |
+| Devolver resultados sin vectores | ❌ Siempre se carga el embedding aunque no sirva | ✅ `chunks.text` se devuelve sin tocar vectores |
+
+Este diseño escala de 15 a miles de documentos sin cambios estructurales.
 
 - Las tablas de `threads` y `messages` son manejadas automáticamente por el componente Agent, no necesitan definirse aquí.
 ### Paso 3 — Crear el seed de la knowledge base (RAG)
 
-Generar el contenido completo del portafolio como documentos estructurados para el RAG.
+Generar el contenido completo del portafolio como documentos estructurados para el RAG, con chunking para escalar a futuro.
 
 **Archivos involucrados:** `src/convex/seed.ts`, `src/lib/data/assistant-context.ts`
 
 **Detalle:**
-- Crear `src/lib/data/assistant-context.ts` con **todo el texto del portafolio** estructurado por secciones:
-  - `about`: Quién es Iván, experiencia, filosofía
-  - `stack`: Tecnologías que domina con descripción de cada una
-  - `projects`: Los 9 proyectos con descripción completa, stack, resultados
-  - `services`: WaaS, desarrollo web, consultoría IA
-  - `pricing`: Modelos de colaboración, precios
-- Crear `src/convex/seed.ts` con una action que:
-  - Toma el contenido de `assistant-context.ts`
-  - Genera embeddings con OpenAI (vía Vercel AI Gateway)
-  - Almacena los documentos en la tabla `documents`
+- Crear `src/lib/data/assistant-context.ts` con **todo el texto del portafolio** estructurado por documentos:
+  - Cada documento es un objeto con `title`, `slug`, `category`, `content`
+  - `content` es el texto completo de ese documento
+  - Ejemplo:
+  ```ts
+  export const documentos = [
+    {
+      title: 'Molaric',
+      slug: 'proyecto-molaric',
+      category: 'proyecto',
+      content: 'Molaric es un agente de IA para clínicas dentales...'
+    },
+    {
+      title: 'Stack Tecnológico',
+      slug: 'stack',
+      category: 'stack',
+      content: 'SvelteKit, Convex, TailwindCSS, TypeScript...'
+    },
+    // ... más documentos
+  ];
+  ```
+- Crear `src/convex/seed.ts` con una `internalAction` que:
+  1. Inserta cada documento en la tabla `documentos`
+  2. Usa `RecursiveCharacterTextSplitter` con `chunkSize: 2000` y `chunkOverlap: 100` para dividir el contenido en chunks
+  3. Inserta los chunks en la tabla `chunks`
+  4. Genera embeddings con OpenAI (vía Vercel AI Gateway) para cada chunk
+  5. Inserta los embeddings en la tabla `embeddings`
+  6. Actualiza cada chunk con su `embeddingId`
 - La action `seedKnowledgeBase` se ejecuta manualmente una vez
+
+> **¿Por qué chunking si los documentos son pequeños ahora?**
+> El chunking ahora sienta las bases para cuando los documentos crezcan. Si un documento futuro tiene 10 páginas sobre un proyecto, el chunking ya está configurado y funcionando. Además,
+> - Documentos pequeños → 1 chunk (sin pérdida de rendimiento)
+> - Documentos grandes → múltiples chunks (búsqueda más precisa)
+> - `chunkOverlap: 100` asegura que los límites entre chunks no pierdan contexto
 
 ---
 
@@ -394,7 +448,7 @@ const searchKnowledgeBase = createTool({
   }),
   handler: async (ctx, { query }) => {
     // Generar embedding de la consulta y buscar en documents
-    const results = await ctx.runQuery(components.documents.search, { query });
+    const results = await ctx.runQuery(api.chunks.searchChunks, { query });
     return results;
   },
 });
@@ -720,7 +774,7 @@ Vanchi/
 ├── src/
 │   ├── convex/                      ← Backend Convex (generado + manual)
 │   │   ├── convex.config.ts         ─ Registrar Agent component
-│   │   ├── schema.ts                ─ Tabla documents con vector index
+│   │   ├── schema.ts                ─ Tres tablas (documentos, chunks, embeddings) con vector index
 │   │   ├── agent.ts                 ─ Definición del vanchiAgent
 │   │   ├── agentActions.ts          ─ createThread, continueThread
 │   │   ├── seed.ts                  ─ Seed de knowledge base
@@ -746,7 +800,7 @@ Vanchi/
 - [ ] Dependencias instaladas: `convex`, `convex-svelte`, `@convex-dev/agent`, `@ai-sdk/openai`
 - [ ] `convex.json` creado con `"functions": "src/convex/"`
 - [ ] `src/convex/convex.config.ts` con Agent registrado
-- [ ] `src/convex/schema.ts` con tabla documents + vector index
+- [ ] `src/convex/schema.ts` con tres tablas (documentos, chunks, embeddings) + vector index en embeddings
 - [ ] `src/convex/agent.ts` con vanchiAgent (modelo vía Vercel AI Gateway, tools)
 - [ ] `src/convex/agentActions.ts` con createThread, continueThread
 - [ ] `src/convex/seed.ts` con seedKnowledgeBase
