@@ -34,7 +34,8 @@
 		threadId
 			? useQuery(api.messages.read.listThreadMessages, {
 					threadId,
-					paginationOpts: { cursor: null, numItems: 50 }
+					paginationOpts: { cursor: null, numItems: 50 },
+					streamArgs: { kind: 'list' } // Lista los streams disponibles
 				})
 			: null
 	);
@@ -52,6 +53,12 @@
 				role: m.role === 'user' ? 'user' : 'assistant',
 				text: m.text || ''
 			}));
+
+			// Verificar si el último mensaje del asistente terminó de streamear
+			const lastMessage = page[page.length - 1];
+			if (lastMessage && lastMessage.role !== 'user' && lastMessage.status === 'success') {
+				isLoading = false;
+			}
 		}
 	});
 
@@ -121,19 +128,17 @@
 		messages = [...messages, { role: 'user', text: msg }];
 
 		try {
-			let result: { threadId?: string; text: string };
 			if (!threadId) {
-				result = await convex.action(api.agent.conversations.createThread, { prompt: msg });
+				const result = await convex.action(api.agent.conversations.createThread, { prompt: msg });
 				threadId = result.threadId!;
 				setLS('vanchi-thread-id', result.threadId!);
 			} else {
-				result = await convex.action(api.agent.conversations.continueThread, {
+				await convex.action(api.agent.conversations.continueThread, {
 					prompt: msg,
 					threadId
 				});
 			}
-			messages = [...messages, { role: 'assistant', text: result.text }];
-			isLoading = false;
+			// isLoading se desactiva cuando la query detecta status === 'finished'
 		} catch (err) {
 			console.error('Error:', err);
 			messages = [...messages, { role: 'assistant', text: 'Ocurrió un error. Intenta de nuevo.' }];
@@ -231,7 +236,7 @@
 							{#if msg.role === 'user'}
 								<p class="text-sm font-medium text-base-content">{msg.text}</p>
 							{:else}
-								<div class="border-l border-primary/30 pl-3 prose prose-sm prose-invert max-w-none">
+								<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
 									<div use:setMarkdown={msg.text}></div>
 								</div>
 							{/if}
