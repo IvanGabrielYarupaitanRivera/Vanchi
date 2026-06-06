@@ -1,7 +1,16 @@
 # 🤖 AGENT-QUICKSTART — Reglas de oro para el agente
 
-> 5 reglas que **todo agente debe saber** antes de escribir UNA sola línea de código en Vanchi.
+> 6 reglas que **todo agente debe saber** antes de escribir UNA sola línea de código en Vanchi.
 > Lee esto primero si no tienes tiempo para leer todo `CONTEXT.md`.
+
+---
+
+## 🔴 Regla 0 — Humildad técnica (LEER PRIMERO)
+
+**Lee [`00-GUIDE/REGLAS-DEL-AGENTE.md`](./00-GUIDE/REGLAS-DEL-AGENTE.md) antes de codificar.**
+
+Si tienes dudas sobre sintaxis, tipos o APIs: **detente y prepara una pregunta para las aliadas.**
+No escribas código que no entiendes al 100%.
 
 ---
 
