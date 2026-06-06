@@ -73,6 +73,29 @@ Esto le da sus propias tablas internas (threads, messages) aisladas de las tabla
 
 Convex recomienda no optimizar prematuramente. Usar `npx convex insights --details` antes de hacer cambios estructurales. Una tabla pequeña escaneada directamente puede ser perfectamente aceptable.
 
+## 9. `internalMutation` devuelve `Id<T>` automáticamente
+
+Cuando una `internalMutation` (o `mutation`) hace `return await ctx.db.insert("tabla", ...)`, Convex infiere automáticamente que el tipo de retorno es `Id<"tabla">`. Al llamarla desde una action con `ctx.runMutation(internal.db.insertChunk, ...)`, el tipo se preserva. **Esto evita tener que castear manualmente.**
+
+```ts
+// ✅ Así se tipa bien el seed:
+const chunkId: Id<"chunks"> = await ctx.runMutation(internal.db.insertChunk, {
+  documentId: docId,
+  text,
+  embeddingId: null,
+});
+```
+
+## 10. `internalAction` no tiene `ctx.db`
+
+En actions (`action` e `internalAction`), no existe `ctx.db`. Solo se puede escribir en DB mediante `ctx.runMutation(...)` y leer mediante `ctx.runQuery(...)`. [[Action context](https://docs.convex.dev/functions/actions#action-context)]
+
+Esto es intencional: las actions están hechas para operaciones que pueden tomar tiempo (llamadas externas como embeddings, APIs) y necesitan escribir en DB de forma transaccional a través de mutations.
+
+## 11. Usar `internal` en vez de `api` desde `internalAction`
+
+Desde una `internalAction`, las funciones internas (como las mutations de `db.ts`) se llaman usando `internal.db.insertChunk` (el generador `internal`), no `api.db.insertChunk`. El `internal` preserva el tipado de los IDs. `api` es para funciones públicas que los clientes pueden llamar.
+
 ---
 
 **Archivos relacionados:**

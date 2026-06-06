@@ -122,6 +122,40 @@ Como el portafolio es público (sin autenticación), se debe implementar:
 - **XSS:** No usar `{@html}` directamente en Svelte. Sanitizar con DOMPurify o similar
 - **Filtro de relevancia:** En la tool de RAG, umbral de similitud > 0.75 para evitar respuestas con ruido
 
+## 11. Embeddings vía Vercel AI Gateway: usar string model, no `openai.embedding()`
+
+Para generar embeddings desde una `internalAction` de Convex usando Vercel AI Gateway:
+
+```ts
+import { embed } from "ai";
+
+const { embedding } = await embed({
+  model: "openai/text-embedding-3-small",  // ← string model, pasa por Gateway
+  value: "texto a embeber",
+});
+```
+
+**Errores que evitar:**
+- ❌ `openai.embedding("text-embedding-3-small")` — **No pasa por el Gateway**, usa OpenAI directo
+- ❌ `createOpenAI` con baseURL — Innecesario, el AI SDK auto-detecta `AI_GATEWAY_API_KEY`
+- ✅ `"openai/text-embedding-3-small"` (string) — El AI SDK rutear automáticamente por el Gateway
+
+**Auto-detección de API key:**
+El AI SDK busca `AI_GATEWAY_API_KEY` en este orden:
+1. Variable de entorno (en Convex dashboard)
+2. Fallback a `VERCEL_OIDC_TOKEN` (si está en Vercel)
+
+No necesita `@ai-sdk/gateway` ni configuración extra.
+
+## 12. `npx convex dev --once` para validar TypeScript
+
+Este comando sube el código al deployment dev, hace typecheck y regenera tipos. Es el feedback loop principal del agente mientras el usuario no tiene `npx convex dev` corriendo en foreground.
+
+Para evitar prompts interactivos en el agente:
+```bash
+npx convex dev --once
+```
+
 ---
 
 **Archivos relacionados:**
