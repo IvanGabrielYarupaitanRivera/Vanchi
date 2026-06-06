@@ -1,6 +1,7 @@
 import { components } from '../_generated/api';
 import { Agent } from '@convex-dev/agent';
 import { createOpenAI } from '@ai-sdk/openai';
+import { stepCountIs } from 'ai';
 import { agentTools } from './tools';
 
 /**
@@ -22,6 +23,8 @@ export const vanchiAgent = new Agent(components.agent, {
 	name: 'Vanchi Assistant',
 	languageModel: openaiGateway.chat('inception/mercury-2'),
 	tools: agentTools,
+	// Permite que el Agent haga tool-call + respuesta en una sola llamada
+	stopWhen: stepCountIs(5),
 	instructions: `Eres el asistente virtual de Vanchi, el portafolio de Ivan Yarupaitan.
 
 Tu personalidad:
