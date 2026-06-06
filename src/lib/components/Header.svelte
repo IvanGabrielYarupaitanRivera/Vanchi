@@ -69,11 +69,29 @@
 
 		<div class="navbar-end">
 			<button
-				class="hidden cursor-pointer items-center gap-1 rounded-full px-3 py-1.5 text-xs text-base-content/40 transition-all duration-300 hover:text-base-content/60 lg:flex"
+				class="hidden items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-base-content/70 transition-all duration-300 hover:border-primary/40 hover:bg-white/10 hover:text-base-content lg:flex"
 				onclick={onOpenAssistant}
-				title="Presiona ⌘K para consultar al asistente"
+				title="Presiona ⌘K para abrir el asistente"
 			>
-				<span>⌘K</span>
+				<svg
+					class="h-4 w-4 text-primary transition-transform duration-500 group-hover:rotate-12"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path
+						d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+					/>
+				</svg>
+				<span>Asistente IA</span>
+				<kbd
+					class="hidden items-center rounded border border-white/5 bg-base-200 px-1.5 font-sans text-[10px] font-bold text-base-content/40 lg:inline-flex"
+					>⌘K</kbd
+				>
 			</button>
 
 			<a href={resolve('/#contacto')} class="btn hidden btn-primary lg:flex">
@@ -119,6 +137,42 @@
 					<X size={20} />
 				</button>
 			</header>
+
+			<div class="divider"></div>
+
+			<button
+				class="flex w-full items-center justify-between rounded-xl border border-primary/20 bg-linear-to-r from-primary/5 to-transparent px-4 py-3 text-left transition-all active:scale-[0.98]"
+				onclick={() => {
+					open = false;
+					onOpenAssistant();
+				}}
+			>
+				<div class="flex items-center gap-3">
+					<svg
+						class="h-5 w-5 text-primary"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
+						/>
+					</svg>
+					<span class="text-sm font-medium text-base-content/90">Preguntar</span>
+				</div>
+				<svg
+					class="h-4 w-4 text-base-content/30"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path d="m9 18 6-6-6-6" />
+				</svg>
+			</button>
 
 			<div class="divider"></div>
 
