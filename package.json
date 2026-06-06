@@ -39,6 +39,10 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
-		"@lucide/svelte": "^0.577.0"
+		"@ai-sdk/openai": "^3.0.68",
+		"@convex-dev/agent": "^0.6.2",
+		"@lucide/svelte": "^0.577.0",
+		"convex": "^1.40.0",
+		"convex-svelte": "^0.0.12"
 	}
 }
