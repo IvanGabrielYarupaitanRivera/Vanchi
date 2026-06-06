@@ -3,46 +3,25 @@ import { v } from "convex/values";
 import { vanchiAgent } from "./config";
 
 /**
- * Crea un nuevo thread de conversación e inicia streaming de la respuesta.
+ * Crea un nuevo thread de conversación y genera la primera respuesta.
  */
 export const createThread = action({
 	args: { prompt: v.string() },
 	handler: async (ctx, { prompt }) => {
-		console.log(`[createThread] Iniciando thread para prompt: "${prompt.slice(0, 100)}..."`);
-
-		const { threadId } = await vanchiAgent.createThread(ctx);
-		console.log(`[createThread] Thread creado: ${threadId}`);
-
-		// Streaming: la respuesta se guarda en Convex como deltas
-		// El frontend la recibe vía useQuery reactiva
-		await vanchiAgent.streamText(
-			ctx,
-			{ threadId },
-			{ prompt },
-			{ saveStreamDeltas: true },
-		);
-
-		console.log(`[createThread] Stream completado`);
-		return { threadId };
+		const { threadId, thread } = await vanchiAgent.createThread(ctx);
+		const result = await thread.generateText({ prompt });
+		return { threadId, text: result.text };
 	},
 });
 
 /**
- * Continúa un thread existente con un nuevo mensaje (streaming).
+ * Continúa un thread existente con un nuevo mensaje.
  */
 export const continueThread = action({
 	args: { prompt: v.string(), threadId: v.string() },
 	handler: async (ctx, { prompt, threadId }) => {
-		console.log(`[continueThread] Continuando thread ${threadId}`);
-
-		await vanchiAgent.streamText(
-			ctx,
-			{ threadId },
-			{ prompt },
-			{ saveStreamDeltas: true },
-		);
-
-		console.log(`[continueThread] Stream completado`);
-		return { success: true };
+		const { thread } = await vanchiAgent.continueThread(ctx, { threadId });
+		const result = await thread.generateText({ prompt });
+		return { text: result.text };
 	},
 });

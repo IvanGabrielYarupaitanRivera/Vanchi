@@ -1,23 +1,8 @@
 <script lang="ts">
-	import { useConvexClient, useQuery } from 'convex-svelte';
+	import { useConvexClient } from 'convex-svelte';
 	import { api } from '$convex/_generated/api';
 	import { X } from '@lucide/svelte';
-	import { fly } from 'svelte/transition';
-	import { marked } from 'marked';
-	import DOMPurify from 'dompurify';
-	import type { UIMessage } from '@convex-dev/agent';
-
-	function setMarkdown(node: HTMLElement, text: string) {
-		const html = marked.parse(text, { async: false }) as string;
-		node.innerHTML = DOMPurify.sanitize(html);
-
-		return {
-			update(newText: string) {
-				const updatedHtml = marked.parse(newText, { async: false }) as string;
-				node.innerHTML = DOMPurify.sanitize(updatedHtml);
-			}
-		};
-	}
+	import { fly, fade } from 'svelte/transition';
 
 	let { isOpen = false, onToggle = () => {} } = $props();
 
@@ -26,19 +11,15 @@
 	let threadId = $state<string | null>(null);
 	let input = $state('');
 	let isLoading = $state(false);
+	let isTyping = $state(false);
 	let messages: { role: string; text: string }[] = $state([]);
 	let messagesContainer: HTMLDivElement | undefined = $state();
 
-	// useQuery retorna { data, isLoading, error }
-	let threadMessagesQuery = $derived(
-		threadId
-			? useQuery(api.messages.read.listThreadMessages, {
-					threadId,
-					paginationOpts: { cursor: null, numItems: 50 },
-					streamArgs: { kind: 'list' } // Lista los streams disponibles
-				})
-			: null
-	);
+	// Estado de la typing animation
+
+	let typingVisible = $state('');
+	let cursorPhase = $state<'blink' | 'fadeout' | 'hidden'>('hidden');
+	let rafId: number | null = $state(null);
 
 	// ─── Efectos ────────────────────────────────────
 	$effect(() => {
@@ -47,26 +28,11 @@
 	});
 
 	$effect(() => {
-		const page = threadMessagesQuery?.data?.page;
-		if (page) {
-			messages = page.map((m: UIMessage) => ({
-				role: m.role === 'user' ? 'user' : 'assistant',
-				text: m.text || ''
-			}));
-
-			// Verificar si el último mensaje del asistente terminó de streamear
-			const lastMessage = page[page.length - 1];
-			if (lastMessage && lastMessage.role !== 'user' && lastMessage.status === 'success') {
-				isLoading = false;
-			}
-		}
-	});
-
-	$effect(() => {
-		if (messagesContainer && (messages.length > 0 || isLoading)) {
-			setTimeout(() => {
+		if (messagesContainer && (messages.length > 0 || isLoading || isTyping)) {
+			const raf = requestAnimationFrame(() => {
 				messagesContainer!.scrollTop = messagesContainer!.scrollHeight;
-			}, 50);
+			});
+			return () => cancelAnimationFrame(raf);
 		}
 	});
 
@@ -76,9 +42,7 @@
 				e.preventDefault();
 				onToggle();
 			}
-			if (e.key === 'Escape' && isOpen) {
-				onToggle();
-			}
+			if (e.key === 'Escape' && isOpen) onToggle();
 		};
 		window.addEventListener('keydown', handleKey);
 		return () => window.removeEventListener('keydown', handleKey);
@@ -95,6 +59,59 @@
 			setTimeout(() => document.getElementById('commandbar-input')?.focus(), 100);
 		}
 	});
+
+	// ─── Typing animation premium ───────────────────
+	function startTyping(text: string) {
+		typingVisible = '';
+		isTyping = true;
+		cursorPhase = 'blink';
+		isLoading = false;
+
+		// Limpiar RAF anterior si existe
+		if (rafId !== null) cancelAnimationFrame(rafId);
+
+		// Determinar velocidad base según longitud del texto
+		// Textos cortos (~100 chars) → 5ms por char
+		// Textos largos (~1000 chars) → 15ms por char
+		const baseDelay = Math.min(15, Math.max(5, text.length / 80));
+		let lastTime = 0;
+		let charIndex = 0;
+
+		function step(timestamp: number) {
+			if (!lastTime) lastTime = timestamp;
+			const elapsed = timestamp - lastTime;
+
+			if (elapsed >= baseDelay && charIndex < text.length) {
+				// Revelar entre 1-3 caracteres por frame para fluidez
+				const charsToReveal = Math.min(
+					Math.max(1, Math.floor(elapsed / baseDelay)),
+					text.length - charIndex
+				);
+				typingVisible = text.slice(0, charIndex + charsToReveal);
+				charIndex += charsToReveal;
+				lastTime = timestamp;
+			}
+
+			if (charIndex < text.length) {
+				rafId = requestAnimationFrame(step);
+			} else {
+				// Texto completo mostrado → cursor parpadea y se desvanece
+				typingVisible = text;
+				cursorPhase = 'fadeout';
+
+				// Después de 600ms, ocultar cursor y marcar fin
+				setTimeout(() => {
+					cursorPhase = 'hidden';
+					isTyping = false;
+					messages = [...messages, { role: 'assistant', text }];
+
+					typingVisible = '';
+				}, 600);
+			}
+		}
+
+		rafId = requestAnimationFrame(step);
+	}
 
 	// ─── Helpers ────────────────────────────────────
 	function getLS(key: string): string | null {
@@ -122,23 +139,26 @@
 	// ─── Envío ──────────────────────────────────────
 	async function send() {
 		const msg = input.trim();
-		if (!msg || isLoading) return;
+		if (!msg || isLoading || isTyping) return;
 		input = '';
 		isLoading = true;
 		messages = [...messages, { role: 'user', text: msg }];
 
 		try {
+			let text: string;
 			if (!threadId) {
 				const result = await convex.action(api.agent.conversations.createThread, { prompt: msg });
 				threadId = result.threadId!;
 				setLS('vanchi-thread-id', result.threadId!);
+				text = result.text;
 			} else {
-				await convex.action(api.agent.conversations.continueThread, {
+				const result = await convex.action(api.agent.conversations.continueThread, {
 					prompt: msg,
 					threadId
 				});
+				text = result.text;
 			}
-			// isLoading se desactiva cuando la query detecta status === 'finished'
+			startTyping(text);
 		} catch (err) {
 			console.error('Error:', err);
 			messages = [...messages, { role: 'assistant', text: 'Ocurrió un error. Intenta de nuevo.' }];
@@ -159,6 +179,9 @@
 		messages = [];
 		input = '';
 		isLoading = false;
+		isTyping = false;
+		typingVisible = '';
+		cursorPhase = 'hidden';
 	}
 
 	function selectSuggestion(text: string) {
@@ -204,7 +227,7 @@
 			</div>
 
 			<div bind:this={messagesContainer} class="max-h-[55vh] space-y-4 overflow-y-auto px-6 py-4">
-				{#if messages.length === 0}
+				{#if messages.length === 0 && !isTyping}
 					<p class="text-sm leading-relaxed text-base-content/60">
 						Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre
 						proyectos, tecnologías o servicios.
@@ -230,46 +253,62 @@
 							¿Cuánto cuesta un proyecto con Vanchi?
 						</button>
 					</div>
-				{:else}
-					{#each messages as msg, i (i)}
-						<div class="space-y-1">
-							{#if msg.role === 'user'}
-								<p class="text-sm font-medium text-base-content">{msg.text}</p>
-							{:else}
-								<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
-									<div use:setMarkdown={msg.text}></div>
-								</div>
-							{/if}
-							{#if i < messages.length - 1}
-								<div class="border-b border-white/5"></div>
+				{/if}
+
+				<!-- Mensajes ya completados -->
+				{#each messages as msg, i (i)}
+					<div class="space-y-1">
+						{#if msg.role === 'user'}
+							<p class="text-sm font-medium text-base-content">{msg.text}</p>
+						{:else}
+							<div class="border-l border-primary/30 pl-3">
+								<p class="text-sm leading-relaxed text-base-content/80">{msg.text}</p>
+							</div>
+						{/if}
+						{#if i < messages.length - 1}
+							<div class="border-b border-white/5"></div>
+						{/if}
+					</div>
+				{/each}
+
+				<!-- Mensaje en typing animation -->
+				{#if isTyping}
+					<div class="space-y-1">
+						<div class="border-l border-primary/30 pl-3">
+							<span class="text-sm leading-relaxed text-base-content/80">{typingVisible}</span>
+							{#if cursorPhase === 'blink'}
+								<span
+									class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"
+								></span>
+							{:else if cursorPhase === 'fadeout'}
+								<span
+									class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"
+									transition:fade={{ duration: 600 }}
+								></span>
 							{/if}
 						</div>
-					{/each}
-					{#if isLoading}
-						<div class="h-px w-full overflow-hidden rounded-full bg-white/10">
-							<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
-						</div>
-					{/if}
+						<div class="border-b border-white/5"></div>
+					</div>
+				{/if}
+
+				<!-- Loading initial (esperando respuesta) -->
+				{#if isLoading}
+					<div class="h-px w-full overflow-hidden rounded-full bg-white/10">
+						<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
+					</div>
 				{/if}
 			</div>
 
 			<div class="border-t border-white/10 px-6 py-4">
-				<div class="relative">
-					<textarea
-						id="commandbar-input"
-						bind:value={input}
-						onkeydown={handleKeydown}
-						placeholder="Escribe tu pregunta aquí..."
-						rows="1"
-						class="w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
-						disabled={isLoading}
-					></textarea>
-					{#if isLoading}
-						<div
-							class="absolute bottom-0 left-0 h-px w-full animate-pulse rounded-full bg-primary/50"
-						></div>
-					{/if}
-				</div>
+				<textarea
+					id="commandbar-input"
+					bind:value={input}
+					onkeydown={handleKeydown}
+					placeholder="Escribe tu pregunta aquí..."
+					rows="1"
+					class="w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+					disabled={isLoading || isTyping}
+				></textarea>
 				<p class="mt-2 text-xs text-base-content/30">
 					Enter para enviar · Shift+Enter para salto de línea · Esc para cerrar
 				</p>
