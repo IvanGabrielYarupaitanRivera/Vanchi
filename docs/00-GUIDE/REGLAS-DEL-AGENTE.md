@@ -55,6 +55,7 @@ Ante una duda, sigue esta jerarquía:
 | `Type 'string' is not assignable to type 'Id<"X">'` | Tipado profundo que Convex no resuelve automáticamente | Castear con `as Id<"X">` o anotar tipo de retorno |
 | `Cannot find module './_generated/api'` | No se ha ejecutado `npx convex dev` o `npx convex codegen` | Ejecutar `npx convex dev --once` |
 | `AI_GATEWAY_API_KEY not found` | Variable de entorno no configurada en Convex dashboard | Configurar en dashboard de Convex |
+| `Unexpected any. Specify a different type.` | Usaste `any` en vez de buscar el tipo correcto | **Prohibido.** Importar el tipo explícito o usar `unknown`. Preguntar a aliadas si no sabes el tipo |
 
 ---
 

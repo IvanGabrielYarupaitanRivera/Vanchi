@@ -170,7 +170,36 @@ await convex.mutation(api.module.myMutation, { arg: value });
 
 ---
 
-## 10. El sistema de módulos de Convex usa `/` como separador de carpetas
+## 11. `no-explicit-any` — prohibido rotundamente
+
+**Error:** `Unexpected any. Specify a different type.` (regla `@typescript-eslint/no-explicit-any`)
+
+**Contexto:** Usar `any` en mapeos de datos porque "no sabía el tipo exacto".
+
+```ts
+// ❌ MAL — cualquier cosa menos any
+messages = data.page.map((m: any) => ({
+
+// ✅ BIEN — importar el tipo correcto
+import type { UIMessage } from '@convex-dev/agent';
+
+messages = data.page.map((m: UIMessage) => ({
+```
+
+**Regla:** `any` desactiva todo el sistema de tipos de TypeScript. Si no sabes el tipo:
+1. Detente y busca el tipo correcto en las definiciones de la librería
+2. Si es muy complejo, usa `unknown` + cast explícito
+3. Si literalmente no existe, pregúntale a las aliadas
+
+**Cast como alternativa válida (pero no `any`):**
+
+```ts
+// ⚠️ Aceptable solo como último recurso
+const data = something as SomeType;
+
+// ❌ Pero esto NUNCA:
+const data = something as any;
+```
 
 **Contexto:** Cuando un archivo está en `convex/messages/read.ts`, el path de API es `api.messages.read.listThreadMessages`. El `/` se convierte en `.` en el objeto `api` de TypeScript.
 
