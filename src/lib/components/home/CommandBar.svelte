@@ -102,6 +102,7 @@
 					isTyping = false;
 					messages = [...messages, { role: 'assistant', text }];
 					typingHtml = '';
+					setTimeout(() => document.getElementById('commandbar-input')?.focus(), 50);
 				}, 300);
 			}
 		}
@@ -131,7 +132,7 @@
 		// Esperar a que Svelte monte el nuevo mensaje en el DOM
 		await tick();
 
-		// Scroll al fondo para mostrar el mensaje que acabo de enviar
+		// Scroll al fondo para mostrar el mensaje enviado
 		if (messagesContainer) {
 			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		}
@@ -154,6 +155,7 @@
 			console.error('Error:', err);
 			messages = [...messages, { role: 'assistant', text: 'Ocurrió un error. Intenta de nuevo.' }];
 			isLoading = false;
+			setTimeout(() => document.getElementById('commandbar-input')?.focus(), 50);
 		}
 	}
 
@@ -211,7 +213,7 @@
 
 			<!-- messages -->
 			<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto px-6 py-4 scroll-smooth">
-				<div class="flex min-h-full flex-col justify-end space-y-4">
+				<div class="flex min-h-full flex-col space-y-4">
 				{#if messages.length === 0 && !isTyping}
 					<div class="flex flex-col justify-center py-8">
 						<p class="text-sm leading-relaxed text-base-content/60">
