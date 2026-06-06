@@ -19,22 +19,22 @@ export interface KnowledgeDocument {
 export const knowledgeDocuments: KnowledgeDocument[] = [
 	// ─── ABOUT ───────────────────────────────────────────────
 	{
-		title: 'Iván Yarupaitán — Quién es',
+		title: 'Ivan Yarupaitan — Quién es',
 		slug: 'about',
 		category: 'about',
-		content: `Iván Yarupaitán Rivera es un desarrollador full-stack y consultor tecnológico especializado en inteligencia artificial, con sede en Perú. Su trabajo combina precisión técnica con un enfoque en diseño premium, ayudando a marcas y estudios a construir presencia digital de alto impacto.
+		content: `Ivan Yarupaitan Rivera es un desarrollador full-stack y consultor tecnológico especializado en inteligencia artificial, con sede en Perú. Su trabajo combina precisión técnica con un enfoque en diseño premium, ayudando a marcas y estudios a construir presencia digital de alto impacto.
 
 Su filosofía de trabajo se basa en tres pilares: tecnología bien ejecutada, diseño con propósito y comunicación clara. Prefiere proyectos donde pueda tomar decisiones arquitectónicas completas, desde la base de datos hasta la interfaz de usuario.
 
-Iván se describe a sí mismo como un "socio tecnológico" más que un proveedor de servicios. No solo construye software; entiende el negocio del cliente y propone soluciones que resuelven problemas reales.
+Ivan se describe a sí mismo como un "socio tecnológico" más que un proveedor de servicios. No solo construye software; entiende el negocio del cliente y propone soluciones que resuelven problemas reales.
 
 Su stack principal incluye SvelteKit, Convex, TailwindCSS, TypeScript y diversas herramientas de IA. También tiene experiencia con Astro, Supabase, OpenRouter, Vercel AI Gateway y múltiples APIs.`
 	},
 	{
-		title: 'Iván Yarupaitán — Experiencia y enfoque',
+		title: 'Ivan Yarupaitan — Experiencia y enfoque',
 		slug: 'experiencia',
 		category: 'about',
-		content: `Iván ha desarrollado proyectos en healthtech, edutech, legaltech y optimización de procesos gubernamentales. Sus proyectos han ganado primeros puestos en ferias de ciencia y han sido implementados en instituciones educativas y clínicas.
+		content: `Ivan ha desarrollado proyectos en healthtech, edutech, legaltech y optimización de procesos gubernamentales. Sus proyectos han ganado primeros puestos en ferias de ciencia y han sido implementados en instituciones educativas y clínicas.
 
 Su enfoque de desarrollo es "premium pero práctico": usa tecnologías modernas (Svelte 5 con runes, Convex, TailwindCSS v4) pero evita sobreingeniería. Prefiere una base de datos serverless con Convex antes que montar un backend tradicional, y elige herramientas que maximizan la entrega de valor sin sacrificar calidad.
 
@@ -46,7 +46,7 @@ Se mantiene actualizado con las últimas versiones del ecosistema: Svelte 5 (run
 		title: 'Stack Tecnológico — Frontend',
 		slug: 'stack-frontend',
 		category: 'stack',
-		content: `Iván domina las siguientes tecnologías frontend:
+		content: `Ivan domina las siguientes tecnologías frontend:
 
 SvelteKit 5: Su framework principal para aplicaciones web. Usa Svelte 5 con runes ($state, $derived, $effect, $props, $bindable) y snippets para componentes reutilizables. Prefiere SvelteKit sobre React por su menor cantidad de código boilerplate y mejor rendimiento por defecto.
 
@@ -62,9 +62,9 @@ Astro: Para sitios web estáticos y landing pages que no necesitan interactivida
 		title: 'Stack Tecnológico — Backend y Base de Datos',
 		slug: 'stack-backend',
 		category: 'stack',
-		content: `Iván domina las siguientes tecnologías backend:
+		content: `Ivan domina las siguientes tecnologías backend:
 
-Convex: Su plataforma backend preferida. Convex combina base de datos serverless, funciones backend (queries, mutations, actions) y sincronización en tiempo real en un solo producto. Iván usa Convex para casi todos sus proyectos porque elimina la necesidad de un backend tradicional, APIs REST y ORMs.
+Convex: Su plataforma backend preferida. Convex combina base de datos serverless, funciones backend (queries, mutations, actions) y sincronización en tiempo real en un solo producto. Ivan usa Convex para casi todos sus proyectos porque elimina la necesidad de un backend tradicional, APIs REST y ORMs.
 
 Preferencias de Convex:
 - Schema definido en TypeScript con validación de tipos automática
@@ -81,13 +81,13 @@ Supabase: Lo usó en proyectos anteriores (Junin360) como base de datos y backen
 		title: 'Stack Tecnológico — Inteligencia Artificial',
 		slug: 'stack-ia',
 		category: 'stack',
-		content: `Iván tiene experiencia significativa integrando IA en sus proyectos:
+		content: `Ivan tiene experiencia significativa integrando IA en sus proyectos:
 
 Vercel AI Gateway: Gateway unificado para modelos de IA. Lo usa para centralizar el acceso a modelos como GPT-4o-mini, reemplazando la necesidad de múltiples API keys. Configuración: openai.chat("gpt-4o-mini") con AI_GATEWAY_API_KEY en el entorno.
 
 OpenRouter: Alternativa a Vercel AI Gateway. Lo usó en proyectos anteriores (ENCAP, Junin360). Similar funcionalidad: acceso a múltiples modelos con una sola API key.
 
-@convex-dev/agent: Componente de Convex para crear agentes IA con threads persistentes, tools y RAG. Iván lo usa para construir asistentes conversacionales con memoria y capacidad de búsqueda en bases de conocimiento.
+@convex-dev/agent: Componente de Convex para crear agentes IA con threads persistentes, tools y RAG. Ivan lo usa para construir asistentes conversacionales con memoria y capacidad de búsqueda en bases de conocimiento.
 
 Gemini API: Usado en proyectos académicos tempranos (MediRoosevelt, Farmape, Obstetra Conecta).
 
@@ -103,7 +103,7 @@ Kapso: Plataforma de comunicación WhatsApp Business API para enviar y recibir m
 		title: 'Servicios — Desarrollo Web',
 		slug: 'servicio-web',
 		category: 'servicio',
-		content: `Iván ofrece desarrollo web completo, desde landing pages hasta aplicaciones web complejas. Su enfoque es construir productos digitales premium con tecnología moderna.
+		content: `Ivan ofrece desarrollo web completo, desde landing pages hasta aplicaciones web complejas. Su enfoque es construir productos digitales premium con tecnología moderna.
 
 Tipos de proyectos que construye:
 - Landing pages y sitios corporativos con diseño editorial premium
@@ -121,7 +121,7 @@ Stack típico: SvelteKit + Convex + TailwindCSS + TypeScript. Despliegue en Verc
 		title: 'Servicios — Inteligencia Artificial y Agentes',
 		slug: 'servicio-ia',
 		category: 'servicio',
-		content: `Iván se especializa en construir agentes de IA conversacionales que resuelven problemas reales de negocio.
+		content: `Ivan se especializa en construir agentes de IA conversacionales que resuelven problemas reales de negocio.
 
 Tipos de proyectos de IA que construye:
 - Agentes conversacionales vía WhatsApp que agendan citas, responden preguntas y gestionan recordatorios
@@ -136,7 +136,7 @@ Stack típico: Convex Agent + Vercel AI Gateway + WhatsApp (Kapso) + Deepgram ST
 		title: 'Servicios — WaaS (Web as a Service)',
 		slug: 'servicio-waas',
 		category: 'servicio',
-		content: `WaaS es un modelo de suscripción mensual donde Iván actúa como socio tecnológico del cliente. Incluye:
+		content: `WaaS es un modelo de suscripción mensual donde Ivan actúa como socio tecnológico del cliente. Incluye:
 
 - Desarrollo y mantenimiento del sitio web o aplicación
 - Hosting y dominio gestionados
@@ -154,7 +154,7 @@ Cada proyecto WaaS incluye: diseño premium, desarrollo con stack moderno, despl
 		title: 'Modelo de Precios y Colaboración',
 		slug: 'precios',
 		category: 'pricing',
-		content: `Iván ofrece dos modelos principales de colaboración:
+		content: `Ivan ofrece dos modelos principales de colaboración:
 
 Modelo WaaS (Web as a Service):
 - Suscripción mensual que inicia desde S/ 30/mes
@@ -170,7 +170,7 @@ Modelo Proyecto:
 
 Ambos modelos incluyen consultoría inicial gratuita para entender el proyecto y proponer la mejor solución tecnológica.
 
-Iván trabaja con empresas en Perú y Latinoamérica. Los pagos pueden ser en soles (S/) o dólares (USD) según preferencia del cliente.`
+Ivan trabaja con empresas en Perú y Latinoamérica. Los pagos pueden ser en soles (S/) o dólares (USD) según preferencia del cliente.`
 	},
 
 	// ─── PROYECTOS ──────────────────────────────────────────
@@ -184,7 +184,7 @@ Tecnologías: SvelteKit, Convex, Vercel AI Gateway, Google Calendar API, Tailwin
 
 Cliente: Clínicas Dentales.
 Fecha: Abril 2026.
-Rol de Iván: Full-Stack Developer & AI Engineer. Lideró el desarrollo completo desde la arquitectura del agente IA hasta la interfaz del dashboard.
+Rol de Ivan: Full-Stack Developer & AI Engineer. Lideró el desarrollo completo desde la arquitectura del agente IA hasta la interfaz del dashboard.
 
 Características principales:
 - Pacientes interactúan vía WhatsApp para agendar, reprogramar o cancelar citas

@@ -85,20 +85,27 @@ export const createThread = action({
 });
 ```
 
-## 7. Vercel AI Gateway: usar `openai.chat()` directamente
+## 7. Vercel AI Gateway: usar `createOpenAI` con baseURL explícita
 
-El AI SDK de Vercel auto-detecta `AI_GATEWAY_API_KEY` del entorno. No necesitas configurar baseURL ni apiKey explícitamente:
+`openai.chat()` de `@ai-sdk/openai` busca `OPENAI_API_KEY` por defecto, **no** `AI_GATEWAY_API_KEY`. Para usar Vercel AI Gateway con el Agent de Convex, necesitas `createOpenAI` con la baseURL del Gateway:
 
 ```ts
-import { openai } from "@ai-sdk/openai";
+import { createOpenAI } from "@ai-sdk/openai";
+
+const openaiGateway = createOpenAI({
+  apiKey: process.env.AI_GATEWAY_API_KEY,
+  baseURL: "https://ai-gateway.vercel.sh/v1", // Única URL correcta para el Gateway
+});
 
 const vanchiAgent = new Agent(components.agent, {
-  languageModel: openai.chat("gpt-4o-mini"),
-  // El SDK busca automáticamente AI_GATEWAY_API_KEY
+  languageModel: openaiGateway.chat("gpt-4o-mini"),
 });
 ```
 
-**No uses `createOpenAICompatibleLanguageModel` ni `createOpenAI` —** `openai.chat()` funciona directo con el Gateway.
+**Errores que evitar:**
+- ❌ `openai.chat("gpt-4o-mini")` sin `createOpenAI` — busca `OPENAI_API_KEY`, no pasa por el Gateway
+- ❌ `createOpenAI` con `baseURL` incorrecta (api.vercel.ai) — da 404 Not Found
+- ✅ `createOpenAI({ baseURL: "https://ai-gateway.vercel.sh/v1", apiKey: process.env.AI_GATEWAY_API_KEY })` — única forma correcta
 
 ## 8. Env vars correctas
 
@@ -122,32 +129,48 @@ Como el portafolio es público (sin autenticación), se debe implementar:
 - **XSS:** No usar `{@html}` directamente en Svelte. Sanitizar con DOMPurify o similar
 - **Filtro de relevancia:** En la tool de RAG, umbral de similitud > 0.75 para evitar respuestas con ruido
 
-## 11. Embeddings vía Vercel AI Gateway: usar string model, no `openai.embedding()`
+## 11. Embeddings vía Vercel AI Gateway: string model para `embed()`, createOpenAI para Agent
 
-Para generar embeddings desde una `internalAction` de Convex usando Vercel AI Gateway:
+Hay dos contextos distintos:
+
+### Para `embed()` del paquete `ai` (seed de knowledge base):
 
 ```ts
 import { embed } from "ai";
 
 const { embedding } = await embed({
-  model: "openai/text-embedding-3-small",  // ← string model, pasa por Gateway
+  model: "openai/text-embedding-3-small",  // ← string model, pasa por Gateway automáticamente
   value: "texto a embeber",
 });
 ```
 
-**Errores que evitar:**
-- ❌ `openai.embedding("text-embedding-3-small")` — **No pasa por el Gateway**, usa OpenAI directo
-- ❌ `createOpenAI` con baseURL — Innecesario, el AI SDK auto-detecta `AI_GATEWAY_API_KEY`
-- ✅ `"openai/text-embedding-3-small"` (string) — El AI SDK rutear automáticamente por el Gateway
+✅ El string model `'openai/text-embedding-3-small'` funciona porque `embed()` del paquete `ai` auto-detecta `AI_GATEWAY_API_KEY` y rutear por el Gateway.
 
-**Auto-detección de API key:**
-El AI SDK busca `AI_GATEWAY_API_KEY` en este orden:
-1. Variable de entorno (en Convex dashboard)
-2. Fallback a `VERCEL_OIDC_TOKEN` (si está en Vercel)
+### Para el `languageModel` del Agent de Convex:
 
-No necesita `@ai-sdk/gateway` ni configuración extra.
+❌ **No se puede usar string model.** El Agent espera una instancia de `LanguageModel`, no un string.
 
-## 12. `npx convex dev --once` para validar TypeScript
+```ts
+// ❌ Esto NO funciona en el Agent:
+languageModel: "openai/gpt-4o-mini"
+
+// ✅ Esto SÍ funciona:
+import { createOpenAI } from "@ai-sdk/openai";
+
+const openaiGateway = createOpenAI({
+  apiKey: process.env.AI_GATEWAY_API_KEY,
+  baseURL: "https://ai-gateway.vercel.sh/v1",
+});
+languageModel: openaiGateway.chat("gpt-4o-mini")
+```
+
+### Tabla resumen
+
+| Contexto | Sintaxis | Pasa por Gateway |
+|----------|----------|-----------------|
+| `embed()` (seed) | `model: "openai/text-embedding-3-small"` | ✅ Sí, auto-detecta |
+| Agent `languageModel` | `createOpenAI({...}).chat("gpt-4o-mini")` | ✅ Sí, baseURL explícita |
+| Agent `languageModel` | `openai.chat("gpt-4o-mini")` | ❌ No, busca OPENAI_API_KEY |
 
 Este comando sube el código al deployment dev, hace typecheck y regenera tipos. Es el feedback loop principal del agente mientras el usuario no tiene `npx convex dev` corriendo en foreground.
 

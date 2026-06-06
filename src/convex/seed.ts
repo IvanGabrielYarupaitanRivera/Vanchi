@@ -1,7 +1,7 @@
-import { internalAction } from "./_generated/server";
-import { internal } from "./_generated/api";
-import type { Id } from "./_generated/dataModel";
-import { embed } from "ai";
+import { internalAction } from './_generated/server';
+import { internal } from './_generated/api';
+import type { Id } from './_generated/dataModel';
+import { embed } from 'ai';
 
 /**
  * Divide texto en chunks con superposición.
@@ -23,8 +23,8 @@ function splitText(text: string, chunkSize = 2000, overlap = 100): string[] {
  */
 async function generateEmbedding(text: string): Promise<number[]> {
 	const { embedding } = await embed({
-		model: "openai/text-embedding-3-small",
-		value: text,
+		model: 'openai/text-embedding-3-small',
+		value: text
 	});
 	return embedding;
 }
@@ -38,9 +38,9 @@ export const seedKnowledgeBase = internalAction({
 	handler: async (ctx) => {
 		// ─── Documento de prueba ─────────────────────────
 		const docId = await ctx.runMutation(internal.rag.documents.insertDocument, {
-			title: "Molaric",
-			slug: "proyecto-molaric",
-			category: "proyecto",
+			title: 'Molaric',
+			slug: 'proyecto-molaric',
+			category: 'proyecto'
 		});
 
 		console.log(`✅ Documento insertado: ${docId}`);
@@ -50,7 +50,7 @@ export const seedKnowledgeBase = internalAction({
 
 Tecnologías: SvelteKit, Convex, Vercel AI Gateway, Google Calendar API, TailwindCSS, Better Auth, TypeScript, Deepgram STT, Kapso WhatsApp.
 Fecha: Abril 2026.
-Rol de Iván: Full-Stack Developer & AI Engineer.
+Rol de Ivan: Full-Stack Developer & AI Engineer.
 
 Características principales:
 - Pacientes interactúan vía WhatsApp para agendar, reprogramar o cancelar citas
@@ -67,14 +67,14 @@ URL: https://molaric.com/`;
 
 		// ─── Chunking ────────────────────────────────────
 		const chunks = splitText(content, 2000, 100);
-		const chunkIds: Id<"chunks">[] = [];
+		const chunkIds: Id<'chunks'>[] = [];
 
 		for (const text of chunks) {
-			const chunkId = await ctx.runMutation(internal.rag.chunks.insertChunk, {
+			const chunkId = (await ctx.runMutation(internal.rag.chunks.insertChunk, {
 				documentId: docId,
 				text,
-				embeddingId: null,
-			}) as Id<"chunks">;
+				embeddingId: null
+			})) as Id<'chunks'>;
 			chunkIds.push(chunkId);
 		}
 
@@ -86,17 +86,17 @@ URL: https://molaric.com/`;
 
 			const embeddingId = await ctx.runMutation(internal.rag.chunks.insertEmbedding, {
 				embedding,
-				chunkId: chunkIds[i],
+				chunkId: chunkIds[i]
 			});
 
 			await ctx.runMutation(internal.rag.chunks.patchChunkEmbedding, {
 				chunkId: chunkIds[i],
-				embeddingId,
+				embeddingId
 			});
 
 			console.log(`✅ Embedding generado para chunk ${i + 1}/${chunks.length}`);
 		}
 
-		console.log("🎉 Seed completado exitosamente");
-	},
+		console.log('🎉 Seed completado exitosamente');
+	}
 });
