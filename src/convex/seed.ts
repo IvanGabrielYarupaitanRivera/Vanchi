@@ -37,7 +37,7 @@ export const seedKnowledgeBase = internalAction({
 	args: {},
 	handler: async (ctx) => {
 		// ─── Documento de prueba ─────────────────────────
-		const docId = await ctx.runMutation(internal.db.insertDocument, {
+		const docId = await ctx.runMutation(internal.rag.documents.insertDocument, {
 			title: "Molaric",
 			slug: "proyecto-molaric",
 			category: "proyecto",
@@ -70,11 +70,11 @@ URL: https://molaric.com/`;
 		const chunkIds: Id<"chunks">[] = [];
 
 		for (const text of chunks) {
-			const chunkId: Id<"chunks"> = await ctx.runMutation(internal.db.insertChunk, {
+			const chunkId = await ctx.runMutation(internal.rag.chunks.insertChunk, {
 				documentId: docId,
 				text,
 				embeddingId: null,
-			});
+			}) as Id<"chunks">;
 			chunkIds.push(chunkId);
 		}
 
@@ -84,12 +84,12 @@ URL: https://molaric.com/`;
 		for (let i = 0; i < chunks.length; i++) {
 			const embedding = await generateEmbedding(chunks[i]);
 
-			const embeddingId = await ctx.runMutation(internal.db.insertEmbedding, {
+			const embeddingId = await ctx.runMutation(internal.rag.chunks.insertEmbedding, {
 				embedding,
 				chunkId: chunkIds[i],
 			});
 
-			await ctx.runMutation(internal.db.patchChunkEmbedding, {
+			await ctx.runMutation(internal.rag.chunks.patchChunkEmbedding, {
 				chunkId: chunkIds[i],
 				embeddingId,
 			});

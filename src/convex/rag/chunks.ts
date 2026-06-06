@@ -1,24 +1,8 @@
-import { internalMutation } from "./_generated/server";
+import { internalMutation } from "../_generated/server";
 import { v } from "convex/values";
 
 /**
- * Inserta un documento en la tabla documentos.
- * Devuelve el Id del documento insertado.
- */
-export const insertDocument = internalMutation({
-	args: {
-		title: v.string(),
-		slug: v.string(),
-		category: v.string(),
-	},
-	handler: async (ctx, args) => {
-		return await ctx.db.insert("documentos", args);
-	},
-});
-
-/**
  * Inserta un chunk en la tabla chunks.
- * Devuelve el Id del chunk insertado.
  */
 export const insertChunk = internalMutation({
 	args: {
@@ -33,7 +17,6 @@ export const insertChunk = internalMutation({
 
 /**
  * Inserta un embedding en la tabla embeddings.
- * Devuelve el Id del embedding insertado.
  */
 export const insertEmbedding = internalMutation({
 	args: {
