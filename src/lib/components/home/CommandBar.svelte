@@ -48,9 +48,6 @@
 	let cursorPhase = $state<'blink' | 'fadeout' | 'hidden'>('hidden');
 	let rafId: number | null = $state(null);
 
-	// Trackear si hay scroll disponible en el contenedor
-	let hasScroll = $state(false);
-
 	// ─── Efectos ────────────────────────────────────
 	$effect(() => {
 		const saved = getLS('vanchi-thread-id');
@@ -134,30 +131,12 @@
 		// Esperar a que Svelte monte el nuevo mensaje en el DOM
 		await tick();
 
-		// Centrar el mensaje del usuario al 50% del contenedor
+		// Scroll al fondo para mostrar el mensaje que acabo de enviar
 		if (messagesContainer) {
-			hasScroll = messagesContainer.scrollHeight > messagesContainer.clientHeight;
-			if (hasScroll) {
-				// El mensaje del usuario está en el índice messages.length - 1
-				// (el último hijo podría ser el loading indicator)
-				const userMsgEl = messagesContainer.children[messages.length - 1] as HTMLElement | undefined;
-				if (userMsgEl) {
-					const msgRect = userMsgEl.getBoundingClientRect();
-					const containerRect = messagesContainer.getBoundingClientRect();
-					const relativeTop = msgRect.top - containerRect.top + messagesContainer.scrollTop;
-
-					const targetScroll =
-						relativeTop -
-						messagesContainer.clientHeight * 0.5 +
-						userMsgEl.clientHeight * 0.5;
-
-					messagesContainer.scrollTo({
-						top: Math.max(0, targetScroll),
-						behavior: 'smooth'
-					});
-				}
-			}
+			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		}
+
+
 
 		try {
 			let text: string;
@@ -191,7 +170,6 @@
 		isTyping = false;
 		typingHtml = '';
 		cursorPhase = 'hidden';
-		hasScroll = false;
 	}
 
 	function selectSuggestion(text: string) {
@@ -232,7 +210,8 @@
 			</div>
 
 			<!-- messages -->
-			<div bind:this={messagesContainer} class="min-h-0 flex-1 space-y-4 overflow-y-auto px-6 py-4">
+			<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto px-6 py-4 scroll-smooth">
+				<div class="flex min-h-full flex-col justify-end space-y-4">
 				{#if messages.length === 0 && !isTyping}
 					<div class="flex flex-col justify-center py-8">
 						<p class="text-sm leading-relaxed text-base-content/60">
@@ -290,6 +269,7 @@
 					</div>
 				{/if}
 			</div>
+		</div>
 
 			<!-- input -->
 			<div class="shrink-0 border-t border-white/10 px-6 py-4">
