@@ -247,14 +247,14 @@
 				<div>
 					<h2 class="font-display text-lg text-base-content">¿En qué puedo ayudarte?</h2>
 					<button
-						class="text-xs text-base-content/40 transition-colors hover:text-base-content/60"
+						class="cursor-pointer text-xs text-base-content/40 transition-colors hover:text-base-content/60"
 						onclick={newConversation}
 					>
 						Nueva conversación
 					</button>
 				</div>
 				<button
-					class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-all duration-300 hover:bg-white/5"
+					class="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-lg transition-all duration-300 hover:bg-white/5"
 					onclick={() => onToggle()}
 					aria-label="Cerrar"
 				>
@@ -277,19 +277,19 @@
 							<div class="space-y-2 pt-4">
 								<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
 								<button
-									class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+									class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
 									onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}
 								>
 									¿Qué tipo de proyectos has hecho?
 								</button>
 								<button
-									class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+									class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
 									onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}
 								>
 									¿Puedes construir un CRM o sistema web?
 								</button>
 								<button
-									class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+									class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
 									onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}
 								>
 									¿Cuánto cuesta un proyecto con Vanchi?
