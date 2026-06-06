@@ -94,12 +94,12 @@ En lugar de tres puntitos:
 |------|-----------|-------|
 | Backend IA | Convex + `@convex-dev/agent` (dentro de `src/convex/`) | Sin serverless en Vercel, persistencia nativa, RAG integrable |
 | Cliente Convex | `convex-svelte` con `setupConvex` | Helper oficial para SvelteKit (queries + actions reactivas) |
-| LLM | `@ai-sdk/openai` (gpt-4o-mini) vía Vercel AI Gateway | Ya lo usa en Molaric, se configura como base URL del gateway |
+| LLM | `openai.chat("gpt-4o-mini")` vía Vercel AI Gateway | AI SDK auto-detecta `AI_GATEWAY_API_KEY` del entorno. Sin base URL explícita |
 | Modelo | `gpt-4o-mini` | Rápido, barato, suficiente para el caso de uso |
-| RAG | Convex con vectores (embeddings) | Búsqueda semántica sobre documentos del portafolio |
+| RAG | Convex con vectores (embeddings) + `createTool` | Búsqueda semántica sobre documentos del portafolio |
 | Respuesta | `generateText` + typing animation client-side | Sin streaming server-side, typing visual en cliente |
 | Frontend | SvelteKit + Modal ⌘K | Modal smoked glass central con shortcut de teclado |
-| Env | `PUBLIC_CONVEX_URL` | Variable de entorno pública para conectar al deployment Convex |
+| Env | `AI_GATEWAY_API_KEY` (auto-detectado), `PUBLIC_CONVEX_URL` | Variables de entorno para Gateway y Convex |
 
 ---
 
@@ -155,30 +155,31 @@ En lugar de tres puntitos:
 
 ## 7. Persistencia de conversaciones
 
-Las sesiones de conversación se manejan con un enfoque híbrido:
+Las sesiones se manejan con persistencia mínima gracias a la reactividad de Convex:
 
 | Dato | Dónde se guarda | Propósito |
 |------|----------------|-----------|
-| **Thread completo** | Convex (componente Agent) | Historial permanente de mensajes por thread |
-| **threadId** | `localStorage` (`vanchi-thread-id`) | Reanudar la misma conversación al recargar |
-| **Últimos mensajes** | `localStorage` (`vanchi-messages`) | Render instantáneo al reabrir el modal (cache opcional) |
+| **Thread + mensajes** | Convex (componente Agent) | Historial completo, accesible vía `listUIMessages` query |
+| **threadId** | `localStorage` (`vanchi-thread-id`) | Única llave necesaria para reanudar la conversación |
+
+> **Los mensajes NO se cachean en localStorage.** Al reabrir el modal, `useQuery(api.messages.listThreadMessages, { threadId })` obtiene el historial reactivamente desde Convex.
 
 ### Flujo de persistencia
 
 ```
 1. Usuario abre modal (⌘K)
 2. Lee localStorage:
-   ├── threadId existe → carga mensajes del cache local
-   │   └── muestra historial instantáneamente (sin tiempo de carga)
+   ├── threadId existe → useQuery se suscribe al historial
+   │   └── mensajes aparecen reactivamente (sin tiempo de carga)
    └── threadId no existe → muestra pantalla de bienvenida + sugerencias
 3. Usuario escribe y envía
-4. Si no hay threadId → convex.action(api.createThread, { prompt })
+4. Si no hay threadId → useMutation(api.agentActions.createThread)({ prompt })
    └── Guarda el nuevo threadId en localStorage
-5. Si hay threadId → convex.action(api.continueThread, { threadId, prompt })
-6. Cachea la respuesta en localStorage (vanchi-messages)
+5. Si hay threadId → useMutation(api.agentActions.continueThread)({ prompt, threadId })
+6. useQuery se actualiza automáticamente con la nueva respuesta
 7. Renderiza con typing animation
 8. Al cerrar el modal → no pasa nada (thread sigue vivo en Convex)
-9. Al recargar la página y reabrir → se recupera el threadId y los mensajes
+9. Al recargar y reabrir → se recupera threadId, useQuery carga el historial
 ```
 
 ### "Nueva conversación"
@@ -191,18 +192,16 @@ En la interfaz del modal, un texto pequeño y sutil al lado del título:
 
 Al hacer clic:
 1. Borra `threadId` de localStorage
-2. Limpia los mensajes del estado local
+2. Limpia el estado local (useQuery se desuscribe del thread anterior)
 3. Muestra la pantalla de bienvenida con sugerencias
-4. El thread anterior sigue existiendo en Convex (no se elimina)
+4. El thread anterior sigue existiendo en Convex como inactivo
 
 ### Keys de localStorage
 
+Únicamente se guarda el `threadId`. Los mensajes se obtienen reactivamente desde Convex vía `useQuery`:
+
 ```ts
-localStorage.setItem('vanchi-thread-id', threadId);       // string
-localStorage.setItem('vanchi-messages', JSON.stringify([  // Message[]
-  { role: 'user', text: '...' },
-  { role: 'assistant', text: '...' }
-]));
+localStorage.setItem('vanchi-thread-id', threadId);  // string: único dato persistente
 ```
 
 ### 🛡️ Manejo de localStorage bloqueado (incógnito)
@@ -293,7 +292,7 @@ Si falla, el estado vive en un `Map` en memoria volátil (se pierde al recargar)
     $convex: './src/convex'
   }
   ```
-- Agregar `PUBLIC_CONVEX_URL` (la obtienes al ejecutar `npx convex dev`).
+- Agregar `PUBLIC_CONVEX_URL` y `AI_GATEWAY_API_KEY` al `.env` (la obtienes al ejecutar `npx convex dev`).
 - El usuario debe ejecutar `npx convex dev` en una terminal (esto pide login, crea proyecto, y genera `src/convex/` automáticamente).
 
 > ⚠️ **Nota:** La carpeta `src/convex/` se genera automáticamente al ejecutar `npx convex dev`. No crees los archivos manualmente antes de ese paso.
@@ -382,18 +381,33 @@ Crear la configuración del agente con instrucciones, tools de RAG y el modelo c
 ```ts
 // src/convex/agent.ts
 import { components } from "./_generated/api";
-import { Agent } from "@convex-dev/agent";
-import { createOpenAI } from "@ai-sdk/openai";
+import { Agent, createTool } from "@convex-dev/agent";
+import { openai } from "@ai-sdk/openai";
+import { z } from "zod";
 
-// Configurar OpenAI vía Vercel AI Gateway
-const openai = createOpenAI({
-  baseURL: "https://gateway.ai.vercel.com/v1/openai",
-  apiKey: process.env.VERCEL_AI_GATEWAY_KEY,
+// 🛠️ Tool de RAG: búsqueda en la knowledge base del portafolio
+const searchKnowledgeBase = createTool({
+  description: "Busca información en la base de conocimiento del portafolio de Vanchi. " +
+    "Úsala cuando el usuario pregunte sobre proyectos, tecnologías, servicios, precios o experiencia.",
+  args: z.object({
+    query: z.string().describe("La consulta del usuario para buscar en la base de conocimiento"),
+  }),
+  handler: async (ctx, { query }) => {
+    // Generar embedding de la consulta y buscar en documents
+    const results = await ctx.runQuery(components.documents.search, { query });
+    return results;
+  },
 });
 
+// 🤖 Agente Vanchi
+// El AI SDK auto-detecta AI_GATEWAY_API_KEY del entorno de Convex
+// No necesita baseURL ni apiKey explícita
 export const vanchiAgent = new Agent(components.agent, {
   name: "Vanchi Assistant",
   languageModel: openai.chat("gpt-4o-mini"),
+  tools: {
+    searchKnowledgeBase,
+  },
   instructions: `Eres el asistente virtual de Vanchi, el portafolio de Iván Yarupaitán...`,
 });
 ```
@@ -442,7 +456,46 @@ export const continueThread = action({
 });
 ```
 
-- `searchKnowledgeBase` y `seedKnowledgeBase` vivirán en `src/convex/seed.ts` (la tool se define en `agent.ts`)
+- La tool `searchKnowledgeBase` se define en `agent.ts` (no necesita su propio archivo).
+- `seedKnowledgeBase` vivirá en `src/convex/seed.ts`.
+
+---
+
+### Query para historial reactivo de mensajes
+
+En lugar de cachear mensajes en `localStorage`, se expone una **query** de Convex que el frontend puede suscribirse con `useQuery` de `convex-svelte`.
+
+**Archivos involucrados:** `src/convex/messages.ts`
+
+**Detalle:**
+- Crear `src/convex/messages.ts`:
+
+```ts
+// src/convex/messages.ts
+import { query } from "./_generated/server";
+import { v } from "convex/values";
+import { paginationOptsValidator } from "convex/server";
+import { listUIMessages } from "@convex-dev/agent";
+import { components } from "./_generated/api";
+
+export const listThreadMessages = query({
+  args: {
+    threadId: v.string(),
+    paginationOpts: paginationOptsValidator,
+  },
+  handler: async (ctx, { threadId, paginationOpts }) => {
+    // Retorna UIMessage[] — formato listo para renderizar en UI
+    // Agrupa tool calls + respuestas del modelo automáticamente
+    const paginated = await listUIMessages(ctx, components.agent, {
+      threadId,
+      paginationOpts,
+    });
+    return paginated;
+  },
+});
+```
+
+> **Ventaja:** El historial se actualiza en tiempo real vía `useQuery`. No necesitas cachear mensajes en `localStorage` para el render initial — Convex los sirve reactivamente.
 
 ---
 
@@ -526,16 +579,21 @@ Crear el modal central que contiene el asistente. Este modal:
 - Enter envía, Shift+Enter nueva línea
 - Escape cierra el modal (sin perder el thread)
 
-**Flujo de mensajes (con convex-svelte + persistencia):**
-1. Leer `localStorage`: si existe `vanchi-thread-id`, restaurar mensajes del cache local
-2. Sin threadId → ejecuta `createThread({ prompt })` de `convex-svelte` (useMutation)
-   └── Guarda el nuevo threadId en localStorage (`vanchi-thread-id`)
-3. Con threadId → ejecuta `continueThread({ prompt, threadId })` de `convex-svelte`
-4. Loading: barra dorada de 1px en borde inferior del input
-5. Respuesta: typing animation (caracter por caracter con delay de ~20ms)
-6. Cachear la respuesta en localStorage (`vanchi-messages`)
-7. Scroll automático al último mensaje
-8. Cerrar con Escape: el thread sigue vivo en Convex
+**Flujo de mensajes (convex-svelte + reactividad):**
+1. Al abrir el modal, leer `localStorage` para obtener `vanchi-thread-id`
+2. Si existe `threadId`:
+   ├── `useQuery(api.messages.listThreadMessages, { threadId })` → historial reactivo
+   └── Renderizar mensajes automáticamente (sin cache manual)
+3. Si no existe `threadId` → mostrar pantalla de bienvenida con sugerencias
+4. Usuario escribe y presiona Enter:
+   ├── Sin threadId → `useMutation(api.agentActions.createThread)({ prompt })`
+   │   └── Guarda el nuevo threadId en localStorage (`vanchi-thread-id`)
+   └── Con threadId → `useMutation(api.agentActions.continueThread)({ prompt, threadId })`
+5. Loading: barra dorada de 1px en borde inferior del input
+6. Respuesta: typing animation (caracter por caracter con delay de ~20ms)
+7. `useQuery` se actualiza automáticamente con el nuevo mensaje
+8. Scroll automático al último mensaje
+9. Cerrar con Escape: el thread sigue vivo en Convex
 
 ---
 
@@ -592,7 +650,7 @@ Pasos manuales posteriores a la implementación del código:
 
 **Detalle:**
 - `npx convex dev` — Iniciar el backend local
-- Configurar `VERCEL_AI_GATEWAY_KEY` en Convex dashboard (environment variables)
+- Configurar `AI_GATEWAY_API_KEY` en Convex dashboard (environment variables)
 - Ejecutar `seedKnowledgeBase` desde el playground de Convex o mediante una acción programática
 - Verificar que los documentos se hayan indexado correctamente
 
@@ -608,8 +666,12 @@ Usuario presiona ⌘K
 │  CommandBar modal se abre       │
 │  (smoked glass, fade-in)        │
 │  ├─ Lee localStorage:           │
-│  │   ├── vanchi-thread-id       │
-│  │   └── vanchi-messages        │
+│  │   └── vanchi-thread-id       │
+│  ├─ ¿threadId existe?           │
+│  │   └── Sí → useQuery(         │
+│  │     api.messages             │
+│  │     .listThreadMessages)     │
+│  │     → historial reactivo     │
 │  └─ input recibe focus          │
 └─────────┬───────────────────────┘
           │
@@ -640,10 +702,10 @@ Usuario escribe: "¿Puedes construir un sistema de biblioteca?"
                     ▼
 ┌─────────────────────────────────────────────┐
 │  CommandBar.svelte recibe respuesta         │
-│  ├─ Guarda en localStorage (vanchi-messages)│
 │  ├─ Oculta barra dorada de loading          │
-│  └─ Muestra texto con typing animation      │
-│     (caracter por caracter, ~20ms delay)    │
+│  ├─ Muestra texto con typing animation      │
+│  └─ useQuery se actualiza automáticamente   │
+│     (nuevo mensaje en Convex = UI reactiva) │
 └─────────────────────────────────────────────┘
 ```
 
@@ -672,7 +734,7 @@ Vanchi/
 │   │       └── Header.svelte        ─ MODIFICAR: + indicador ⌘K
 │   └── routes/
 │       └── +layout.svelte           ─ MODIFICAR: + setupConvex + CommandBar
-├── .env                              ─ PUBLIC_CONVEX_URL, VERCEL_AI_GATEWAY_KEY
+│   ├── .env                              ─ PUBLIC_CONVEX_URL, AI_GATEWAY_API_KEY
 └── package.json                      ─ MODIFICAR: + convex, convex-svelte, @convex-dev/agent
 ```
 
@@ -702,6 +764,6 @@ Vanchi/
 - [ ] Knowledge base seedeada y verificada (seedKnowledgeBase ejecutada)
 - [ ] El agente responde preguntas sobre proyectos, stack y servicios
 - [ ] `PUBLIC_CONVEX_URL` configurada en Vercel dashboard (env vars)
-- [ ] `VERCEL_AI_GATEWAY_KEY` configurado en Convex dashboard (env vars)
+- [ ] `AI_GATEWAY_API_KEY` configurado en Convex dashboard (env vars)
 - [ ] Mover a `tasks/archived/` al finalizar
 - [ ] Registrar en `CHANGELOG.md`
