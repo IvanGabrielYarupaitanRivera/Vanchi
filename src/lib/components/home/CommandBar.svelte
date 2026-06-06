@@ -3,7 +3,21 @@
 	import { api } from '$convex/_generated/api';
 	import { X } from '@lucide/svelte';
 	import { fly } from 'svelte/transition';
+	import { marked } from 'marked';
+	import DOMPurify from 'dompurify';
 	import type { UIMessage } from '@convex-dev/agent';
+
+	function setMarkdown(node: HTMLElement, text: string) {
+		const html = marked.parse(text, { async: false }) as string;
+		node.innerHTML = DOMPurify.sanitize(html);
+
+		return {
+			update(newText: string) {
+				const updatedHtml = marked.parse(newText, { async: false }) as string;
+				node.innerHTML = DOMPurify.sanitize(updatedHtml);
+			}
+		};
+	}
 
 	let { isOpen = false, onToggle = () => {} } = $props();
 
@@ -217,8 +231,8 @@
 							{#if msg.role === 'user'}
 								<p class="text-sm font-medium text-base-content">{msg.text}</p>
 							{:else}
-								<div class="border-l border-primary/30 pl-3">
-									<p class="text-sm leading-relaxed text-base-content/80">{msg.text}</p>
+								<div class="border-l border-primary/30 pl-3 prose prose-sm prose-invert max-w-none">
+									<div use:setMarkdown={msg.text}></div>
 								</div>
 							{/if}
 							{#if i < messages.length - 1}
