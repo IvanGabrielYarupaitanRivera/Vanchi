@@ -16,10 +16,13 @@ export const createThread = action({
 		console.log(`[createThread] Generando respuesta...`);
 		const result = await thread.generateText({ prompt });
 		console.log(`[createThread] Result keys: ${Object.keys(result)}`);
-		console.log(`[createThread] result.text type: ${typeof result.text}`);
-		console.log(`[createThread] result.text length: ${result.text?.length}`);
-		console.log(`[createThread] result.text raw: ${JSON.stringify(result.text)}`);
-		console.log(`[createThread] result full: ${JSON.stringify(result).slice(0, 500)}`);
+		console.log(`[createThread] result.text: "${result.text}" (len: ${result.text?.length})`);
+		console.log(`[createThread] result._output: ${JSON.stringify(result.output)?.slice(0, 300)}`);
+		console.log(`[createThread] result.steps length: ${result.steps?.length}`);
+		for (let i = 0; i < (result.steps?.length || 0); i++) {
+			const step = result.steps[i];
+			console.log(`[createThread] step[${i}] content types: ${step.content?.map((c: { type: string }) => c.type)?.join(", ")}`);
+		}
 
 		return { threadId, text: result.text };
 	},
