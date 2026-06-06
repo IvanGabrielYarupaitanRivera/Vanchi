@@ -19,10 +19,10 @@
 
 	// Para HTML ya sanitizado (typing animation en vivo)
 	function setHtml(node: HTMLElement, html: string) {
-		node.innerHTML = html;
+		node.innerHTML = DOMPurify.sanitize(html);
 		return {
 			update(newHtml: string) {
-				node.innerHTML = newHtml;
+				node.innerHTML = DOMPurify.sanitize(newHtml);
 			}
 		};
 	}
@@ -31,6 +31,20 @@
 	function renderPartial(text: string): string {
 		if (!text) return '';
 		return DOMPurify.sanitize(marked.parse(text, { async: false }) as string);
+	}
+
+	function autoResize(node: HTMLTextAreaElement) {
+		const adjust = () => {
+			node.style.height = 'auto';
+			node.style.height = `${node.scrollHeight}px`;
+		};
+		node.addEventListener('input', adjust);
+		adjust();
+		return {
+			destroy() {
+				node.removeEventListener('input', adjust);
+			}
+		};
 	}
 
 	let { isOpen = false, onToggle = () => {} } = $props();
@@ -54,9 +68,23 @@
 		if (saved) threadId = saved;
 	});
 
+	// Auto-scroll durante streaming: solo si el usuario está al fondo
+	$effect(() => {
+		if (isTyping && typingHtml && messagesContainer) {
+			const { scrollTop, scrollHeight, clientHeight } = messagesContainer;
+			const isAtBottom = scrollHeight - scrollTop - clientHeight < 50;
+			if (isAtBottom) {
+				messagesContainer.scrollTop = scrollHeight;
+			}
+		}
+	});
+
 	$effect(() => {
 		const handleKey = (e: KeyboardEvent) => {
-			if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); onToggle(); }
+			if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+				e.preventDefault();
+				onToggle();
+			}
 			if (e.key === 'Escape' && isOpen) onToggle();
 		};
 		window.addEventListener('keydown', handleKey);
@@ -112,13 +140,25 @@
 
 	// ─── Helpers ────────────────────────────────────
 	function getLS(key: string): string | null {
-		try { return localStorage.getItem(key); } catch { return null; }
+		try {
+			return localStorage.getItem(key);
+		} catch {
+			return null;
+		}
 	}
 	function setLS(key: string, value: string) {
-		try { localStorage.setItem(key, value); } catch { /* incógnito */ }
+		try {
+			localStorage.setItem(key, value);
+		} catch {
+			/* incógnito */
+		}
 	}
 	function removeLS(key: string) {
-		try { localStorage.removeItem(key); } catch { /* incógnito */ }
+		try {
+			localStorage.removeItem(key);
+		} catch {
+			/* incógnito */
+		}
 	}
 
 	// ─── Envío ──────────────────────────────────────
@@ -137,8 +177,6 @@
 			messagesContainer.scrollTop = messagesContainer.scrollHeight;
 		}
 
-
-
 		try {
 			let text: string;
 			if (!threadId) {
@@ -147,7 +185,10 @@
 				setLS('vanchi-thread-id', result.threadId!);
 				text = result.text;
 			} else {
-				const result = await convex.action(api.agent.conversations.continueThread, { prompt: msg, threadId });
+				const result = await convex.action(api.agent.conversations.continueThread, {
+					prompt: msg,
+					threadId
+				});
 				text = result.text;
 			}
 			startTyping(text);
@@ -160,7 +201,10 @@
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+		if (e.key === 'Enter' && !e.shiftKey) {
+			e.preventDefault();
+			send();
+		}
 	}
 
 	function newConversation() {
@@ -186,19 +230,26 @@
 		class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
 		role="dialog"
 		aria-modal="true"
-		onclick={(e) => { if (e.target === e.currentTarget) onToggle(); }}
-		onkeydown={(e) => { if (e.key === 'Escape') onToggle(); }}
+		onclick={(e) => {
+			if (e.target === e.currentTarget) onToggle();
+		}}
+		onkeydown={(e) => {
+			if (e.key === 'Escape') onToggle();
+		}}
 	>
 		<div
 			transition:fly={{ y: 20, duration: 200 }}
 			class="mx-4 flex w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-base-100/80 shadow-2xl backdrop-blur-2xl"
-			style="max-height: min(70vh, 600px)"
+			style="max-height: min(70dvh, 600px)"
 		>
 			<!-- header -->
 			<div class="flex shrink-0 items-center justify-between border-b border-white/10 px-6 py-4">
 				<div>
 					<h2 class="font-display text-lg text-base-content">¿En qué puedo ayudarte?</h2>
-					<button class="text-xs text-base-content/40 transition-colors hover:text-base-content/60" onclick={newConversation}>
+					<button
+						class="text-xs text-base-content/40 transition-colors hover:text-base-content/60"
+						onclick={newConversation}
+					>
 						Nueva conversación
 					</button>
 				</div>
@@ -212,70 +263,89 @@
 			</div>
 
 			<!-- messages -->
-			<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto px-6 py-4 scroll-smooth">
+			<div
+				bind:this={messagesContainer}
+				class="min-h-0 flex-1 overflow-y-auto scroll-smooth px-6 py-4"
+			>
 				<div class="flex min-h-full flex-col space-y-4">
-				{#if messages.length === 0 && !isTyping}
-					<div class="flex flex-col justify-center py-8">
-						<p class="text-sm leading-relaxed text-base-content/60">
-							Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre proyectos, tecnologías o servicios.
-						</p>
-						<div class="space-y-2 pt-4">
-							<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
-							<button class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content" onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}>
-								¿Qué tipo de proyectos has hecho?
-							</button>
-							<button class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content" onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}>
-								¿Puedes construir un CRM o sistema web?
-							</button>
-							<button class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content" onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}>
-								¿Cuánto cuesta un proyecto con Vanchi?
-							</button>
-						</div>
-					</div>
-				{/if}
-
-				<!-- Mensajes completados -->
-				{#each messages as msg, i (i)}
-					<div class="space-y-1">
-						{#if msg.role === 'user'}
-							<p class="text-sm font-medium text-base-content">{msg.text}</p>
-						{:else}
-							<div class="border-l border-primary/30 pl-3 prose prose-sm prose-invert max-w-none">
-								<div use:setMarkdown={msg.text}></div>
+					{#if messages.length === 0 && !isTyping}
+						<div class="flex flex-col justify-center py-8">
+							<p class="text-sm leading-relaxed text-base-content/60">
+								Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre
+								proyectos, tecnologías o servicios.
+							</p>
+							<div class="space-y-2 pt-4">
+								<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
+								<button
+									class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+									onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}
+								>
+									¿Qué tipo de proyectos has hecho?
+								</button>
+								<button
+									class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+									onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}
+								>
+									¿Puedes construir un CRM o sistema web?
+								</button>
+								<button
+									class="block w-full border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+									onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}
+								>
+									¿Cuánto cuesta un proyecto con Vanchi?
+								</button>
 							</div>
-						{/if}
-						{#if i < messages.length - 1}<div class="border-b border-white/5"></div>{/if}
-					</div>
-				{/each}
+						</div>
+					{/if}
 
-				<!-- Respuesta en typing (sin scroll, el user message ya está arriba) -->
-				{#if isTyping}
-					<div class="space-y-1">
-						<div class="border-l border-primary/30 pl-3 prose prose-sm prose-invert max-w-none">
-							<div use:setHtml={typingHtml}></div>
-							{#if cursorPhase === 'blink'}
-								<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"></span>
-							{:else if cursorPhase === 'fadeout'}
-								<span class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom" transition:fade={{ duration: 300 }}></span>
+					<!-- Mensajes completados -->
+					{#each messages as msg, i (i)}
+						<div class="space-y-1">
+							{#if msg.role === 'user'}
+								<p class="text-sm font-medium text-base-content">{msg.text}</p>
+							{:else}
+								<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
+									<div use:setMarkdown={msg.text}></div>
+								</div>
 							{/if}
+							{#if i < messages.length - 1}<div class="border-b border-white/5"></div>{/if}
 						</div>
-					</div>
-				{/if}
+					{/each}
 
-				<!-- Loading -->
-				{#if isLoading}
-					<div class="flex items-center justify-center py-4">
-						<div class="h-px w-24 overflow-hidden rounded-full bg-white/10">
-							<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
+					<!-- Respuesta en typing (sin scroll, el user message ya está arriba) -->
+					{#if isTyping}
+						<div class="space-y-1">
+							<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
+								<div use:setHtml={typingHtml}></div>
+								{#if cursorPhase === 'blink'}
+									<span
+										class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"
+									></span>
+								{:else if cursorPhase === 'fadeout'}
+									<span
+										class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"
+										transition:fade={{ duration: 300 }}
+									></span>
+								{/if}
+							</div>
 						</div>
-					</div>
-				{/if}
+					{/if}
+
+					<!-- Loading -->
+					{#if isLoading}
+						<div class="flex items-center justify-center py-4">
+							<div class="h-px w-24 overflow-hidden rounded-full bg-white/10 pb-36">
+								<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
+							</div>
+						</div>
+					{/if}
+				</div>
 			</div>
-		</div>
 
 			<!-- input -->
 			<div class="shrink-0 border-t border-white/10 px-6 py-4">
 				<textarea
+					use:autoResize
 					id="commandbar-input"
 					bind:value={input}
 					onkeydown={handleKeydown}
@@ -284,7 +354,9 @@
 					class="w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
 					disabled={isLoading || isTyping}
 				></textarea>
-				<p class="mt-2 text-xs text-base-content/30">Enter para enviar · Shift+Enter para salto de línea · Esc para cerrar</p>
+				<p class="mt-2 text-xs text-base-content/30">
+					Enter para enviar · Shift+Enter para salto de línea · Esc para cerrar
+				</p>
 			</div>
 		</div>
 	</div>
