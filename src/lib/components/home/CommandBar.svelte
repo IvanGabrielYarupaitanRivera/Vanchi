@@ -308,7 +308,6 @@
 									<div use:setMarkdown={msg.text}></div>
 								</div>
 							{/if}
-							{#if i < messages.length - 1}<div class="border-b border-white/5"></div>{/if}
 						</div>
 					{/each}
 
@@ -333,10 +332,11 @@
 
 					<!-- Loading -->
 					{#if isLoading}
-						<div class="flex items-center justify-center py-4">
-							<div class="h-px w-24 overflow-hidden rounded-full bg-white/10 pb-36">
-								<div class="h-full w-full animate-pulse rounded-full bg-primary"></div>
-							</div>
+						<div
+							class="flex items-center justify-center gap-1.5 py-5"
+							transition:fade={{ duration: 200 }}
+						>
+							<span class="loading-dot"></span>
 						</div>
 					{/if}
 				</div>
@@ -361,3 +361,27 @@
 		</div>
 	</div>
 {/if}
+
+<style>
+	.loading-dot {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: oklch(74% 0.14 85);
+		animation: dot-pulse 1.4s ease-in-out infinite;
+	}
+
+	@keyframes dot-pulse {
+		0%,
+		80%,
+		100% {
+			opacity: 0.2;
+			transform: scale(0.6);
+		}
+		40% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+</style>
