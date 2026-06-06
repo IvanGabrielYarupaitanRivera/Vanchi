@@ -5,12 +5,17 @@
 	import icon from '$lib/assets/icons/icon.svg';
 	import vanchi from '$lib/assets/icons/vanchi.svg';
 	import type { Component } from 'svelte';
-	import type { IconProps } from '@lucide/svelte'; // Ajuste de importación según versión
+	import type { IconProps } from '@lucide/svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	// Definición del tipo de props para los iconos
 	type NavHref = '/' | '/#servicios' | '/precios' | '/soluciones-legales' | '/proyectos';
 	type NavItem = { href: NavHref; label: string; icon: Component<IconProps> };
+
+	interface Props {
+		onOpenAssistant?: () => void;
+	}
+
+	let { onOpenAssistant = () => {} }: Props = $props();
 
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Inicio', icon: House },
@@ -32,7 +37,6 @@
 		return page.url.pathname === href;
 	};
 
-	// Estado reactivo con Runes (Svelte 5)
 	let open = $state(false);
 </script>
 
@@ -64,6 +68,14 @@
 		</div>
 
 		<div class="navbar-end">
+			<button
+				class="hidden cursor-pointer items-center gap-1 rounded-full px-3 py-1.5 text-xs text-base-content/40 transition-all duration-300 hover:text-base-content/60 lg:flex"
+				onclick={onOpenAssistant}
+				title="Presiona ⌘K para consultar al asistente"
+			>
+				<span>⌘K</span>
+			</button>
+
 			<a href={resolve('/#contacto')} class="btn hidden btn-primary lg:flex">
 				<span>Contacto</span>
 				<ArrowUpRight size={16} />
