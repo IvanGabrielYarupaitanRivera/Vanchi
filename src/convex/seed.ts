@@ -6,7 +6,7 @@ import { embed } from 'ai';
 /**
  * Divide texto en chunks con superposición.
  */
-function splitText(text: string, chunkSize = 2000, overlap = 100): string[] {
+function splitText(text: string, chunkSize = 500, overlap = 50): string[] {
 	if (text.length <= chunkSize) return [text];
 	const chunks: string[] = [];
 	let i = 0;
