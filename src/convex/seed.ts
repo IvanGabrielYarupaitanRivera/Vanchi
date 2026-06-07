@@ -55,7 +55,8 @@ const docUrls: Record<string, string> = {
 	'proyecto-colegio-educere': 'https://colegioeducere.edu.pe/',
 	'proyecto-peralta-asociados': 'https://peraltaasociados.com/',
 	'rutas-vanchi': 'https://www.vanchi.pro/',
-	'redes-vanchi': 'https://www.vanchi.pro/'
+	'redes-vanchi': 'https://www.vanchi.pro/',
+	'soluciones-legales': 'https://www.vanchi.pro/soluciones-legales'
 };
 
 const documents: KnowledgeDocument[] = [
@@ -367,7 +368,7 @@ URL: https://colegioeducere.edu.pe/`
 		title: 'Proyecto: Peralta Asociados',
 		slug: 'proyecto-peralta-asociados',
 		category: 'proyecto',
-		content: `Construcción de identidad digital de alto impacto para el estudio jurídico Peralta & Asociados. Sitio web diseñado con la arquitectura más moderna (Astro/Tailwind) para garantizar la máxima velocidad, posicionamiento SEO y la atracción de nuevos clientes.
+		content: `Construcción de identidad digital de alto impacto para el estudio jurídico Peralta Asociados. Sitio web diseñado con la arquitectura más moderna (Astro/Tailwind) para garantizar la máxima velocidad, posicionamiento SEO y la atracción de nuevos clientes.
 
 Tecnologías: Astro, TailwindCSS, Netlify Forms.
 
@@ -407,6 +408,30 @@ URL: https://peraltaasociados.com/`
 - WhatsApp: https://wa.me/985942670
 - Email: ivangyr321@gmail.com
 `
+	},
+
+	// ─── SOLUCIONES LEGALES ────────────────────────
+	{
+		title: 'Soluciones Legales — Vanchi Legal',
+		slug: 'soluciones-legales',
+		category: 'servicio',
+		content: `Vanchi Legal es un framework de modernización tecnológica para estudios jurídicos, diseñado en 5 fases flexibles que se adaptan al ritmo de cada despacho.
+
+Fase 1 — El Despertar: Página web profesional, rápida y optimizada para Google. Incluye sección de artículos, testimonios y botón flotante de WhatsApp. Desde S/ 30/mes.
+
+Fase 2 — La Transformación: Formulario de contacto inteligente, calendario de citas online, notificaciones automáticas por correo y WhatsApp. Add-ons: zona privada para subir documentos, calculadora de honorarios, recordatorios automáticos.
+
+Fase 3 — Sincronía Total: Sistema de gestión de clientes y expedientes a medida, con historial completo y área privada para cada cliente. Add-ons: panel de reportes, notificaciones por WhatsApp, app móvil para clientes.
+
+Fase 4 — Bienvenido a la IA: Generación automática de contratos y escritos estándar, organización automática del correo, recordatorios de vencimientos. Add-ons: extracción de datos de PDFs, redacción automática de borradores, alertas de plazos procesales.
+
+Fase 5 — Mente Maestra: Asistente virtual entrenado con el conocimiento del área legal, disponible 24/7. Add-ons: asistente con el estilo del abogado, buscador inteligente de jurisprudencia, análisis de casos similares.
+
+Seguridad: Cifrado AES-256, cumplimiento LPDP (Ley de Protección de Datos Personales del Perú), backups automáticos diarios.
+
+Ideal para: estudios jurídicos, despachos de abogados, consultorios legales y notarías en Perú.
+
+URL: https://www.vanchi.pro/soluciones-legales`
 	}
 ];
 
