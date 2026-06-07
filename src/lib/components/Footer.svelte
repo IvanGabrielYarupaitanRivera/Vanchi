@@ -121,7 +121,7 @@
 					</a>
 					<a
 						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-						href="https://www.facebook.com/vanchi.desarrollador"
+						href="https://www.facebook.com/vanchi.dev"
 						target="_blank"
 						rel="external noopener noreferrer"
 						aria-label="Facebook"
