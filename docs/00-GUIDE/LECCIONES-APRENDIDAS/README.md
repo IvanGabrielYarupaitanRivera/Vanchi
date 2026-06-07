@@ -31,3 +31,7 @@ YYYY-MM-DD-TITULO-BREVE.md
 
 - [`2026-06-04-CONVEX-COMO-BASE-DE-DATOS.md`](./2026-06-04-CONVEX-COMO-BASE-DE-DATOS.md) — Schema escalable (documentos, chunks, embeddings), vector search solo en actions, seed de embeddings, migraciones widen-migrate-narrow.
 - [`2026-06-04-CONVEX-COMO-AGENTE.md`](./2026-06-04-CONVEX-COMO-AGENTE.md) — Component Agent, tools con createTool + zod, listUIMessages, Vercel AI Gateway con openai.chat(), env vars correctas, rate limiting, seguridad.
+
+### 2026-06-06
+
+- [`2026-06-06-CONVEX-DEPLOY-PRODUCCION.md`](./2026-06-06-CONVEX-DEPLOY-PRODUCCION.md) — Deploy a producción con Vercel: `PUBLIC_CONVEX_URL` la inyecta `convex deploy`, `CONVEX_DEPLOY_KEY` en Vercel, `AI_GATEWAY_API_KEY` en Convex Dashboard (producción).
