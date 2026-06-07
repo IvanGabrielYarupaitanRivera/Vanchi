@@ -15,12 +15,15 @@ export const searchKnowledgeBase = createTool({
 		query: z.string().describe('La consulta del usuario para buscar en la base de conocimiento')
 	}),
 	execute: async (ctx, { query }): Promise<string> => {
-		console.log(`[searchKnowledgeBase] Buscando: "${query.slice(0, 100)}..."`);
+		console.log(`[searchKnowledgeBase] 🔍 Buscando: "${query.slice(0, 150)}"`);
 
 		const results = await ctx.runAction(internal.rag.search.searchChunks, { query });
 
-		console.log(`[searchKnowledgeBase] Resultados encontrados: ${JSON.stringify(results).length} bytes`);
-		return JSON.stringify(results);
+		const parsed = JSON.stringify(results);
+		const resultCount = Array.isArray(results) ? results.length : '?';
+		console.log(`[searchKnowledgeBase] 📦 ${resultCount} resultado(s), ${parsed.length} bytes`);
+
+		return parsed;
 	}
 });
 

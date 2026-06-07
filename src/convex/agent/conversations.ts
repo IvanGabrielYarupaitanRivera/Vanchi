@@ -8,9 +8,21 @@ import { vanchiAgent } from "./config";
 export const createThread = action({
 	args: { prompt: v.string() },
 	handler: async (ctx, { prompt }) => {
-		const { threadId, thread } = await vanchiAgent.createThread(ctx);
-		const result = await thread.generateText({ prompt });
-		return { threadId, text: result.text };
+		console.log(`[vanchiAgent] Creando thread. Prompt: "${prompt.slice(0, 120)}..."`);
+
+		try {
+			const { threadId, thread } = await vanchiAgent.createThread(ctx);
+			console.log(`[vanchiAgent] ✅ Thread creado: ${threadId}`);
+
+			const result = await thread.generateText({ prompt });
+			const text = result.text ?? '(sin respuesta)';
+
+			console.log(`[vanchiAgent] ✅ Respuesta generada (${text.length} chars): ${text.slice(0, 200)}...`);
+			return { threadId, text };
+		} catch (error) {
+			console.error(`[vanchiAgent] ❌ Error en createThread:`, error);
+			throw error;
+		}
 	},
 });
 
@@ -20,8 +32,18 @@ export const createThread = action({
 export const continueThread = action({
 	args: { prompt: v.string(), threadId: v.string() },
 	handler: async (ctx, { prompt, threadId }) => {
-		const { thread } = await vanchiAgent.continueThread(ctx, { threadId });
-		const result = await thread.generateText({ prompt });
-		return { text: result.text };
+		console.log(`[vanchiAgent] Continuando thread ${threadId}. Prompt: "${prompt.slice(0, 120)}..."`);
+
+		try {
+			const { thread } = await vanchiAgent.continueThread(ctx, { threadId });
+			const result = await thread.generateText({ prompt });
+			const text = result.text ?? '(sin respuesta)';
+
+			console.log(`[vanchiAgent] ✅ Respuesta continua (${text.length} chars): ${text.slice(0, 200)}...`);
+			return { text };
+		} catch (error) {
+			console.error(`[vanchiAgent] ❌ Error en continueThread (${threadId}):`, error);
+			throw error;
+		}
 	},
 });
