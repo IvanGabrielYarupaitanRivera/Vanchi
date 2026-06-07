@@ -333,5 +333,35 @@ Cliente: Estudio Jurídico Peralta & Asociados.
 Fecha: Enero 2025.
 
 URL: https://peraltaasociados.com/`
+	},
+
+	// ─── RUTAS DEL PORTAFOLIO ───────────────────────
+	{
+		title: 'Rutas del portafolio Vanchi',
+		slug: 'rutas-vanchi',
+		category: 'about',
+		content: `Vanchi es el portafolio profesional de Ivan Yarupaitan. Estas son sus rutas principales:
+
+- Inicio: https://www.vanchi.pro/
+- Proyectos: https://www.vanchi.pro/proyectos
+- Precios WaaS: https://www.vanchi.pro/precios
+- Soluciones Legales: https://www.vanchi.pro/soluciones-legales
+- Politica de Privacidad: https://www.vanchi.pro/politica-de-privacidad
+- Condiciones del Servicio: https://www.vanchi.pro/condiciones-del-servicio
+- Eliminacion de Datos: https://www.vanchi.pro/eliminacion-de-datos-de-usuario
+- Asistente IA: accesible desde cualquier pagina con Ctrl+K o Cmd+K, o desde el boton "Asistente IA" en la barra de navegacion`
+	},
+
+	// ─── REDES SOCIALES ────────────────────────────
+	{
+		title: 'Redes sociales de Ivan Yarupaitan',
+		slug: 'redes-vanchi',
+		category: 'about',
+		content: `Ivan Yarupaitan esta presente en las siguientes redes y canales:
+
+- GitHub: https://github.com/IvanGabrielYarupaitanRivera
+- LinkedIn: https://www.linkedin.com/in/ivan-yarupaitan-rivera/
+- Facebook: https://www.facebook.com/vanchi.dev
+- WhatsApp: https://wa.me/985942670`
 	}
 ];
