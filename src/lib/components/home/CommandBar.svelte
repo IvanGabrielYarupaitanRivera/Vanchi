@@ -7,31 +7,45 @@
 	import { marked } from 'marked';
 	import DOMPurify from 'dompurify';
 
-	function setMarkdown(node: HTMLElement, text: string) {
-		const html = marked.parse(text, { async: false }) as string;
-		node.innerHTML = DOMPurify.sanitize(html);
-		return {
-			update(newText: string) {
-				node.innerHTML = DOMPurify.sanitize(marked.parse(newText, { async: false }) as string);
-			}
-		};
-	}
+	// ─── Sanitización con target=_blank ──────────────
+function sanitize(html: string): string {
+	return DOMPurify.sanitize(html, {
+		ADD_ATTR: ['target'],
+		ADD_TAGS: ['a']
+	});
+}
 
-	// Para HTML ya sanitizado (typing animation en vivo)
-	function setHtml(node: HTMLElement, html: string) {
-		node.innerHTML = DOMPurify.sanitize(html);
-		return {
-			update(newHtml: string) {
-				node.innerHTML = DOMPurify.sanitize(newHtml);
-			}
-		};
-	}
+function addTargetBlank(html: string): string {
+	return html.replace(/<a\s/g, '<a target="_blank" rel="noopener noreferrer" ');
+}
 
-	// Renderiza Markdown parcial durante typing
-	function renderPartial(text: string): string {
-		if (!text) return '';
-		return DOMPurify.sanitize(marked.parse(text, { async: false }) as string);
-	}
+function setMarkdown(node: HTMLElement, text: string) {
+	const raw = marked.parse(text, { async: false }) as string;
+	node.innerHTML = addTargetBlank(sanitize(raw));
+	return {
+		update(newText: string) {
+			const raw = marked.parse(newText, { async: false }) as string;
+			node.innerHTML = addTargetBlank(sanitize(raw));
+		}
+	};
+}
+
+// Para HTML ya sanitizado (typing animation en vivo)
+function setHtml(node: HTMLElement, html: string) {
+	node.innerHTML = addTargetBlank(sanitize(html));
+	return {
+		update(newHtml: string) {
+			node.innerHTML = addTargetBlank(sanitize(newHtml));
+		}
+	};
+}
+
+// Renderiza Markdown parcial durante typing
+function renderPartial(text: string): string {
+	if (!text) return '';
+	const raw = marked.parse(text, { async: false }) as string;
+	return addTargetBlank(sanitize(raw));
+}
 
 	function autoResize(node: HTMLTextAreaElement) {
 		const adjust = () => {
