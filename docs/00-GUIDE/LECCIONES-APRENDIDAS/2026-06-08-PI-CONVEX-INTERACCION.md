@@ -49,23 +49,21 @@ npx convex import --table documentosV2 archivo.jsonl
 
 Donde `archivo.jsonl` tiene un objeto JSON por línea (sin password, porque es import directo a tabla).
 
-## 5. MCP de Convex (opcional)
+## 6. Cómo clonar datos de dev a producción
 
-Existe un MCP Server de Convex para interacción continua como agente. Se configura con:
+Para llevar los registros del deployment de desarrollo al de producción:
 
-```json
-{
-  "mcpServers": {
-    "convex": {
-      "command": "npx",
-      "args": ["-y", "convex@latest", "mcp", "start"]
-    }
-  }
-}
+```bash
+# Paso 1: Exportar datos de dev a directorio
+npx convex export --path ./export_dev/
+
+# Paso 2: Importar solo documentosV2 a producción (append = agrega sin borrar)
+npx convex import --table documentosV2 --prod --append ./export_dev/documentosV2/documents.jsonl
 ```
 
-No lo necesito para inserciones simples; `npx convex run` es suficiente.
-
----
-
-**Lección:** Pi puede interactuar con Convex directamente desde bash sin necesidad de MCP. Para inserciones individuales, `npx convex run` es rápido y funcional. Para grandes volúmenes, `npx convex import`.
+**Detalles importantes:**
+- `npx convex export` no soporta `--table` ni `--format`. Exporta siempre a ZIP o directorio completo.
+- Los `_id` y `_creationTime` se preservan al importar desde un archivo exportado.
+- `--append` agrega datos sin borrar los existentes. Usar `--replace` para reemplazar.
+- En máquina local con sesión activa, basta añadir `--prod` al comando.
+- En CI/entorno sin login, usar `CONVEX_DEPLOY_KEY` como variable de entorno.
