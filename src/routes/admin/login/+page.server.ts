@@ -14,8 +14,7 @@ export const actions: Actions = {
 
 		try {
 			await convexServer.action(api.admin.verificarPassword, { password });
-		} catch (err) {
-			console.log('Error en acción de login admin:', err);
+		} catch {
 			return fail(401, { error: 'Contraseña incorrecta' });
 		}
 
@@ -27,6 +26,9 @@ export const actions: Actions = {
 			maxAge: 60 * 60 * 24
 		});
 
-		throw redirect(303, '/admin/documentos');
+		// Devolvemos la contraseña para que el frontend la guarde en localStorage
+		return {
+			admin_token: password
+		};
 	}
 };

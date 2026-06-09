@@ -5,11 +5,11 @@
 
 	let { form }: { form: { admin_token?: string; error?: string } | undefined } = $props();
 
-	// Guardar contraseña en sessionStorage tras login exitoso y redirigir
+	// Guardar contraseña en localStorage y redirigir
 	$effect(() => {
 		if (form?.admin_token) {
 			try {
-				sessionStorage.setItem('admin_password', form.admin_token);
+				localStorage.setItem('admin_password', form.admin_token);
 			} catch { /* incógnito */ }
 			goto(resolve('/admin/documentos'));
 		}
