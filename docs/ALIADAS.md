@@ -25,6 +25,7 @@
 | [`svelte-code-writer`](../.agents/skills/svelte-code-writer/SKILL.md) | Consultar docs Svelte 5 al crear/editar `.svelte` |
 | [`svelte-core-bestpractices`](../.agents/skills/svelte-core-bestpractices/SKILL.md) | Buenas prácticas Svelte: reactividad, eventos, estilos |
 | [`svelte5-best-practices`](../.agents/skills/svelte5-best-practices/SKILL.md) | Runes, snippets, SvelteKit patterns, migración Svelte 4 → 5 |
+| [`sveltekit-convex-integration`](../.agents/skills/sveltekit-convex-integration/SKILL.md) | **Skill específica de Vanchi** — Patrones correctos SvelteKit 5 + Convex: useQuery reactivo, SSR sin flash, tipado extremo a extremo, prohibición de $effect + .then()
 | [`tailwind-best-practices`](../.agents/skills/tailwind-best-practices/SKILL.md) | Guías de Tailwind CSS para el proyecto |
 | [`tailwind-css-patterns`](../.agents/skills/tailwind-css-patterns/SKILL.md) | Patrones responsive, layout, flexbox, grid, spacing |
 | [`typescript-advanced-types`](../.agents/skills/typescript-advanced-types/SKILL.md) | Tipos avanzados: genéricos, condicionales, mapped types |
