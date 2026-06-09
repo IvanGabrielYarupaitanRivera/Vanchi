@@ -35,3 +35,7 @@ YYYY-MM-DD-TITULO-BREVE.md
 ### 2026-06-06
 
 - [`2026-06-06-CONVEX-DEPLOY-PRODUCCION.md`](./2026-06-06-CONVEX-DEPLOY-PRODUCCION.md) — Deploy a producción con Vercel: `PUBLIC_CONVEX_URL` la inyecta `convex deploy`, `CONVEX_DEPLOY_KEY` en Vercel, `AI_GATEWAY_API_KEY` en Convex Dashboard (producción).
+
+### 2026-06-08
+
+- [`2026-06-08-PI-CONVEX-INTERACCION.md`](./2026-06-08-PI-CONVEX-INTERACCION.md) — Pi puede ejecutar `npx convex run` desde bash sin MCP, sintaxis correcta, alternativas para volumen.
