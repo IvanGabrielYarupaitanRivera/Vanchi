@@ -1,5 +1,5 @@
 import { createTool } from '@convex-dev/agent';
-import { internal } from '../../../_generated/api';
+import { api } from '../../../_generated/api';
 import { z } from 'zod';
 
 /**
@@ -36,7 +36,7 @@ export const buscarDocumentos = createTool({
 	execute: async (ctx, { categoria, subcategoria, etiquetas }): Promise<string> => {
 		console.log(`[buscarDocumentos] Consultando: cat=${categoria ?? '-'}, sub=${subcategoria ?? '-'}, etq=${etiquetas?.length ?? 0}`);
 
-		const results = await ctx.runQuery(internal.entidades.documentosV2.queries.buscarDocumentos, {
+		const results = await ctx.runQuery(api.entidades.documentosV2.queries.buscar, {
 			categoria,
 			subcategoria,
 			etiquetas,
