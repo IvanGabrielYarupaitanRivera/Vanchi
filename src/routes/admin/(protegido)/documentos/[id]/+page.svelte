@@ -106,7 +106,7 @@
 		<button
 			onclick={handleDelete}
 			disabled={deleting}
-			class="rounded-xl bg-red-500/20 px-4 py-2 text-xs font-bold text-red-400 transition-all hover:bg-red-500/30 disabled:opacity-30"
+			class="btn btn-error btn-outline btn-sm"
 		>
 			{deleting ? 'Eliminando...' : 'Eliminar'}
 		</button>
@@ -120,7 +120,7 @@
 				type="text"
 				bind:value={titulo}
 				required
-				class="w-full rounded-xl border border-white/10 bg-base-200/50 px-4 py-2.5 text-sm text-base-content outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+				class="input w-full"
 			/>
 		</label>
 
@@ -152,7 +152,7 @@
 				bind:value={contenido}
 				required
 				rows="10"
-				class="w-full resize-y rounded-xl border border-white/10 bg-base-200/50 px-4 py-2.5 text-sm text-base-content outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+				class="textarea w-full"
 			></textarea>
 		</label>
 
@@ -163,13 +163,13 @@
 				type="url"
 				bind:value={url}
 				placeholder="https://..."
-				class="w-full rounded-xl border border-white/10 bg-base-200/50 px-4 py-2.5 text-sm text-base-content outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+				class="input w-full"
 			/>
 		</label>
 
 		<!-- Etiquetas -->
-		<fieldset>
-			<legend class="mb-1 text-xs font-bold text-base-content/60 uppercase">Etiquetas</legend>
+		<fieldset class="fieldset">
+			<legend class="fieldset-legend">Etiquetas</legend>
 			<div class="flex flex-wrap gap-2">
 				{#each ALL_ETIQUETAS as etq (etq)}
 					<button
@@ -190,7 +190,7 @@
 		<button
 			type="submit"
 			disabled={saving}
-			class="w-full rounded-xl bg-primary py-2.5 text-sm font-bold text-base-100 transition-all hover:bg-primary/80 disabled:opacity-30"
+			class="btn btn-primary w-full"
 		>
 			{saving ? 'Guardando...' : 'Guardar cambios'}
 		</button>

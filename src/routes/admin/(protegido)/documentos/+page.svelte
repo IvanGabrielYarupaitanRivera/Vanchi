@@ -29,7 +29,7 @@
 		</div>
 		<a
 			href={resolve('/admin/documentos/crear')}
-			class="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-base-100 transition-all hover:bg-primary/80"
+			class="btn btn-primary btn-sm"
 		>
 			+ Nuevo documento
 		</a>
@@ -42,7 +42,7 @@
 			<p class="text-sm text-base-content/40">No hay documentos todavía.</p>
 			<a
 				href={resolve('/admin/documentos/crear')}
-				class="mt-4 inline-block rounded-xl bg-primary px-4 py-2 text-sm font-bold text-base-100 transition-all hover:bg-primary/80"
+				class="btn btn-primary btn-sm mt-4"
 			>
 				Crear el primero
 			</a>
