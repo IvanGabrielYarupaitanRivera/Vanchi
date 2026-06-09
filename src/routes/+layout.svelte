@@ -5,6 +5,7 @@
 	import CommandBar from '$lib/components/home/CommandBar.svelte';
 	import { PUBLIC_CONVEX_URL } from '$env/static/public';
 	import { setupConvex } from 'convex-svelte';
+	import { page } from '$app/stores';
 
 	let { children } = $props();
 
@@ -15,6 +16,9 @@
 	function toggleAssistant() {
 		isAssistantOpen = !isAssistantOpen;
 	}
+
+	// Ocultar footer en la ruta /chat (como el Hero que ignora el layout)
+	let isChatRoute = $derived($page.url.pathname === '/chat');
 </script>
 
 <CommandBar isOpen={isAssistantOpen} onToggle={toggleAssistant} />
@@ -26,5 +30,7 @@
 		{@render children()}
 	</main>
 
-	<Footer />
+	{#if !isChatRoute}
+		<Footer />
+	{/if}
 </div>
