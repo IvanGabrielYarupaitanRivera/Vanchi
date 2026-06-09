@@ -1,0 +1,6 @@
+{
+	"$schema": "https://app.kilo.ai/config.json",
+	"commit_message": {
+		"prompt": "Genera mensajes de commit en español siguiendo Conventional Commits. Usa el formato:\n\n<tipo>(<ámbito>): <descripción>\n\n<cuerpo>\n\nTipos: feat (nueva funcionalidad), fix (corrección), docs (documentación), style (formato), refactor (refactorización), test (pruebas), chore (mantenimiento).\n\nDescribe QUÉ cambia y POR QUÉ cambia. Sé conciso pero informativ, un párrafo si es posible. Ejemplos:\n\nfeat(auth): agregar integración OAuth2 con Google\n\nImplementar flujo de autenticación OAuth2 de Google incluyendo configuración de cliente, recuperación de perfil y mecanismo de refresh de token.\n\nfix(api): resolver condición de carrera en consulta de usuarios\n\nAgregar manejo de errores y lógica de reintento para evitar inconsistencias por solicitudes concurrentes.\n\ndocs(readme): actualizar instrucciones de instalación\n\nAgregar dependencias faltantes y aclarar pasos de configuración para nuevos contribuyentes."
+	}
+}
