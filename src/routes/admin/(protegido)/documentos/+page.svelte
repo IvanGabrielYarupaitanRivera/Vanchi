@@ -1,20 +1,9 @@
 <script lang="ts">
-	import { useConvexClient } from 'convex-svelte';
+	import { useQuery } from 'convex-svelte';
 	import { api } from '$convex/_generated/api';
-	import type { Doc } from '$convex/_generated/dataModel';
 	import { resolve } from '$app/paths';
 
-	const convex = useConvexClient();
-
-	let documentos = $state<Doc<'documentosV2'>[]>([]);
-	let loading = $state(true);
-
-	$effect(() => {
-		convex.query(api.entidades.documentosV2.queries.listar, {}).then((docs) => {
-			documentos = docs;
-			loading = false;
-		});
-	});
+	const documentosQuery = useQuery(api.entidades.documentosV2.queries.listar, {});
 </script>
 
 <svelte:head>
@@ -35,9 +24,11 @@
 		</a>
 	</div>
 
-	{#if loading}
+	{#if documentosQuery.isLoading}
 		<p class="text-sm text-base-content/40">Cargando...</p>
-	{:else if documentos.length === 0}
+	{:else if documentosQuery.error}
+		<p class="text-sm text-red-400">Error al cargar documentos</p>
+	{:else if documentosQuery.data.length === 0}
 		<div class="rounded-2xl border border-white/10 bg-base-100/60 p-8 text-center">
 			<p class="text-sm text-base-content/40">No hay documentos todavía.</p>
 			<a
@@ -49,7 +40,7 @@
 		</div>
 	{:else}
 		<div class="space-y-3">
-			{#each documentos as doc (doc._id)}
+			{#each documentosQuery.data as doc (doc._id)}
 				<a
 					href={resolve('/admin/(protegido)/documentos/[id]', { id: doc._id })}
 					class="block rounded-2xl border border-white/10 bg-base-100/60 p-4 transition-all hover:border-primary/30 hover:bg-base-100/80"
