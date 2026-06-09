@@ -211,9 +211,9 @@
 	/>
 </svelte:head>
 
-<div class="mx-auto flex min-h-dvh w-full max-w-5xl flex-col py-4">
+<div class="mx-auto flex min-h-dvh w-full max-w-5xl flex-col px-6">
 	<!-- encabezado -->
-	<div class="flex shrink-0 items-center justify-between px-2 pb-4">
+	<div class="flex shrink-0 items-center justify-between py-4">
 		<div>
 			<h1 class="font-display text-xl text-base-content">Asistente Vanchi</h1>
 			<p class="text-sm text-base-content/40">
@@ -228,97 +228,86 @@
 		</button>
 	</div>
 
-	<!-- chat -->
-	<div
-		class="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-base-100/60 shadow-2xl backdrop-blur-2xl"
-	>
-		<!-- mensajes -->
-		<div
-			bind:this={messagesContainer}
-			class="min-h-0 flex-1 overflow-y-auto scroll-smooth px-6 py-6"
-		>
-			<div class="flex min-h-full flex-col space-y-4">
-				{#if messages.length === 0 && !isTyping}
-					<div class="flex flex-col justify-center py-12">
-						<p class="text-sm leading-relaxed text-base-content/60">
-							Soy el asistente de <span class="text-primary">Vanchi</span>. Estoy aquí para ayudarte
-							a entender mejor lo que Ivan hace, ha hecho y puede hacer por ti.
-						</p>
-						<div class="space-y-2 pt-6">
-							<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
-							<button
-								class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
-								onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}
-							>
-								¿Qué tipo de proyectos has hecho?
-							</button>
-							<button
-								class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
-								onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}
-							>
-								¿Puedes construir un CRM o sistema web?
-							</button>
-							<button
-								class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
-								onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}
-							>
-								¿Cuánto cuesta un proyecto con Vanchi?
-							</button>
-						</div>
-					</div>
-				{/if}
+	<!-- mensajes -->
+	<div bind:this={messagesContainer} class="flex-1 space-y-4 px-2">
+		{#if messages.length === 0 && !isTyping}
+			<div class="flex flex-col justify-center py-12">
+				<p class="text-sm leading-relaxed text-base-content/60">
+					Soy el asistente de <span class="text-primary">Vanchi</span>. Estoy aquí para ayudarte a
+					entender mejor lo que Ivan hace, ha hecho y puede hacer por ti.
+				</p>
+				<div class="space-y-2 pt-6">
+					<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
+					<button
+						class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+						onclick={() => selectSuggestion('¿Qué tipo de proyectos has hecho?')}
+					>
+						¿Qué tipo de proyectos has hecho?
+					</button>
+					<button
+						class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+						onclick={() => selectSuggestion('¿Puedes construir un CRM o sistema web?')}
+					>
+						¿Puedes construir un CRM o sistema web?
+					</button>
+					<button
+						class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+						onclick={() => selectSuggestion('¿Cuánto cuesta un proyecto con Vanchi?')}
+					>
+						¿Cuánto cuesta un proyecto con Vanchi?
+					</button>
+				</div>
+			</div>
+		{/if}
 
-				{#each messages as msg, i (i)}
-					<div class="space-y-1">
-						{#if msg.role === 'user'}
-							<p class="text-sm font-medium text-base-content">{msg.text}</p>
-						{:else}
-							<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
-								<div use:setMarkdown={msg.text}></div>
-							</div>
-						{/if}
-					</div>
-				{/each}
-
-				{#if isTyping}
-					<div class="space-y-1">
-						<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
-							<div use:setHtml={typingHtml}></div>
-							{#if cursorPhase === 'blink'}
-								<span
-									class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"
-								></span>
-							{:else if cursorPhase === 'fadeout'}
-								<span class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"></span>
-							{/if}
-						</div>
-					</div>
-				{/if}
-
-				{#if isLoading}
-					<div class="flex items-center justify-center gap-1.5 py-5">
-						<span class="loading-dot"></span>
+		{#each messages as msg, i (i)}
+			<div class="space-y-1">
+				{#if msg.role === 'user'}
+					<p class="text-sm font-medium text-base-content">{msg.text}</p>
+				{:else}
+					<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
+						<div use:setMarkdown={msg.text}></div>
 					</div>
 				{/if}
 			</div>
-		</div>
+		{/each}
 
-		<!-- input -->
-		<div class="shrink-0 border-t border-white/10 px-6 py-4">
-			<textarea
-				use:autoResize
-				id="chat-input"
-				bind:value={input}
-				onkeydown={handleKeydown}
-				placeholder="Escribe tu pregunta aquí..."
-				rows="1"
-				class="w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
-				disabled={isLoading || isTyping}
-			></textarea>
-			<p class="mt-2 text-xs text-base-content/30">
-				Enter para enviar · Shift+Enter para salto de línea
-			</p>
-		</div>
+		{#if isTyping}
+			<div class="space-y-1">
+				<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
+					<div use:setHtml={typingHtml}></div>
+					{#if cursorPhase === 'blink'}
+						<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"
+						></span>
+					{:else if cursorPhase === 'fadeout'}
+						<span class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"></span>
+					{/if}
+				</div>
+			</div>
+		{/if}
+
+		{#if isLoading}
+			<div class="flex items-center justify-center gap-1.5 py-5">
+				<span class="loading-dot"></span>
+			</div>
+		{/if}
+	</div>
+
+	<!-- input -->
+	<div class="shrink-0 border-t border-white/10 px-6 py-4">
+		<textarea
+			use:autoResize
+			id="chat-input"
+			bind:value={input}
+			onkeydown={handleKeydown}
+			placeholder="Escribe tu pregunta aquí..."
+			rows="1"
+			class="w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+			disabled={isLoading || isTyping}
+		></textarea>
+		<p class="mt-2 text-xs text-base-content/30">
+			Enter para enviar · Shift+Enter para salto de línea
+		</p>
 	</div>
 </div>
 
