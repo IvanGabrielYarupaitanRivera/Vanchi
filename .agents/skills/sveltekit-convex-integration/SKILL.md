@@ -1,6 +1,6 @@
 ---
 name: sveltekit-convex-integration
-description: "Patrones avanzados de integración entre SvelteKit 5 y Convex. Use when working with: (1) Queries reactivas con useQuery y WebSockets, (2) SSR con +page.server.ts para carga inicial, (3) Mutaciones desde el cliente, (4) Tipado estricto de extremo a extremo (Doc, Id, PageProps, PageServerLoad), (5) Eliminación de $effect + .then() como anti-patrón, (6) Manejo de estados isLoading/error/data en tiempo real, (7) Formularios de edición con valores iniciales desde load functions."
+description: "Patrones avanzados de integración entre SvelteKit 5 y Convex. Use when working with: (1) Queries reactivas con useQuery y WebSockets, (2) SSR con +page.server.ts para carga inicial, (3) Mutaciones desde el cliente, (4) Tipado estricto de extremo a extremo (Doc, Id, PageProps, PageServerLoad), (5) Eliminación de $effect + .then() como anti-patrón, (6) Manejo de estados isLoading/error/data en tiempo real, (7) Formularios de edición con IIFE para evitar state_referenced_locally."
 license: MIT
 ---
 
@@ -27,8 +27,8 @@ license: MIT
 |---|---|
 | Datos que cambian frecuentemente (chat, notificaciones, dashboards) | `useQuery` reactivo |
 | Datos estáticos o carga inicial SEO | SSR con `+page.server.ts` |
-| Formularios (crear/editar) | Mutation directa + `sessionStorage` para password |
-| Validación crítica en servidor | Action de SvelteKit + convexServer |
+| Formularios (crear/editar) | Mutation directa desde el cliente |
+| Validación crítica en servidor | Action de SvelteKit + `convexLoad` |
 
 ## ❌ Prohibido
 
@@ -63,10 +63,27 @@ license: MIT
 
 ```ts
 // +page.server.ts
+import { createConvexHttpClient } from "@mmailaender/convex-better-auth-svelte/sveltekit";
+import { api } from "$convex/_generated/api";
+import type { PageServerLoad } from './$types';
+
 export const load: PageServerLoad = async () => {
-  const docs = await convexServer.query(api.modulo.ruta.query, {});
+  const client = createConvexHttpClient();
+  const docs = await client.query(api.modulo.ruta.query, {});
   return { docs };
 };
+```
+
+O usando `convexLoad` en `+page.ts` (no `.server.ts`):
+
+```ts
+// +page.ts
+import { convexLoad } from "@mmailaender/convex-svelte/sveltekit";
+import { api } from "$convex/_generated/api";
+
+export const load = async () => ({
+  docs: await convexLoad(api.modulo.ruta.query, {})
+});
 ```
 
 ```svelte
@@ -102,7 +119,8 @@ export const load: PageServerLoad = async () => {
 | `.isLoading` | `boolean` | `true` mientras carga |
 | `.error` | `Error \| undefined` | Error si la query falla |
 | `.data` | `T \| undefined` | Datos tipados de la query |
-| `.isStale` | `boolean` | Datos previos mientras se refresca |
+
+> `.isStale` no está verificado en los docs oficiales de Convex. Verificar antes de usar.
 
 ## Recursos
 
