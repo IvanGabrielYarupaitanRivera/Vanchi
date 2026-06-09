@@ -26,7 +26,7 @@ const etiquetasValidas = v.union(
 	v.literal("diapis"), v.literal("colegio-educere"), v.literal("peralta-asociados"),
 	v.literal("experiencia"), v.literal("desarrollo-web"), v.literal("agentes-ia"),
 	v.literal("precios"), v.literal("redes-sociales"), v.literal("soluciones-legales"),
-	v.literal("rutas"), v.literal("asistente")
+	v.literal("rutas"), v.literal("asistente"), v.literal("waas")
 );
 
 /**

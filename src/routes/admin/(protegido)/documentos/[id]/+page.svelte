@@ -27,7 +27,7 @@
 		'molaric', 'encap', 'junin360', 'mediroosevelt', 'farmape', 'obstetraconecta',
 		'diapis', 'colegio-educere', 'peralta-asociados',
 		'experiencia', 'desarrollo-web', 'agentes-ia', 'precios',
-		'redes-sociales', 'soluciones-legales', 'rutas', 'asistente'
+		'redes-sociales', 'soluciones-legales', 'rutas', 'asistente', 'waas'
 	];
 
 	const categorias = ['sobre-mi', 'stack', 'servicio', 'precios', 'proyecto', 'legal'] as const;
@@ -45,7 +45,7 @@
 		e.preventDefault();
 		if (saving) return;
 
-		const password = sessionStorage.getItem('admin_password');
+		const password = localStorage.getItem('admin_password');
 		if (!password) {
 			goto(resolve('/admin/login'));
 			return;
@@ -63,7 +63,7 @@
 				subcategoria: (subcategoria || undefined) as 'frontend' | 'backend' | 'ia' | 'salud' | 'educacion' | 'legal' | 'web' | 'agentes' | 'waas' | undefined,
 				contenido,
 				url: url || undefined,
-				etiquetas: etiquetasSeleccionadas as ('sveltekit' | 'convex' | 'tailwindcss' | 'typescript' | 'astro' | 'openrouter' | 'vercel-ai-gateway' | 'whatsapp' | 'deepgram' | 'livekit' | 'supabase' | 'n8n' | 'gemini-api' | 'google-calendar' | 'better-auth' | 'netlify' | 'lit' | 'molaric' | 'encap' | 'junin360' | 'mediroosevelt' | 'farmape' | 'obstetraconecta' | 'diapis' | 'colegio-educere' | 'peralta-asociados' | 'experiencia' | 'desarrollo-web' | 'agentes-ia' | 'precios' | 'redes-sociales' | 'soluciones-legales' | 'rutas' | 'asistente')[],
+				etiquetas: etiquetasSeleccionadas as ('sveltekit' | 'convex' | 'tailwindcss' | 'typescript' | 'astro' | 'openrouter' | 'vercel-ai-gateway' | 'whatsapp' | 'deepgram' | 'livekit' | 'supabase' | 'n8n' | 'gemini-api' | 'google-calendar' | 'better-auth' | 'netlify' | 'lit' | 'molaric' | 'encap' | 'junin360' | 'mediroosevelt' | 'farmape' | 'obstetraconecta' | 'diapis' | 'colegio-educere' | 'peralta-asociados' | 'experiencia' | 'desarrollo-web' | 'agentes-ia' | 'precios' | 'redes-sociales' | 'soluciones-legales' | 'rutas' | 'asistente' | 'waas')[],
 			});
 			goto(resolve('/admin/documentos'));
 		} catch (err) {
@@ -75,7 +75,7 @@
 	async function handleDelete() {
 		if (!confirm('¿Eliminar este documento?')) return;
 
-		const password = sessionStorage.getItem('admin_password');
+		const password = localStorage.getItem('admin_password');
 		if (!password) return;
 
 		deleting = true;

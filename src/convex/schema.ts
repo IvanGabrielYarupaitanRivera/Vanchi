@@ -62,7 +62,8 @@ const etiqueta = v.union(
   v.literal("redes-sociales"),
   v.literal("soluciones-legales"),
   v.literal("rutas"),
-  v.literal("asistente")
+  v.literal("asistente"),
+  v.literal("waas")
 );
 
 export default defineSchema({
