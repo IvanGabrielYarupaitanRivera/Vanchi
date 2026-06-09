@@ -40,11 +40,11 @@ Además de las skills instaladas, podemos consultar a **IA externa** (Gemini, Ch
 
 ### Aliadas disponibles
 
-| Aliada | Para qué consultarla | Cómo acceder |
+| 🧠 Aliada externa | Para qué consultarla | Cómo acceder |
 |--------|---------------------|--------------|
-| **Gemini** | Opiniones de diseño UX, edge cases, decisiones de arquitectura general | El usuario copia el mensaje y lo pega en Gemini |
-| **Vercel AI Gateway** | Dudas sobre AI SDK, sintaxis de embeddings, configuración del Gateway, modelos, failover, rate limits | El usuario copia el mensaje y lo consulta |
-| **Convex AI** | Dudas sobre @convex-dev/agent, schema, vectores, componentes, rate limiting | El usuario copia el mensaje y lo consulta |
+| **Gemini** | Opiniones de diseño UX, edge cases, decisiones de arquitectura general, filosofía de agentes | El usuario copia el mensaje y lo pega en Gemini |
+| **Convex AI** | Dudas sobre `@convex-dev/agent` (tools, threads), `schema` (literals con `v.literal`), `internalQuery`/`internalMutation` vs `query`/`mutation`, migraciones, variables de entorno por deployment, CRUD con autenticación simple | El usuario copia el mensaje y lo consulta |
+| **Vercel AI Gateway** | Dudas sobre AI SDK, `createOpenAI()` vs `openai.chat()`, configuración del Gateway, modelos (`inception/mercury-2`), failover, rate limits | El usuario copia el mensaje y lo consulta |
 
 ### Flujo para consultar a una aliada
 
@@ -65,7 +65,8 @@ Además de las skills instaladas, podemos consultar a **IA externa** (Gemini, Ch
 1. **Lee `00-GUIDE/CONTEXT.md`** primero (contexto del proyecto)
 2. **Revisa `00-GUIDE/NAVIGATION.md`** para saber qué docs cargar según tu tarea
 3. **Carga la(s) skill(s)** relevantes de la tabla de arriba
-4. **Implementa** siguiendo `00-GUIDE/WORKFLOW.md`
+4. **Revisa `docs/08-FILOSOFIA-AGENTE/README.md`** si trabajas en el agente (principios: autonomía, minimalismo, proactividad)
+5. **Implementa** siguiendo `00-GUIDE/WORKFLOW.md`
 
 ---
 
