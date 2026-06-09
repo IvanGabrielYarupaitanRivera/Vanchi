@@ -46,6 +46,11 @@ git stash pop                 # Recuperar cambios guardados
 bun run check        # SvelteKit sync + svelte-check
 bun run lint         # Prettier + ESLint
 bun run format       # Prettier --write
+npx convex dev       # Iniciar backend Convex local
+npx convex deploy    # Desplegar funciones Convex a producción
+npx convex run       # Ejecutar función Convex desde CLI
+npx convex import    # Importar datos a tabla Convex
+npx convex export    # Exportar datos de Convex
 ```
 
 ---
@@ -57,16 +62,23 @@ Vanchi/
 ├── src/
 │   ├── lib/
 │   │   ├── assets/       # Íconos, imágenes, SVGs
-│   │   └── components/   # Componentes Svelte reutilizables
+│   │   ├── components/   # Componentes Svelte reutilizables
+│   │   │   ├── chat/     # Componentes del asistente IA v2
+│   │   │   └── ...
+│   │   └── server/       # Cliente Convex para SSR
+│   ├── convex/           # Backend Convex (agentes, schema, entidades)
 │   └── routes/           # Páginas y endpoints de SvelteKit
 │       ├── +layout.svelte
 │       ├── +page.svelte
+│       ├── chat/         # Asistente IA v2
+│       ├── admin/        # Login + CRUD protegido
 │       ├── proyectos/
 │       ├── precios/
 │       └── ...
 ├── static/               # Archivos estáticos
 ├── docs/                 # 📚 Hub de documentación
 ├── tasks/                # 📋 Especificaciones activas / archivadas
+├── .agents/              # Skills de IA para el agente pi
 ├── DESIGN.md             # Design system (source of truth visual)
 ├── package.json
 ├── svelte.config.js

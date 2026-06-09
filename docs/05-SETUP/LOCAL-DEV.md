@@ -29,19 +29,25 @@ cd Vanchi
 bun install
 ```
 
-Esto instala todas las dependencias de `package.json`:
-- **Dependencias:** `@lucide/svelte` (íconos)
-- **DevDependencies:** SvelteKit, Tailwind v4, DaisyUI v5, TypeScript, ESLint, Prettier, Vite, etc.
+### 3. Iniciar backend Convex
 
-### 3. Sincronizar SvelteKit
+```bash
+npx convex dev
+```
+
+Esto:
+- Te pide login en Convex (primera vez)
+- Crea un proyecto en Convex Cloud
+- Genera el folder `src/convex/_generated/` con tipos
+- Inicia el backend local
+
+### 4. Sincronizar SvelteKit
 
 ```bash
 bun run prepare
 ```
 
-Esto ejecuta `svelte-kit sync` para generar los tipos internos de SvelteKit.
-
-### 4. Iniciar servidor de desarrollo
+### 5. Iniciar servidor de desarrollo
 
 ```bash
 bun dev
@@ -49,16 +55,27 @@ bun dev
 
 Esto inicia Vite en modo desarrollo. Por defecto en `http://localhost:5173`.
 
-Para abrir automáticamente en el navegador:
-
-```bash
-bun dev -- --open
-```
-
-### 5. Verificar que todo funciona
+### 6. Verificar que todo funciona
 
 ```bash
 bun run check    # Type-check + lint
+```
+
+---
+
+## Variables de entorno
+
+El archivo `.env.local` se genera automáticamente al ejecutar `npx convex dev`.
+Si no existe, créalo con:
+
+```env
+PUBLIC_CONVEX_URL=https://<tu-deployment>.convex.cloud
+```
+
+Para el panel admin, se debe configurar `ADMIN_PASSWORD` en Convex Dashboard:
+
+```bash
+npx convex env set ADMIN_PASSWORD 12345
 ```
 
 ---
@@ -72,6 +89,11 @@ bun preview             # Previsualizar build localmente
 bun run check           # Type-check (svelte-check)
 bun run lint            # ESLint + Prettier check
 bun run format          # Prettier --write
+npx convex dev          # Iniciar backend Convex local
+npx convex deploy       # Desplegar funciones a producción
+npx convex run <path> '<args>'  # Ejecutar función desde CLI
+npx convex import       # Importar datos a tabla
+npx convex export       # Exportar datos
 ```
 
 ---
@@ -82,18 +104,10 @@ bun run format          # Prettier --write
 bun run build
 ```
 
-Esto genera la carpeta `.svelte-kit/output/` y `.vercel/` con el build listo para deploy.
-
-Para previsualizarlo localmente:
-
-```bash
-bun run preview
-```
-
 ---
 
 ## Notas
 
-- El proyecto usa **engine-strict=true** en `.npmrc`, así que solo Bun puede usarse (no npm/pnpm/yarn).
-- No es necesario tener Node.js instalado; Bun es suficiente.
-- El build de producción usa el adapter de Vercel, por lo que genera artefactos específicos para ese entorno.
+- El proyecto usa **engine-strict=true** en `.npmrc`, así que solo Bun puede usarse.
+- No es necesario tener Node.js instalado.
+- El build de producción usa el adapter de Vercel.

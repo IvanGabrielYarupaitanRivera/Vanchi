@@ -21,6 +21,11 @@
 | Ruta | Archivo | Descripción |
 |------|---------|-------------|
 | `/` | `+page.svelte` | Home / Landing page |
+| `/chat` | `chat/+page.svelte` | Asistente IA v2 (agente minimalista) |
+| `/admin/login` | `admin/login/+page.svelte` | Login administrativo |
+| `/admin/documentos` | `admin/(protegido)/documentos/+page.svelte` | CRUD de documentos |
+| `/admin/documentos/crear` | `admin/(protegido)/documentos/crear/+page.svelte` | Crear documento |
+| `/admin/documentos/[id]` | `admin/(protegido)/documentos/[id]/+page.svelte` | Editar documento |
 | `/proyectos` | `proyectos/+page.svelte` | Listado de proyectos |
 | `/proyectos/[projectId]` | `proyectos/[projectId]/+page.svelte` | Detalle dinámico de proyecto |
 | `/precios` | `precios/+page.svelte` | Modelos de colaboración y precios |
@@ -169,7 +174,7 @@ Para consulta rápida de tokens:
 
 ## 📎 Nota sobre la numeración
 
-No existe `03-BACKEND` porque Vanchi es un proyecto **frontend-only** con datos estáticos en TypeScript. No hay base de datos, API propia ni backend externo. El salto de `02-FRONTEND` a `04-ARCHITECTURE` es intencional para mantener consistencia con el framework numerado del hub.
+No existe `03-BACKEND` porque Vanchi no tiene un backend tradicional separado. El backend de IA y base de datos vive en **Convex** (`src/convex/`) como parte del mismo repositorio. El salto de `02-FRONTEND` a `04-ARCHITECTURE` es intencional para mantener consistencia con el framework numerado del hub.
 
 ---
 

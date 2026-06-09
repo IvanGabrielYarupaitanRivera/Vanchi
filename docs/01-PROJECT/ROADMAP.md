@@ -9,6 +9,7 @@
 
 - [x] Completar el hub de documentación `docs/` (TASK-001) ✅
 - [x] Agregar proyecto Molaric al portafolio (TASK-002) ✅
+- [x] Implementar asistente IA v2 con Convex Agent (TASK-003/TASK-004) ✅
 - [ ] Revisar y mejorar la página de proyectos con métricas de impacto
 - [ ] Optimizar imágenes y assets para mejorar Lighthouse scores
 

@@ -4,30 +4,14 @@
 
 ---
 
-## Vercel (Hosting y despliegue)
+## Vercel (Hosting frontend)
 
 | Ítem | Detalle |
 |------|---------|
-| **Propósito** | Hosting principal del sitio, SSR, CDN, deploys automáticos |
-| **Adapter** | `@sveltejs/adapter-vercel` v6.3.3 |
+| **Propósito** | Hosting del frontend SvelteKit, SSR, CDN, deploys automáticos |
+| **Adapter** | `@sveltejs/adapter-vercel` |
 | **Plan** | Gratuito (Hobby) |
-| **Deploy** | Automático desde GitHub (push a main/master) |
-
-### Características habilitadas
-
-- **SSR** — Para la mayoría de rutas
-- **Prerendering** — Para sitemap.xml (`prerender = true`)
-- **Edge Network** — Distribución global del contenido
-
-### Headers de seguridad (desde `vercel.json`)
-
-| Header | Valor |
-|--------|-------|
-| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains; preload` |
-| `X-Content-Type-Options` | `nosniff` |
-| `X-Frame-Options` | `SAMEORIGIN` |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` |
+| **Deploy** | Automático desde GitHub (push a main) |
 
 ### URL del sitio
 
@@ -37,20 +21,41 @@ https://www.vanchi.pro
 
 ---
 
+## Convex (Backend IA + Base de datos)
+
+| Ítem | Detalle |
+|------|---------|
+| **Propósito** | Backend serverless: agente IA, tabla documentosV2, autenticación admin |
+| **Componentes** | `@convex-dev/agent` v0.6+ |
+| **Plan** | Gratuito (Generoso tier gratis) |
+| **Dashboard** | `dashboard.convex.dev` (proyecto: personal-ivan/vanchi) |
+
+### Variables de entorno en Convex Dashboard
+
+| Variable | Propósito |
+|----------|-----------|
+| `AI_GATEWAY_API_KEY` | API key para Vercel AI Gateway (LLM calls) |
+| `ADMIN_PASSWORD` | Contraseña maestra para el panel admin |
+
+---
+
+## Vercel AI Gateway (LLM Gateway)
+
+| Ítem | Detalle |
+|------|---------|
+| **Propósito** | Gateway unificado para modelos de IA (reemplaza API keys directas) |
+| **Modelo principal** | `inception/mercury-2` |
+| **URL base** | `https://ai-gateway.vercel.sh/v1` |
+| **Configuración** | `createOpenAI({ apiKey, baseURL })` en Convex action |
+
+---
+
 ## GitHub (Control de versiones)
 
 | Ítem | Detalle |
 |------|---------|
-| **Propósito** | Repositorio del código fuente, CI (si aplica), Copilot instructions |
+| **Propósito** | Repositorio del código fuente |
 | **Branch principal** | `main` |
-
-### GitHub Copilot Instructions
-
-El proyecto incluye instrucciones para GitHub Copilot en `.github/`:
-
-- `.github/copilot-instructions.md` — Instrucciones generales
-- `.github/instructions/daisyui.md` — Instrucciones específicas de DaisyUI
-- `.github/instructions/svelte-eslint-rules.instructions.md` — Reglas ESLint para Svelte
 
 ---
 
@@ -58,8 +63,6 @@ El proyecto incluye instrucciones para GitHub Copilot en `.github/`:
 
 | Servicio | Razón |
 |----------|-------|
-| Base de datos | No necesaria — datos estáticos en TypeScript |
-| CMS | No necesario — contenido gestionado directamente en código |
-| Analytics | No implementado aún — opcional a futuro |
-| Email service | No implementado — el contacto es vía WhatsApp / formulario simple |
-| Auth / Login | No necesario — sitio público informativo |
+| Base de datos tradicional | Convex reemplaza DB + backend |
+| CMS | Contenido gestionado en código + CRUD admin |
+| Auth externo | Autenticación simple por contraseña maestra |

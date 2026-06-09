@@ -173,11 +173,21 @@ src/convex/
 │   ├── config.ts
 │   ├── conversations.ts
 │   └── tools.ts
-├── agent-v2/               ─ NUEVO: agente v2 minimalista
-│   ├── config.ts           ─ Configuración del nuevo agente
-│   ├── conversations.ts    ─ createThread, continueThread (copia adaptada)
-│   ├── tools.ts            ─ buscarDocumentos (única tool)
-│   └── documentos.ts       ─ queries + mutations CRUD
+├── agentV2/               ─ Agente v2 minimalista
+│   ├── config/
+│   │   ├── config.ts        ─ Ensambla el Agent con modelo, tools y prompt
+│   │   ├── modelo.ts        ─ Configuración del LLM (createOpenAI + Vercel AI Gateway)
+│   │   └── prompt.ts        ─ System prompt con personalidad, reglas y mapa de conocimiento
+│   ├── tools/
+│   │   ├── index.ts         ─ Exporta agentV2Tools
+│   │   └── documentosV2/
+│   │       └── buscarDocumentos.ts  ─ Tool única de búsqueda por filtros
+│   ├── conversations.ts     ─ createThread, continueThread
+├── admin.ts                 ─ verificarPassword
+├── entidades/
+│   └── documentosV2/
+│       ├── queries.ts       ─ listar, obtener, buscar
+│       └── mutations.ts     ─ crear, actualizar, eliminar
 ├── messages/
 │   └── read.ts             ─ (sin cambios, lo usa el agente v1)
 ├── seed.ts                 ─ (sin cambios, no se usa más)
@@ -327,10 +337,9 @@ buscarDocumentos(filtros: {
 ## 9. Convocencia con agente v1
 
 - El agente v1 (RAG actual) se mantiene intacto, sin cambios
-- El agente v2 vive en `src/convex/agent-v2/`
-- El CommandBar actual (⌘K) sigue apuntando al agente v1
+- El agente v2 vive en `src/convex/agentV2/`
+- El CommandBar actual (⌘K) sigue apuntando al agente v1 (no se migrará)
 - La ruta `/chat` apunta al agente v2
-- Una vez verificado que v2 funciona correctamente, se migra el CommandBar a v2
 
 ---
 
@@ -364,7 +373,7 @@ documentos_v2: defineTable({
 
 ### Paso 3 — Crear las funciones CRUD
 
-**Archivo:** `src/convex/agent-v2/documentos.ts`
+**Archivo:** `src/convex/agentV2/documentos.ts`
 
 - `listarDocumentos` (query)
 - `obtenerDocumento` (query)
@@ -377,7 +386,7 @@ documentos_v2: defineTable({
 
 ### Paso 4 — Crear la tool del agente
 
-**Archivo:** `src/convex/agent-v2/tools.ts`
+**Archivo:** `src/convex/agentV2/tools.ts`
 
 Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDocumentos`.
 
@@ -385,7 +394,7 @@ Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDoc
 
 ### Paso 5 — Crear la configuración del agente v2
 
-**Archivo:** `src/convex/agent-v2/config.ts`
+**Archivo:** `src/convex/agentV2/config.ts`
 
 - Mismo modelo (`inception/mercury-2`)
 - Mismo gateway (Vercel AI Gateway)
@@ -396,7 +405,7 @@ Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDoc
 
 ### Paso 6 — Crear las actions del agente v2
 
-**Archivo:** `src/convex/agent-v2/conversations.ts`
+**Archivo:** `src/convex/agentV2/conversations.ts`
 
 - `createThread` y `continueThread` (misma estructura que v1)
 
@@ -441,7 +450,7 @@ Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDoc
 - `npx convex dev` sin errores
 - El CRUD funciona (crear, leer, actualizar, eliminar documentos)
 - `/chat` responde con el agente v2
-- El CommandBar actual (v1) sigue funcionando sin cambios
+- El CommandBar actual (v1) sigue funcionando sin cambios (concluyente)
 
 ---
 
@@ -454,7 +463,7 @@ Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDoc
 - [ ] `/chat` carga el agente v2 con el mismo estilo visual
 - [ ] `/admin/documentos` lista todos los documentos
 - [ ] Crear/editar/eliminar documentos funciona correctamente
-- [ ] El CommandBar actual (v1) sigue funcionando sin cambios
+- [ ] El CommandBar actual (v1) sigue funcionando sin cambios (concluyente)
 - [ ] `bun run check` pasa
 - [ ] `npx convex dev` pasa
 
@@ -465,7 +474,7 @@ Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDoc
 ```
 src/convex/
 ├── schema-v2.ts               ─ Schema adicional tabla documentos_v2
-├── agent-v2/
+├── agentV2/
 │   ├── config.ts              ─ Config del agente v2
 │   ├── conversations.ts       ─ Actions createThread/continueThread
 │   ├── tools.ts               ─ Tool buscarDocumentos

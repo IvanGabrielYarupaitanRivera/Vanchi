@@ -4,23 +4,60 @@
 
 ---
 
-## Estado actual
+## Backend Convex (en Convex Dashboard)
 
-Actualmente el proyecto **no requiere variables de entorno** para ejecutarse en desarrollo local.
+Estas variables se configuran en `dashboard.convex.dev` → Settings → Environment Variables.
+Se declaran en `src/convex/convex.config.ts` con `v.string()`.
 
-El proyecto es frontend-only con datos estáticos en TypeScript, por lo que no necesita conexión a base de datos, API keys de terceros, ni credenciales de servicios externos.
+| Variable | Propósito | ¿Obligatoria? |
+|----------|-----------|---------------|
+| `AI_GATEWAY_API_KEY` | API key para Vercel AI Gateway (llamadas LLM) | Sí |
+| `ADMIN_PASSWORD` | Contraseña maestra para el panel `/admin` | Sí |
+
+### Configurar en Convex Dashboard
+
+1. Ir a [dashboard.convex.dev](https://dashboard.convex.dev)
+2. Seleccionar proyecto `personal-ivan/vanchi`
+3. Elegir deployment (dev o prod)
+4. Settings → Environment Variables → agregar cada variable
+
+> Cada deployment (dev y prod) tiene sus propias variables de entorno. Configurar ambas.
 
 ---
 
-## Archivo `.env`
+## Frontend SvelteKit (en Vercel + `.env.local`)
 
-Si en el futuro se agregan integraciones que requieran variables de entorno, se deben crear:
+| Variable | Propósito | ¿Dónde va? | ¿Obligatoria? |
+|----------|-----------|------------|---------------|
+| `PUBLIC_CONVEX_URL` | URL del deployment de Convex | Vercel env vars + `.env.local` | Sí |
+| `CONVEX_DEPLOY_KEY` | Deploy key para CI/CD | Vercel env vars (solo Production) | Solo para CI |
+
+### Desarrollo local
+
+```bash
+# .env.local (generado automáticamente por npx convex dev)
+PUBLIC_CONVEX_URL=https://<tu-deployment>.convex.cloud
+```
+
+### Producción
+
+En Vercel, configurar:
+- `PUBLIC_CONVEX_URL` → la URL del deployment de producción de Convex
+- Opcional: `CONVEX_DEPLOY_KEY` para deploys automáticos desde Vercel
+
+El Build Command en Vercel debe ser:
+```bash
+npx convex deploy --cmd-url-env-var-name PUBLIC_CONVEX_URL --cmd 'npm run build'
+```
+
+---
+
+## Archivos `.env`
 
 ```
 Vanchi/
-├── .env              # Variables locales (NO versionar)
-├── .env.example      # Template con valores vacíos (versionar)
-└── .env.test         # Variables para tests (versionar si aplica)
+├── .env.local          # Variables locales (NO versionar)
+├── .env.example        # Template con valores vacíos (versionar)
 ```
 
 El `.gitignore` ya tiene configurado:
@@ -29,15 +66,5 @@ El `.gitignore` ya tiene configurado:
 .env
 .env.*
 !.env.example
-!.env.test
+.env.local
 ```
-
----
-
-## Posibles variables futuras
-
-| Variable | Propósito | ¿Obligatoria? |
-|----------|-----------|---------------|
-| `PUBLIC_URL` | URL base del sitio (ej: `https://www.vanchi.pro`) | Sí, para sitemap y SEO |
-| `PUBLIC_ANALYTICS_ID` | ID de servicio de analytics | No |
-| `PUBLIC_CONTACT_EMAIL` | Email de contacto visible en el sitio | No |

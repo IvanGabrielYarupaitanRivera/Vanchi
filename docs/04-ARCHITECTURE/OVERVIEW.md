@@ -63,6 +63,9 @@
 | `/precios` | SSR | Datos estáticos |
 | `/soluciones-legales` | SSR | Datos estáticos |
 | `/waas` | SSR | Datos estáticos |
+| `/chat` | SSR + WebSocket | Asistente IA v2 con Convex Agent (conexión reactiva) |
+| `/admin/login` | SSR | Formulario de login |
+| `/admin/documentos` | SSR + WebSocket | CRUD con `useQuery` reactivo |
 | `/sitemap.xml` | Prerendered | Generado en build, sirve XML estático |
 | Páginas legales | SSR | Contenido estático |
 

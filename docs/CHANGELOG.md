@@ -27,23 +27,50 @@ Copia y pega este bloque al inicio de la lista (después de esta sección) y com
 | **Por qué** | Contexto: problema que resolvía o decisión que se tomó |
 | **Archivos afectados** | Lista de archivos con ruta relativa desde la raíz del proyecto. Incluir `tasks/*` si la spec se archivó |
 
----
+## 2026-06-08
 
-## 2026-06-04
+**Qué cambió:** Implementado Asistente IA v2 (CommandBar ⌘K + ruta /chat) con Convex Agent, RAG simplificado, CRUD admin y base de conocimiento poblada.
 
-**Qué cambió:** Agregado proyecto Molaric al portafolio.
+**Por qué:** Se reemplazó la arquitectura RAG con embeddings por una tabla única `documentosV2` con búsqueda por categorías/subcategorías/etiquetas. Se creó un agente v2 minimalista, autónomo y consciente de su entorno, con ruta pública /chat y panel admin protegido.
 
-**Por qué:** Se necesitaba mostrar el proyecto más reciente del autor: un agente IA para clínicas dentales. Molaric reemplazó a MediRoosevelt en la sección destacada del home y se agregó como caso de estudio completo.
+**Arquitectura:**
+- Tabla `documentosV2` con literals (categoría, subcategoría, etiquetas)
+- Agent `@convex-dev/agent` con tool única `buscarDocumentos` (filtros, no texto libre)
+- Modelo `inception/mercury-2` vía Vercel AI Gateway
+- Prompt con mapa de conocimiento (categorías, subcategorías, etiquetas disponibles)
+- Sin RAG, sin embeddings, sin vector search
+- Patrón `useQuery` reactivo (WebSocket) en vez de `$effect` + `.then()`
+
+**Rutas nuevas:**
+- `/chat` — Página completa del asistente v2 (sin Header, sin Footer)
+- `app/login` — Login administrativo con contraseña
+- `/admin/documentos` — CRUD completo de documentos
+- `/admin/documentos/crear` — Formulario de creación
+- `/admin/documentos/[id]` — Formulario de edición
+
+**Docs:**
+- `08-FILOSOFIA-AGENTE/README.md` — 5 principios del agente (meta, autónomo, proactivo, consciente, herramienta)
+- Skill `sveltekit-convex-integration` — Patrones correctos SvelteKit 5 + Convex
+- 3 lecciones aprendidas (interacción Pi+Convex, patrones SvelteKit+Convex, deploy prod)
+
+**Base de conocimiento:** 23 documentos poblados (4 sobre mí, 3 stack, 4 servicios, 1 precios, 9 proyectos, 1 legal, 1 soluciones legales)
 
 **Archivos afectados:**
-- `src/lib/components/home/FeaturedProjects.svelte` — Molaric 1°, ENCAP 2°, Junin360 3°
-- `src/lib/constants/projects.ts` — Molaric como id:1 con link y video
-- `src/lib/data/projects/molaric.ts` — Caso de estudio con stack real, galería de 7 imágenes, logos tecnológicos
-- `src/lib/data/projects/index.ts` — Molaric registrado en projectsData
-- `src/routes/sitemap.xml/+server.ts` — slug molaric agregado
-- `src/lib/assets/icons/technologies/GoogleCalendarLogo.svelte` — Nuevo logo
-- `src/lib/assets/icons/technologies/DeepgramLogo.svelte` — Nuevo logo
-- `tasks/archived/todo-molaric-project.md` — Spec archivada
+- `src/convex/schema.ts` — +tabla documentosV2 con literals
+- `src/convex/admin.ts` — verificarPassword
+- `src/convex/entidades/documentosV2/` — queries + mutations
+- `src/convex/agentV2/` — config, tools, conversations
+- `src/routes/chat/+page.svelte` — Nueva ruta pública
+- `src/routes/admin/` — Login + layout protector + CRUD completo
+- `src/routes/+layout.svelte` — Header/Footer condicional por ruta
+- `src/routes/admin/(protegido)/+layout.server.ts` — Guardián de cookie
+- `src/lib/components/chat/` — chat.ts, ChatHeader, ChatInput, ChatSuggestions
+- `src/lib/server/convex.ts` — Cliente Convex para servidor
+- `docs/08-FILOSOFIA-AGENTE/README.md` — Nueva carpeta de filosofía
+- `docs/00-GUIDE/LECCIONES-APRENDIDAS/` — 3 nuevas lecciones
+- `.agents/skills/sveltekit-convex-integration/SKILL.md` — Nueva skill
+- `docs/ALIADAS.md` — Skill referenciada
+- `tasks/todo-v2-agent.md` — Especificación creada
 
 ---
 

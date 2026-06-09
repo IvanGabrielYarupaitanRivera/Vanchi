@@ -21,7 +21,11 @@
 | Componentes UI       | DaisyUI                  | v5                    |
 | Íconos               | Lucide Svelte            | 0.577.x               |
 | Runtime              | Bun                      | 1.3.x                 |
-| Hosting              | Vercel                   | Adapter               |
+| Backend IA           | Convex + @convex-dev/agent | v0.6+               |
+| LLM Gateway          | Vercel AI Gateway        | —                     |
+| Modelo LLM           | inception/mercury-2       | —                     |
+| Hosting Frontend     | Vercel                   | Adapter               |
+| Hosting Backend      | Convex Cloud             | —                     |
 | Imágenes optimizadas | `@sveltejs/enhanced-img` | —                     |
 
 ---

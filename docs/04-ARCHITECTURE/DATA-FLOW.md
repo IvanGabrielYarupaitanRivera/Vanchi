@@ -4,7 +4,9 @@
 
 ---
 
-## Flujo general (SSR)
+## Flujo general (SSR + WebSocket)
+
+### SSR (páginas estáticas)
 
 ```
 1. NAVEGADOR                 2. SVELTEKIT SERVER
@@ -33,6 +35,23 @@
                              7. NAVEGADOR
                                 Renderiza (SSR)
                                 Hidrata (interactividad)
+```
+
+### WebSocket (asistente IA / CRUD en tiempo real)
+
+```
+1. CLIENTE (SvelteKit)            2. CONVEX CLOUD
+   useQuery(api.modulo.query, {})  →   Abre WebSocket
+                                      Ejecuta query
+                                      Retorna datos iniciales
+                                      │
+                                      ▼
+                                  Suscripción reactiva
+                                  Si datos cambian → push automático
+                                      │
+                                      ▼
+   $state se actualiza solo        ←   Recibe nuevo snapshot
+   (sin recargar página)
 ```
 
 ---
