@@ -11,12 +11,6 @@
 	type NavHref = '/' | '/#servicios' | '/proyectos';
 	type NavItem = { href: NavHref; label: string; icon: Component<IconProps> };
 
-	interface Props {
-		onOpenAssistant?: () => void;
-	}
-
-	let { onOpenAssistant = () => {} }: Props = $props();
-
 	const navItems: NavItem[] = [
 		{ href: '/', label: 'Inicio', icon: House },
 		{ href: '/#servicios', label: 'Soluciones', icon: Box },
@@ -64,14 +58,10 @@
 		</div>
 
 		<div class="navbar-end gap-2">
-			<button
-				class="btn hidden btn-primary lg:flex"
-				onclick={onOpenAssistant}
-				title="Presiona ⌘K para abrir el asistente"
-			>
+			<a href={resolve('/chat')} class="btn hidden btn-primary lg:flex">
 				Asistente
-				<kbd class="btn hidden btn-xs btn-neutral lg:inline-flex">⌘K</kbd>
-			</button>
+				<Sparkles size={16} />
+			</a>
 
 			<a href={resolve('/#contacto')} class="btn hidden btn-primary lg:flex">
 				<span>Contacto</span>
@@ -118,19 +108,17 @@
 
 			<div class="divider"></div>
 
-			<button
+			<a
+				href={resolve('/chat')}
 				class="flex w-full items-center justify-between rounded-xl border border-primary/20 bg-linear-to-r from-primary/5 to-transparent px-4 py-3 text-left transition-all active:scale-[0.98]"
-				onclick={() => {
-					open = false;
-					onOpenAssistant();
-				}}
+				onclick={() => (open = false)}
 			>
 				<div class="flex items-center gap-3">
 					<Sparkles size={20} class="text-primary" />
-					<span class="text-sm font-medium text-base-content/90">Preguntar</span>
+					<span class="text-sm font-medium text-base-content/90">Asistente IA</span>
 				</div>
 				<ArrowUpRight size={16} class="text-base-content/30" />
-			</button>
+			</a>
 
 			<div class="divider"></div>
 

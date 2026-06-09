@@ -25,7 +25,7 @@
 
 <div class="flex min-h-screen flex-col">
 	{#if !isChatRoute}
-		<Header onOpenAssistant={toggleAssistant} />
+		<Header />
 	{/if}
 
 	<main class="mx-auto w-full max-w-450 flex-1">
