@@ -1,5 +1,4 @@
-import { internalAction } from "../_generated/server";
-import { embed } from "ai";
+import { internalAction } from '../_generated/server';
 
 /**
  * Genera embeddings para chunks que aún no tienen embeddingId.
@@ -7,8 +6,8 @@ import { embed } from "ai";
  */
 export const generateMissingEmbeddings = internalAction({
 	args: {},
-	handler: async (ctx) => {
+	handler: async () => {
 		// TODO: Paso futuro — query chunks sin embedding, generar y guardar
-		console.log("generateMissingEmbeddings: pendiente de implementación");
-	},
+		console.log('generateMissingEmbeddings: pendiente de implementación');
+	}
 });
