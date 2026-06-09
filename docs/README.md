@@ -42,6 +42,8 @@ docs/
 │   └── CORE-PRINCIPLES.md              #   KISS, Single Responsibility, MVP
 └── 07-DESIGN/                          # 🟡 Design system
     └── README.md                       #   Design tokens (referencia a DESIGN.md)
+└── 08-FILOSOFIA-AGENTE/                # 🤖 Filosofía del agente
+    └── README.md                       #   Principios: autonomía, minimalismo, proactividad
 ```
 
 ### 📋 Referencia rápida
