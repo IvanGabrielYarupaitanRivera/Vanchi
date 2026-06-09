@@ -40,18 +40,78 @@ El agente debe ser:
 ### Tabla única: `documentos`
 
 ```ts
-// src/convex/schema.ts (NUEVA versión, agregada, no reemplaza la actual)
+// src/convex/schema-v2.ts (NUEVO schema, no reemplaza el actual)
+
+// Definir literals compartidos
+const categoriaLiteral = v.union(
+  v.literal("sobre-mi"),
+  v.literal("stack"),
+  v.literal("servicio"),
+  v.literal("precios"),
+  v.literal("proyecto"),
+  v.literal("legal")
+);
+
+const subcategoriaLiteral = v.union(
+  v.literal("frontend"),
+  v.literal("backend"),
+  v.literal("ia"),
+  v.literal("salud"),
+  v.literal("educacion"),
+  v.literal("legal"),
+  v.literal("web"),
+  v.literal("agentes"),
+  v.literal("waas")
+);
+
+const etiquetaLiteral = v.union(
+  v.literal("sveltekit"),
+  v.literal("convex"),
+  v.literal("tailwindcss"),
+  v.literal("typescript"),
+  v.literal("astro"),
+  v.literal("openrouter"),
+  v.literal("vercel-ai-gateway"),
+  v.literal("whatsapp"),
+  v.literal("deepgram"),
+  v.literal("livekit"),
+  v.literal("supabase"),
+  v.literal("n8n"),
+  v.literal("gemini-api"),
+  v.literal("google-calendar"),
+  v.literal("molaric"),
+  v.literal("encap"),
+  v.literal("junin360"),
+  v.literal("mediroosevelt"),
+  v.literal("farmape"),
+  v.literal("obstetraconecta"),
+  v.literal("diapis"),
+  v.literal("colegio-educere"),
+  v.literal("peralta-asociados"),
+  v.literal("experiencia"),
+  v.literal("waas"),
+  v.literal("desarrollo-web"),
+  v.literal("agentes-ia"),
+  v.literal("precios"),
+  v.literal("redes-sociales"),
+  v.literal("soluciones-legales"),
+  v.literal("rutas"),
+  v.literal("asistente")
+);
+
 documentos: defineTable({
   titulo: v.string(),
-  categoria: v.string(),        // "about" | "stack" | "servicio" | "pricing" | "proyecto" | "legal"
-  subcategoria: v.optional(v.string()),  // "healthtech" | "edutech" | "legaltech" | "frontend" | "backend" | "ia"
-  contenido: v.string(),        // Markdown con toda la información
-  url: v.optional(v.string()),  // URL del proyecto o sección
-  etiquetas: v.array(v.string()), // ["molaric", "whatsapp", "convex", "ia-dental"] — para búsqueda
+  categoria: categoriaLiteral,
+  subcategoria: v.optional(subcategoriaLiteral),
+  contenido: v.string(),
+  url: v.optional(v.string()),
+  etiquetas: v.array(etiquetaLiteral),
 })
   .index("byCategoria", ["categoria"])
   .index("bySubcategoria", ["subcategoria"])
 ```
+
+> **Nota:** Las etiquetas se definen como `v.array(etiquetaLiteral)` para que TypeScript + Convex validen que solo se usen etiquetas válidas. En el formulario CRUD, se seleccionan de una lista predefinida (chips/checkboxes).
 
 ### Propiedades eliminadas respecto al schema anterior
 
@@ -171,13 +231,21 @@ eliminarDocumento(id)           → void
 
 ### Autenticación
 
-El CRUD debe estar protegido. Se puede usar:
+Protección simple con contraseña fija mediante variable de entorno.
 
-- **Opción A:** Better Auth (si ya está configurado en el proyecto)
-- **Opción B:** Convex Auth (`@convex-dev/auth`)
-- **Opción C:** Protección simple con clave en URL (no recomendado para producción)
+- La contraseña se define en una variable de entorno de Convex: `ADMIN_PASSWORD`
+- El valor inicial será `12345` (se cambia después)
+- Al acceder a `/admin/documentos`, el usuario debe ingresar la contraseña
+- Una vez autenticado, se guarda un flag en `sessionStorage` para no pedirla de nuevo
+- En las mutations del CRUD, se valida que la contraseña coincida con `process.env.ADMIN_PASSWORD`
+- La variable `ADMIN_PASSWORD` se declara en `convex.config.ts` igual que `AI_GATEWAY_API_KEY`
 
-> **Decisión pendiente:** ¿Qué método de autenticación usamos?
+**Flujo:**
+1. Usuario entra a `/admin/documentos`
+2. Si no hay flag en `sessionStorage`, redirige a `/admin/login`
+3. Ingresa la contraseña → se envía a una mutation `verificarPassword(password)`
+4. Si coincide, guarda flag en `sessionStorage` y redirige al CRUD
+5. Las mutations del CRUD reciben la contraseña como argumento y la validan
 
 ---
 
