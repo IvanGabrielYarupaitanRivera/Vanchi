@@ -39,3 +39,4 @@ YYYY-MM-DD-TITULO-BREVE.md
 ### 2026-06-08
 
 - [`2026-06-08-PI-CONVEX-INTERACCION.md`](./2026-06-08-PI-CONVEX-INTERACCION.md) — Pi puede ejecutar `npx convex run` desde bash sin MCP, sintaxis correcta, alternativas para volumen.
+- [`2026-06-08-SVELTEKIT-CONVEX-PATRONES.md`](./2026-06-08-SVELTEKIT-CONVEX-PATRONES.md) — Patrones correctos SvelteKit 5 + Convex: `useQuery` reactivo vs SSR con `+page.server.ts`, prohibido `$effect` + `.then()`.
