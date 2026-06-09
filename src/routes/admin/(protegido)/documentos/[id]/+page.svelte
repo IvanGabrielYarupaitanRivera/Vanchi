@@ -127,10 +127,7 @@
 		<!-- Categoría -->
 		<label class="block">
 			<span class="mb-1 block text-xs font-bold text-base-content/60 uppercase">Categoría</span>
-			<select
-				bind:value={categoria}
-				class="w-full rounded-xl border border-white/10 bg-base-200/50 px-4 py-2.5 text-sm text-base-content outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
-			>
+			<select bind:value={categoria} class="select w-full">
 				{#each categorias as cat (cat)}
 					<option value={cat}>{cat}</option>
 				{/each}
@@ -140,10 +137,7 @@
 		<!-- Subcategoría -->
 		<label class="block">
 			<span class="mb-1 block text-xs font-bold text-base-content/60 uppercase">Subcategoría (opcional)</span>
-			<select
-				bind:value={subcategoria}
-				class="w-full rounded-xl border border-white/10 bg-base-200/50 px-4 py-2.5 text-sm text-base-content outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
-			>
+			<select bind:value={subcategoria} class="select w-full">
 				<option value="">— Sin subcategoría —</option>
 				{#each subcategorias as sub (sub)}
 					<option value={sub}>{sub}</option>
