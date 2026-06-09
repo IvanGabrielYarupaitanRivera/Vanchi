@@ -75,7 +75,9 @@
 		try {
 			const saved = localStorage.getItem(LS_KEY);
 			if (saved) threadId = saved;
-		} catch { /* incógnito */ }
+		} catch {
+			/* incógnito */
+		}
 	});
 
 	// ─── Auto-scroll ─────────────────────────────────
@@ -126,10 +128,18 @@
 
 	// ─── LS helpers ──────────────────────────────────
 	function setLS(key: string, value: string) {
-		try { localStorage.setItem(key, value); } catch { /* incógnito */ }
+		try {
+			localStorage.setItem(key, value);
+		} catch {
+			/* incógnito */
+		}
 	}
 	function removeLS(key: string) {
-		try { localStorage.removeItem(key); } catch { /* incógnito */ }
+		try {
+			localStorage.removeItem(key);
+		} catch {
+			/* incógnito */
+		}
 	}
 
 	// ─── Envío ───────────────────────────────────────
@@ -195,10 +205,13 @@
 
 <svelte:head>
 	<title>Chat con el asistente — Vanchi</title>
-	<meta name="description" content="Pregúntale al asistente de Vanchi sobre proyectos, tecnologías, servicios y experiencia de Ivan Yarupaitan." />
+	<meta
+		name="description"
+		content="Pregúntale al asistente de Vanchi sobre proyectos, tecnologías, servicios y experiencia de Ivan Yarupaitan."
+	/>
 </svelte:head>
 
-<div class="mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-4 pb-6">
+<div class="mx-auto flex min-h-dvh w-full max-w-5xl flex-col py-4">
 	<!-- encabezado -->
 	<div class="flex shrink-0 items-center justify-between px-2 pb-4">
 		<div>
@@ -228,8 +241,8 @@
 				{#if messages.length === 0 && !isTyping}
 					<div class="flex flex-col justify-center py-12">
 						<p class="text-sm leading-relaxed text-base-content/60">
-							Soy el asistente de <span class="text-primary">Vanchi</span>. Estoy aquí para ayudarte a
-							entender mejor lo que Ivan hace, ha hecho y puede hacer por ti.
+							Soy el asistente de <span class="text-primary">Vanchi</span>. Estoy aquí para ayudarte
+							a entender mejor lo que Ivan hace, ha hecho y puede hacer por ti.
 						</p>
 						<div class="space-y-2 pt-6">
 							<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
@@ -272,7 +285,9 @@
 						<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
 							<div use:setHtml={typingHtml}></div>
 							{#if cursorPhase === 'blink'}
-								<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"></span>
+								<span
+									class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"
+								></span>
 							{:else if cursorPhase === 'fadeout'}
 								<span class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"></span>
 							{/if}
@@ -318,7 +333,15 @@
 	}
 
 	@keyframes dot-pulse {
-		0%, 80%, 100% { opacity: 0.2; transform: scale(0.6); }
-		40% { opacity: 1; transform: scale(1); }
+		0%,
+		80%,
+		100% {
+			opacity: 0.2;
+			transform: scale(0.6);
+		}
+		40% {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 </style>
