@@ -8,9 +8,14 @@
  * @module
  */
 
+import type * as admin from "../admin.js";
+import type * as agentV2_tools_documentosV2_buscarDocumentos from "../agentV2/tools/documentosV2/buscarDocumentos.js";
+import type * as agentV2_tools_index from "../agentV2/tools/index.js";
 import type * as agent_config from "../agent/config.js";
 import type * as agent_conversations from "../agent/conversations.js";
 import type * as agent_tools from "../agent/tools.js";
+import type * as entidades_documentosV2_mutations from "../entidades/documentosV2/mutations.js";
+import type * as entidades_documentosV2_queries from "../entidades/documentosV2/queries.js";
 import type * as messages_read from "../messages/read.js";
 import type * as rag_chunks from "../rag/chunks.js";
 import type * as rag_documents from "../rag/documents.js";
@@ -25,9 +30,14 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  admin: typeof admin;
+  "agentV2/tools/documentosV2/buscarDocumentos": typeof agentV2_tools_documentosV2_buscarDocumentos;
+  "agentV2/tools/index": typeof agentV2_tools_index;
   "agent/config": typeof agent_config;
   "agent/conversations": typeof agent_conversations;
   "agent/tools": typeof agent_tools;
+  "entidades/documentosV2/mutations": typeof entidades_documentosV2_mutations;
+  "entidades/documentosV2/queries": typeof entidades_documentosV2_queries;
   "messages/read": typeof messages_read;
   "rag/chunks": typeof rag_chunks;
   "rag/documents": typeof rag_documents;
