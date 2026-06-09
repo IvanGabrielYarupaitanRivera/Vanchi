@@ -24,7 +24,9 @@
 <CommandBar isOpen={isAssistantOpen} onToggle={toggleAssistant} />
 
 <div class="flex min-h-screen flex-col">
-	<Header onOpenAssistant={toggleAssistant} />
+	{#if !isChatRoute}
+		<Header onOpenAssistant={toggleAssistant} />
+	{/if}
 
 	<main class="mx-auto w-full max-w-450 flex-1">
 		{@render children()}

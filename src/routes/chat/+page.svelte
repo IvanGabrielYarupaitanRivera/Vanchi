@@ -198,7 +198,7 @@
 	<meta name="description" content="Pregúntale al asistente de Vanchi sobre proyectos, tecnologías, servicios y experiencia de Ivan Yarupaitan." />
 </svelte:head>
 
-<div class="mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-4 pt-24 pb-6">
+<div class="mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-4 pb-6">
 	<!-- encabezado -->
 	<div class="flex shrink-0 items-center justify-between px-2 pb-4">
 		<div>
