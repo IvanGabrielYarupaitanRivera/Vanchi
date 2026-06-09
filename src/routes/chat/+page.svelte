@@ -133,7 +133,7 @@
 	<meta name="description" content="Pregúntale al asistente de Vanchi sobre proyectos, tecnologías, servicios y experiencia de Ivan Yarupaitan." />
 </svelte:head>
 
-<div class="mx-auto flex min-h-dvh w-full max-w-5xl flex-col">
+<div class="mx-auto flex h-dvh w-full max-w-5xl flex-col">
 	<ChatHeader onNewConversation={newConversation} />
 
 	{#if messages.length === 0 && !isTyping}

@@ -26,12 +26,12 @@
 			onkeydown={onKeydown}
 			placeholder="Escribe tu pregunta aquí..."
 			rows="1"
-			class="min-h-11 w-full resize-none rounded-xl border border-white/10 bg-base-200/50 px-4 py-3 text-sm text-base-content transition-all duration-300 outline-none placeholder:text-base-content/30 focus:border-primary/50 focus:ring-1 focus:ring-primary/30"
+			class="textarea w-full"
 			{disabled}
 		></textarea>
 		{#if input.trim().length > 0}
 			<button
-				class="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-xl bg-primary text-base-100 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/80 disabled:opacity-30"
+				class="btn btn-primary btn-square"
 				onclick={onSend}
 				{disabled}
 				aria-label="Enviar"

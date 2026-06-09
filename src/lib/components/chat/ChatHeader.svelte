@@ -14,7 +14,7 @@
 		<p class="text-sm text-base-content/40">{subtitle}</p>
 	</div>
 	<button
-		class="cursor-pointer text-xs text-base-content/40 transition-colors hover:text-base-content/60"
+		class="btn btn-ghost btn-xs"
 		onclick={onNewConversation}
 	>
 		Nueva conversación
