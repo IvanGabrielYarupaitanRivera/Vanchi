@@ -37,7 +37,7 @@ export const buscar = query({
 			v.union(
 				v.literal("frontend"), v.literal("backend"), v.literal("ia"),
 				v.literal("salud"), v.literal("educacion"), v.literal("legal"),
-				v.literal("web"), v.literal("agentes"), v.literal("waas")
+				v.literal("web"), v.literal("agentes"), v.literal("waas"), v.literal("personal")
 			)
 		),
 		etiquetas: v.optional(v.array(v.string())),

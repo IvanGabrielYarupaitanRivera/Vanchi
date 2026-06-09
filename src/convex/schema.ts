@@ -21,7 +21,8 @@ const subcategoria = v.union(
   v.literal("legal"),
   v.literal("web"),
   v.literal("agentes"),
-  v.literal("waas")
+  v.literal("waas"),
+  v.literal("personal")
 );
 
 const etiqueta = v.union(

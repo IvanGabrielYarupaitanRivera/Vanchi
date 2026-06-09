@@ -17,7 +17,7 @@ export const buscarDocumentos = createTool({
 		'Úsala cuando el usuario pregunte sobre proyectos, servicios, stack tecnológico, precios, ' +
 		'experiencia o cualquier tema relacionado con Ivan Yarupaitan y su trabajo. ' +
 		'Puedes filtrar por categoría (sobre-mi, stack, servicio, precios, proyecto, legal), ' +
-		'subcategoría (frontend, backend, ia, salud, educacion, legal, web, agentes, waas) ' +
+		'subcategoría (frontend, backend, ia, salud, educacion, legal, web, agentes, waas, personal) ' +
 		'o etiquetas específicas (sveltekit, convex, molaric, etc.).',
 	inputSchema: z.object({
 		categoria: z
@@ -25,7 +25,7 @@ export const buscarDocumentos = createTool({
 			.optional()
 			.describe('Filtro opcional por categoría del documento'),
 		subcategoria: z
-			.enum(['frontend', 'backend', 'ia', 'salud', 'educacion', 'legal', 'web', 'agentes', 'waas'])
+			.enum(['frontend', 'backend', 'ia', 'salud', 'educacion', 'legal', 'web', 'agentes', 'waas', 'personal'])
 			.optional()
 			.describe('Filtro opcional por subcategoría del documento'),
 		etiquetas: z

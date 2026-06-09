@@ -27,7 +27,7 @@
 	let etiquetasSeleccionadas = $state<string[]>([]);
 
 	const categorias = ['sobre-mi', 'stack', 'servicio', 'precios', 'proyecto', 'legal'] as const;
-	const subcategorias = ['frontend', 'backend', 'ia', 'salud', 'educacion', 'legal', 'web', 'agentes', 'waas'] as const;
+	const subcategorias = ['frontend', 'backend', 'ia', 'salud', 'educacion', 'legal', 'web', 'agentes', 'waas', 'personal'] as const;
 
 	function toggleEtiqueta(e: string) {
 		if (etiquetasSeleccionadas.includes(e)) {
