@@ -90,7 +90,7 @@
 				totalmente flexible. Visualízalo como niveles de evolución donde cada fase desbloquea un
 				nuevo "superpoder" para tu estudio. Puedes empezar en la fase que necesites y sumar
 				<span
-					class="inline-flex items-center gap-1 rounded-md bg-primary/20 px-2 py-0.5 text-xs font-bold text-primary ring-1 ring-primary/30"
+					class="badge badge-primary badge-sm gap-1 font-bold ring-1 ring-primary/30"
 					>Add-ons</span
 				> a la carta.
 			</p>

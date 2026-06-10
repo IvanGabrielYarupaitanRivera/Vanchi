@@ -49,9 +49,9 @@
 						<div>
 							<h3 class="font-bold text-base-content">{doc.titulo}</h3>
 							<p class="mt-1 text-xs text-base-content/40">
-								<span class="rounded-md bg-primary/20 px-2 py-0.5 text-primary">{doc.categoria}</span>
+								<span class="badge badge-primary badge-sm">{doc.categoria}</span>
 								{#if doc.subcategoria}
-									<span class="ml-2 rounded-md bg-base-200 px-2 py-0.5 text-base-content/60">{doc.subcategoria}</span>
+									<span class="ml-2 badge badge-ghost badge-sm">{doc.subcategoria}</span>
 								{/if}
 							</p>
 						</div>
