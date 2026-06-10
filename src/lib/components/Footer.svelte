@@ -57,7 +57,7 @@
 				</p>
 
 				<a
-					href={resolve('/precios')}
+					href={resolve('/(main)/precios')}
 					class="btn w-fit shadow-[0_0_15px_rgba(197,160,89,0.15)] btn-sm btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.3)]"
 				>
 					Ver plan WaaS

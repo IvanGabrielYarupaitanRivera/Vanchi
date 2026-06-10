@@ -57,7 +57,7 @@
 	<div class="mt-6 card-actions justify-start">
 		<a
 			onclick={() => onSelectService(service.title)}
-			href={resolve('/precios#services-table')}
+			href={resolve('/(main)/precios#services-table')}
 			class="btn btn-primary"
 			aria-label={`Ver cómo ${service.title} aplica dentro del plan WaaS`}
 		>
@@ -66,7 +66,7 @@
 		</a>
 		<a
 			onclick={() => onSelectService(service.title)}
-			href={resolve('/#contacto')}
+			href={"/#contacto"}
 			class="btn"
 			aria-label={`Solicitar una evaluación personalizada para ${service.title}`}
 		>

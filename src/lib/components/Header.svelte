@@ -58,12 +58,12 @@
 		</div>
 
 		<div class="navbar-end gap-2">
-			<a href={resolve('/chat')} class="btn hidden btn-primary lg:flex">
+			<a href="/chat" class="btn hidden btn-primary lg:flex">
 				Asistente
 				<Sparkles size={16} />
 			</a>
 
-			<a href={resolve('/#contacto')} class="btn hidden btn-primary lg:flex">
+			<a href={"/#contacto"} class="btn hidden btn-primary lg:flex">
 				<span>Contacto</span>
 				<ArrowUpRight size={16} />
 			</a>
@@ -109,7 +109,7 @@
 			<div class="divider"></div>
 
 			<a
-				href={resolve('/chat')}
+				href="/chat"
 				class="flex w-full items-center justify-between rounded-xl border border-primary/20 bg-linear-to-r from-primary/5 to-transparent px-4 py-3 text-left transition-all active:scale-[0.98]"
 				onclick={() => (open = false)}
 			>
@@ -145,7 +145,7 @@
 
 			<div class="mt-auto">
 				<a
-					href={resolve('/#contacto')}
+					href={"/#contacto"}
 					class="btn w-full btn-primary"
 					onclick={() => (open = false)}
 				>

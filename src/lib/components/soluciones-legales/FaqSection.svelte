@@ -69,7 +69,7 @@
 		<p class="text-sm text-base-content/40">
 			Al contratar, aceptas nuestras
 			<a
-				href={resolve('/condiciones-del-servicio')}
+				href={resolve('/(main)/condiciones-del-servicio')}
 				class="text-primary/60 underline underline-offset-2 transition-colors duration-300 hover:text-primary"
 			>
 				Condiciones del Servicio

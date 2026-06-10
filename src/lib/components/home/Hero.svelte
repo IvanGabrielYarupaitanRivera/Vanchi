@@ -66,7 +66,7 @@
 				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
 					<li role="listitem">
 						<a
-							href={resolve('/precios')}
+							href={resolve('/(main)/precios')}
 							aria-label="Ver el plan WaaS de Vanchi"
 							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
 						>
@@ -76,7 +76,7 @@
 					</li>
 					<li role="listitem">
 						<a
-							href={resolve('/#servicios')}
+							href={"/#servicios"}
 							aria-label="Explorar soluciones que se pueden activar con Vanchi"
 							class="btn border border-white/10 bg-base-100/40 btn-ghost transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:text-primary"
 						>

@@ -102,7 +102,7 @@
 			<!-- Botón Scroll Down -->
 			<div in:fly={{ y: 30, duration: 1000, delay: 800 }}>
 				<a
-					href={resolve('/precios#services-table')}
+					href={resolve('/(main)/precios#services-table')}
 					class="group btn shadow-[0_0_20px_rgba(197,160,89,0.3)] btn-primary hover:shadow-[0_0_30px_rgba(197,160,89,0.5)]"
 					aria-label="Ver modelo de suscripción"
 				>
@@ -195,7 +195,7 @@
 					código y garantías contractuales en nuestro documento legal.
 					<div class="mt-3">
 						<a
-							href={resolve('/condiciones-del-servicio')}
+							href={resolve('/(main)/condiciones-del-servicio')}
 							class="inline-flex items-center gap-1.5 font-medium text-primary transition-colors hover:underline"
 						>
 							<ShieldCheck size={16} />
