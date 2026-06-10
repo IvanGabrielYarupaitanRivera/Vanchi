@@ -21,27 +21,31 @@
 | Ruta | Archivo | Descripción |
 |------|---------|-------------|
 | `/` | `+page.svelte` | Home / Landing page |
-| `/chat` | `chat/+page.svelte` | Asistente IA v2 (agente minimalista) |
-| `/admin/login` | `admin/login/+page.svelte` | Login administrativo |
-| `/admin/documentos` | `admin/(protegido)/documentos/+page.svelte` | CRUD de documentos |
-| `/admin/documentos/crear` | `admin/(protegido)/documentos/crear/+page.svelte` | Crear documento |
-| `/admin/documentos/[id]` | `admin/(protegido)/documentos/[id]/+page.svelte` | Editar documento |
-| `/proyectos` | `proyectos/+page.svelte` | Listado de proyectos |
-| `/proyectos/[projectId]` | `proyectos/[projectId]/+page.svelte` | Detalle dinámico de proyecto |
-| `/precios` | `precios/+page.svelte` | Modelos de colaboración y precios |
-| `/soluciones-legales` | `soluciones-legales/+page.svelte` | Servicios legales tech |
-| `/waas` | `waas/+page.svelte` | WhatsApp as a Service |
-| `/ivan-yarupaitan-rivera` | `ivan-yarupaitan-rivera/+page.svelte` | Página personal del autor |
-| `/politica-de-privacidad` | `politica-de-privacidad/+page.svelte` | Política de privacidad |
-| `/condiciones-del-servicio` | `condiciones-del-servicio/+page.svelte` | Términos y condiciones |
-| `/eliminacion-de-datos-de-usuario` | `eliminacion-de-datos-de-usuario/+page.svelte` | Eliminación de datos |
-| `/sitemap.xml` | `sitemap.xml/+server.ts` | Sitemap dinámico (server endpoint) |
+| `/chat` | `(chat)/chat/+page.svelte` | Asistente IA v2 (agente minimalista) |
+| `/admin/login` | `(main)/admin/login/+page.svelte` | Login administrativo |
+| `/admin/documentos` | `(main)/admin/(protegido)/documentos/+page.svelte` | CRUD de documentos |
+| `/admin/documentos/crear` | `(main)/admin/(protegido)/documentos/crear/+page.svelte` | Crear documento |
+| `/admin/documentos/[id]` | `(main)/admin/(protegido)/documentos/[id]/+page.svelte` | Editar documento |
+| `/proyectos` | `(main)/proyectos/+page.svelte` | Listado de proyectos |
+| `/proyectos/[projectId]` | `(main)/proyectos/[projectId]/+page.svelte` | Detalle dinámico de proyecto |
+| `/precios` | `(main)/precios/+page.svelte` | Modelos de colaboración y precios |
+| `/soluciones-legales` | `(main)/soluciones-legales/+page.svelte` | Servicios legales tech |
+| `/waas` | `(main)/waas/+page.svelte` | WhatsApp as a Service |
+| `/ivan-yarupaitan-rivera` | `(main)/ivan-yarupaitan-rivera/+page.svelte` | Página personal del autor |
+| `/politica-de-privacidad` | `(main)/politica-de-privacidad/+page.svelte` | Política de privacidad |
+| `/condiciones-del-servicio` | `(main)/condiciones-del-servicio/+page.svelte` | Términos y condiciones |
+| `/eliminacion-de-datos-de-usuario` | `(main)/eliminacion-de-datos-de-usuario/+page.svelte` | Eliminación de datos |
+| `/sitemap.xml` | `(main)/sitemap.xml/+server.ts` | Sitemap dinámico (server endpoint) |
 
-### Layouts globales
+### Layouts (Route Groups)
+
+Los layouts usan **route groups** de SvelteKit (carpetas entre paréntesis, invisibles en la URL):
 
 | Archivo | Propósito |
 |---------|-----------|
-| `+layout.svelte` | Layout global (Header + Footer + SEO) |
+| `+layout.svelte` (raíz) | Layout raíz: solo inicializa Convex. Renderiza `{@render children()}` |
+| `(main)/+layout.svelte` | Portfolio + Admin: Header, CommandBar, Footer, `min-h-dvh flex-col` |
+| `(chat)/chat/+layout.svelte` | Asistente IA: `fixed inset-x-0 top-0 h-[100dvh]`, sin Header/Footer, maneja teclado móvil con `visualViewport` API |
 | `+error.svelte` | Página de error personalizada |
 | `layout.css` | Tokens CSS globales del design system |
 

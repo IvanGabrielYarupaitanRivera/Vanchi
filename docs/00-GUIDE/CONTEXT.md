@@ -46,14 +46,25 @@ Vanchi/
 │   │       ├── proyectos/      # Componentes de proyectos
 │   │       └── precios/        # Componentes de precios
 │   └── routes/
-│       ├── +layout.svelte      # Layout global
-│       ├── +page.svelte        # Home
+│       ├── +layout.svelte      # Layout raíz (Convex setup)
+│       ├── +error.svelte       # Error 404/500
 │       ├── layout.css          # Tokens CSS globales
-│       ├── proyectos/          # Página de proyectos + detalle dinámico
-│       ├── precios/            # Página de precios
-│       ├── soluciones-legales/ # Página legal
-│       ├── waas/               # WhatsApp as a Service
-│       └── ...                 # Políticas, sitemap, páginas estáticas
+│       ├── (main)/             # Grupo: Portfolio + Admin (Header + Footer)
+│       │   ├── +layout.svelte  # Header + CommandBar + Footer
+│       │   ├── +page.svelte    # Home
+│       │   ├── proyectos/      # Listado + detalle dinámico
+│       │   ├── precios/        # Modelos de colaboración
+│       │   ├── soluciones-legales/
+│       │   ├── waas/
+│       │   ├── admin/
+│       │   │   ├── login/      # Login administrativo
+│       │   │   └── (protegido)/# Guard de sesión
+│       │   │       └── documentos/  # CRUD de documentos
+│       │   └── ...             # Políticas, sitemap, páginas estáticas
+│       └── (chat)/             # Grupo: Asistente IA (sin Header/Footer)
+│           └── chat/
+│               ├── +layout.svelte   # Layout aislado (h-[100dvh])
+│               └── +page.svelte     # Chat completo
 ├── static/                     # Archivos estáticos (favicon, etc.)
 ├── docs/                       # 📚 Hub de documentación (estás aquí)
 ├── tasks/                      # 📋 Especificaciones activas / archivadas

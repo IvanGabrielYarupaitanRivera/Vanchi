@@ -63,7 +63,7 @@
 | `/precios` | SSR | Datos estáticos |
 | `/soluciones-legales` | SSR | Datos estáticos |
 | `/waas` | SSR | Datos estáticos |
-| `/chat` | SSR + WebSocket | Asistente IA v2 con Convex Agent (conexión reactiva) |
+| `/chat` | SSR + WebSocket | Layout aislado `(chat)/chat`, sin Header/Footer, con `visualViewport` API para teclado móvil |
 | `/admin/login` | SSR | Formulario de login |
 | `/admin/documentos` | SSR + WebSocket | CRUD con `useQuery` reactivo |
 | `/sitemap.xml` | Prerendered | Generado en build, sirve XML estático |
@@ -75,9 +75,11 @@
 
 ```
 Capa 1 — Routes (SvelteKit)
-├── +layout.svelte      → Layout global (Header + Footer + children)
-├── +error.svelte       → Página de error 404/500
-└── [ruta]/+page.svelte → Página específica
+├── +layout.svelte (raíz)  → Layout raíz (Convex setup), solo {@render children()}
+├── +error.svelte          → Página de error 404/500
+├── (main)/+layout.svelte  → Portfolio + Admin (Header, Footer, CommandBar)
+├── (chat)/chat/+layout.svelte → Chat layout aislado (h-[100dvh], visualViewport)
+└── [ruta]/+page.svelte    → Página específica
 
 Capa 2 — Components (Svelte 5)
 ├── lib/components/     → Componentes reutilizables

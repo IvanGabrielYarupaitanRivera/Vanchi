@@ -27,6 +27,23 @@ Copia y pega este bloque al inicio de la lista (después de esta sección) y com
 | **Por qué** | Contexto: problema que resolvía o decisión que se tomó |
 | **Archivos afectados** | Lista de archivos con ruta relativa desde la raíz del proyecto. Incluir `tasks/*` si la spec se archivó |
 
+## 2026-06-09
+
+**Que cambio:** Refactorizacion de rutas con Route Groups + Chat mobile fix con visualViewport API.
+
+**Por que:** El chat rompia el layout en movil porque heredaba el layout global con min-h-dvh flex-1. Se separo en un grupo aislado (chat)/chat con layout propio (fixed inset-x-0 top-0 h-[100dvh] + visualViewport API). Se movio el portfolio a (main)/ con su layout (Header + Footer).
+
+**Route Groups:**
+- (main)/ - Portfolio + Admin: Header, CommandBar, Footer, min-h-dvh
+- (chat)/chat/ - Chat layout aislado: fixed inset-x-0 top-0 h-[100dvh], sin Header/Footer
+- (protegido)/ - Guard de sesion admin (dentro de (main)/admin/)
+
+**Chat mobile fix:**
+- CSS h-[100dvh] para render inicial sin saltos
+- visualViewport API para corregir Brave (no respeta dvh)
+- overflow: hidden en <html> y <body> via JS
+- Header (shrink-0) se queda arriba, mensajes (min-h-0 flex-1) se comprimen, input (shrink-0) pegado al teclado
+
 ## 2026-06-08
 
 **Qué cambió:** Implementado Asistente IA v2 (CommandBar ⌘K + ruta /chat) con Convex Agent, RAG simplificado, CRUD admin y base de conocimiento poblada.

@@ -68,13 +68,18 @@ Vanchi/
 │   │   └── server/       # Cliente Convex para SSR
 │   ├── convex/           # Backend Convex (agentes, schema, entidades)
 │   └── routes/           # Páginas y endpoints de SvelteKit
-│       ├── +layout.svelte
-│       ├── +page.svelte
-│       ├── chat/         # Asistente IA v2
-│       ├── admin/        # Login + CRUD protegido
-│       ├── proyectos/
-│       ├── precios/
-│       └── ...
+│       ├── +layout.svelte       # Raíz: Convex setup
+│       ├── (main)/              # Portfolio + Admin (Header + Footer)
+│       │   ├── +layout.svelte
+│       │   ├── +page.svelte     # Home
+│       │   ├── admin/           # Login + CRUD protegido
+│       │   ├── proyectos/
+│       │   ├── precios/
+│       │   └── ...
+│       └── (chat)/              # Asistente IA (layout aislado)
+│           └── chat/
+│               ├── +layout.svelte  # h-[100dvh] + visualViewport
+│               └── +page.svelte    # Chat completo
 ├── static/               # Archivos estáticos
 ├── docs/                 # 📚 Hub de documentación
 ├── tasks/                # 📋 Especificaciones activas / archivadas
