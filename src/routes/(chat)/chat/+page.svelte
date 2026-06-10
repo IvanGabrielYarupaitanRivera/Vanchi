@@ -137,8 +137,17 @@
 	<ChatHeader onNewConversation={newConversation} />
 
 	{#if messages.length === 0 && !isTyping}
-		<div class="flex min-h-0 flex-1 items-center justify-center overflow-y-auto px-6">
-			<ChatSuggestions onSelect={selectSuggestion} />
+		<!-- Zero state: contenido + input centrados verticalmente -->
+		<div class="flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto px-6">
+			<div class="flex w-full max-w-lg flex-col items-center justify-center gap-6 py-8">
+				<ChatSuggestions onSelect={selectSuggestion} />
+				<ChatInput bind:input={input} disabled={isLoading || isTyping} onSend={send} onKeydown={handleKeydown} zeroState={true} />
+			</div>
+		</div>
+		<div class="px-4 pb-3 sm:px-6 sm:pb-4">
+			<p class="text-center text-xs text-base-content/20">
+				Este asistente puede tener errores. Verifica la información importante con Ivan directamente.
+			</p>
 		</div>
 	{:else}
 		<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto scroll-smooth px-6 py-4">
@@ -175,9 +184,9 @@
 				{/if}
 			</div>
 		</div>
-	{/if}
 
-	<ChatInput bind:input={input} disabled={isLoading || isTyping} onSend={send} onKeydown={handleKeydown} />
+		<ChatInput bind:input={input} disabled={isLoading || isTyping} onSend={send} onKeydown={handleKeydown} />
+	{/if}
 </div>
 
 <style>

@@ -12,12 +12,15 @@
 	];
 </script>
 
-<div class="flex flex-col justify-center py-12">
-	<p class="text-sm leading-relaxed text-base-content/60">
-		Soy el asistente de <span class="text-primary">Vanchi</span>. Estoy aquí para ayudarte a
-		entender mejor lo que Ivan hace, ha hecho y puede hacer por ti.
+<div class="flex flex-col items-center text-center">
+	<h2 class="font-display text-2xl text-base-content sm:text-3xl sm:leading-tight">
+		¿Qué información buscas?
+	</h2>
+	<p class="mt-3 max-w-md text-sm leading-relaxed text-base-content/50">
+		Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre
+		proyectos, tecnologías, servicios o cualquier cosa que Ivan pueda hacer por ti.
 	</p>
-	<div class="space-y-2 pt-6">
+	<div class="mt-8 space-y-2">
 		<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
 		{#each suggestions as s (s)}
 			<button

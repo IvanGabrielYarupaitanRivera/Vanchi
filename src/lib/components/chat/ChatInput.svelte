@@ -7,17 +7,19 @@
 		disabled?: boolean;
 		onSend: () => void;
 		onKeydown: (e: KeyboardEvent) => void;
+		zeroState?: boolean;
 	}
 
 	let {
 		input = $bindable(''),
 		disabled = false,
 		onSend = () => {},
-		onKeydown = () => {}
+		onKeydown = () => {},
+		zeroState = false
 	}: Props = $props();
 </script>
 
-<div class="shrink-0 border-t border-white/10 px-4 py-3 sm:px-6 sm:py-4">
+<div class="{zeroState ? ' ' : ' border-t border-white/10'} w-full px-4 py-3 sm:px-6 sm:py-4">
 	<div class="relative flex items-end">
 		<textarea
 			use:autoResize
@@ -31,7 +33,7 @@
 		></textarea>
 		{#if input.trim().length > 0}
 			<button
-				class="btn btn-primary btn-square btn-sm absolute right-2 bottom-2"
+				class="btn absolute right-2 bottom-2 btn-square btn-sm btn-primary"
 				onclick={onSend}
 				{disabled}
 				aria-label="Enviar"
@@ -40,7 +42,9 @@
 			</button>
 		{/if}
 	</div>
-	<p class="mt-1.5 text-xs text-base-content/30 max-sm:hidden">
-		Enter para enviar · Shift+Enter para salto de línea
-	</p>
+	<div class="mt-2 flex items-center justify-end gap-2">
+		<p class="text-xs text-base-content/25 max-sm:hidden">
+			Enter para enviar · Shift+Enter para salto de línea
+		</p>
+	</div>
 </div>
