@@ -1,6 +1,8 @@
 <script lang="ts">
 	let { children } = $props();
 
+	// Bloquea scroll del html/body para que el unico scroll
+	// sea el contenedor de mensajes
 	$effect(() => {
 		const html = document.documentElement;
 		const body = document.body;
@@ -13,27 +15,6 @@
 		return () => {
 			html.style.overflow = origHtmlOverflow;
 			body.style.overflow = origBodyOverflow;
-		};
-	});
-
-	// visualViewport API: corrige Brave cuando no respeta dvh
-	// + evita panning fantasma forzando scroll a (0,0)
-	$effect(() => {
-		const chat = document.getElementById('chat-root');
-		const vv = window.visualViewport;
-		if (!chat || !vv) return;
-
-		function syncHeight() {
-			chat!.style.height = `${vv!.height}px`;
-			window.scrollTo(0, 0);
-		}
-
-		vv.addEventListener('resize', syncHeight);
-		vv.addEventListener('scroll', syncHeight);
-
-		return () => {
-			vv.removeEventListener('resize', syncHeight);
-			vv.removeEventListener('scroll', syncHeight);
 		};
 	});
 </script>
