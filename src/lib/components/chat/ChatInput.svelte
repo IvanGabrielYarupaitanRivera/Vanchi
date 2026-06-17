@@ -19,7 +19,9 @@
 	}: Props = $props();
 </script>
 
-<div class="{zeroState ? '' : 'shrink-0 border-t border-white/10'} w-full px-4 py-3 sm:px-6 sm:py-4" style="touch-action: none;">
+<div
+	class="{zeroState ? '' : 'shrink-0 border-t border-white/10'} w-full px-4 py-3 sm:px-6 sm:py-4"
+>
 	<div class="relative flex items-end">
 		<textarea
 			use:autoResize
