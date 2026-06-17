@@ -1,52 +1,40 @@
 # 🏗️ OVERVIEW — Diagrama general del sistema
 
 > Visión panorámica de la arquitectura de Vanchi.
-> Proyecto frontend-only con SvelteKit, renderizado SSR + estático, desplegado en Vercel.
+> Proyecto híbrido: frontend SvelteKit SSR + backend serverless Convex + LLM vía Vercel AI Gateway.
 
 ---
 
 ## Diagrama de componentes
 
 ```
+┌────────────────────────────────────────────────────────────┐
+│                     USUARIO                                 │
+│                      (Navegador web)                        │
+└────────┬───────────────────────────────────────────────────┘
+         │
+         ├──────────────────────────────────────────────┐
+         ▼                                              ▼
+┌─────────────────────────┐             ┌──────────────────────────┐
+│   SVELTEKIT (Vercel)    │             │   CONVEX CLOUD            │
+│                         │             │                           │
+│  SSR + Hydration        │  WebSocket  │  Agent (@convex-dev/agent)│
+│  useQuery reactivo ◄────┼─────────────┤  Schema documentosV2      │
+│  Mutations via API      ──────────────►  CRUD admin               │
+│                         │  HTTP       │  BuscarDocumentos tool    │
+│  Routes:                │             │                           │
+│   (main)/ +layout       │             │  LLM: inception/mercury-2 │
+│   (chat)/chat +layout   │             │  vía Vercel AI Gateway    │
+│   admin/(protegido)     │             │                           │
+└─────────┬───────────────┘             └──────────────────────────┘
+          │
+          ▼
 ┌──────────────────────────────────────────────────────────┐
-│                     VERIFICANTE / USUARIO                 │
-│                      (Navegador web)                      │
-└──────────────────────────┬───────────────────────────────┘
-                           │
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│                    SVELTEKIT (Vercel Edge)                │
-│                                                          │
-│  ┌──────────────┐  ┌──────────────┐  ┌───────────────┐  │
-│  │   Routes     │  │  Layout      │  │  Error        │  │
-│  │  (+page/*)   │  │  (+layout)   │  │  (+error)     │  │
-│  └──────┬───────┘  └──────┬───────┘  └───────────────┘  │
-│         │                 │                               │
-│         ▼                 ▼                               │
-│  ┌──────────────────────────────────────────────────┐    │
-│  │           Componentes Svelte 5 (lib/components/)  │    │
-│  │   home/    proyectos/    precios/    legales/     │    │
-│  └──────────────────────┬───────────────────────────┘    │
-│                         │                                  │
-│                         ▼                                  │
-│  ┌──────────────────────────────────────────────────┐    │
-│  │   Data Layer (lib/data/ + lib/services/)         │    │
-│  │   Datos estáticos en TypeScript                  │    │
-│  └──────────────────────────────────────────────────┘    │
-│                                                          │
-│  ┌──────────────────────────────────────────────────┐    │
-│  │   Vite Plugins                                   │    │
-│  │   tailwindcss() + sveltekit() + enhancedImages() │    │
-│  └──────────────────────────────────────────────────┘    │
-└──────────────────────────────────────────────────────────┘
-                           │
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│                    STATIC ASSETS                          │
+│               STATIC ASSETS + DATA LAYER                  │
 │                                                          │
 │  ┌─────────────┐  ┌──────────────┐  ┌────────────────┐  │
-│  │  WebP       │  │  SVGs        │  │  Favicon       │  │
-│  │  (images/)  │  │  (icons/)    │  │  (static/)     │  │
+│  │  WebP       │  │  SVGs        │  │  proyectos .ts │  │
+│  │  (images/)  │  │  (icons/)    │  │  (estáticos)   │  │
 │  └─────────────┘  └──────────────┘  └────────────────┘  │
 └──────────────────────────────────────────────────────────┘
 ```
@@ -57,47 +45,120 @@
 
 | Ruta | Modo | Detalle |
 |------|------|---------|
-| `/` (Home) | SSR | Renderizado en servidor, datos estáticos |
-| `/proyectos` | SSR | Listado desde data layer |
+| `/` (Home) | SSR | Datos estáticos + componentes de landing |
+| `/proyectos` | SSR | Listado desde data layer TypeScript |
 | `/proyectos/[projectId]` | SSR | Carga dinámica vía `+page.ts` + `load()` |
-| `/precios` | SSR | Datos estáticos |
-| `/soluciones-legales` | SSR | Datos estáticos |
-| `/waas` | SSR | Datos estáticos |
-| `/chat` | SSR + WebSocket | Layout aislado `(chat)/chat`, sin Header/Footer, con `visualViewport` API para teclado móvil |
-| `/admin/login` | SSR | Formulario de login |
-| `/admin/documentos` | SSR + WebSocket | CRUD con `useQuery` reactivo |
-| `/sitemap.xml` | Prerendered | Generado en build, sirve XML estático |
+| `/precios` | SSR | Contenido estático |
+| `/soluciones-legales` | SSR | Contenido estático |
+| `/waas` | SSR | Contenido estático |
+| `/chat` | SSR + WebSocket | Layout aislado `(chat)/chat`. Convex Agent vía `useQuery` reactivo + typing animation |
+| `/admin/login` | SSR | Formulario login + cookie `admin_session` |
+| `/admin/documentos` | SSR + WebSocket | CRUD con `useQuery` reactivo para listado, form actions para crear/editar |
+| `/sitemap.xml` | Prerendered | XML generado en build |
 | Páginas legales | SSR | Contenido estático |
+| `/llms.txt`, `/llms-full.txt` | Static | Archivos GEO/SEO para crawlers de IA |
 
 ---
 
-## Estructura en capas
+## Capas del sistema
+
+### Capa 1 — Frontend (SvelteKit + Vercel Edge)
 
 ```
-Capa 1 — Routes (SvelteKit)
-├── +layout.svelte (raíz)  → Layout raíz (Convex setup), solo {@render children()}
-├── +error.svelte          → Página de error 404/500
-├── (main)/+layout.svelte  → Portfolio + Admin (Header, Footer, CommandBar)
-├── (chat)/chat/+layout.svelte → Chat layout aislado (h-[100dvh], visualViewport)
-└── [ruta]/+page.svelte    → Página específica
+Routes (route groups)
+├── +layout.svelte (raíz)    → Convex setup + {@render children()}
+├── +error.svelte             → Error 404/500
+├── (main)/+layout.svelte     → Portfolio: Header + Footer + CommandBar
+├── (main)/+page.svelte       → Home
+├── (main)/proyectos/         → Listado + detalle dinámico
+├── (main)/admin/login/       → Login con cookie httpOnly
+├── (main)/admin/(protegido)/ → CRUD documentos (requiere sesión)
+└── (chat)/chat/+layout.svelte → Chat layout aislado
+    └── +page.svelte          → Chat con typing animation
 
-Capa 2 — Components (Svelte 5)
-├── lib/components/     → Componentes reutilizables
-│   ├── Header.svelte   → Navegación
-│   ├── Footer.svelte   → Footer
-│   ├── SEO.svelte      → Meta tags
-│   └── [seccion]/      → Componentes agrupados por sección
+Components
+├── lib/components/Header.svelte      → Nav pill premium
+├── lib/components/Footer.svelte      → Footer con links + redes
+├── lib/components/SEO.svelte         → Meta tags por página
+├── lib/components/chat/              → ChatHeader, ChatInput, ChatMessages, ChatSuggestions
+├── lib/components/home/              → Hero, Services, FeaturedProjects, AboutMe, etc.
+├── lib/components/proyectos/         → CardProject, OurProjects, StatsProjects
+└── lib/components/soluciones-legales/ → PhaseBentoGrid, FAQ, etc.
+```
 
-Capa 3 — Data Layer (TypeScript)
-├── lib/data/projects/  → Datos de proyectos (estáticos)
-├── lib/services/       → Servicios que consultan los datos
-├── lib/types/          → Interfaces y tipos
-└── lib/constants/      → Constantes del proyecto
+### Capa 2 — Backend Serverless (Convex Cloud)
 
-Capa 4 — Assets
-├── lib/assets/images/  → Imágenes WebP
-├── lib/assets/icons/   → SVGs (network, technologies, logos)
-└── static/             → Favicon, archivos estáticos
+```
+Schema
+├── documentosV2     → Tabla única de conocimiento (categoría, subcategoría, etiquetas, contenido)
+├── documents (v1)   → Legacy (RAG original, sin uso activo)
+├── chunks (v1)      → Legacy
+└── embeddings (v1)  → Legacy
+
+Agent (@convex-dev/agent)
+├── agentV2/
+│   ├── config/modelo.ts      → createOpenAI (Vercel AI Gateway)
+│   ├── config/prompt.ts      → System prompt con mapa de conocimiento
+│   ├── config/config.ts      → Agent con stopWhen(stepCountIs(5))
+│   ├── conversations.ts      → chat() action (input → agent.run → response)
+│   └── tools/
+│       └── documentosV2/buscarDocumentos.ts
+│           ├── zod schema: { categoria?, subcategoria?, etiquetas? }
+│           └── execute: api.entidades.documentosV2.queries.buscar
+
+Admin
+├── admin.ts                   → validarPassword() + verificarPassword action
+├── entidades/documentosV2/
+│   ├── queries.ts             → listar, obtener, buscar
+│   └── mutations.ts           → crear, actualizar, eliminar
+
+Client
+├── convex.config.ts           → env vars: AI_GATEWAY_API_KEY, ADMIN_PASSWORD
+└── _generated/                → Tipos y API generados automáticamente
+```
+
+### Capa 3 — Data Layer Estático (TypeScript)
+
+```
+lib/data/projects/     → 9 proyectos en archivos .ts individuales
+lib/services/          → ProjectService.getById(slug)
+lib/types/             → Interface Project
+lib/constants/         → projects.ts, services.ts
+```
+
+---
+
+## Conexión Frontend ↔ Convex
+
+### Reactiva (WebSocket)
+```svelte
+<script lang="ts">
+	import { useQuery } from 'convex-svelte';
+	import { api } from '$lib/convex/_generated/api';
+
+	let documentos = useQuery(api.entidades.documentosV2.queries.listar);
+</script>
+```
+
+### Mutaciones (HTTP)
+```svelte
+<script lang="ts">
+	import { useMutation } from 'convex-svelte';
+
+	let crear = useMutation(api.entidades.documentosV2.mutations.crear);
+</script>
+```
+
+### SSR (desde server load)
+```ts
+// +page.server.ts
+import { getConvexClient } from '$lib/server/convex';
+
+export const load = async () => {
+	const convex = getConvexClient();
+	const doc = await convex.query(api.entidades.documentosV2.queries.obtener, { id });
+	return { doc };
+};
 ```
 
 ---
@@ -111,6 +172,12 @@ Vite (vite.config.ts)
 └── @sveltejs/enhanced-img     → Optimización de imágenes
 
 SvelteKit (svelte.config.js)
-├── adapter: @sveltejs/adapter-vercel  → Despliegue en Vercel
-└── preprocess: vitePreprocess         → Procesa TS/SCSS
+├── adapter: @sveltejs/adapter-vercel  → Vercel Edge
+└── preprocess: vitePreprocess         → TS
+
+Convex
+├── npx convex dev             → Dev local
+├── npx convex deploy          → Producción
+├── npx convex import          → Importar datos
+└── npx convex export          → Exportar datos
 ```

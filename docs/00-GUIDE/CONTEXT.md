@@ -1,73 +1,88 @@
-# 📌 CONTEXT — Contexto del proyecto
+# CONTEXT — Contexto del proyecto
 
-> **⬅️ LECTURA OBLIGATORIA — LEER PRIMERO ANTES DE CUALQUIER TAREA**
-
----
-
-## 🆔 Identidad
-
-**Vanchi** es un portafolio web profesional de **Ivan Yarupaitan Rivera**, desarrollador full-stack y consultor tecnológico. El sitio funciona como carta de presentación, vitrina de proyectos y canal de contacto.
+> **LECTURA OBLIGATORIA — LEER PRIMERO ANTES DE CUALQUIER TAREA**
 
 ---
 
-## 🧱 Stack tecnológico
+## Identidad
 
-| Capa                 | Tecnología               | Versión               |
+**Vanchi** es un portafolio web profesional de **Ivan Yarupaitan Rivera**, desarrollador full-stack y consultor tecnologico. El sitio funciona como carta de presentacion, vitrina de proyectos y canal de contacto, e incluye un asistente IA con base de conocimiento propia.
+
+---
+
+## Stack tecnologico
+
+| Capa                 | Tecnologia               | Version               |
 | -------------------- | ------------------------ | --------------------- |
-| Framework            | SvelteKit                | 2.x                   |
+| Framework            | SvelteKit                | 2 (Svelte 5)          |
 | Lenguaje             | TypeScript               | 5.x                   |
 | UI runtime           | Svelte                   | 5.x (runes, snippets) |
 | Estilos              | Tailwind CSS             | v4                    |
 | Componentes UI       | DaisyUI                  | v5                    |
-| Íconos               | Lucide Svelte            | 0.577.x               |
+| Iconos               | Lucide Svelte            | 0.577.x               |
 | Runtime              | Bun                      | 1.3.x                 |
-| Backend IA           | Convex + @convex-dev/agent | v0.6+               |
+| Base de datos        | Convex Cloud             | —                     |
+| Agente IA            | `@convex-dev/agent`      | v0.6+                 |
 | LLM Gateway          | Vercel AI Gateway        | —                     |
-| Modelo LLM           | inception/mercury-2       | —                     |
+| Modelo LLM           | inception/mercury-2      | —                     |
 | Hosting Frontend     | Vercel                   | Adapter               |
 | Hosting Backend      | Convex Cloud             | —                     |
-| Imágenes optimizadas | `@sveltejs/enhanced-img` | —                     |
+| SEO/GEO              | llms.txt / llms-full.txt | Estatico en `static/` |
+| Imagenes optimizadas | `@sveltejs/enhanced-img` | —                     |
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 Vanchi/
 ├── src/
+│   ├── convex/                 # Backend Convex (agentes, schema, entidades)
+│   │   ├── schema.ts           # documentosV2 + tablas v1 legacy
+│   │   ├── admin.ts            # validarPassword, verificarPassword
+│   │   ├── agentV2/            # Agent minimalista (config, tools, conversations)
+│   │   ├── entidades/documentosV2/  # CRUD queries + mutations
+│   │   ├── agent/              # V1 legacy (RAG, intacto)
+│   │   └── convex.config.ts    # Env vars declaradas
 │   ├── lib/
 │   │   ├── assets/
 │   │   │   ├── icons/          # SVGs: network, technologies, logos
 │   │   │   └── images/         # WebP (hero, projects, pricing, etc.)
-│   │   └── components/
-│   │       ├── Header.svelte   # Navegación principal
-│   │       ├── Footer.svelte   # Footer del sitio
-│   │       ├── home/           # Componentes de la landing page
-│   │       ├── proyectos/      # Componentes de proyectos
-│   │       └── precios/        # Componentes de precios
-│   └── routes/
-│       ├── +layout.svelte      # Layout raíz (Convex setup)
-│       ├── +error.svelte       # Error 404/500
-│       ├── layout.css          # Tokens CSS globales
-│       ├── (main)/             # Grupo: Portfolio + Admin (Header + Footer)
-│       │   ├── +layout.svelte  # Header + CommandBar + Footer
-│       │   ├── +page.svelte    # Home
-│       │   ├── proyectos/      # Listado + detalle dinámico
-│       │   ├── precios/        # Modelos de colaboración
-│       │   ├── soluciones-legales/
-│       │   ├── waas/
-│       │   ├── admin/
-│       │   │   ├── login/      # Login administrativo
-│       │   │   └── (protegido)/# Guard de sesión
-│       │   │       └── documentos/  # CRUD de documentos
-│       │   └── ...             # Políticas, sitemap, páginas estáticas
-│       └── (chat)/             # Grupo: Asistente IA (sin Header/Footer)
-│           └── chat/
-│               ├── +layout.svelte   # Layout aislado (h-[100dvh])
-│               └── +page.svelte     # Chat completo
-├── static/                     # Archivos estáticos (favicon, etc.)
-├── docs/                       # 📚 Hub de documentación (estás aquí)
-├── tasks/                      # 📋 Especificaciones activas / archivadas
+│   │   ├── components/
+│   │   │   ├── Header.svelte   # Navegacion principal
+│   │   │   ├── Footer.svelte   # Footer del sitio
+│   │   │   ├── chat/           # ChatHeader, ChatInput, ChatMessages, ChatSuggestions
+│   │   │   ├── home/           # Hero, Services, FeaturedProjects, AboutMe, etc.
+│   │   │   └── proyectos/      # CardProject, OurProjects, etc.
+│   │   │   └── soluciones-legales/  # PhaseBentoGrid, FAQ, etc.
+│   │   ├── server/convex.ts    # Cliente Convex para SSR
+│   │   └── chat/               # chat.ts (markdown, LS, helpers)
+│   ├── routes/
+│   │   ├── +layout.svelte      # Layout raiz (Convex setup)
+│   │   ├── +error.svelte       # Error 404/500
+│   │   ├── layout.css          # Tokens CSS globales
+│   │   ├── (main)/             # Portfolio + Admin (Header + Footer + CommandBar)
+│   │   │   ├── +layout.svelte  # Header + CommandBar + Footer
+│   │   │   ├── +page.svelte    # Home
+│   │   │   ├── proyectos/      # Listado + detalle dinamico
+│   │   │   ├── precios/        # Modelos de colaboracion
+│   │   │   ├── soluciones-legales/
+│   │   │   ├── waas/
+│   │   │   ├── admin/
+│   │   │   │   ├── login/      # Login administrativo
+│   │   │   │   └── (protegido)/# Guard de sesion
+│   │   │   │       └── documentos/  # CRUD de documentos
+│   │   │   └── ...             # Politicas, sitemap, paginas estaticas
+│   │   └── (chat)/             # Asistente IA (sin Header/Footer)
+│   │       └── chat/
+│   │           ├── +layout.svelte   # Layout aislado (h-[100dvh])
+│   │           └── +page.svelte     # Chat con typing animation
+├── static/
+│   ├── llms.txt                # Mapa GEO para crawlers de IA
+│   └── llms-full.txt           # Contenido completo de conocimiento
+├── docs/                       # Hub de documentacion
+├── tasks/                      # Especificaciones activas / archivadas
+├── .agents/                    # Skills de IA para pi
 ├── DESIGN.md                   # Design system (source of truth visual)
 ├── package.json
 ├── svelte.config.js
@@ -78,37 +93,50 @@ Vanchi/
 
 ---
 
-## 🎨 Identidad visual (resumen)
+## Identidad visual (resumen)
 
 | Token              | Valor                 | Uso                            |
 | ------------------ | --------------------- | ------------------------------ |
-| `base-100`         | `oklch(15% 0.005 85)` | Fondo carbón                   |
+| `base-100`         | `oklch(15% 0.005 85)` | Fondo carbon                   |
 | `base-content`     | `oklch(92% 0.005 90)` | Texto bone white               |
-| `primary`          | `oklch(74% 0.14 85)`  | Dorado antiguo (único acento)  |
-| Tipografía UI      | Geist                 | Body, nav, botones             |
-| Tipografía display | Playfair Display      | Títulos editoriales selectivos |
+| `primary`          | `oklch(74% 0.14 85)`  | Dorado antiguo (unico acento)  |
+| Tipografia UI      | Geist                 | Body, nav, botones             |
+| Tipografia display | Playfair Display      | Titulos editoriales selectivos |
 
-> **Fuente de verdad completa:** [`/DESIGN.md`](../../DESIGN.md) en la raíz.
-
----
-
-## 🚦 Estado actual del proyecto
-
-El proyecto está **en producción activa**, desplegado en Vercel. Las páginas principales (home, proyectos, precios, legales) ya están construidas. La documentación (`docs/`) está completa con estructura de hub documental. Cada carpeta sigue una numeración por prioridad de lectura y todas están interconectadas mediante enlaces relativos y mapas de relaciones.
+> **Fuente de verdad completa:** [`/DESIGN.md`](../../DESIGN.md) en la raiz.
 
 ---
 
-## 🔗 Enlaces de navegación
+## Estado actual del proyecto
 
-| Si necesitas…                 | Ve a…                                                 |
+El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
+
+**Completado:**
+- Landing page, proyectos, precios, waas, soluciones-legales, paginas legales
+- Asistente IA v2 con ruta `/chat` (Convex Agent, tabla unica `documentosV2`, Vercel AI Gateway, typing animation, scroll suave)
+- CRUD admin protegido (`/admin/documentos`) — listar, crear, editar, eliminar
+- Base de conocimiento poblada con 26 documentos (sobre-mi, stack, servicios, precios, proyectos, legal)
+- Hub de documentacion completo (`docs/`) con 34 archivos
+- Route groups: `(main)/` portfolio, `(chat)/chat/` asistente, `(protegido)/` admin guard
+- SEO/GEO: `llms.txt` y `llms-full.txt` en produccion
+
+**Pendiente:**
+- (Opcional) Eliminar tablas v1 legacy (documents, chunks, embeddings) sin regresion
+
+---
+
+## Enlaces de navegacion
+
+| Si necesitas...                 | Ve a...                                                 |
 | ----------------------------- | ----------------------------------------------------- |
-| Entender el proyecto          | Este documento ✅                                     |
-| Arrancar rápido como agente   | [`/docs/AGENT-QUICKSTART.md`](../AGENT-QUICKSTART.md) |
-| Saber qué leer según tu tarea | [`NAVIGATION.md`](./NAVIGATION.md)                    |
+| Entender el proyecto          | Este documento                                        |
+| Arrancar rapido como agente   | [`/docs/AGENT-QUICKSTART.md`](../AGENT-QUICKSTART.md) |
+| Saber que leer segun tu tarea | [`NAVIGATION.md`](./NAVIGATION.md)                    |
 | El ciclo de trabajo           | [`WORKFLOW.md`](./WORKFLOW.md)                        |
 | Reglas del stack              | [`STACK-PATTERNS.md`](./STACK-PATTERNS.md)            |
-| Comandos rápidos              | [`/docs/CHEATSHEET.md`](../CHEATSHEET.md)             |
+| Comandos rapidos              | [`/docs/CHEATSHEET.md`](../CHEATSHEET.md)             |
 | Skills / aliados IA           | [`/docs/ALIADAS.md`](../ALIADAS.md)                   |
 | Historial de cambios          | [`/docs/CHANGELOG.md`](../CHANGELOG.md)               |
 | Design system completo        | [`/DESIGN.md`](../../DESIGN.md)                       |
+| Filosofia del agente          | [`08-FILOSOFIA-AGENTE/README.md`](../08-FILOSOFIA-AGENTE/README.md) |
 | Especificaciones archivadas   | [`/tasks/archived/`](../../tasks/archived/)           |

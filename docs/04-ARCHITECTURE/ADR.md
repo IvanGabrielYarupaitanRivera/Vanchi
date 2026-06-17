@@ -144,3 +144,110 @@
 - Integración nativa como componentes Svelte
 - Estilo consistente que combina con el diseño premium
 - Tree-shakeable (solo importas los que usas)
+
+---
+
+## ADR-008: Convex como backend serverless
+
+**Fecha:** 2026-05-30
+
+**Contexto:** Se necesitaba un backend para el asistente IA (base de conocimiento + agente) sin salir del free tier de Vercel.
+
+**Decisión:** Usar **Convex Cloud** como backend serverless.
+
+**Alternativas consideradas:**
+- **API routes de SvelteKit** — Consumen ancho de banda de Vercel (free tier limitado a 100GB/mes)
+- **Supabase** — Más pesado, no tiene agente IA nativo
+- **Firebase** — Vendor lock-in fuerte, menos flexible
+
+**Razones:**
+- Base de datos + funciones + WebSockets en un solo servicio
+- Componente `@convex-dev/agent` para agentes IA con herramientas
+- Tipo generado automáticamente extremo a extremo
+- Free tier generoso (sin límite de ancho de banda de funciones)
+- No consume ancho de banda de Vercel
+
+---
+
+## ADR-009: Agent V2 — tabla única sin RAG
+
+**Fecha:** 2026-06-08
+
+**Contexto:** La versión 1 del agente usaba 3 tablas (documentos + chunks + embeddings) con RAG vectorial. Era compleja de mantener y el pipeline de embeddings era frágil.
+
+**Decisión:** Reemplazar con **una sola tabla `documentosV2`** con búsqueda por categorías/subcategorías/etiquetas. Sin embeddings, sin vector search.
+
+**Alternativas consideradas:**
+- **RAG v1 (3 tablas)** — Complejidad innecesaria para un portafolio con pocos documentos
+- **pgvector** — Overkill, no se justifica para 26 documentos
+- **Búsqueda full-text** — No filtra por estructura; el agente obtiene documentos sin contexto
+
+**Razones:**
+- Con 26 documentos, la búsqueda estructurada es más predecible que RAG
+- Sin embeddings: cero mantenimiento de pipelines de vectores
+- Las categorías literales (`v.literal`) dan tipado estricto
+- El agente construye filtros precisos usando el mapa de conocimiento en el prompt
+- Mucho más fácil de poblar y mantener
+
+---
+
+## ADR-010: Vercel AI Gateway (no OpenAI directo)
+
+**Fecha:** 2026-06-08
+
+**Contexto:** Se necesitaba llamar a un LLM desde Convex sin exponer API keys en el frontend y sin rate limits restrictivos.
+
+**Decisión:** Usar **Vercel AI Gateway** con URL `https://ai-gateway.vercel.sh/v1`.
+
+**Alternativas consideradas:**
+- **OpenAI directo** — API key expuesta o necesidad de proxy, rate limits por IP
+- **OpenRouter** — Tercero no oficial, latencia variable
+
+**Razones:**
+- Gateway unificado: cache, rate limiting, failover
+- La API key se configura en Convex Dashboard, nunca llega al cliente
+- Modelo `inception/mercury-2` disponible con buena latencia
+- `createOpenAI({ apiKey, baseURL })` desde Convex action — setup mínimo
+
+---
+
+## ADR-011: Route groups para aislar layouts
+
+**Fecha:** 2026-06-09
+
+**Contexto:** El chat heredaba el layout global (Header, Footer, `min-h-dvh`, `flex-1`), rompiendo la UI en móvil cuando el teclado se abría.
+
+**Decisión:** Separar en **route groups** de SvelteKit:
+- `(main)/` — Portfolio + Admin (Header, Footer, 100dvh)
+- `(chat)/chat/` — Chat (fixed, sin Header/Footer)
+- `(protegido)/` — Guard de sesión admin
+
+**Alternativas consideradas:**
+- **Layout condicional** (if en +layout raíz) — Funciona pero mezcla responsabilidades
+- **Una sola página SPA** — Pierde SSR y SEO
+
+**Razones:**
+- Aislamiento total: el chat no hereda nada del layout global
+- `(chat)/chat/+layout.svelte` puede usar `fixed inset-x-0 top-0 h-[100dvh]` sin interferencias
+- `resolve()` con prefijo del route group para navegación interna
+- Sin condicionales en el layout raíz
+
+---
+
+## ADR-012: localStorage sobre sessionStorage para admin
+
+**Fecha:** 2026-06-08
+
+**Contexto:** El panel admin necesita recordar la contraseña para mutaciones (crear/editar/eliminar). `sessionStorage` se perdía en navegaciones.
+
+**Decisión:** Usar **`localStorage`** en vez de `sessionStorage`.
+
+**Alternativas consideradas:**
+- **sessionStorage** — Se perdía al navegar (race condition entre $effect y goto)
+- **Cookie** — Funciona para la sesión (cookie httpOnly admin_session), pero no para el password de mutación (necesario en cada write)
+
+**Razones:**
+- localStorage persiste entre navegaciones de página
+- El login devuelve la contraseña desde el form action (IIFE para evitar `state_referenced_locally`)
+- El usuario la guarda en localStorage para pasarla en cada mutación
+- Simple y directo (KISS)

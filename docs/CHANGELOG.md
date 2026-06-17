@@ -27,6 +27,22 @@ Copia y pega este bloque al inicio de la lista (después de esta sección) y com
 | **Por qué** | Contexto: problema que resolvía o decisión que se tomó |
 | **Archivos afectados** | Lista de archivos con ruta relativa desde la raíz del proyecto. Incluir `tasks/*` si la spec se archivó |
 
+## 2026-06-17
+
+**Que cambio:** Actualizacion masiva de documentacion.
+
+**Por que:** Documentacion desactualizada.
+
+**Archivos afectados:**
+- docs/06-BUSINESS-RULES/CORE-PRINCIPLES.md
+- docs/04-ARCHITECTURE/OVERVIEW.md
+- docs/04-ARCHITECTURE/ADR.md
+- docs/00-GUIDE/CONTEXT.md
+- docs/01-PROJECT/ROADMAP.md
+- docs/02-FRONTEND/README.md
+- docs/04-ARCHITECTURE/DATA-FLOW.md
+- docs/README.md
+
 ## 2026-06-09
 
 **Que cambio:** Refactorizacion de rutas con Route Groups + Chat mobile fix con visualViewport API.

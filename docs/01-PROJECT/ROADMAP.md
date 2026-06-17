@@ -7,11 +7,13 @@
 
 ## Corto plazo (próximos sprints)
 
-- [x] Completar el hub de documentación `docs/` (TASK-001) ✅
-- [x] Agregar proyecto Molaric al portafolio (TASK-002) ✅
-- [x] Implementar asistente IA v2 con Convex Agent (TASK-003/TASK-004) ✅
-- [ ] Revisar y mejorar la página de proyectos con métricas de impacto
-- [ ] Optimizar imágenes y assets para mejorar Lighthouse scores
+- [x] Completar el hub de documentacion `docs/` (TASK-001)
+- [x] Agregar proyecto Molaric al portafolio (TASK-002)
+- [x] Implementar asistente IA v2 con Convex Agent (TASK-004)
+- [x] Poblar base de conocimiento (26 documentos)
+- [x] SEO/GEO: llms.txt y llms-full.txt
+- [ ] Revisar y mejorar la pagina de proyectos con metricas de impacto
+- [ ] Optimizar imagenes y assets para mejorar Lighthouse scores
 
 ---
 

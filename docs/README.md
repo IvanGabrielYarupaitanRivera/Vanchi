@@ -63,5 +63,9 @@ docs/
 
 ---
 
-> 💡 **Primera vez aquí?** Empieza por [`00-GUIDE/CONTEXT.md`](./00-GUIDE/CONTEXT.md).
-> 📜 **¿Qué cambió recientemente?** Revisa [`CHANGELOG.md`](./CHANGELOG.md).
+| Especificaciones archivadas   | [`/tasks/archived/`](../../tasks/archived/)           |
+
+---
+
+> **Primera vez aqui?** Empieza por [`00-GUIDE/CONTEXT.md`](./00-GUIDE/CONTEXT.md).
+> **Que cambio recientemente?** Revisa [`CHANGELOG.md`](./CHANGELOG.md).

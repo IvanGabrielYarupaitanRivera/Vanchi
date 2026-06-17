@@ -92,15 +92,21 @@
 
 ---
 
-## 🎯 Sin backend
+## 🎯 Backend minimalista con Convex
 
-**Regla:** El proyecto no depende de ningún backend externo, base de datos o CMS.
+**Regla:** El backend debe ser simple, serverless y sin costos fijos. Preferir soluciones autónomas sobre infraestructura tradicional.
+
+**Práctica:**
+- Convex Cloud como backend serverless (base de datos + funciones + WebSockets)
+- Tabla única `documentosV2` para conocimiento del agente (sin RAG, sin vectores)
+- `@convex-dev/agent` para el asistente IA, no API routes de SvelteKit
+- Admin CRUD con autenticación por contraseña maestra (sin OAuth, sin sessions complejas)
+- Datos estáticos en TypeScript para portfolios y proyectos (sin DB)
 
 **Razón:**
-- Portfolio personal con contenido que cambia con poca frecuencia
-- Zero latency en carga de datos
-- Sin costos de infraestructura
-- Deploy estático + SSR sin dependencias externas
+- El frontend estático + Convex híbrido elimina costos de servidor dedicado
+- Convex reemplaza DB + API + WebSockets en un solo servicio
+- No exceder el free tier de Vercel (el agente corre en Convex, no en API routes)
 
 ---
 

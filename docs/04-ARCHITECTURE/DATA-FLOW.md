@@ -156,5 +156,47 @@ lib/
 2. +page.ts detecta !project
 3. throw error(404, { message })
 4. SvelteKit renderiza +error.svelte
-5. Usuario ve página de error personalizada
+5. Usuario ve pagina de error personalizada
+
+---
+
+## Flujo Convex: Chat (Agente V2)
+
+```
+1. USUARIO escribe mensaje
+2. ChatInput → handleSubmit()
+3. Convex: api.agentV2.conversations.chat({ messages })
+   ├── Agent.run() con tool buscarDocumentos
+   │   └── Agent decide si necesita buscar
+   │       ├── Si: ejecuta buscarDocumentos({ categoria?, subcategoria?, etiquetas? })
+   │       │   └── Query Convex: api.entidades.documentosV2.queries.buscar
+   │       │       └── Retorna documentos matching
+   │       └── Agent lee los docs y genera respuesta
+   └── Retorna { response: string }
+4. Cliente recibe texto y lo muestra con typing animation (requestAnimationFrame)
+```
+
+### Admin CRUD con Convex
+
+```
+LISTAR (reactivo WebSocket)
+useQuery(api.entidades.documentosV2.queries.listar)
+├── Suscripcion WebSocket
+├── Retorna documentos[]
+└── Se actualiza solo cuando cambian los datos
+
+CREAR (mutacion)
+form action → mutation: api.entidades.documentosV2.mutations.crear({ data, password })
+├── Validar password
+├── Insertar en tabla documentosV2
+├── Invalidar cache de queries (reactivo)
+└── Redirect a /admin/documentos
+
+EDITAR (SSR + mutacion)
++page.server.ts → convex.query(obtener, { id })  // SSR para pre-cargar datos
+form action → mutation: api.entidades.documentosV2.mutations.actualizar({ id, data, password })
+
+ELIMINAR (mutacion)
+form action → mutation: api.entidades.documentosV2.mutations.eliminar({ id, password })
+```
 ```
