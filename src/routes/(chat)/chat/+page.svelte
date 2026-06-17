@@ -2,6 +2,7 @@
 	import { useConvexClient } from 'convex-svelte';
 	import { api } from '$convex/_generated/api';
 	import { tick } from 'svelte';
+	import { fly } from 'svelte/transition';
 	import { renderMd, setMarkdown, setHtml, getLS, setLS, removeLS } from '$lib/components/chat/chat';
 	import ChatHeader from '$lib/components/chat/ChatHeader.svelte';
 	import ChatInput from '$lib/components/chat/ChatInput.svelte';
@@ -151,15 +152,17 @@
 		<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto scroll-smooth px-6 py-4">
 			<div class="space-y-4">
 				{#each messages as msg, i (i)}
-					<div class="space-y-1">
-						{#if msg.role === 'user'}
+					{#if msg.role === 'user'}
+						<div transition:fly={{ y: 8, duration: 300 }} class="space-y-1">
 							<p class="text-sm font-medium text-base-content">{msg.text}</p>
-						{:else}
+						</div>
+					{:else}
+						<div transition:fly={{ y: 8, duration: 400 }} class="space-y-1">
 							<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
 								<div use:setMarkdown={msg.text}></div>
 							</div>
-						{/if}
-					</div>
+						</div>
+					{/if}
 				{/each}
 
 				{#if isTyping}
