@@ -1,9 +1,9 @@
 # 📋 Especificación: Agente Vanchi v2 — Arquitectura Simplificada
 
 > **ID:** TASK-004
-> **Estado:** Pendiente
+> **Estado:** Completada
 > **Creada:** 2026-06-06
-> **Completada:** —
+> **Completada:** 2026-06-17
 
 ---
 
@@ -456,16 +456,16 @@ Tool única: `buscarDocumentos` que recibe filtros y llama a la query `buscarDoc
 
 ## 11. Criterios de verificación
 
-- [ ] El schema `documentos_v2` está creado con los campos correctos
-- [ ] Las 6 funciones CRUD existen y funcionan
-- [ ] La tool `buscarDocumentos` recibe filtros y devuelve documentos
-- [ ] El agente v2 responde preguntas usando los documentos filtrados
-- [ ] `/chat` carga el agente v2 con el mismo estilo visual
-- [ ] `/admin/documentos` lista todos los documentos
-- [ ] Crear/editar/eliminar documentos funciona correctamente
-- [ ] El CommandBar actual (v1) sigue funcionando sin cambios (concluyente)
-- [ ] `bun run check` pasa
-- [ ] `npx convex dev` pasa
+- [x] El schema `documentos_v2` está creado con los campos correctos
+- [x] Las 6 funciones CRUD existen y funcionan
+- [x] La tool `buscarDocumentos` recibe filtros y devuelve documentos
+- [x] El agente v2 responde preguntas usando los documentos filtrados
+- [x] `/chat` carga el agente v2 con el mismo estilo visual
+- [x] `/admin/documentos` lista todos los documentos
+- [x] Crear/editar/eliminar documentos funciona correctamente
+- [x] El CommandBar actual (v1) sigue funcionando sin cambios
+- [x] `bun run check` pasa
+- [x] `npx convex dev` pasa
 
 ---
 

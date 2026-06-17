@@ -1,9 +1,9 @@
 # 📋 Agregar proyecto Molaric (Agente IA para clínicas dentales)
 
 > **ID:** TASK-002
-> **Estado:** Pendiente
+> **Estado:** Completada
 > **Creada:** 2026-06-04
-> **Completada:** —
+> **Completada:** 2026-06-17
 
 ---
 

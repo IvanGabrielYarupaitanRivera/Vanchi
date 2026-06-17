@@ -34,4 +34,7 @@ tasks/
 
 | Archivo | Estado |
 |---------|--------|
-| *(pendiente)* | — |
+| `todo-vanchi-assistant.md` (TASK-003) | Completada — V1 RAG funcional, convive con V2 |
+| `archived/todo-docs-hub.md` (TASK-001) | Archivada — Hub creado con 34 archivos |
+| `archived/todo-molaric-project.md` (TASK-002) | Archivada — Molaric agregado al portafolio |
+| `archived/todo-v2-agent.md` (TASK-004) | Archivada — Agent V2 implementado con 26 documentos poblados |
