@@ -37,6 +37,6 @@
 	});
 </script>
 
-<div id="chat-root" class="fixed inset-x-0 top-0 h-[100dvh] bg-base-100">
+<div id="chat-root" class="fixed inset-x-0 top-0 h-[100dvh] overflow-hidden bg-base-100">
 	{@render children()}
 </div>
