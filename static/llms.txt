@@ -1,33 +1,39 @@
 # Vanchi - Portafolio Profesional de Ivan Yarupaitan Rivera
-> Vanchi es el portafolio profesional de Ivan Yarupaitan Rivera, desarrollador full-stack y consultor tecnológico especializado en SvelteKit, Convex, Inteligencia Artificial y desarrollo web moderno. El sitio funciona como carta de presentación, vitrina de proyectos y canal de contacto para clientes que buscan desarrollo de software a medida, agentes de IA, integraciones con WhatsApp y soluciones tecnológicas para sectores como salud, educación y legal.
+> Vanchi es el portafolio profesional de Ivan Yarupaitan Rivera, desarrollador full-stack y consultor tecnológico especializado en SvelteKit, Convex, Inteligencia Artificial y desarrollo web moderno. Ofrece desarrollo de software a medida, agentes de IA conversacionales, integraciones con WhatsApp y soluciones tecnológicas para salud, educación y legal. Basado en Huancayo, Perú.
 
 ## Páginas Principales
-- [Inicio](https://vanchi.pro/) - Landing page con servicios, proyectos destacados y contacto.
-- [Asistente IA](https://vanchi.pro/chat) - Chat interactivo con el asistente de Vanchi basado en inteligencia artificial.
-- [Proyectos](https://vanchi.pro/proyectos) - Portafolio completo de proyectos realizados.
-- [Precios](https://vanchi.pro/precios) - Modelos de colaboración y estructura de precios.
-- [Servicios Legales Tech](https://vanchi.pro/soluciones-legales) - Soluciones tecnológicas para estudios jurídicos.
+- [Inicio](https://vanchi.pro/) - Landing page con servicios, proyectos destacados y contacto directo.
+- [Asistente IA](https://vanchi.pro/chat) - Chat interactivo con el agente de IA de Vanchi (modelo inception/mercury-2 vía Vercel AI Gateway).
+- [Proyectos](https://vanchi.pro/proyectos) - Portafolio completo de 9 proyectos: Molaric, ENCAP, Junín360, MediRoosevelt, Farmape, Obstetra Conecta, Diapis, Colegio Educere, Peralta Asociados.
+- [Precios](https://vanchi.pro/precios) - Modelos de colaboración: WaaS desde S/30/mes y cotización por proyecto.
+- [Servicios Legales Tech](https://vanchi.pro/soluciones-legales) - Framework de modernización tecnológica para estudios jurídicos en 5 fases.
 - [WhatsApp as a Service](https://vanchi.pro/waas) - Integración y automatización con WhatsApp Business API.
-
-## Proyectos Destacados
-- [Molaric](https://vanchi.pro/proyectos/molaric) - Plataforma para clínicas dentales con agenda inteligente, WhatsApp y Deepgram.
-- [ENCAP](https://vanchi.pro/proyectos/encap) - Sistema educativo con SvelteKit, Convex e integración con OpenRouter.
-- [Junín360](https://vanchi.pro/proyectos/junin360) - Plataforma legal con Supabase, n8n y WhatsApp.
-- [MediRoosevelt](https://vanchi.pro/proyectos/mediroosevelt) - Sistema clínico con Gemini API, Convex y Better Auth.
-- [Farmape](https://vanchi.pro/proyectos/farmape) - Plataforma farmacéutica con Gemini API y Convex.
-- [Obstetra Conecta](https://vanchi.pro/proyectos/obstetraconecta) - App de salud materna con IA y autenticación.
-- [Diapis](https://vanchi.pro/proyectos/diapis) - Diagnóstico por imágenes con LiveKit y Gemini API.
-- [Colegio Educere](https://vanchi.pro/proyectos/colegio-educere) - Plataforma educativa con SvelteKit y Tailwind.
-- [Peralta Asociados](https://vanchi.pro/proyectos/peralta-asociados) - Web corporativa legal con Astro y Netlify.
-
-## Sobre Mí
-- [Ivan Yarupaitan Rivera](https://vanchi.pro/ivan-yarupaitan-rivera) - Perfil profesional, experiencia, metodología de trabajo, redes sociales y equipo.
+- [Ivan Yarupaitan Rivera](https://vanchi.pro/ivan-yarupaitan-rivera) - Perfil profesional completo, experiencia, metodología y equipo.
 
 ## Stack Tecnológico
-- Frontend: SvelteKit, Svelte 5 (runes), Tailwind CSS v4, DaisyUI v5
-- Backend: Convex (serverless database + agents), Supabase, n8n, Better Auth
-- IA: Vercel AI Gateway, OpenRouter, Gemini API, Deepgram, LiveKit
-- Hosting: Vercel (frontend), Convex Cloud (backend)
+- **Frontend:** SvelteKit 5, Svelte 5 (runes), Tailwind CSS v4, DaisyUI v5, TypeScript, Lucide Svelte, Astro
+- **Backend y DB:** Convex (serverless database + agents + tiempo real), Supabase, Better Auth, n8n
+- **IA:** Vercel AI Gateway, @convex-dev/agent, OpenRouter, Gemini API, Deepgram STT (Nova-2), LiveKit
+- **Comunicaciones:** Kapso (WhatsApp Business API), Google Calendar API, WhatsApp Cloud API
+- **Hosting:** Vercel (frontend), Convex Cloud (backend), Netlify
+
+## Proyectos Destacados
+- [Molaric](https://vanchi.pro/proyectos/molaric) - Agente IA para clínicas dentales vía WhatsApp con agendamiento inteligente y sincronización Google Calendar. Stack: SvelteKit, Convex, Vercel AI Gateway, Deepgram, Kapso.
+- [ENCAP](https://vanchi.pro/proyectos/encap) - Tutor IA educativo con conocimiento específico por curso. Stack: SvelteKit, Lit, OpenRouter, Convex.
+- [Junín360](https://vanchi.pro/proyectos/junin360) - Sistema de control de informes para el Gobierno Regional de Junín. Stack: SvelteKit, Supabase, n8n, OpenRouter.
+- [MediRoosevelt](https://vanchi.pro/proyectos/mediroosevelt) - App de recursos médicos con IA. Ganó 1er puesto Expociencia 2025. Stack: SvelteKit, Convex, Gemini API, Better Auth.
+- [Farmape](https://vanchi.pro/proyectos/farmape) - App de recursos farmacéuticos con IA. Ganó 1er puesto Expociencia 2025. Stack: SvelteKit, Convex, Gemini API.
+- [Obstetra Conecta](https://vanchi.pro/proyectos/obstetraconecta) - App de obstetricia con IA. Ganó 2do puesto Expociencia 2025. Stack: SvelteKit, Convex, Gemini API, PWA.
+- [Diapis](https://vanchi.pro/proyectos/diapis) - Generación automática de preguntas de clase con IA para docentes. Stack: SvelteKit, Convex, Gemini API, LiveKit.
+- [Colegio Educere](https://vanchi.pro/proyectos/colegio-educere) - Sitio web institucional educativo. Stack: SvelteKit, TailwindCSS, DaisyUI, Vercel.
+- [Peralta Asociados](https://vanchi.pro/proyectos/peralta-asociados) - Sitio web profesional para estudio de abogados. Stack: Astro, TailwindCSS, Netlify.
+
+## Servicios
+- **Desarrollo Web:** Landing pages, dashboards, aplicaciones en tiempo real, plataformas multi-tenant. Stack: SvelteKit + Convex.
+- **IA y Agentes:** Agentes conversacionales vía WhatsApp, asistentes virtuales con RAG, transcripción de voz, tutores IA. Stack: Convex Agent + Vercel AI Gateway.
+- **Desarrollo de Sistemas:** ERPs, CRMs, sistemas con roles y permisos, integraciones con APIs externas.
+- **Infraestructura y Soporte:** Administración de DB, dominios, hosting, monitoreo, soporte continuo.
+- **Post-entrega y Mantenimiento:** Desde S/30/mes. Corrección de bugs, seguridad, ajustes.
 
 ## Información Legal
 - [Política de Privacidad](https://vanchi.pro/politica-de-privacidad)

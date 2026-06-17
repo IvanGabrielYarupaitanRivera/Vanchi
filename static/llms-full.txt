@@ -1,0 +1,336 @@
+# Vanchi - Portafolio Profesional de Ivan Yarupaitan Rivera
+
+> Vanchi es el portafolio profesional de Ivan Yarupaitan Rivera, desarrollador full-stack y consultor tecnológico especializado en SvelteKit, Convex, Inteligencia Artificial y desarrollo web moderno. Este archivo contiene el contenido completo de la base de conocimiento del sitio.
+
+---
+
+## Sobre Mí
+
+### Ivan Yarupaitan — Quién es
+
+Ivan Yarupaitan Rivera es un desarrollador full-stack y consultor tecnológico especializado en inteligencia artificial, con sede en Perú. Su trabajo combina precisión técnica con un enfoque en diseño premium, ayudando a marcas y estudios a construir presencia digital de alto impacto.
+
+Su filosofía de trabajo se basa en tres pilares: tecnología bien ejecutada, diseño con propósito y comunicación clara. Prefiere proyectos donde pueda tomar decisiones arquitectónicas completas, desde la base de datos hasta la interfaz de usuario.
+
+Ivan se describe a sí mismo como un "socio tecnológico" más que un proveedor de servicios. No solo construye software; entiende el negocio del cliente y propone soluciones que resuelven problemas reales.
+
+Su stack principal incluye SvelteKit, Convex, TailwindCSS, TypeScript y diversas herramientas de IA. También tiene experiencia con Astro, Supabase, OpenRouter, Vercel AI Gateway y múltiples APIs.
+
+URL: https://www.vanchi.pro/ivan-yarupaitan-rivera
+
+### Ivan Yarupaitan — Datos personales
+
+Ivan nació en Huancavelica el 10 de enero de 2002. Hoy vive en Huancayo. Es ingeniero de sistemas y computación egresado de la Universidad Peruana de los Andes, y actualmente cursa una maestría en inteligencia artificial en la Universidad Continental.
+
+Tiene 24 años y en su tiempo libre disfruta del anime — su favorito es Code Geass. También es dueño orgulloso de un gato llamado Michifus.
+
+URL: https://www.vanchi.pro/ivan-yarupaitan-rivera
+
+### Redes sociales de Ivan Yarupaitan
+
+Ivan Yarupaitan está presente en las siguientes plataformas:
+
+- GitHub: https://github.com/IvanGabrielYarupaitanRivera
+- LinkedIn: https://www.linkedin.com/in/ivan-yarupaitan-rivera/
+- Facebook: https://www.facebook.com/vanchi.dev
+- Instagram: https://www.instagram.com/vanchi.dev/
+- TikTok: https://www.tiktok.com/@vanchi.dev
+- YouTube: https://www.youtube.com/@VanchiDev
+- X (Twitter): https://x.com/Vanchi_Dev
+- WhatsApp: https://wa.me/985942670
+- Email: ivangyr321@gmail.com
+
+URL: https://www.vanchi.pro/ivan-yarupaitan-rivera
+
+### Ivan Yarupaitan — Experiencia y enfoque profesional
+
+Ivan cuenta con tres años de experiencia en desarrollo de software. Ha trabajado en proyectos para los sectores salud, gobierno y educación.
+
+En el sector salud desarrolló tres proyectos para estudiantes de la Universidad Roosevelt: MediRoosevelt (Medicina Humana), Farmape (Farmacia) y Obstetra Conecta (Obstetricia), todos presentados en la Expociencia 2025.
+
+En el sector gubernamental creó Junín360, un sistema de gestión de informes de control para el Gobierno Regional de Junín (GORE Junín), diseñado para alertar a los responsables y eliminar riesgos legales.
+
+Su enfoque de desarrollo actual se basa en herramientas modernas como agentes de codificación —actualmente desarrolla activamente con Pi— y su stack favorito es Svelte, seguido de Convex como backend y TailwindCSS para diseño.
+
+Ivan se mantiene en constante actualización en el mundo de la inteligencia artificial. Su gran objetivo a largo plazo es convertirse en investigador y científico de inteligencia artificial.
+
+URL: https://www.vanchi.pro/ivan-yarupaitan-rivera
+
+### Metodología de trabajo de Ivan
+
+Ivan trabaja con una metodología de desarrollo guiado basada en especificaciones funcionales. El proceso comienza con una reunión para entender el negocio del cliente, luego se define una especificación clara de lo que se va a construir.
+
+Dar una fecha exacta no es fácil porque cada proyecto tiene sus particularidades. Sin embargo, Ivan utiliza técnicas modernas que aceleran el desarrollo: agentes de codificación como Pi para generar código rápido y preciso, desarrollo por especificaciones, y stack moderno (SvelteKit + Convex) que elimina capas innecesarias de complejidad.
+
+El desarrollo es iterativo: se entrega valor por partes, el cliente ve el progreso y puede dar feedback constante.
+
+URL: https://www.vanchi.pro/
+
+### Equipo de trabajo de Ivan
+
+Ivan trabaja actualmente solo como desarrollador. Su cofundador y apoyo moral es Michifus (su gato).
+
+Para la mayoría de proyectos, una sola persona es suficiente. Ivan ha demostrado capacidad para liderar proyectos completos end-to-end: desde el diseño de la arquitectura hasta el despliegue en producción.
+
+Si el proyecto es muy grande, el soporte siempre será continuo. Ivan no abandona proyectos: se convierte en un socio tecnológico del proyecto, no en un proveedor que entrega y se va.
+
+Ventaja de trabajar con una sola persona: comunicación directa, sin intermediarios, sin reuniones innecesarias, sin equipos que rotan.
+
+URL: https://www.vanchi.pro/
+
+---
+
+## Stack Tecnológico
+
+### Stack Tecnológico — Frontend
+
+Ivan domina las siguientes tecnologías frontend:
+
+- SvelteKit 5: Su framework principal para aplicaciones web. Usa Svelte 5 con runes ($state, $derived, $effect, $props, $bindable) y snippets. Prefiere SvelteKit sobre React por su menor cantidad de código boilerplate y mejor rendimiento.
+- TailwindCSS v4: Su framework de estilos con nueva sintaxis @theme, @apply y DaisyUI v5.
+- TypeScript: Usa TypeScript en todo el proyecto, desde el frontend hasta funciones de Convex.
+- Lucide Svelte: Para íconos.
+- Astro: Para sitios web estáticos y landing pages.
+
+URL: https://www.vanchi.pro/
+
+### Stack Tecnológico — Backend y Base de Datos
+
+Ivan domina las siguientes tecnologías backend:
+
+- Convex: Su plataforma backend principal. Combina base de datos serverless, funciones backend (queries, mutations, actions) y sincronización en tiempo real. Ivan usa Convex para casi todos sus proyectos porque elimina la necesidad de un backend tradicional, APIs REST y ORMs.
+- Better Auth: Su elección para autenticación de dashboards y paneles de administración.
+- Supabase: Lo usó en proyectos anteriores pero prefiere Convex para proyectos nuevos.
+- Experiencia adicional: Microsoft SQL Server y PocketBase en proyectos académicos.
+
+URL: https://www.vanchi.pro/
+
+### Stack Tecnológico — Inteligencia Artificial
+
+Ivan tiene experiencia significativa integrando IA en sus proyectos:
+
+- Vercel AI Gateway: Gateway unificado principal para modelos de IA.
+- @convex-dev/agent: Componente de Convex para crear agentes IA con threads persistentes, tools y RAG.
+- Modelo favorito: inception/mercury-2 por su rapidez.
+- Para codificación: DeepSeek como asistente de IA principal.
+- Gemini API: Usado en proyectos académicos tempranos.
+- Deepgram STT: Para transcripción de voz a texto en español (modelo Nova-2).
+- LiveKit: Para comunicaciones en tiempo real (audio/video).
+- Kapso: Plataforma WhatsApp Business API.
+- Herramientas de flujo: Pi como agente de codificación.
+
+URL: https://www.vanchi.pro/
+
+---
+
+## Servicios
+
+### Servicios — Desarrollo Web
+
+Ivan ofrece desarrollo web completo, desde landing pages hasta aplicaciones web complejas. Su enfoque es construir productos digitales premium con tecnología moderna.
+
+Tipos de proyectos: landing pages, sitios corporativos, dashboards, sistemas con autenticación, aplicaciones en tiempo real, plataformas multi-tenant, integraciones con APIs externas (Google Calendar, WhatsApp, pagos).
+
+Su proceso: reunión inicial, propuesta técnica, desarrollo iterativo con feedback constante, deployment y soporte.
+
+Stack típico: SvelteKit + Convex + TailwindCSS + TypeScript. Despliegue en Vercel.
+
+URL: https://www.vanchi.pro/#servicios
+
+### Servicios — Inteligencia Artificial y Agentes
+
+Ivan se especializa en construir agentes de IA conversacionales que resuelven problemas reales de negocio.
+
+Tipos de proyectos: agentes vía WhatsApp que agendan citas, asistentes virtuales con RAG, sistemas de transcripción y análisis de voz, tutores IA personalizados, automatización de procesos con IA.
+
+Stack típico: Convex Agent + Vercel AI Gateway + WhatsApp (Kapso) + Deepgram STT.
+
+URL: https://www.vanchi.pro/#servicios
+
+### Servicios — Desarrollo de Sistemas
+
+Ivan desarrolla sistemas complejos con lógica de negocio robusta: ERPs, CRMs, sistemas con roles y permisos, flujos de trabajo automatizados, integraciones con APIs externas, procesamiento de datos en tiempo real.
+
+Stack típico: SvelteKit + Convex + TailwindCSS + TypeScript + Better Auth.
+
+URL: https://www.vanchi.pro/#servicios
+
+### Servicios — Infraestructura y Soporte
+
+Servicio integral que incluye: administración y optimización de bases de datos, gestión de dominios y hosting, mantenimiento de integraciones, soporte continuo y actualizaciones de seguridad, monitoreo de rendimiento.
+
+URL: https://www.vanchi.pro/#servicios
+
+### Post-entrega, soporte y mantenimiento
+
+Cuando Ivan entrega un proyecto, el trabajo no termina ahí. El soporte post-entrega incluye: corrección de bugs, actualizaciones de seguridad, asistencia técnica, pequeños ajustes.
+
+El costo varía según la complejidad del proyecto. Rango desde S/30/mes para proyectos simples hasta montos mayores para sistemas complejos.
+
+URL: https://www.vanchi.pro/#servicios
+
+---
+
+## Precios
+
+### Modelo de Precios y Colaboración
+
+Ivan ofrece dos modelos principales de colaboración:
+
+**Modelo WaaS (Web as a Service):** Suscripción mensual desde S/30/mes. Incluye desarrollo, hosting, dominio, mantenimiento y soporte. Ideal para estudios, clínicas y pequeñas empresas. Sin costos ocultos, sin contratos largos.
+
+**Modelo Proyecto:** Cotización por proyecto según alcance y complejidad. Ideal para aplicaciones web complejas, sistemas con IA, plataformas multi-tenant. Incluye análisis, diseño, desarrollo, testing, deployment y documentación. Se entrega el código fuente completo.
+
+Ambos modelos incluyen consultoría inicial gratuita. Ivan trabaja con empresas en Perú y Latinoamérica. Pagos en soles (S/) o dólares (USD).
+
+URL: https://www.vanchi.pro/precios
+
+---
+
+## Proyectos
+
+### Proyecto: Molaric
+
+Plataforma para clínicas dentales con agenda inteligente, WhatsApp y Deepgram.
+
+Molaric es un agente de inteligencia artificial para clínicas dentales que funciona 24/7 a través de WhatsApp. Los pacientes pueden agendar, reprogramar o cancelar citas mediante conversaciones naturales, mientras que el sistema sincroniza automáticamente con Google Calendar de la clínica.
+
+Tecnologías: SvelteKit, Convex, Vercel AI Gateway, Google Calendar API, TailwindCSS, Better Auth, TypeScript, Deepgram STT, Kapso WhatsApp.
+
+Cliente: Clínicas y consultorios dentales. Fecha: Abril 2026.
+
+Características:
+- Pacientes interactúan vía WhatsApp para agendar citas
+- Sincronización bidireccional automática con Google Calendar
+- Recordatorios inteligentes con confirmación vía WhatsApp
+- Dashboard web con métricas en tiempo real
+- Gestión de pacientes, citas, horarios y procedimientos
+- Arquitectura multi-tenant con datos aislados por clínica
+- Transcripción de voz para audios de WhatsApp (Deepgram)
+- Sistema de roles y permisos para el staff
+
+URL: https://www.vanchi.pro/proyectos/molaric
+
+### Proyecto: ENCAP
+
+Tutor con inteligencia artificial para estudiantes. Tiene conocimiento general y específico de cada curso, brindando apoyo personalizado.
+
+Tecnologías: SvelteKit, Lit, OpenRouter, Convex.
+Cliente: Institución Educativa. Fecha: Enero 2026.
+
+Características: Tutor IA con conocimiento por curso, interfaz conversacional, apoyo personalizado, integración con plan de estudios.
+
+URL: https://www.vanchi.pro/proyectos/encap
+
+### Proyecto: Junín360
+
+Plataforma de control de informes para el Gobierno Regional de Junín (GORE Junín). Desarrollada con tecnologías modernas.
+
+Tecnologías: SvelteKit, Supabase, OpenRouter, n8n.
+Cliente: GORE Junín. Fecha: Setiembre 2025.
+
+Características: Control de informes, dashboard con métricas, automatización con n8n, notificaciones por WhatsApp.
+Estado: Activo. Proyecto real implementado.
+
+URL: https://www.vanchi.pro/proyectos/junin360
+
+### Proyecto: MediRoosevelt
+
+Aplicación web para alumnos de Medicina Humana de la Universidad Roosevelt. Ganó el primer puesto en la Expociencia 2025 - II.
+
+Tecnologías: SvelteKit, TailwindCSS, Convex, Gemini API, Better Auth, Google oAuth.
+Cliente: Universidad Roosevelt. Fecha: Octubre-Noviembre 2025.
+
+Características: Chatbot con IA para dudas médicas, función "Conoce tu Medicamento", Consejos de Salud, perfil de usuario.
+
+URL: https://www.vanchi.pro/proyectos/mediroosevelt
+
+### Proyecto: Farmape
+
+Aplicación web para alumnos de Farmacia de la Universidad Roosevelt. Ganó el primer puesto en la Expociencia 2025 - II.
+
+Tecnologías: SvelteKit, TailwindCSS, Convex, Gemini API, Better Auth, Google oAuth.
+Cliente: Universidad Roosevelt. Fecha: Octubre-Noviembre 2025.
+
+Características: Chatbot con IA para dudas farmacéuticas, "Conoce tu Medicamento", Calculadora de Dosis, Consejos de Salud.
+
+URL: https://www.vanchi.pro/proyectos/farmape
+
+### Proyecto: Obstetra Conecta
+
+Aplicación web para alumnas de Obstetricia de la Universidad Roosevelt. Ganó el segundo puesto en la Expociencia 2025 - II.
+
+Tecnologías: SvelteKit, TailwindCSS, Convex, Gemini API, Better Auth, Google oAuth.
+Cliente: Universidad Roosevelt. Fecha: Octubre-Noviembre 2025.
+
+Características: Chatbot con IA para obstetricia, Calculadora Gestacional, "Conoce tu Medicamento", PWA.
+
+URL: https://www.vanchi.pro/proyectos/obstetraconecta
+
+### Proyecto: Diapis
+
+Iniciativa personal que ayuda a docentes a generar automáticamente preguntas a partir del contenido impartido en clase.
+
+Tecnologías: SvelteKit, TailwindCSS, Convex, Gemini API, LiveKit.
+Cliente: Proyecto personal. Fecha: Octubre 2025.
+
+Características: Generación automática de preguntas con IA, respuestas en tiempo real, compartir pantalla con LiveKit, dashboard del profesor y del alumno, reportes detallados.
+
+URL: https://www.vanchi.pro/proyectos/diapis
+
+### Proyecto: Colegio Educere
+
+Sitio web institucional para modernizar la presencia digital del colegio y facilitar la comunicación con las familias.
+
+Tecnologías: SvelteKit, TailwindCSS, DaisyUI, Vercel.
+Cliente: Colegio Educere - Huancayo. Fecha: Noviembre-Diciembre 2025.
+
+Características: Sitio responsivo mobile-first, sección de Admisión 2026, niveles educativos, actividades vacacionales, formularios de contacto, WhatsApp integrado.
+
+URL: https://www.vanchi.pro/proyectos/colegio-educere
+
+### Proyecto: Peralta Asociados
+
+Sitio web profesional para estudio de abogados en Huancavelica.
+
+Tecnologías: Astro, TailwindCSS, JavaScript, Netlify.
+Cliente: Peralta Asociados. Fecha: Enero-Marzo 2025.
+
+Características: Sitio rápido y optimizado para SEO, diseño responsivo, formulario de contacto, perfil Google My Business.
+
+URL: https://www.vanchi.pro/proyectos/peralta-asociados
+
+---
+
+## Soluciones Legales Tech
+
+### Vanchi Legal — Soluciones Legales Tech
+
+Framework de modernización tecnológica para estudios jurídicos en Perú, diseñado en 5 fases flexibles. Empieza desde S/30/mes.
+
+Fase 1 — El Despertar: Página web profesional, rápida y optimizada para Google. Incluye artículos, testimonios, botón WhatsApp.
+
+Fase 2 — La Transformación: Formulario inteligente, calendario de citas online, notificaciones automáticas. Add-ons: zona privada, calculadora de honorarios.
+
+Fase 3 — Sincronía Total: Sistema de gestión de clientes y expedientes a medida. Add-ons: panel de reportes, app móvil.
+
+Fase 4 — Bienvenido a la IA: Generación automática de contratos, organización del correo, recordatorios de vencimientos.
+
+Fase 5 — Mente Maestra: Asistente virtual entrenado con conocimiento legal, disponible 24/7. Add-ons: buscador de jurisprudencia, análisis de casos.
+
+Seguridad: Cifrado AES-256, cumplimiento LPDP Perú, backups automáticos diarios.
+
+URL: https://www.vanchi.pro/soluciones-legales
+
+---
+
+## Información Legal
+
+### Política de Privacidad
+URL: https://vanchi.pro/politica-de-privacidad
+
+### Condiciones del Servicio
+URL: https://vanchi.pro/condiciones-del-servicio
+
+### Eliminación de Datos de Usuario
+URL: https://vanchi.pro/eliminacion-de-datos-de-usuario
