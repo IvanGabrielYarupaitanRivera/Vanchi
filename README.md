@@ -1,6 +1,6 @@
 # Vanchi
 
-> Portafolio profesional de **Ivan Yarupaitan Rivera** — desarrollador full-stack y consultor tecnológico.
+> Portafolio profesional de **Ivan Gabriel Yarupaitan Rivera** — desarrollador full-stack y consultor tecnológico.
 
 ## 📚 Documentación del proyecto
 
