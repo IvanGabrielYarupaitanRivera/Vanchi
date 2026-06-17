@@ -67,40 +67,10 @@ const etiqueta = v.union(
 );
 
 export default defineSchema({
-	// ─── V1 (AGENTE ACTUAL — RAG) ──────────────────────────
-
-	// 📄 Documentos fuente: el contenido original del portafolio
-	// Cada fila es un documento atómico (proyecto, servicio, etc.)
-	documentos: defineTable({
-		title: v.string(),
-		slug: v.string(),
-		category: v.string(),
-	}).index("bySlug", ["slug"]),
-
-	// 🧩 Chunks: fragmentos de cada documento para búsqueda semántica
-	chunks: defineTable({
-		documentId: v.id("documentos"),
-		text: v.string(),
-		embeddingId: v.union(v.id("embeddings"), v.null()),
-	})
-		.index("byDocumentId", ["documentId"])
-		.index("byEmbeddingId", ["embeddingId"]),
-
-	// 📐 Embeddings: vectores numéricos separados del texto
-	embeddings: defineTable({
-		embedding: v.array(v.float64()),
-		chunkId: v.id("chunks"),
-	})
-		.index("byChunkId", ["chunkId"])
-		.vectorIndex("byEmbedding", {
-			vectorField: "embedding",
-			dimensions: 1536,
-		}),
-
 	// ─── V2 (AGENTE MINIMALISTA) ───────────────────────────
 
 	// 📄 Documentos estructurados con campos tipados
-	// El agente busca por categoría, subcategoría o etiquetas
+	// El agente busca por categoria, subcategoria o etiquetas
 	documentosV2: defineTable({
 		titulo: v.string(),
 		categoria,
