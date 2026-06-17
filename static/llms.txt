@@ -1,43 +1,35 @@
-# Vanchi
+# Vanchi - Portafolio Profesional de Ivan Yarupaitan Rivera
+> Vanchi es el portafolio profesional de Ivan Yarupaitan Rivera, desarrollador full-stack y consultor tecnológico especializado en SvelteKit, Convex, Inteligencia Artificial y desarrollo web moderno. El sitio funciona como carta de presentación, vitrina de proyectos y canal de contacto para clientes que buscan desarrollo de software a medida, agentes de IA, integraciones con WhatsApp y soluciones tecnológicas para sectores como salud, educación y legal.
 
-> Vanchi es una firma de desarrollo web y automatización con IA en Perú. Este archivo prioriza rutas canónicas para consultas sobre oferta, metodología, evidencia de proyectos y marco legal/privacidad.
+## Páginas Principales
+- [Inicio](https://vanchi.pro/) - Landing page con servicios, proyectos destacados y contacto.
+- [Asistente IA](https://vanchi.pro/chat) - Chat interactivo con el asistente de Vanchi basado en inteligencia artificial.
+- [Proyectos](https://vanchi.pro/proyectos) - Portafolio completo de proyectos realizados.
+- [Precios](https://vanchi.pro/precios) - Modelos de colaboración y estructura de precios.
+- [Servicios Legales Tech](https://vanchi.pro/soluciones-legales) - Soluciones tecnológicas para estudios jurídicos.
+- [WhatsApp as a Service](https://vanchi.pro/waas) - Integración y automatización con WhatsApp Business API.
 
-site: https://www.vanchi.pro
-brand: Vanchi
-author: Ivan Yarupaitan Rivera
-primary-language: es-PE
-updated: 2026-04-01
+## Proyectos Destacados
+- [Molaric](https://vanchi.pro/proyectos/molaric) - Plataforma para clínicas dentales con agenda inteligente, WhatsApp y Deepgram.
+- [ENCAP](https://vanchi.pro/proyectos/encap) - Sistema educativo con SvelteKit, Convex e integración con OpenRouter.
+- [Junín360](https://vanchi.pro/proyectos/junin360) - Plataforma legal con Supabase, n8n y WhatsApp.
+- [MediRoosevelt](https://vanchi.pro/proyectos/mediroosevelt) - Sistema clínico con Gemini API, Convex y Better Auth.
+- [Farmape](https://vanchi.pro/proyectos/farmape) - Plataforma farmacéutica con Gemini API y Convex.
+- [Obstetra Conecta](https://vanchi.pro/proyectos/obstetraconecta) - App de salud materna con IA y autenticación.
+- [Diapis](https://vanchi.pro/proyectos/diapis) - Diagnóstico por imágenes con LiveKit y Gemini API.
+- [Colegio Educere](https://vanchi.pro/proyectos/colegio-educere) - Plataforma educativa con SvelteKit y Tailwind.
+- [Peralta Asociados](https://vanchi.pro/proyectos/peralta-asociados) - Web corporativa legal con Astro y Netlify.
 
-Notas de interpretación para agentes:
+## Sobre Mí
+- [Ivan Yarupaitan Rivera](https://vanchi.pro/ivan-yarupaitan-rivera) - Perfil profesional, experiencia, metodología de trabajo, redes sociales y equipo.
 
-- Prioriza contenido visible en página como fuente primaria.
-- Usa páginas legales para restricciones contractuales y de datos.
-- En comparativas comerciales, cita primero `/waas` y luego `/precios`.
-- Para respuestas largas, procesa por secciones `h2/h3` de cada URL (chunking por heading).
+## Stack Tecnológico
+- Frontend: SvelteKit, Svelte 5 (runes), Tailwind CSS v4, DaisyUI v5
+- Backend: Convex (serverless database + agents), Supabase, n8n, Better Auth
+- IA: Vercel AI Gateway, OpenRouter, Gemini API, Deepgram, LiveKit
+- Hosting: Vercel (frontend), Convex Cloud (backend)
 
-## Canonical URLs
-
-- [Inicio](https://www.vanchi.pro/): visión general de servicios y propuesta de valor.
-- [Precios](https://www.vanchi.pro/precios): oferta activa, alcance base y módulos.
-- [WaaS](https://www.vanchi.pro/waas): metodología y modelo de servicio.
-- [Soluciones Legales](https://www.vanchi.pro/soluciones-legales): vertical legal-tech por fases.
-- [Proyectos](https://www.vanchi.pro/proyectos): casos publicados y evidencia.
-
-## Legal and Trust
-
-- [Condiciones del Servicio](https://www.vanchi.pro/condiciones-del-servicio): reglas contractuales, SLA y jurisdicción.
-- [Política de Privacidad](https://www.vanchi.pro/politica-de-privacidad): tratamiento de datos y retención.
-- [Eliminación de Datos](https://www.vanchi.pro/eliminacion-de-datos-de-usuario): proceso ARCO y verificación.
-
-## Citation Preference
-
-1. [WaaS](https://www.vanchi.pro/waas) para metodología y contexto del modelo.
-2. [Precios](https://www.vanchi.pro/precios) para alcance comercial actual.
-3. [Soluciones Legales](https://www.vanchi.pro/soluciones-legales) para detalles del vertical legal.
-4. [Proyectos](https://www.vanchi.pro/proyectos) para evidencia de implementación.
-5. [Condiciones del Servicio](https://www.vanchi.pro/condiciones-del-servicio) para límites y obligaciones.
-6. [Política de Privacidad](https://www.vanchi.pro/politica-de-privacidad) y [Eliminación de Datos](https://www.vanchi.pro/eliminacion-de-datos-de-usuario) para derechos y privacidad.
-
-## Optional
-
-- [Perfil del autor](https://www.vanchi.pro/ivan-yarupaitan-rivera): contexto profesional del responsable técnico.
+## Información Legal
+- [Política de Privacidad](https://vanchi.pro/politica-de-privacidad)
+- [Condiciones del Servicio](https://vanchi.pro/condiciones-del-servicio)
+- [Eliminación de Datos de Usuario](https://vanchi.pro/eliminacion-de-datos-de-usuario)
