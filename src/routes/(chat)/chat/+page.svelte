@@ -25,12 +25,14 @@
 		if (saved) threadId = saved;
 	});
 
+	function scrollToBottom() {
+		if (!messagesContainer) return;
+		messagesContainer.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
+	}
+
 	$effect(() => {
 		if (isTyping && typingHtml && messagesContainer) {
-			const { scrollTop, scrollHeight, clientHeight } = messagesContainer;
-			if (scrollHeight - scrollTop - clientHeight < 50) {
-				messagesContainer.scrollTop = scrollHeight;
-			}
+			scrollToBottom();
 		}
 	});
 
@@ -61,7 +63,6 @@
 					isTyping = false;
 					messages = [...messages, { role: 'assistant', text }];
 					typingHtml = '';
-					setTimeout(() => document.getElementById('chat-input')?.focus(), 50);
 				}, 300);
 			}
 		}
@@ -73,13 +74,11 @@
 		const msg = input.trim();
 		if (!msg || isLoading || isTyping) return;
 		input = '';
-		isLoading = true;
 		messages = [...messages, { role: 'user', text: msg }];
+		isLoading = true;
 		await tick();
 
-		if (messagesContainer) {
-			messagesContainer.scrollTop = messagesContainer.scrollHeight;
-		}
+		scrollToBottom();
 
 		try {
 			let text: string;
@@ -100,7 +99,6 @@
 			console.error('Error:', err);
 			messages = [...messages, { role: 'assistant', text: 'Ocurrió un error. Intenta de nuevo.' }];
 			isLoading = false;
-			setTimeout(() => document.getElementById('chat-input')?.focus(), 50);
 		}
 	}
 
