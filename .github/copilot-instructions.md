@@ -57,16 +57,19 @@ Usa `resolve()` de `$app/paths` con el prefijo correcto: `resolve('/(main)/ruta'
   - Las imagenes decorativas deben tener `alt=""`, las informativas deben tener descripcion.
   - Respeta la jerarquia de encabezados (`h1` -> `h2` -> `h3`).
 
-## 4. Sistema de Diseno (Vanchi Theme)
+## 4. Sistema de Diseno (Vanchi — The Invisible Ledger)
 
 ### Configuracion Global
 
-- **Modo:** Dark Mode Only (El diseno debe asumir siempre fondo oscuro).
+- **Modo:** Dark Mode Only (sin light mode, sin toggle).
+- **Direccion visual:** "The Invisible Ledger" — archivo editorial monocromo, no dashboard.
 - **Tipografia:**
-  - Usa una fuente **Serif** para **H1 y H2** grandes solo cuando haya intencion editorial o de lujo.
-  - Usa una fuente **Sans** para **Cuerpo y UI** (Tech).
-- **Densidad visual:** Low-to-medium density. Si dudas, reduce elementos antes de agregar mas.
-- **Acentos:** Usa un solo acento dominante por seccion. El dorado es la marca; no compitas con otros colores.
+  - **Newsreader** (serif) para **H1 y H2** — titulos editoriales.
+  - **JetBrains Mono** (monospace) para **cuerpo y UI** — codigo, automatizacion, precision.
+  - H3: JetBrains Mono, uppercase, tracking ancho. Etiqueta mecanica estilo indice.
+- **Densidad visual:** Baja. Una declaracion fuerte por viewport. Tipografia lleva el peso, no las superficies.
+- **Superficies:** Solidas, opacas. Sin vidrio, sin blur, sin opacidad. Bordes de 1px para separar.
+- **Acentos:** El unico color fuera del monocromo es **phosphor green** (`accent`). Se usa exclusivamente como indicador 6x6px de estado de ejecucion del agente. Nunca decorativo.
 
 ### Estrategia de Breakpoints (Mobile First Strict)
 
@@ -79,11 +82,13 @@ Usa `resolve()` de `$app/paths` con el prefijo correcto: `resolve('/(main)/ruta'
 
 NO uses valores Hex o nombres de colores de Tailwind fijos (`bg-black`, `text-yellow-500`). Usa las variables semanticas:
 
-- **Fondo:** `bg-base-100` (Negro Carbon).
-- **Texto Principal:** `text-base-content` (Blanco Hueso).
-- **Dorado (Marca):** `text-primary` / `bg-primary`.
-- **Bordes:** `border-white/10` o `border-primary/20`.
-- **Superficies premium:** prioriza las utilidades del tema (`vanchi-glass`, `vanchi-panel`, `vanchi-panel-hero`) antes de inventar nuevos patrones visuales.
+- **Fondo:** `bg-base-100` (Charcoal Ink — negro tinta).
+- **Contenedores:** `bg-base-200` (Limestone — gris piedra solido).
+- **Bordes:** `border-base-300` (Stone — 1px solido).
+- **Texto Principal:** `text-base-content` (Chalk White).
+- **Metadatos:** `text-secondary` (Muted Grey).
+- **Indicador de agente:** `bg-accent` (Phosphor Green — solo puntito 6px).
+- **Superficies:** `vanchi-container` (bg-base-200 + border-base-300). NUNCA `vanchi-glass` ni `vanchi-panel`.
 
 ### DaisyUI con criterio
 
@@ -93,23 +98,22 @@ NO uses valores Hex o nombres de colores de Tailwind fijos (`bg-black`, `text-ye
 - Prefiere `base-*`, `primary` y transparencias controladas frente a colores ruidosos.
 - Si una card no aporta jerarquia real, eliminela y resuelve con spacing, bordes o separacion tonal.
 
-## 5. Estrategia Estetica (Reglas Visuales)
+## 5. Estrategia Estetica (The Invisible Ledger)
 
-Aplica estas reglas para lograr el efecto de "Arquitectura Digital" sin caer en ruido visual:
+Aplica estas reglas para lograr una interfaz de archivo editorial de alta fidelidad:
 
-1.  **Glassmorphism (Cristal Ahumado):**
-    Usalo solo cuando la contencion agregue jerarquia real. Prioriza `vanchi-glass` o `vanchi-panel`.
-2.  **Enfasis dorado:**
-    Prefiere `text-primary`, `border-primary/20`, o botones `btn-primary`. El gradient text dorado es una excepcion, no una norma.
-3.  **Interacciones (Feel Premium):**
-    - Todo elemento interactivo debe tener: `transition-all duration-300 ease-out` o `vanchi-interactive`.
-    - Hover: `hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)]` (Resplandor dorado sutil).
-4.  **Micro-Detalles:**
-    - Usa `leading-loose` en parrafos de texto para mejorar la legibilidad y elegancia.
-5.  **Guardrails de composicion:**
-    - Evita el patron generico de tres cards iguales en fila si no hay una razon clara.
-    - No satures el hero con demasiadas badges, metricas o bloques de prueba social a la vez.
-    - Una buena seccion de `Vanchi` suele tener una idea dominante, una jerarquia clara y aire suficiente.
+1.  **Superficies solidas, no vidrio:**
+    `vanchi-container` (`bg-base-200` + border 1px `base-300`). Prohibido: `vanchi-glass`, `vanchi-panel`, `vanchi-panel-hero`, `backdrop-blur`, opacidad.
+2.  **Separacion por bordes, no por sombras:**
+    Todos los contenedores usan `border-base-300` (1px solido). Prohibido: `shadow-2xl`, `shadow-lg`, `shadow-md`, `shadow-sm`.
+3.  **Interacciones minimas:**
+    `transition-all duration-200 ease-out`. Hover: `hover:-translate-y-0.5`. Sin glow, sin resplandor.
+4.  **Tipografia como jerarquia:**
+    Newsreader serif para titulares. JetBrains Mono para todo lo demas. H3 en uppercase + tracking ancho como etiquetas de archivo.
+5.  **El verde es una senal, no un color:**
+    `bg-accent` solo en el indicador de ejecucion del agente (6x6px). Nunca en botones, fondos, titulos o decoracion.
+6.  **Composicion asimetrica editorial:**
+    Evitar tres cards iguales en fila. Una idea dominante por seccion. Espacio vacio como elemento de diseno.
 
 ## 6. Skills internas recomendadas
 

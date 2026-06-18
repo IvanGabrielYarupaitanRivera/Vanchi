@@ -42,7 +42,7 @@
 **Regla:** El proyecto es dark mode exclusivo. No hay modo claro ni toggle.
 
 **Razón:**
-- La identidad visual de Vanchi se basa en fondos oscuros con acentos dorados
+- La identidad visual de Vanchi sigue la dirección "The Invisible Ledger": dark mode, superficies sólidas, tipografía monocromática (Newsreader + JetBrains Mono), phosphor green como único acento (solo indicadores de ejecución).
 - Mantener un solo modo elimina complejidad de mantenimiento
 - Refuerza la percepción "luxury tech" del proyecto
 
@@ -50,7 +50,7 @@
 
 ## 🎯 Un solo acento
 
-**Regla:** El dorado (`primary`) es el único color de acento en la UI estándar.
+**Regla:** El phosphor green (`accent`) solo se usa como indicador de ejecución de agente (6px dot). El resto de la interfaz es monocroma.
 
 **Práctica:**
 - `text-primary` para CTAs, enlaces activos, highlights selectivos

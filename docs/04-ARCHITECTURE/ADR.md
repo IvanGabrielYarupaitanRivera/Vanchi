@@ -58,7 +58,7 @@
 **Razones:**
 - Refuerza la identidad "luxury tech" del proyecto
 - Elimina la complejidad de mantener dos temas visuales
-- El diseño oscuro con acentos dorados es la marca del proyecto
+- El diseño sigue la dirección "The Invisible Ledger": superficies sólidas, tipografía monocromática, sin vidrio ni dorado.
 - Consistente con referencias de diseño (Vercel, BMW, Lamborghini)
 
 ---

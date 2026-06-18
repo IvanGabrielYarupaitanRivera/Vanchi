@@ -109,8 +109,8 @@ Vanchi/
 
 | Uso       | Font             |
 | --------- | ---------------- |
-| Display   | Playfair Display |
-| UI / body | Geist            |
+| Display   | Newsreader |
+| UI / body | JetBrains Mono |
 
 ---
 

@@ -170,8 +170,8 @@ Para consulta rapida de tokens:
 | `base-100` | `oklch(15% 0.005 85)` | Fondo carbon |
 | `base-content` | `oklch(92% 0.005 90)` | Texto bone white |
 | `primary` | `oklch(74% 0.14 85)` | Dorado antiguo (unico acento) |
-| Tipografia UI | Geist | Body, nav, botones |
-| Tipografia display | Playfair Display | Titulos editoriales |
+| Tipografia UI | JetBrains Mono | Body, nav, botones, labels |
+| Tipografia display | Newsreader | Titulares editoriales H1/H2 |
 
 > Documentacion completa: [`07-DESIGN/README.md`](../07-DESIGN/README.md) y [`/DESIGN.md`](../../DESIGN.md).
 

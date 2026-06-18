@@ -95,13 +95,13 @@ Vanchi/
 
 ## Identidad visual (resumen)
 
-| Token              | Valor                 | Uso                            |
-| ------------------ | --------------------- | ------------------------------ |
-| `base-100`         | `oklch(15% 0.005 85)` | Fondo carbon                   |
-| `base-content`     | `oklch(92% 0.005 90)` | Texto bone white               |
-| `primary`          | `oklch(74% 0.14 85)`  | Dorado antiguo (unico acento)  |
-| Tipografia UI      | Geist                 | Body, nav, botones             |
-| Tipografia display | Playfair Display      | Titulos editoriales selectivos |
+| Token              | Valor                  | Uso                            |
+| ------------------ | ---------------------- | ------------------------------ |
+| `base-100`         | `oklch(11% 0.005 260)` | Fondo charcoal ink solido      |
+| `base-content`     | `oklch(94% 0.005 90)`  | Texto chalk white              |
+| `accent`           | `oklch(72% 0.22 165)`  | Phosphor green (solo indicadores) |
+| Tipografia UI      | JetBrains Mono         | Body, nav, botones, labels     |
+| Tipografia display | Newsreader             | Titulos editoriales H1/H2      |
 
 > **Fuente de verdad completa:** [`/DESIGN.md`](../../DESIGN.md) en la raiz.
 

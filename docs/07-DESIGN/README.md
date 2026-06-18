@@ -1,4 +1,4 @@
-# 🎨 07-DESIGN — Design System
+# 🎨 07-DESIGN — Design System (The Invisible Ledger)
 
 > Referencia rápida del design system de Vanchi.
 > El **source of truth** completo está en [`/DESIGN.md`](../../DESIGN.md) en la raíz del proyecto.
@@ -8,7 +8,10 @@
 
 ## 🎯 Propósito
 
-Vanchi es un portafolio **dark-only luxury tech**. Su diseño debe sentirse premium, calmado, preciso, moderno, restringido y confiable. Nunca ruidoso, juguetón, neón o sobrecargado.
+Vanchi es un portafolio **dark-only archival tech**. La dirección actual es **"The Invisible Ledger"**: una interfaz que parece un archivo de alta fidelidad, no un dashboard. Agentes que trabajan en background, tipografía que lleva el peso visual, color que es señal, nunca decoración.
+
+**Atmósfera:** sobrio, de archivo, preciso, engineered, atemporal.
+**Nunca:** brillante, vidrioso, deportivo, crypto, AI-gradient, dashboard-denso.
 
 ---
 
@@ -16,22 +19,23 @@ Vanchi es un portafolio **dark-only luxury tech**. Su diseño debe sentirse prem
 
 | Token | Valor | Uso |
 |-------|-------|-----|
-| `base-100` | `oklch(15% 0.005 85)` | Fondo principal, carbón oscuro |
-| `base-200` | `oklch(12% 0.005 85)` | Superficie secundaria |
-| `base-300` | `oklch(10% 0.005 85)` | Panel más profundo |
-| `base-content` | `oklch(92% 0.005 90)` | Texto principal, bone white |
-| `primary` | `oklch(74% 0.14 85)` | **Dorado antiguo** — único acento de marca |
-| `secondary` | `oklch(45% 0.02 85)` | Tono piedra neutro de apoyo |
-| `accent` | `oklch(98% 0 0)` | Blanco tech para highlights raros |
-| `neutral` | `oklch(25% 0.01 85)` | Superficies secundarias contenidas |
+| `base-100` | `oklch(11% 0.005 260)` | Fondo principal — charcoal ink sólido |
+| `base-200` | `oklch(15% 0.005 260)` | Contenedores sólidos — limestone |
+| `base-300` | `oklch(19% 0.005 260)` | Bordes 1px — stone |
+| `base-content` | `oklch(94% 0.005 90)` | Texto principal — chalk white |
+| `primary` | `oklch(92% 0.005 90)` | Chalk white (monocromo intencional) |
+| `secondary` | `oklch(60% 0.01 260)` | Metadatos y labels — muted grey |
+| `accent` | `oklch(72% 0.22 165)` | **Phosphor green** — SOLO indicadores de ejecución |
+| `neutral` | `oklch(20% 0.005 260)` | Superficies contenidas |
 
 ### Guardrails de color
 
-- ❌ No usar colores raw de Tailwind (`bg-black`, `text-yellow-500`, `text-gray-500`)
-- ❌ No introducir morados, azules o gradientes (estética AI genérica)
-- ❌ No usar más de un color de acento por sección
-- ❌ No usar negro puro `#000000` en superficies normales
-- ❌ No sobresaturar el dorado
+- ❌ Prohibido: dorado, amarillo, colores cálidos metálicos
+- ❌ Prohibido: superficies de vidrio, blur, opacidad
+- ❌ Prohibido: gradientes en fondos, texto o bordes
+- ❌ Prohibido: colores raw de Tailwind
+- ✅ El accent (verde fósforo) solo se usa como indicador 6×6px de estado de agente
+- ✅ Separación visual solo con bordes sólidos de 1px, nunca con sombras
 
 ---
 
@@ -39,83 +43,83 @@ Vanchi es un portafolio **dark-only luxury tech**. Su diseño debe sentirse prem
 
 | Uso | Fuente | Clase |
 |-----|--------|-------|
-| Display / títulos editoriales | **Playfair Display** | `font-serif` |
-| UI / body / nav / botones | **Geist** | `font-sans` |
+| Títulos editoriales (H1, H2) | **Newsreader** (serif) | `font-serif` |
+| UI / body / labels / código | **JetBrains Mono** (monospace) | `font-mono`, `font-sans` |
 
 ### Jerarquía
 
 | Elemento | Mobile | Desktop (lg:) |
 |----------|--------|---------------|
-| H1 (display) | `text-5xl` | `lg:text-7xl` |
+| H1 | `text-5xl` | `lg:text-7xl` |
 | H2 | `text-3xl` | `lg:text-5xl` |
-| H3 | `text-xl` a `text-3xl` | — |
-| Body | `text-sm` | `lg:text-lg` |
+| H3 | `text-xl` | `text-2xl` |
+| Body | `text-sm` | `lg:text-base` |
 
 ### Reglas tipográficas
 
-- Serif solo para títulos editoriales selectivos (1 palabra o frase corta)
-- Geist para todo lo demás: body, nav, botones, cards, labels, forms
-- Body: `leading-loose` para párrafos largos, ancho de lectura `58ch` a `65ch`
-- Labels en mayúscula solo para textos muy cortos
-- ❌ No usar Inter
+- Newsreader solo en H1/H2. Puede usar itálica en una palabra de énfasis.
+- JetBrains Mono para todo lo demás: body, nav, botones, cards, labels, forms.
+- H3: JetBrains Mono, uppercase, tracking ancho (`0.15em`). Etiqueta mecánica tipo índice de archivo.
+- Body: ancho de lectura 60ch–68ch máximo.
+- ❌ Prohibido: texto con gradiente.
+- ❌ Prohibido: Inter, Geist, Playfair Display.
 
 ---
 
 ## 🪟 Superficies y elevación
 
-### Superficie default (vidrio ahumado)
+### Superficie default (sólida, opaca)
 
 ```css
-bg-base-100/60
-backdrop-blur-lg
-border border-white/10
-shadow-2xl
+bg-base-200
+border border-base-300
+/* Sin blur, sin opacidad, sin sombras */
 ```
 
 ### Niveles de elevación
 
-| Nivel | Uso | Características |
-|-------|-----|-----------------|
-| **0** — Flat canvas | Fondos de página | Sin contenedor extra |
-| **1** — Quiet containment | Nav, paneles sutiles | Borde primero, sombra después |
-| **2** — Premium card | Elementos que necesitan énfasis | Bordes redondeados, vidrio, sombra tintada |
-| **3** — Hero surface | Panel focal único (1 por sección) | Cinematográfico, deliberado |
+| Nivel | Uso | Receta |
+|-------|-----|--------|
+| **0** — Flat canvas | Fondos de página | `bg-base-100`, sin borde |
+| **1** — Quiet container | Cards, bloques de código | `bg-base-200` + border 1px `base-300` |
+| **2** — Elevated block | Máximo 1 por página | `bg-neutral` + border 1px `base-300` |
 
 ### Guardrails
 
-- Preferir bordes y separación tonal sobre sombras agresivas
-- Sombras cálidas y suaves, nunca azules, moradas o neón
-- No apilar muchas cajas elevadas en el mismo viewport
+- ❌ Prohibido: `backdrop-blur`, `bg-opacity`, `bg-white/10`, vidrio, transparencias.
+- ✅ Separación solo con bordes sólidos de 1px.
+- ❌ Prohibido: `shadow-2xl`, `shadow-lg`, cualquier sombra.
+- ❌ Prohibido: border-radius > 4px.
 
 ---
 
 ## 🧩 Componentes clave
 
 ### Navegación
-- Sticky pill en desktop
-- Forma redondeada completa
-- Fondo smoked blur
-- Borde white/10
-- Active state: white/10 fill o gold text
+- Sticky bar sólida. `bg-base-200`.
+- Borde inferior 1px.
+- Sin blur, sin vidrio, sin sombra.
+- Active state: cambio de weight, sin highlight de fondo.
 
 ### Botones
 
 | Tipo | Estilo |
 |------|--------|
-| **Primary CTA** | Fondo dorado, sólido, lift en hover |
-| **Secondary CTA** | Ghost o smoked outline, borde white/10 |
+| **Primary CTA** | Sólido `bg-base-content`, `text-base-100`. Chalk on charcoal. |
+| **Secondary CTA** | `bg-transparent`, borde 1px, `text-base-content`. |
 
 ### Interacciones
 
 ```css
-transition-all duration-300 ease-out
-hover:-translate-y-1
+transition-all duration-200 ease-out
+hover:-translate-y-0.5
 ```
 
-### Cards
-- Esquinas redondeadas generosas
-- No sobrecargar páginas con cards
-- Espaciado interno amplio
+### Indicador de agente
+- 6×6px círculo.
+- `bg-accent` (verde) = ejecutándose.
+- `bg-secondary` (gris) = inactivo.
+- Sin glow, sin animación salvo pulso de opacidad.
 
 ---
 
@@ -125,8 +129,9 @@ hover:-translate-y-1
 - Solo `lg:` como breakpoint de escritorio
 - Contenedor centrado: `max-w-5xl` a `max-w-6xl`
 - Hero: `min-h-[100dvh]`
-- Secciones con gran respiración vertical
+- Espaciado base: 160px vertical entre secciones
 - Una idea fuerte por viewport
+- Composición asimétrica cuando aporta tensión, centrada cuando calma
 
 ---
 

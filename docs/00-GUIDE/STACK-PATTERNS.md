@@ -53,7 +53,7 @@ El proyecto usa **Svelte 5 con runes** (`$state`, `$derived`, `$effect`, `$props
 ✅ **Siempre usar los tokens semánticos:**
 - `base-100`, `base-200`, `base-300` — superficies
 - `base-content` — texto principal
-- `primary` — dorado (único acento)
+- `primary` — chalk white (monocromo intencional)
 - `secondary` — tono piedra neutro
 - `neutral` — superficies secundarias
 - `accent` — blanco tech para highlights raros

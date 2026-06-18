@@ -129,3 +129,21 @@ body {
 @utility vanchi-hairline {
 	border-color: var(--color-base-300);
 }
+
+/* newsreader-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: 'Newsreader';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/newsreader-v26-latin-regular.woff2') format('woff2');
+}
+
+/* jetbrains-mono-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: 'JetBrains Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/jetbrains-mono-v24-latin-regular.woff2') format('woff2');
+}
