@@ -13,7 +13,8 @@
 				</h2>
 				<p class="font-mono text-sm leading-relaxed text-base-content/60">
 					Gobierno Regional de Junín, Universidad Roosevelt, ENCAP, colegios y estudios
-					jurídicos. No son ejercicios. Son sistemas que funcionan en producción.
+					jurídicos. Empresa de IA en Junín con resultados comprobables. No son
+					ejercicios. Son sistemas que funcionan en producción.
 				</p>
 			</div>
 			<div class="lg:col-span-7">
