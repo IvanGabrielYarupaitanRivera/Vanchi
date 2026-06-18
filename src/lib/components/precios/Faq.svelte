@@ -16,7 +16,7 @@
 
 		<div class="space-y-px">
 			{#each items as item (item.question)}
-				<div class="collapse collapse-arrow vanchi-container">
+				<div class="collapse collapse-arrow bg-base-200 border border-base-300">
 					<input type="checkbox" />
 					<div class="collapse-title font-mono text-sm font-medium text-base-content">{item.question}</div>
 					<div class="collapse-content">

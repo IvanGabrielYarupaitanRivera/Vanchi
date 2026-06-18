@@ -13,7 +13,7 @@
 				</p>
 			</div>
 
-			<div class="vanchi-container p-8 lg:p-10">
+			<div class="card bg-base-200 border border-base-300 p-8 lg:p-10">
 				<p class="mb-2 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
 					LANDING PAGE PROFESIONAL
 				</p>
