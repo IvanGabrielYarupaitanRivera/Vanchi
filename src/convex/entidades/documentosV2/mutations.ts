@@ -8,6 +8,26 @@ import {
 } from "./literals";
 
 /**
+ * Sentinel usado en mutations opcionales para indicar que el cliente
+ * quiere borrar el campo (establecerlo a `undefined`).
+ * Centralizado aqui para que queries, mutations y tipos compartan el mismo valor.
+ */
+export const ELIMINAR = "eliminar" as const;
+
+/**
+ * Helper: toma un patch parcial y elimina cualquier valor que sea `ELIMINAR`,
+ * dejandolo como `undefined` (lo que Convex interpreta como unset).
+ * Asi el cliente puede decir "borra este campo" sin tener que saber del backend.
+ */
+function aplicarSentinels(patch: Record<string, string | string[] | undefined>): void {
+	for (const key of Object.keys(patch)) {
+		if (patch[key] === ELIMINAR) {
+			patch[key] = undefined;
+		}
+	}
+}
+
+/**
  * Crea un nuevo documento en documentosV2.
  */
 export const crear = mutation({
@@ -35,6 +55,7 @@ export const crear = mutation({
 
 /**
  * Actualiza un documento existente en documentosV2.
+ * Para borrar un campo opcional, envia el valor `ELIMINAR`.
  */
 export const actualizar = mutation({
 	args: {
@@ -42,9 +63,9 @@ export const actualizar = mutation({
 		id: v.id("documentosV2"),
 		titulo: v.optional(v.string()),
 		categoria: v.optional(categoriaValidator),
-		subcategoria: v.optional(v.union(subcategoriaValidator, v.literal("eliminar"))),
+		subcategoria: v.optional(v.union(subcategoriaValidator, v.literal(ELIMINAR))),
 		contenido: v.optional(v.string()),
-		url: v.optional(v.union(v.string(), v.literal("eliminar"))),
+		url: v.optional(v.union(v.string(), v.literal(ELIMINAR))),
 		etiquetas: v.optional(v.array(etiquetaValidator)),
 	},
 	handler: async (ctx, args) => {
@@ -56,12 +77,10 @@ export const actualizar = mutation({
 		if (args.categoria !== undefined) patch.categoria = args.categoria;
 		if (args.contenido !== undefined) patch.contenido = args.contenido;
 		if (args.etiquetas !== undefined) patch.etiquetas = args.etiquetas;
-		if (args.subcategoria !== undefined) {
-			patch.subcategoria = args.subcategoria === "eliminar" ? undefined : args.subcategoria;
-		}
-		if (args.url !== undefined) {
-			patch.url = args.url === "eliminar" ? undefined : args.url;
-		}
+		if (args.subcategoria !== undefined) patch.subcategoria = args.subcategoria;
+		if (args.url !== undefined) patch.url = args.url;
+
+		aplicarSentinels(patch);
 
 		await ctx.db.patch(args.id, patch);
 	},
