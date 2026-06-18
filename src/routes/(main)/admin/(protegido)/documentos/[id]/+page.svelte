@@ -4,13 +4,21 @@
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import type { PageProps } from './$types';
+	import {
+		CATEGORIAS,
+		SUBCATEGORIAS,
+		ETIQUETAS,
+		type Categoria,
+		type Subcategoria,
+		type Etiqueta,
+	} from '$convex/entidades/documentosV2/literals';
 
 	let { data }: PageProps = $props();
 
 	const convex = useConvexClient();
 
 	let titulo = $state((() => data.documento?.titulo ?? '')());
-	let categoria = $state<string>((() => data.documento?.categoria ?? 'sobre-mi')());
+	let categoria = $state<Categoria>((() => data.documento?.categoria ?? 'sobre-mi')());
 	let subcategoria = $state((() => data.documento?.subcategoria ?? '')());
 	let contenido = $state((() => data.documento?.contenido ?? '')());
 	let url = $state((() => data.documento?.url ?? '')());
@@ -18,22 +26,13 @@
 	let saving = $state(false);
 	let deleting = $state(false);
 
-	let etiquetasSeleccionadas = $state<string[]>((() => data.documento?.etiquetas ?? [])());
+	let etiquetasSeleccionadas = $state<Etiqueta[]>((() => data.documento?.etiquetas ?? [])());
 
-	const ALL_ETIQUETAS = [
-		'sveltekit', 'convex', 'tailwindcss', 'typescript', 'astro', 'openrouter',
-		'vercel-ai-gateway', 'whatsapp', 'deepgram', 'livekit', 'supabase', 'n8n',
-		'gemini-api', 'google-calendar', 'better-auth', 'netlify', 'lit',
-		'molaric', 'encap', 'junin360', 'mediroosevelt', 'farmape', 'obstetraconecta',
-		'diapis', 'colegio-educere', 'peralta-asociados',
-		'experiencia', 'desarrollo-web', 'agentes-ia', 'precios',
-		'redes-sociales', 'soluciones-legales', 'rutas', 'asistente', 'waas'
-	];
+	const ALL_ETIQUETAS: readonly Etiqueta[] = ETIQUETAS;
+	const categorias: readonly Categoria[] = CATEGORIAS;
+	const subcategoriasList: readonly Subcategoria[] = SUBCATEGORIAS;
 
-	const categorias = ['sobre-mi', 'stack', 'servicio', 'precios', 'proyecto', 'legal'] as const;
-	const subcategorias = ['frontend', 'backend', 'ia', 'salud', 'educacion', 'legal', 'web', 'agentes', 'waas', 'personal'] as const;
-
-	function toggleEtiqueta(e: string) {
+	function toggleEtiqueta(e: Etiqueta) {
 		if (etiquetasSeleccionadas.includes(e)) {
 			etiquetasSeleccionadas = etiquetasSeleccionadas.filter((x) => x !== e);
 		} else {
@@ -59,11 +58,11 @@
 				password,
 				id: data.id,
 				titulo,
-				categoria: categoria as 'sobre-mi' | 'stack' | 'servicio' | 'precios' | 'proyecto' | 'legal',
-				subcategoria: (subcategoria || undefined) as 'frontend' | 'backend' | 'ia' | 'salud' | 'educacion' | 'legal' | 'web' | 'agentes' | 'waas' | undefined,
+				categoria,
+				subcategoria: (subcategoria || undefined) as Subcategoria | undefined,
 				contenido,
 				url: url || undefined,
-				etiquetas: etiquetasSeleccionadas as ('sveltekit' | 'convex' | 'tailwindcss' | 'typescript' | 'astro' | 'openrouter' | 'vercel-ai-gateway' | 'whatsapp' | 'deepgram' | 'livekit' | 'supabase' | 'n8n' | 'gemini-api' | 'google-calendar' | 'better-auth' | 'netlify' | 'lit' | 'molaric' | 'encap' | 'junin360' | 'mediroosevelt' | 'farmape' | 'obstetraconecta' | 'diapis' | 'colegio-educere' | 'peralta-asociados' | 'experiencia' | 'desarrollo-web' | 'agentes-ia' | 'precios' | 'redes-sociales' | 'soluciones-legales' | 'rutas' | 'asistente' | 'waas')[],
+				etiquetas: etiquetasSeleccionadas as Etiqueta[],
 			});
 			goto(resolve('/(main)/admin/(protegido)/documentos'));
 		} catch (err) {
@@ -139,7 +138,7 @@
 			<span class="mb-1 block text-xs font-bold text-base-content/60 uppercase">Subcategoría (opcional)</span>
 			<select bind:value={subcategoria} class="select w-full">
 				<option value="">— Sin subcategoría —</option>
-				{#each subcategorias as sub (sub)}
+				{#each subcategoriasList as sub (sub)}
 					<option value={sub}>{sub}</option>
 				{/each}
 			</select>

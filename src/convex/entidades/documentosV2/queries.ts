@@ -1,5 +1,9 @@
 import { query } from "../../_generated/server";
 import { v } from "convex/values";
+import {
+	categoriaValidator,
+	subcategoriaValidator,
+} from "./literals";
 
 /**
  * Lista todos los documentos de documentosV2.
@@ -27,19 +31,8 @@ export const obtener = query({
  */
 export const buscar = query({
 	args: {
-		categoria: v.optional(
-			v.union(
-				v.literal("sobre-mi"), v.literal("stack"), v.literal("servicio"),
-				v.literal("precios"), v.literal("proyecto"), v.literal("legal")
-			)
-		),
-		subcategoria: v.optional(
-			v.union(
-				v.literal("frontend"), v.literal("backend"), v.literal("ia"),
-				v.literal("salud"), v.literal("educacion"), v.literal("legal"),
-				v.literal("web"), v.literal("agentes"), v.literal("waas"), v.literal("personal")
-			)
-		),
+		categoria: v.optional(categoriaValidator),
+		subcategoria: v.optional(subcategoriaValidator),
 		etiquetas: v.optional(v.array(v.string())),
 	},
 	handler: async (ctx, { categoria, subcategoria, etiquetas }) => {

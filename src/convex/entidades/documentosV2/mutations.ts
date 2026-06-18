@@ -1,33 +1,11 @@
 import { mutation } from "../../_generated/server";
 import { v } from "convex/values";
 import { validarPassword } from "../../admin";
-
-const categorias = v.union(
-	v.literal("sobre-mi"), v.literal("stack"), v.literal("servicio"),
-	v.literal("precios"), v.literal("proyecto"), v.literal("legal")
-);
-
-const subcategorias = v.union(
-	v.literal("frontend"), v.literal("backend"), v.literal("ia"),
-	v.literal("salud"), v.literal("educacion"), v.literal("legal"),
-	v.literal("web"), v.literal("agentes"), v.literal("waas"),
-	v.literal("personal")
-);
-
-const etiquetasValidas = v.union(
-	v.literal("sveltekit"), v.literal("convex"), v.literal("tailwindcss"),
-	v.literal("typescript"), v.literal("astro"), v.literal("openrouter"),
-	v.literal("vercel-ai-gateway"), v.literal("whatsapp"), v.literal("deepgram"),
-	v.literal("livekit"), v.literal("supabase"), v.literal("n8n"),
-	v.literal("gemini-api"), v.literal("google-calendar"), v.literal("better-auth"),
-	v.literal("netlify"), v.literal("lit"),
-	v.literal("molaric"), v.literal("encap"), v.literal("junin360"),
-	v.literal("mediroosevelt"), v.literal("farmape"), v.literal("obstetraconecta"),
-	v.literal("diapis"), v.literal("colegio-educere"), v.literal("peralta-asociados"),
-	v.literal("experiencia"), v.literal("desarrollo-web"), v.literal("agentes-ia"),
-	v.literal("precios"), v.literal("redes-sociales"), v.literal("soluciones-legales"),
-	v.literal("rutas"), v.literal("asistente"), v.literal("waas")
-);
+import {
+	categoriaValidator,
+	subcategoriaValidator,
+	etiquetaValidator,
+} from "./literals";
 
 /**
  * Crea un nuevo documento en documentosV2.
@@ -36,11 +14,11 @@ export const crear = mutation({
 	args: {
 		password: v.string(),
 		titulo: v.string(),
-		categoria: categorias,
-		subcategoria: v.optional(subcategorias),
+		categoria: categoriaValidator,
+		subcategoria: v.optional(subcategoriaValidator),
 		contenido: v.string(),
 		url: v.optional(v.string()),
-		etiquetas: v.array(etiquetasValidas),
+		etiquetas: v.array(etiquetaValidator),
 	},
 	handler: async (ctx, args) => {
 		validarPassword(args.password);
@@ -63,11 +41,11 @@ export const actualizar = mutation({
 		password: v.string(),
 		id: v.id("documentosV2"),
 		titulo: v.optional(v.string()),
-		categoria: v.optional(categorias),
-		subcategoria: v.optional(v.union(subcategorias, v.literal("eliminar"))),
+		categoria: v.optional(categoriaValidator),
+		subcategoria: v.optional(v.union(subcategoriaValidator, v.literal("eliminar"))),
 		contenido: v.optional(v.string()),
 		url: v.optional(v.union(v.string(), v.literal("eliminar"))),
-		etiquetas: v.optional(v.array(etiquetasValidas)),
+		etiquetas: v.optional(v.array(etiquetaValidator)),
 	},
 	handler: async (ctx, args) => {
 		validarPassword(args.password);

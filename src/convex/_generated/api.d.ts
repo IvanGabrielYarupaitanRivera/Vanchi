@@ -15,6 +15,7 @@ import type * as agentV2_config_prompt from "../agentV2/config/prompt.js";
 import type * as agentV2_conversations from "../agentV2/conversations.js";
 import type * as agentV2_tools_documentosV2_buscarDocumentos from "../agentV2/tools/documentosV2/buscarDocumentos.js";
 import type * as agentV2_tools_index from "../agentV2/tools/index.js";
+import type * as entidades_documentosV2_literals from "../entidades/documentosV2/literals.js";
 import type * as entidades_documentosV2_mutations from "../entidades/documentosV2/mutations.js";
 import type * as entidades_documentosV2_queries from "../entidades/documentosV2/queries.js";
 
@@ -32,6 +33,7 @@ declare const fullApi: ApiFromModules<{
   "agentV2/conversations": typeof agentV2_conversations;
   "agentV2/tools/documentosV2/buscarDocumentos": typeof agentV2_tools_documentosV2_buscarDocumentos;
   "agentV2/tools/index": typeof agentV2_tools_index;
+  "entidades/documentosV2/literals": typeof entidades_documentosV2_literals;
   "entidades/documentosV2/mutations": typeof entidades_documentosV2_mutations;
   "entidades/documentosV2/queries": typeof entidades_documentosV2_queries;
 }>;

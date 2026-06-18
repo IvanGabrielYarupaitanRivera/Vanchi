@@ -1,6 +1,11 @@
 import { createTool } from '@convex-dev/agent';
 import { api } from '../../../_generated/api';
 import { z } from 'zod';
+import {
+	CATEGORIAS,
+	SUBCATEGORIAS,
+	ETIQUETAS,
+} from '../../../entidades/documentosV2/literals';
 
 /**
  * Tool: buscarDocumentos
@@ -16,16 +21,16 @@ export const buscarDocumentos = createTool({
 		'Busca información estructurada del portafolio de Vanchi. ' +
 		'Úsala cuando el usuario pregunte sobre proyectos, servicios, stack tecnológico, precios, ' +
 		'experiencia o cualquier tema relacionado con Ivan Yarupaitan y su trabajo. ' +
-		'Puedes filtrar por categoría (sobre-mi, stack, servicio, precios, proyecto, legal), ' +
-		'subcategoría (frontend, backend, ia, salud, educacion, legal, web, agentes, waas, personal) ' +
-		'o etiquetas específicas (sveltekit, convex, molaric, etc.).',
+		`Puedes filtrar por categoría (${CATEGORIAS.join(', ')}), ` +
+		`subcategoría (${SUBCATEGORIAS.join(', ')}) ` +
+		`o etiquetas específicas (${ETIQUETAS.slice(0, 5).join(', ')}, etc.).`,
 	inputSchema: z.object({
 		categoria: z
-			.enum(['sobre-mi', 'stack', 'servicio', 'precios', 'proyecto', 'legal'])
+			.enum(CATEGORIAS)
 			.optional()
 			.describe('Filtro opcional por categoría del documento'),
 		subcategoria: z
-			.enum(['frontend', 'backend', 'ia', 'salud', 'educacion', 'legal', 'web', 'agentes', 'waas', 'personal'])
+			.enum(SUBCATEGORIAS)
 			.optional()
 			.describe('Filtro opcional por subcategoría del documento'),
 		etiquetas: z

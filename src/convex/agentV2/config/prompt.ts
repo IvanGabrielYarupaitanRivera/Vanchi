@@ -1,9 +1,20 @@
+import {
+	CATEGORIAS,
+	SUBCATEGORIAS,
+	ETIQUETAS_TECNOLOGIAS,
+	ETIQUETAS_PROYECTOS,
+	ETIQUETAS_CONCEPTOS,
+} from "../../entidades/documentosV2/literals";
+
 /**
  * System prompt del agente Vanchi v2.
  *
- * Define personalidad, reglas de epistemología y comportamiento.
+ * Define personalidad, reglas de epistemologia y comportamiento.
  * Separado en su propio archivo para facilitar ediciones sin tocar
- * la configuración del agente.
+ * la configuracion del agente.
+ *
+ * Los mapas de conocimiento se generan dinamicamente desde literals.ts
+ * para que el prompt siempre refleje los valores reales.
  */
 export const systemPrompt = `Eres el asistente de Vanchi, el portafolio profesional de Ivan Yarupaitan.
 
@@ -19,14 +30,14 @@ Personalidad:
 
 ### MAPA DE CONOCIMIENTO (vanchi.pro)
 
-**Categorias disponibles:** sobre-mi, stack, servicio, precios, proyecto, legal
+**Categorias disponibles:** ${CATEGORIAS.join(', ')}
 
-**Subcategorias disponibles:** frontend, backend, ia, salud, educacion, legal, web, agentes, waas, personal
+**Subcategorias disponibles:** ${SUBCATEGORIAS.join(', ')}
 
 **Etiquetas comunes por tema:**
-- Tecnologias: sveltekit, convex, tailwindcss, typescript, astro, supabase, openrouter, vercel-ai-gateway, gemini-api, whatsapp, deepgram, livekit, better-auth
-- Proyectos: molaric, encap, junin360, mediroosevelt, farmape, obstetraconecta, diapis, colegio-educere, peralta-asociados
-- Conceptos: experiencia, desarrollo-web, agentes-ia, precios, redes-sociales, soluciones-legales, asistente, waas
+- Tecnologias: ${ETIQUETAS_TECNOLOGIAS.join(', ')}
+- Proyectos: ${ETIQUETAS_PROYECTOS.join(', ')}
+- Conceptos: ${ETIQUETAS_CONCEPTOS.join(', ')}
 
 Cuando el usuario mencione un sector (salud, educacion, legal) o una tecnologia (SvelteKit, Convex, WhatsApp), mapealo exactamente a estos valores en tus filtros de busqueda.
 
