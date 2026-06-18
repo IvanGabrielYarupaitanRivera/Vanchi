@@ -9,7 +9,7 @@
 
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
-				<h2 class="vanchi-display text-3xl font-normal leading-tight lg:text-5xl">
+				<h2 class="vanchi-display text-3xl font-normal lg:text-5xl">
 					Pagas por<br />
 					<span class="italic">resultados</span>,<br />
 					no por horas

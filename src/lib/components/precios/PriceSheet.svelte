@@ -27,7 +27,7 @@
 			<article class="grid gap-10 py-16 vanchi-hairline {i === 0 ? 'border-t' : 'border-t'} lg:grid-cols-[280px_1fr] lg:gap-24">
 				<div>
 					<p class="mb-3 font-mono text-xs font-medium tracking-[0.15em] text-secondary">{tier.num}</p>
-					<h2 class="vanchi-display text-4xl font-normal lg:text-5xl">{tier.name}</h2>
+					<h2 class="vanchi-display text-3xl font-normal lg:text-5xl">{tier.name}</h2>
 					<p class="vanchi-display mt-6 text-2xl font-normal text-base-content/80 tabular-nums lg:text-3xl">
 						{tier.price}
 					</p>

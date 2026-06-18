@@ -9,7 +9,7 @@
 
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
-				<h2 class="vanchi-display text-3xl font-normal leading-tight lg:text-5xl">
+				<h2 class="vanchi-display text-3xl font-normal lg:text-5xl">
 					Plan de<br /><span class="italic">entrada</span>
 				</h2>
 				<p class="mt-8 max-w-prose text-sm leading-relaxed text-base-content/60">

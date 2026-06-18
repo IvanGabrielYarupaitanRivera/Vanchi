@@ -8,7 +8,7 @@
 			<div class="lg:col-span-1">
 				<p class="vanchi-eyebrow mb-16">03 // VERIFICACIÓN</p>
 
-				<h2 class="vanchi-display mb-8 text-3xl leading-tight font-normal lg:text-4xl">
+				<h2 class="vanchi-display mb-8 text-3xl font-normal lg:text-5xl">
 					Presencia<br />Digital
 				</h2>
 

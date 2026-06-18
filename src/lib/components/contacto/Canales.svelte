@@ -21,7 +21,7 @@
 					</span>
 				</div>
 
-				<h2 class="vanchi-display mb-6 text-4xl font-normal lg:text-5xl">
+				<h2 class="vanchi-display mb-6 text-3xl font-normal lg:text-5xl">
 					<span class="italic">WhatsApp</span>
 				</h2>
 
@@ -49,7 +49,7 @@
 					</span>
 				</div>
 
-				<h2 class="vanchi-display mb-6 text-4xl font-normal lg:text-5xl">
+				<h2 class="vanchi-display mb-6 text-3xl font-normal lg:text-5xl">
 					<span class="italic">Email</span>
 				</h2>
 
