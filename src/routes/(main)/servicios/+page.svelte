@@ -13,7 +13,7 @@
 			title: 'Agentes IA',
 			pain: '¿Tu personal pierde horas en tareas repetitivas?',
 			desc: 'Agentes autónomos que responden clientes, agendan citas, procesan datos y gestionan flujos completos. Sin que nadie tenga que operarlos.',
-			proof: 'Caso real: ENCAP ⭐ — Tutor AI 24/7 con 95% de satisfacción.'
+			proof: 'Caso real: ENCAP — Tutor AI 24/7 con 95% de satisfacción.'
 		},
 		{
 			slug: 'automatizacion',

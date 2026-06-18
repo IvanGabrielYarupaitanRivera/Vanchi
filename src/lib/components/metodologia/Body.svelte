@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { Sparkles } from '@lucide/svelte';
 
 	const characteristics = [
 		{
@@ -166,7 +167,7 @@
 						class="card bg-base-200 border border-base-300 p-6 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content group lg:p-8"
 					>
 						<span class="mb-3 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">CASO DE ÉXITO</span>
-						<p class="mb-2 font-mono text-sm font-medium text-base-content">ENCAP ⭐ — Tutor AI 24/7</p>
+						<p class="mb-2 font-mono text-sm font-medium text-base-content">ENCAP <Sparkles class="inline h-3 w-3 text-accent/60" aria-hidden="true" /> — Tutor AI 24/7</p>
 						<p class="max-w-md font-mono text-xs leading-relaxed text-base-content/60">
 							Agente conversacional que resuelve dudas académicas de estudiantes sin un docente
 							conectado. 95% de satisfacción. Cliente real, en producción, facturado.

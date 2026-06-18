@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Bot, Workflow, Lightbulb } from '@lucide/svelte';
+	import { Bot, Workflow, Lightbulb, Sparkles } from '@lucide/svelte';
 
 	export interface Service {
 		slug: string;
@@ -53,7 +53,13 @@
 								<p class="max-w-xl font-mono text-sm leading-relaxed text-base-content/60">
 									{service.desc}
 								</p>
-								<p class="mt-4 font-mono text-xs text-secondary">{service.proof}</p>
+								<p class="mt-4 font-mono text-xs text-secondary">
+									{#if i === 0 && service.slug === 'agentes-ia'}
+										Caso real: ENCAP <Sparkles class="inline h-3 w-3 text-accent/60" aria-hidden="true" /> — Tutor AI 24/7 con 95% de satisfaccion.
+									{:else}
+										{service.proof}
+									{/if}
+								</p>
 							</div>
 
 							<div class="hidden shrink-0 lg:flex lg:flex-col lg:items-end lg:gap-4">
