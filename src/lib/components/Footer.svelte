@@ -1,166 +1,52 @@
 <script lang="ts">
-	import { ArrowUpRight } from '@lucide/svelte';
 	import { resolve } from '$app/paths';
-	import vanchi from '$lib/assets/icons/vanchi.svg';
-	import GithubLogo from '$lib/assets/icons/network/GithubLogo.svelte';
-	import LinkedInLogo from '$lib/assets/icons/network/LinkedInLogo.svelte';
-	import WhatsAppLogo from '$lib/assets/icons/network/WhatsAppLogo.svelte';
-	import GmailLogo from '$lib/assets/icons/network/GmailLogo.svelte';
-	import FacebookLogo from '$lib/assets/icons/network/FacebookLogo.svelte';
 
 	const year = new Date().getFullYear();
-	type FooterLinkHref =
-		| '/#servicios'
-		| '/precios'
-		| '/waas'
-		| '/soluciones-legales'
-		| '/proyectos'
-		| '/ivan-yarupaitan-rivera'
-		| '/politica-de-privacidad'
-		| '/condiciones-del-servicio'
-		| '/eliminacion-de-datos-de-usuario'
-		| '/#contacto';
-
-	const navLinks: { label: string; href: FooterLinkHref }[] = [
-		{ label: 'WaaS', href: '/precios' },
-		{ label: 'Soluciones', href: '/#servicios' },
-		{ label: 'Legal Tech', href: '/soluciones-legales' },
-		{ label: 'Proyectos', href: '/proyectos' },
-		{ label: 'Metodología WaaS', href: '/waas' },
-		{ label: 'Sobre mí', href: '/ivan-yarupaitan-rivera' }
-	];
-
-	const legalLinks: { label: string; href: FooterLinkHref }[] = [
-		{ label: 'P. de Privacidad', href: '/politica-de-privacidad' },
-		{ label: 'Condiciones', href: '/condiciones-del-servicio' },
-		{ label: 'Elim. de datos', href: '/eliminacion-de-datos-de-usuario' }
-	];
 </script>
 
-<footer class="relative border-t border-white/10 bg-base-300" aria-label="Footer">
-	<div class="container mx-auto px-4 py-10">
-		<div
-			class="grid grid-cols-1 gap-12 rounded-3xl border border-white/10 bg-base-100/60 p-8 shadow-2xl backdrop-blur-lg sm:grid-cols-2 lg:grid-cols-4 lg:p-12"
-		>
-			<aside class="flex flex-col space-y-6">
-				<a
-					href={resolve('/')}
-					class="w-fit transition-transform hover:scale-105"
-					aria-label="Ir al inicio"
-				>
-					<enhanced:img src={vanchi} alt="Vanchi Logo" class="h-8" />
-				</a>
+<footer class="w-full bg-base-200 vanchi-hairline border-t font-mono text-xs text-base-content/50">
+	<!-- Matriz de enlaces -->
+	<div class="footer grid-cols-1 md:grid-cols-2 gap-0 max-w-5xl mx-auto border-x border-base-300">
+		<!-- Columna 1: Índice del sistema -->
+		<nav class="flex flex-col gap-2 p-8 border-b md:border-b-0 md:border-r border-base-300 w-full min-h-[160px]">
+			<span class="footer-title text-base-content font-bold mb-2 uppercase tracking-[0.12em]">
+				// INDEX.SRC
+			</span>
+			<div class="grid grid-cols-2 gap-x-4 gap-y-2 max-w-xs">
+				<a href={resolve('/(main)/servicios')} class="link link-hover text-base-content/60">01. Servicios</a>
+				<a href={resolve('/(main)/proyectos')} class="link link-hover text-base-content/60">04. Proyectos</a>
+				<a href={resolve('/(main)/metodologia')} class="link link-hover text-base-content/60">02. Metodología</a>
+				<a href={resolve('/(main)/precios')} class="link link-hover text-base-content/60">05. Precios</a>
+				<a href={resolve('/(main)/sectores')} class="link link-hover text-base-content/60">03. Sectores</a>
+				<a href={resolve('/(main)/contacto')} class="link link-hover text-base-content/60">06. Contacto</a>
+			</div>
+		</nav>
 
-				<p class="text-sm leading-relaxed text-base-content/70">
-					WaaS para marcas que quieren lanzar rápido, escalar con criterio y activar nuevas
-					capacidades sin reconstruir todo desde cero.
-				</p>
+		<!-- Columna 2: Protocolos legales -->
+		<nav class="flex flex-col gap-2 p-8 border-b md:border-b-0 border-base-300 w-full min-h-[160px]">
+			<span class="footer-title text-base-content font-bold mb-2 uppercase tracking-[0.12em]">
+				// LEGAL.PRT
+			</span>
+			<a href={resolve('/politica-de-privacidad')} class="link link-hover text-base-content/60">Política de Privacidad</a>
+			<a href={resolve('/condiciones-del-servicio')} class="link link-hover text-base-content/60">Condiciones del Servicio</a>
+			<a href={resolve('/eliminacion-de-datos-de-usuario')} class="link link-hover text-base-content/60">Eliminación de Datos</a>
+		</nav>
+	</div>
 
-				<a
-					href={resolve('/(main)/precios')}
-					class="btn w-fit shadow-[0_0_15px_rgba(197,160,89,0.15)] btn-sm btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(197,160,89,0.3)]"
-				>
-					Ver plan WaaS
-					<ArrowUpRight size={16} />
-				</a>
-			</aside>
+	<!-- Registro de propiedad y E-E-A-T -->
+	<div class="border-t border-base-300">
+		<div class="max-w-5xl mx-auto border-x border-base-300 p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-[11px] tracking-wider">
+			<div class="flex flex-col gap-1">
+				<span class="text-base-content/70 font-bold uppercase">Ivan Gabriel Yarupaitan Rivera</span>
+				<span class="text-base-content/40">&copy; {year} Vanchi. Todos los derechos reservados.</span>
+			</div>
 
-			<nav aria-label="Explorar sitio" class="flex flex-col space-y-4">
-				<h3 class="text-sm font-semibold tracking-wider text-base-content uppercase">Explorar</h3>
-				<ul class="flex flex-col space-y-3">
-					{#each navLinks as item (item.href)}
-						<li>
-							<a
-								class="inline-block text-sm text-base-content/60 transition-all duration-300 hover:translate-x-1 hover:text-primary"
-								href={resolve(item.href)}
-							>
-								{item.label}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-
-			<nav aria-label="Legal" class="flex flex-col space-y-4">
-				<h3 class="text-sm font-semibold tracking-wider text-base-content uppercase">Legal</h3>
-				<ul class="flex flex-col space-y-3">
-					{#each legalLinks as item (item.href)}
-						<li>
-							<a
-								class="inline-block text-sm text-base-content/60 transition-all duration-300 hover:translate-x-1 hover:text-primary"
-								href={resolve(item.href)}
-							>
-								{item.label}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</nav>
-
-			<nav aria-label="Redes y contacto" class="flex flex-col space-y-4">
-				<h3 class="text-sm font-semibold tracking-wider text-base-content uppercase">Conectar</h3>
-
-				<div class="flex flex-wrap gap-2">
-					<a
-						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-						href="https://github.com/IvanGabrielYarupaitanRivera"
-						target="_blank"
-						rel="external noopener noreferrer"
-						aria-label="GitHub"
-					>
-						<GithubLogo size={16} />
-					</a>
-					<a
-						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-						href="https://www.linkedin.com/in/ivan-yarupaitan-rivera/"
-						target="_blank"
-						rel="external noopener noreferrer"
-						aria-label="LinkedIn"
-					>
-						<LinkedInLogo size={16} />
-					</a>
-					<a
-						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-						href="https://www.facebook.com/vanchi.dev"
-						target="_blank"
-						rel="external noopener noreferrer"
-						aria-label="Facebook"
-					>
-						<FacebookLogo size={16} />
-					</a>
-					<a
-						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-						href="https://wa.me/985942670"
-						target="_blank"
-						rel="external noopener noreferrer"
-						aria-label="WhatsApp"
-					>
-						<WhatsAppLogo size={16} />
-					</a>
-					<a
-						class="btn btn-square border border-white/5 bg-base-200/50 btn-ghost transition-all duration-300 btn-sm hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/10 hover:text-primary"
-						href="mailto:ivangyr321@gmail.com"
-						target="_blank"
-						rel="external noopener noreferrer"
-						aria-label="Email"
-					>
-						<GmailLogo size={16} />
-					</a>
-				</div>
-
-				<p class="mt-4 text-xs leading-relaxed text-base-content/40">
-					Respuesta promedio en 12 horas.<br />Trabajo remoto y alcance claro.
-				</p>
-			</nav>
-		</div>
-
-		<div
-			class="mt-8 flex flex-col items-center justify-between space-y-4 px-4 sm:flex-row sm:space-y-0"
-		>
-			<p class="text-xs text-base-content/40">© {year} Vanchi. Todos los derechos reservados.</p>
-			<p class="flex items-center gap-1 text-xs text-base-content/40">
-				Diseñado con <span class="text-primary">Profesionalismo</span>
-			</p>
+			<div class="flex items-center gap-3 border border-base-300 p-3 bg-base-100 w-full md:w-auto">
+				<span class="vanchi-agent-dot animate-pulse"></span>
+				<span class="uppercase text-base-content/40">
+					Jurisdicción: Huancayo, Junín, Perú // Deploy: Active
+				</span>
+			</div>
 		</div>
 	</div>
 </footer>
