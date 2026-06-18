@@ -1,49 +1,67 @@
-<section class="w-full py-40 vanchi-hairline border-t">
-	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">QUÉ ESPERAR</p>
-
-		<div class="grid gap-6 lg:grid-cols-12">
-			<!-- Paso 01 — card dominante, 8 columnas -->
-			<div class="card bg-base-200 border border-base-300 p-8 lg:col-span-8 lg:p-10 group">
-				<div class="flex items-start gap-6">
-					<span class="vanchi-display shrink-0 text-5xl font-normal italic text-base-content/20 lg:text-7xl">
-						01
-					</span>
-					<div>
-						<p class="mb-2 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
-							RESPUESTA RÁPIDA
-						</p>
-						<p class="max-w-xs font-mono text-sm leading-relaxed text-base-content/80">
-							Respondo en menos de <span class="text-base-content">24 horas</span>. Si es fin de semana, el lunes a primera hora.
-						</p>
-					</div>
+<section class="w-full border-t vanchi-hairline py-40">
+	<div class="mx-auto max-w-5xl px-4">
+		<div class="grid gap-6 lg:grid-cols-3">
+			<!-- Columna izquierda — 1/3 -->
+			<div class="lg:col-span-1">
+				<p class="mb-16 vanchi-eyebrow">QUÉ ESPERAR</p>
+				<div class="flex items-start gap-3">
+					<span class="mt-2 vanchi-agent-dot animate-pulse"></span>
+					<h2 class="vanchi-display text-3xl leading-tight font-normal lg:text-4xl">
+						<span class="italic">Protocolo</span><br />
+						de respuesta
+					</h2>
 				</div>
 			</div>
 
-			<!-- Paso 02 + 03 — columna derecha, 4 columnas, stacked -->
-			<div class="flex flex-col gap-6 lg:col-span-4">
-				<div class="card bg-base-200 border border-base-300 p-6 group">
-					<div class="flex items-center gap-3 mb-3">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">
-							02
+			<!-- Columna derecha — 2/3, registro indexado -->
+			<div class="flex flex-col gap-px lg:col-span-2">
+				<!-- Fila 01 — card dominante, ancho completo -->
+				<div
+					class="card border border-base-300 bg-base-200 p-8 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content lg:p-10"
+				>
+					<div class="flex items-start gap-8">
+						<span
+							class="shrink-0 vanchi-display text-5xl font-normal text-base-content/20 italic tabular-nums lg:text-7xl"
+						>
+							01
 						</span>
-						<span class="vanchi-hairline h-px grow"></span>
+						<div>
+							<p class="mb-2 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+								RESPUESTA RÁPIDA
+							</p>
+							<p class="max-w-sm font-mono text-sm leading-relaxed text-base-content/80">
+								Respondo en menos de 24 horas. Si es fin de semana, el lunes a primera hora.
+							</p>
+						</div>
 					</div>
-					<p class="font-mono text-sm leading-relaxed text-base-content/80">
-						Te hago <span class="text-base-content">preguntas</span>, no un pitch. Necesito entender tu problema antes de hablar de soluciones.
-					</p>
 				</div>
 
-				<div class="card bg-base-200 border border-base-300 p-6 group">
-					<div class="flex items-center gap-3 mb-3">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">
-							03
+				<!-- Sub-grid inferior — asimetría 60% / 40% -->
+				<div class="grid grid-cols-5 gap-px">
+					<!-- Fila 02 — 60% (3 de 5 columnas) -->
+					<div
+						class="card col-span-3 border border-base-300 bg-base-200 p-6 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content lg:p-8"
+					>
+						<span class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+							[02]
 						</span>
-						<span class="vanchi-hairline h-px grow"></span>
+						<p class="font-mono text-sm leading-relaxed text-base-content/80">
+							Preguntas concretas, cero pitches genéricos. Diagnóstico del problema antes de hablar
+							de soluciones.
+						</p>
 					</div>
-					<p class="font-mono text-sm leading-relaxed text-base-content/80">
-						Si hay fit, armamos una <span class="text-base-content">videollamada</span>. Sin presión, sin compromiso.
-					</p>
+
+					<!-- Fila 03 — 40% (2 de 5 columnas) -->
+					<div
+						class="card col-span-2 border border-base-300 bg-base-200 p-6 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content lg:p-8"
+					>
+						<span class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+							[03]
+						</span>
+						<p class="font-mono text-sm leading-relaxed text-base-content/80">
+							Videollamada de validación. Sin presión, sin compromiso.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
