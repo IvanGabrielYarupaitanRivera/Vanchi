@@ -396,7 +396,7 @@
 	<div class="container mx-auto px-4 text-center">
 		<div class="flex flex-wrap justify-center gap-3">
 			<a href={resolve('/(main)/proyectos')} class="btn btn-ghost border border-white/10">Ver proyectos</a>
-			<a href="/proyectos/encap" class="btn btn-ghost border border-white/10">Caso ENCAP</a>
+			<a href={resolve('/(main)/proyectos/[projectId]', { projectId: 'encap' })} class="btn btn-ghost border border-white/10">Caso ENCAP</a>
 			<a href={resolve('/(main)/ivan-yarupaitan-rivera')} class="btn btn-ghost border border-white/10">Sobre mí</a>
 		</div>
 		<p class="mt-6 text-xs text-base-content/40">Autor: {author}</p>
