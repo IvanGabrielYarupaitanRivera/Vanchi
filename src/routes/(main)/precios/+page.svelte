@@ -6,7 +6,7 @@
 		{
 			num: '01',
 			name: 'Esencial',
-			price: 'USD 2,000 – 4,000',
+			price: 'S/ 2,000 – 4,000',
 			desc: 'Un agente, una herramienta, un canal. Ideal para automatizar un proceso puntual.',
 			features: [
 				'Agente autónomo con 1 herramienta (WhatsApp, Google Calendar, etc.)',
@@ -19,7 +19,7 @@
 		{
 			num: '02',
 			name: 'Profesional',
-			price: 'USD 4,000 – 8,000',
+			price: 'S/ 4,000 – 8,000',
 			desc: 'Multi-herramienta, multi-canal. Para empresas que necesitan automatizar varios procesos conectados.',
 			features: [
 				'Agente con hasta 3 herramientas integradas',
@@ -33,7 +33,7 @@
 		{
 			num: '03',
 			name: 'Enterprise',
-			price: 'USD 8,000 – 15,000+',
+			price: 'S/ 8,000 – 15,000+',
 			desc: 'Orquestación multi-agente. Para operaciones complejas con múltiples flujos autónomos.',
 			features: [
 				'Orquestación de múltiples agentes especializados',
@@ -55,7 +55,7 @@
 		{
 			question: '¿Cómo funciona el pago por hitos?',
 			answer:
-				'Dividimos el proyecto en fases con resultados medibles. Solo pagás cuando cada fase está funcionando. Por ejemplo: Hito 1 = agente responde WhatsApp (30%), Hito 2 = agente agenda citas solo (30%), Hito 3 = dashboard de control (20%), Hito 4 = 30 días estable (20%). Nunca pagás todo por adelantado.'
+				'Dividimos el proyecto en fases con resultados medibles. Solo pagas cuando cada fase está funcionando. Por ejemplo: Hito 1 = agente responde WhatsApp (30%), Hito 2 = agente agenda citas solo (30%), Hito 3 = dashboard de control (20%), Hito 4 = 30 días estable (20%). Nunca pagas todo por adelantado.'
 		},
 		{
 			question: '¿Cuánto tarda implementar un agente?',
@@ -65,12 +65,12 @@
 		{
 			question: '¿Y si mi empresa es chica? ¿Hay algo más accesible?',
 			answer:
-				'Sí. Tengo un plan de entrada para negocios que necesitan presencia digital primero: una landing page profesional desde S/ 30 al mes con hosting, SSL y mantenimiento. Es el punto de partida. Cuando necesites automatizar, escalás a un agente.'
+				'Sí. Tengo un plan de entrada para negocios que necesitan presencia digital primero: una landing page profesional desde S/ 30 al mes con hosting, SSL y mantenimiento. Es el punto de partida. Cuando necesites automatizar, escalas a un agente.'
 		},
 		{
 			question: '¿Qué pasa si el agente se equivoca?',
 			answer:
-				'Todos los agentes incluyen un dashboard de supervisión humana. El agente trabaja solo, pero vos podés auditar cada decisión. En los planes Profesional y Enterprise incluyo Human-in-the-Loop: el agente se pausa y te consulta antes de ejecutar decisiones críticas. Nunca perdés el control.'
+				'Todos los agentes incluyen un dashboard de supervisión humana. El agente trabaja solo, pero puedes auditar cada decisión. En los planes Profesional y Enterprise incluyo Human-in-the-Loop: el agente se pausa y te consulta antes de ejecutar decisiones críticas. Nunca pierdes el control.'
 		}
 	] as const;
 
@@ -93,11 +93,11 @@
 		name: 'Vanchi — Agentes de IA (GaaS)',
 		applicationCategory: 'AIApplication',
 		description:
-			'Agentes de inteligencia artificial autónomos para empresas. Implementación de GaaS (Generative Agent as a Service) con precios outcome-based. Agentes desde USD 2,000 hasta USD 15,000+.',
+			'Agentes de inteligencia artificial autónomos para empresas. Implementación de GaaS (Generative Agent as a Service) con precios outcome-based. Agentes desde S/ 2,000 hasta S/ 15,000+.',
 		offers: [
-			{ '@type': 'Offer', name: 'Agente Esencial', price: '2000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
-			{ '@type': 'Offer', name: 'Agente Profesional', price: '4000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
-			{ '@type': 'Offer', name: 'Agente Enterprise', price: '8000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' }
+			{ '@type': 'Offer', name: 'Agente Esencial', price: '2000', priceCurrency: 'PEN', availability: 'https://schema.org/InStock' },
+			{ '@type': 'Offer', name: 'Agente Profesional', price: '4000', priceCurrency: 'PEN', availability: 'https://schema.org/InStock' },
+			{ '@type': 'Offer', name: 'Agente Enterprise', price: '8000', priceCurrency: 'PEN', availability: 'https://schema.org/InStock' }
 		],
 		provider: { '@type': 'Person', '@id': 'https://www.vanchi.pro/#person', name: 'Ivan Yarupaitan' },
 		areaServed: { '@type': 'Country', name: 'Perú' }
@@ -106,12 +106,12 @@
 	const faqStructuredDataJson = JSON.stringify(faqStructuredData).replace(/</g, '\\u003c');
 	const softwareAppStructuredDataJson = JSON.stringify(softwareAppStructuredData).replace(/</g, '\\u003c');
 	const author = 'Ivan Yarupaitan Rivera';
-	const whatsappUrl = 'https://api.whatsapp.com/send/?phone=51985942670&text=Hola%20Ivan,%20quiero%20informaci%C3%B3n%20sobre%20los%20agentes%20de%20IA.';
+	const whatsappUrl = 'https://api.whatsapp.com/send/?phone=51985942670&text=Hola,%20quiero%20informacion%20sobre%20los%20agentes%20de%20IA.';
 </script>
 
 <SEO
 	title="Cuánto cuesta implementar Inteligencia Artificial en tu empresa | Vanchi"
-	description="Agentes de IA autónomos desde USD 2,000 hasta USD 15,000+. Precios transparentes con pago por hitos de resultado, no por horas. Sin costos ocultos."
+	description="Agentes de IA autónomos desde S/ 2,000 hasta S/ 15,000+. Precios transparentes con pago por hitos de resultado, no por horas. Sin costos ocultos."
 	keywords="cuanto cuesta implementar inteligencia artificial, precio de agente virtual para empresa, costo de automatizar procesos con ia, implementar ia peru precio, agente ia para pymes costo"
 	url="https://www.vanchi.pro/precios"
 />
@@ -151,7 +151,6 @@
 
 		{#each tiers as tier, i (tier.num)}
 			<article class="grid gap-10 py-16 vanchi-hairline {i === 0 ? 'border-t' : 'border-t'} lg:grid-cols-[280px_1fr] lg:gap-24">
-				<!-- Columna izquierda: identidad del tier -->
 				<div>
 					<p class="mb-3 font-mono text-xs font-medium tracking-[0.15em] text-secondary">{tier.num}</p>
 					<h2 class="vanchi-display text-4xl font-normal lg:text-5xl">{tier.name}</h2>
@@ -160,7 +159,6 @@
 					</p>
 				</div>
 
-				<!-- Columna derecha: descripción + features -->
 				<div>
 					<p class="mb-10 max-w-prose text-sm leading-relaxed text-base-content/60">
 						{tier.desc}
@@ -177,7 +175,6 @@
 			</article>
 		{/each}
 
-		<!-- CTA al final del price sheet -->
 		<div class="mt-16 flex flex-wrap items-center gap-6">
 			<a
 				href={whatsappUrl}
@@ -200,13 +197,13 @@
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
 				<h2 class="vanchi-display text-3xl font-normal leading-tight lg:text-5xl">
-					Pagás por<br />
+					Pagas por<br />
 					<span class="italic">resultados</span>,<br />
 					no por horas
 				</h2>
 				<p class="mt-8 max-w-prose text-sm leading-relaxed text-base-content/60">
 					Cada proyecto se divide en hitos con resultados medibles.
-					Solo pagás cuando cada fase está funcionando.
+					Solo pagas cuando cada fase está funcionando.
 					Nunca el 100% por adelantado.
 				</p>
 			</div>
@@ -283,7 +280,7 @@
 					Plan de<br /><span class="italic">entrada</span>
 				</h2>
 				<p class="mt-8 max-w-prose text-sm leading-relaxed text-base-content/60">
-					Si tu negocio todavía no tiene web o necesitás empezar con algo más accesible.
+					Si tu negocio todavía no tiene web o necesitas empezar con algo más accesible.
 					Una landing page profesional, lista para vender.
 				</p>
 			</div>
@@ -319,7 +316,7 @@
 				</ul>
 
 				<a
-					href="https://api.whatsapp.com/send/?phone=51985942670&text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20de%20entrada."
+					href="https://api.whatsapp.com/send/?phone=51985942670&text=Hola,%20quiero%20informacion%20sobre%20el%20plan%20de%20entrada."
 					target="_blank"
 					rel="external noopener noreferrer"
 					class="btn btn-ghost border border-base-300 font-mono text-sm hover:border-base-content"
