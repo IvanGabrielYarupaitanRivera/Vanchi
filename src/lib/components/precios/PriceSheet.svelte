@@ -16,7 +16,12 @@
 
 <section class="w-full py-40">
 	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">AGENTES DE IA</p>
+		<p class="vanchi-eyebrow mb-16">01 // RANGOS</p>
+
+		<div class="flex items-center gap-2.5 mb-16 -mt-12">
+			<span class="vanchi-agent-dot animate-pulse"></span>
+			<span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent">Active</span>
+		</div>
 
 		{#each tiers as tier, i (tier.num)}
 			<article class="grid gap-10 py-16 vanchi-hairline {i === 0 ? 'border-t' : 'border-t'} lg:grid-cols-[280px_1fr] lg:gap-24">
@@ -35,7 +40,7 @@
 					<ul class="space-y-4 font-mono text-sm leading-relaxed text-base-content/80">
 						{#each tier.features as feature (feature)}
 							<li class="flex items-start gap-3">
-								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-base-content/30"></span>
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-base-content/30"></span>
 								<span>{feature}</span>
 							</li>
 						{/each}

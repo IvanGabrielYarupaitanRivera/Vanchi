@@ -1,6 +1,11 @@
 <section class="w-full py-40 vanchi-hairline border-t">
 	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">MODELO DE PAGO</p>
+		<p class="vanchi-eyebrow mb-16">02 // LIQUIDACIÓN</p>
+
+		<div class="flex items-center gap-2.5 mb-16 -mt-12">
+			<span class="vanchi-agent-dot animate-pulse"></span>
+			<span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent">Active</span>
+		</div>
 
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
@@ -16,7 +21,7 @@
 				</p>
 			</div>
 
-			<div class="card bg-base-200 border border-base-300 p-8 lg:p-10">
+			<div class="card bg-base-200 border border-base-300 p-8 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content lg:p-10">
 				<p class="mb-8 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
 					EJEMPLO · AGENTE DE CITAS
 				</p>
