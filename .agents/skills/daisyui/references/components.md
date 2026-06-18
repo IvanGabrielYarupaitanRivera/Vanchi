@@ -1568,6 +1568,43 @@ Toast stacks elements on corner of page.
 
 ---
 
+---
+
+## tooltip
+
+Tooltip shows a message when hovering over an element.
+
+**Class names:**
+- component: `tooltip`
+- part: `tooltip-content`
+- placement: `tooltip-top`, `tooltip-bottom`, `tooltip-left`, `tooltip-right`
+- modifier: `tooltip-open`
+- color: `tooltip-neutral`, `tooltip-primary`, `tooltip-secondary`, `tooltip-accent`, `tooltip-info`, `tooltip-success`, `tooltip-warning`, `tooltip-error`
+
+**Syntax:**
+```html
+<div class="tooltip {MODIFIER}" data-tip="{tooltip-text}">
+  <button class="btn">Hover me</button>
+</div>
+```
+
+**With tooltip-content:**
+```html
+<div class="tooltip">
+  <div class="tooltip-content">{CONTENT}</div>
+  <button class="btn">Hover me</button>
+</div>
+```
+
+**Rules:**
+- Use `data-tip` attribute for simple text tooltips
+- Use `tooltip-content` for rich HTML tooltips
+- `tooltip-open` forces the tooltip to stay visible
+- Use `lg:tooltip` for responsive: show only on large screens
+- Top is the default position
+
+---
+
 ## toggle
 
 Toggle is a checkbox styled as a switch.
