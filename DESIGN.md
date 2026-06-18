@@ -1,439 +1,209 @@
-# DESIGN.md
-
-Design system and visual guidance for AI agents working on `Vanchi`.
-This document defines how the project should look and feel.
-It is the visual counterpart to implementation instructions.
-
+---
+theme: 'The Invisible Ledger'
+colors:
+  base-100: '#14191E'
+  base-200: '#1A2127'
+  base-300: '#242B33'
+  base-content: '#EBEDF0'
+  primary: '#EBEDF0'
+  primary-content: '#14191E'
+  secondary: '#8892A0'
+  secondary-content: '#FFFFFF'
+  accent: '#00C288'
+  accent-content: '#0A1A14'
+  neutral: '#2A313A'
+  neutral-content: '#D4D8DD'
+  info: '#6EA8D9'
+  info-content: '#0D1B2A'
+  success: '#00C288'
+  success-content: '#0A1A14'
+  warning: '#D4A843'
+  warning-content: '#1A140D'
+  error: '#C74B4B'
+  error-content: '#FFFFFF'
+spacing:
+  base: '8px'
+  section: '160px'
+  gap: '24px'
+rounded:
+  box: '4px'
+  btn: '4px'
+  field: '4px'
+typography:
+  headings: 'Newsreader'
+  body: 'JetBrains Mono'
+  ui: 'JetBrains Mono'
 ---
 
 ## Overview
 
-### Brand identity
+Vanchi projects the identity of an invisible automation laboratory.
+We do not design software for humans to operate.
+We design agents that execute silently in the background and log their actions with precision.
 
-`Vanchi` is now **The Invisible Ledger** — a laboratory of invisible automation.
+The interface must feel like a high-fidelity archive, not a dashboard.
+Typography carries the visual weight. Space is the luxury. Color is a signal, never decoration.
 
-We don't build software for humans to operate.
-We build agents that work silently in the background and log their actions with precision.
-
-The interface should feel like:
-
-- A high-fidelity archive of automated processes
-- A terminal that records, not a dashboard that screams
-- Raw, editorial, archival — never decorative
-- Typographic-driven, not surface-driven
-
-### Why this direction
-
-Our product is GaaS (Generative Agent as a Service). Agents work autonomously.
-A flashy gold-on-black luxury dashboard contradicts this value proposition.
-Instead, the interface mirrors what the agent actually does: **silent execution,
-meticulous logging, zero fluff.**
-
-### Desired feeling
-
-- sober
-- archival
-- precise
-- calm
-- engineered
-- timeless
-
-**Never:** shiny, glowing, glassy, sporty, crypto-bro, AI-gradient, dashboard-dense.
-
-### Abandoned aesthetics (anti-patterns)
-
-| Cliché | Why dropped |
-|---|---|
-| Gold on black with glass surfaces | AI-generated luxury tech template. Meaningless now. |
-| Bento grids everywhere | Eliminates editorial hierarchy. Default AI layout. |
-| Border glow / cosmic gradients | Crypto/startup energy. Wrong audience. |
-| Grid line backgrounds with light bursts | Another AI default. |
-| Multiple accent colors competing | Noise over signal. |
-
----
+**Atmosphere:** sober, archival, precise, engineered, timeless.
+**Target:** business owners in health, legal, and education in Peru.
+**Emotional response:** "This is serious. This is engineered. I trust this."
 
 ## Colors
 
-### Core tokens
-
-```
-base-100:  oklch(11% 0.005 260)    # Charcoal ink — page background
-base-200:  oklch(15% 0.005 260)    # Limestone grey — solid containers
-base-300:  oklch(19% 0.005 260)    # Darker stone — borders and depth
-base-content: oklch(94% 0.005 90)  # Chalk white — primary text
-
-primary:   oklch(92% 0.005 90)     # Same chalk — reinforces the monochrome archive feel
-primary-content: oklch(12% 0.005 260)  # Dark text on primary surfaces
-
-secondary: oklch(60% 0.01 260)     # Muted grey — metadata and labels
-secondary-content: oklch(98% 0 0)
-
-accent:    oklch(72% 0.22 165)     # Phosphor green — used ONLY for execution indicators
-accent-content: oklch(10% 0.01 165)
-
-neutral:   oklch(20% 0.005 260)    # Quiet contained surfaces
-neutral-content: oklch(85% 0.005 90)
-```
-
-### Semantic use
-
-- **Primary / chalk white**: All reading text, headings, key information
-- **Secondary / muted grey**: Metadata, timestamps, labels, helper text
-- **Accent / phosphor green**: **Only** for agent-execution indicators (a 6×6px dot, a status marker)
-- **base-100 / charcoal ink**: Page background
-- **base-200 / limestone**: Cards, containers, code blocks (solid, no glass)
-- **base-300 / stone**: 1px borders, subtle separators
-
-### Color guardrails
-
-- Do not use the accent color for anything other than execution-state indicators.
-- Do not use glass effects, backdrop-blur, or opacity overlays.
-- Do not use gradients on text, backgrounds, or borders.
-- Do not use Tailwind fixed colors (`bg-black`, `text-gray-*`).
-- Do not introduce a second accent color. One dot is enough.
-- Do not use pure `#000000` or `#ffffff`.
-
----
+- **base-100 (`#14191E`):** Charcoal ink — the sole page background. Solid, opaque, never textured or gradient-filled.
+- **base-200 (`#1A2127`):** Limestone solid — for cards, containers, and code blocks. No transparency, no glass effects.
+- **base-300 (`#242B33`):** Stone border — used exclusively for 1px solid separators between containers.
+- **base-content (`#EBEDF0`):** Chalk white — primary reading text. High contrast against base-100.
+- **primary (`#EBEDF0`):** Intentional monochrome. Mirrors base-content to reinforce the archive aesthetic. Used on primary buttons and key interactive surfaces.
+- **primary-content (`#14191E`):** Dark text on primary surfaces (e.g., button labels).
+- **secondary (`#8892A0`):** Muted grey — metadata, timestamps, helper text. Always supporting, never leading.
+- **accent (`#00C288`):** Phosphor green. Reserved exclusively for agent execution state indicators. A 6px dot. An active status marker. Never decorative. Never on text. Never on backgrounds.
+- **accent-content (`#0A1A14`):** Dark green — text on accent surfaces.
+- **neutral (`#2A313A`):** Quiet contained surfaces. Slightly lighter than base-200 for subtle hierarchy.
+- **info (`#6EA8D9`):** Informational states. Calm blue, never neon.
+- **success (`#00C288`):** Success states. Same phosphor green as accent.
+- **warning (`#D4A843`):** Warning states. Warm amber, restrained.
+- **error (`#C74B4B`):** Error states. Deep red, not bright.
 
 ## Typography
 
-### Font pairing
+| Role             | Font           | Weight   | Style                                                                      |
+| ---------------- | -------------- | -------- | -------------------------------------------------------------------------- |
+| H1, H2           | Newsreader     | 400, 500 | Serif. Italic allowed for one-word emphasis per heading.                   |
+| H3               | JetBrains Mono | 500      | Monospace. Uppercase. Wide tracking (`0.15em`). Mechanical section labels. |
+| Body, labels, UI | JetBrains Mono | 400, 500 | Monospace. All reading text, buttons, forms, navigation.                   |
 
-| Role | Font | Source |
-|---|---|---|
-| Headings / editorial | **Newsreader** (serif) | Google Fonts |
-| UI / body / code | **JetBrains Mono** (monospace) | Google Fonts |
+**Scale:**
 
-### Why this pairing
+| Level | Mobile     | Desktop        | Line-height | Tracking  |
+| ----- | ---------- | -------------- | ----------- | --------- |
+| H1    | `text-5xl` | `lg:text-7xl`  | tight       | `-0.02em` |
+| H2    | `text-3xl` | `lg:text-5xl`  | normal      | `-0.01em` |
+| H3    | `text-xl`  | `text-2xl`     | normal      | `0.15em`  |
+| Body  | `text-sm`  | `lg:text-base` | `1.7`       | normal    |
+| Label | `text-xs`  | `text-xs`      | normal      | `0.18em`  |
 
-Newsreader is a literary serif with sharp, dramatic character — it evokes printed archives,
-legal documents, and editorial authority. JetBrains Mono is a monospace designed for code:
-it signals automation, structure, and technical precision without feeling cold.
+**Rules:**
 
-The contrast between a humanist serif headline and a monospace body creates a unique
-tension that no generic SaaS template can replicate.
+- Serif only on H1/H2. Never on body.
+- No gradient text. No multiple decorative treatments in one heading.
+- Body reading width: 60ch–68ch maximum.
+- Upper-case labels only for short metadata strings. Never for sentences.
 
-### Hierarchy
+## Layout
 
-#### H1
+**Grid:** Single-column mobile. Desktop breakpoint `lg:` only.
+**Container:** `max-w-5xl` to `max-w-6xl`, centered.
+**Spacing scale:** All spacing is a multiple of `8px`. Base section padding: `160px` vertical.
 
-- mobile: `text-5xl`
-- desktop: `lg:text-7xl`
-- font: Newsreader, italic weight for emphasis, regular for structure
-- tracking: tight (`-0.02em`)
-- short lines, never verbose
-
-#### H2
-
-- mobile: `text-3xl`
-- desktop: `lg:text-5xl`
-- font: Newsreader
-- one word or phrase in italic for editorial accent
-
-#### H3
-
-- `text-xl` to `text-2xl`
-- JetBrains Mono, uppercase, wide tracking (`0.15em`)
-- Mechanical, labels the section like a file index
-
-#### Body
-
-- JetBrains Mono, `text-sm` to `lg:text-base`
-- `leading-relaxed` for paragraphs
-- Reading width around **60ch–68ch**
-
-#### Labels / metadata
-
-- JetBrains Mono, uppercase, `text-xs`
-- `tracking-wider`
-- Muted grey (`secondary`), never loud
-
-### Typography guardrails
-
-- No gradient text. Ever.
-- No giant all-caps headlines.
-- No multiple decorative treatments in one heading.
-- Serif only on H1/H2. Body is always monospace.
-- Monospace text should never feel "terminal green". It should feel "typeset archive."
-
----
-
-## Layout principles
-
-### Global layout
-
-- Dark mode only
-- Mobile-first always
-- Desktop breakpoint: `lg:` only
-- Container: `max-w-5xl` to `max-w-6xl`
-- Massive breathing room between sections (`py-28 lg:py-40`)
-
-### Composition style
-
-The layout language is **archival-editorial**:
-
-- Asymmetric when it creates tension
-- Centered when it calms the eye
-- Large empty blocks are intentional — they signal luxury
-- Sections should feel like pages in a printed report, not cards in a dashboard
-
-### Section rhythm
+**Section rhythm:**
 
 ```
-Hero (one statement, one line of context)
-    ↓  empty space (160px+)
+Hero statement
+    ↓ 160px empty
 Proof block (one visual, one caption)
-    ↓  empty space (120px+)
+    ↓ 120px empty
 CTA cluster (one primary, one secondary)
-    ↓  empty space
 ```
 
-Each section breathes. Nothing competes for attention.
+**Structural rules:**
 
-### Anti-patterns
+- One strong statement per viewport.
+- Typography leads. Surfaces support.
+- Asymmetric layout when it creates tension. Centered when it calms.
+- Never stack three equal feature cards in a row.
+- Never use dashboard-style grids with metrics, counters, badges.
+- Never use Bento Grid patterns.
 
-- ❌ Three equal feature cards in a row
-- ❌ Stacking dense subsections without visual pause
-- ❌ Dashboard-landing-page syndrome (metrics, counters, badges, pills)
-- ❌ "Bento grid" feature showcases
+## Elevation & Depth
 
----
+**Surface model:** Solid. Opaque. Border-separated. No transparency effects.
 
-## Surfaces & depth
+| Level | Name            | Recipe                                  | Usage              |
+| ----- | --------------- | --------------------------------------- | ------------------ |
+| 0     | Flat canvas     | `bg-base-100`, no border                | Page backgrounds   |
+| 1     | Quiet container | `bg-base-200` + `border-base-300` (1px) | Cards, code blocks |
+| 2     | Elevated block  | `bg-neutral` + `border-base-300` (1px)  | Max one per page   |
 
-### Surface language
+**Guardrails:**
 
-**Solid. Opaque. Typographic.**
+- Prohibited: `backdrop-blur`, `bg-opacity`, `bg-white/10`, glass effects, shadow-based elevation.
+- Separation MUST come from borders (1px solid), never from shadows.
+- No `shadow-2xl`, `shadow-lg`, `shadow-md`, `shadow-sm`. No custom shadow arrays.
 
-Primary recipe for containers:
-- `bg-base-200`
-- `border border-base-300` (1px, hard edge, no blur)
-- No rounded corners (0px or 4px max for interactive elements)
-- No glass, no backdrop-blur, no transparency tricks
+## Shapes
 
-### Elevation model
+- **Box (`4px`):** All container elements (cards, panels, code blocks). Maximum 4px border radius.
+- **Button (`4px`):** All interactive triggers. Same 4px maximum.
+- **Field (`4px`):** Input, select, textarea. Same 4px maximum.
+- **Indicator:** 6px circular dot for agent execution state. Fully rounded (`border-radius: 50%`).
 
-#### Level 0 — Flat canvas
+**Guardrails:**
 
-Page backgrounds. No containment. Just the base-100 surface.
-The background has a flat, solid color — **no radial gradients, no glow, no noise.**
+- Prohibited: border radius above 4px on any element except the agent indicator dot.
+- Prohibited: fully rounded pill shapes on buttons, nav items, or badges.
+- Prohibited: `rounded-full`, `rounded-2xl`, `rounded-3xl`, `rounded-box`, `rounded-field`.
 
-#### Level 1 — Quiet container
+## Components
 
-For cards, code blocks, grouped content.
-- `bg-base-200`
-- 1px solid border using base-300
-- 4px border radius maximum
-- No shadow. Borders provide separation.
+**Navigation:**
 
-#### Level 2 — Elevated block
+- Sticky top bar. `bg-base-200`, solid.
+- 1px `base-300` bottom border. No blur, no glass, no shadow.
+- Active state: `text-base-content` weight change. No background highlight.
 
-Rare. One per page maximum.
-- `bg-base-200` with slightly lighter variant
-- Same 1px border
-- Subtle warm shadow only if strictly necessary
+**Primary CTA button:**
 
-### Elevation guardrails
+- `bg-base-content`, `text-base-100`. Solid chalk white on dark backgrounds.
+- 4px border radius. No shadow. No glow.
+- Hover: `-translate-y-0.5` (0.125rem lift).
 
-- Prefer borders over shadows for separation
-- No glass surfaces anywhere
-- No `backdrop-blur`, no `bg-opacity`, no transparency
-- No inset shadows
-- If in doubt: flat > elevated
+**Secondary CTA button:**
 
----
+- `bg-transparent`, 1px `base-300` border, `text-base-content`.
+- Hover: border becomes `base-content`.
 
-## Component styling
+**Cards:**
 
-### Navigation
+- `bg-base-200`, 1px `base-300` border, 4px border radius.
+- Ample internal padding. One card per conceptual unit.
+- Never three identical cards in a row.
 
-- Sticky top bar
-- Solid `bg-base-200`, no blur
-- 1px bottom border
-- Active state: subtle text weight change or underline
-- No pill shape, no glass, no gold
+**Agent execution indicator:**
 
-### Buttons
+- 6×6px circle. `bg-accent` (phosphor green) = running. `bg-secondary` = idle. `bg-error` = error.
+- No glow, no animation beyond opacity pulse.
 
-#### Primary CTA
+**Forms:**
 
-- Solid `bg-base-content` (chalk white)
-- `text-base-100` (charcoal ink)
-- 4px border radius
-- Subtle lift on hover (`-translate-y-0.5`)
-- No glow, no gradient
+- Label: JetBrains Mono, uppercase, `text-xs`, `text-secondary`. Above input.
+- Input: `bg-base-200`, 1px `base-300` border, 4px radius.
+- Focus: border becomes `base-content`.
 
-#### Secondary CTA
+**Footer:**
 
-- `bg-base-200`
-- 1px solid border
-- `text-base-content`
-- Hover: border brightens slightly
+- `bg-base-200`, solid. Minimal typography. Legal links only. No decorative elements.
 
-#### Interaction
+## Do's and Don'ts
 
-All interactive elements:
-- `transition-all duration-200 ease-out`
-- `hover:-translate-y-0.5`
-- Focus: visible outline, not glow
-- No `shadow-lg` or `shadow-2xl` on buttons
+**Do:**
 
-### Cards
+- Use semantic color tokens exclusively. Never Tailwind fixed colors.
+- Use Newsreader for H1/H2, JetBrains Mono for everything else.
+- Separate sections with massive vertical space (`160px` minimum).
+- Separate containers with 1px solid borders (`base-300`).
+- Use phosphor green exclusively for agent state indicators (6px dot).
+- Let typography carry the visual weight of the page.
 
-- Solid surfaces (`bg-base-200`)
-- 1px border
-- 4px border radius max
-- Ample internal padding
-- One card per conceptual unit. Never three identical cards in a row.
-- Card titles: JetBrains Mono, uppercase, wide tracking
+**Don't:**
 
-### Code blocks / data displays
-
-- `bg-base-200`, solid
-- Monospace naturally
-- 1px border
-- Line numbers optional
-- Syntax highlighting: minimal. Prefer `base-content` and `secondary` only.
-
-### Indicators (the only place for accent color)
-
-- Agent running: 6×6px dot in `accent` green
-- Agent idle: 6×6px dot in `secondary` grey
-- Agent error: 6×6px dot in error red
-- No pulsating, no glowing, no animation beyond a subtle opacity pulse
-
-### Forms
-
-- Label above input, JetBrains Mono, uppercase, `text-xs`
-- Input: solid `bg-base-200`, 1px border, 4px radius
-- Focus: border becomes `base-content`
-- Helper text: muted, `secondary`
-
-### Footer
-
-- Contained in `bg-base-200`
-- Minimal typography
-- Only essential links (legal, contact)
-- No decorative elements
-
----
-
-## Imagery & media
-
-- Images should be desaturated, high-contrast, almost archival
-- Avoid stock-photo energy entirely
-- If a photo is used, treat it like a document scan: flat, bordered, captioned
-- No hero images with overlays and gradient masks
-- No glowing tech illustrations
-
----
-
-## Motion & interaction
-
-### Motion profile
-
-- Minimal. Almost invisible.
-- Page sections: no entrance animations. Content appears instantly.
-- Hover states: subtle lift and border change.
-- No scroll-triggered animations.
-- No fade-in sequences.
-- No parallax.
-
-### Allowed motion
-
-- Subtle `hover:-translate-y-0.5` on interactive elements
-- Opacity pulse on the green indicator dot (agent running)
-- Instant page transitions (no SPA fade effects)
-
-### Avoid
-
-- Fly/fade entrance animations
-- Scroll-triggered reveals
-- Marquee text
-- Particle effects
-- Parallax scrolling
-- Bouncy transitions
-
----
-
-## Responsive behavior
-
-- Mobile: single column, amplified whitespace, serif headings slightly smaller
-- Desktop: `lg:` breakpoint only for grid changes
-- Hero: `min-h-[100dvh]` or equivalent
-- Buttons may stack vertically on mobile
-- Decorative content collapses early on mobile
-- Typography scales gracefully, never cramped
-
----
-
-## Do's and don'ts
-
-### Do
-
-- Use semantic color tokens exclusively
-- Keep copy concrete and business-oriented
-- Use Newsreader for headings, JetBrains Mono for everything else
-- Keep layouts breathable with massive empty space
-- Prefer one hero statement, one proof block, one CTA
-- Let typography carry the visual weight
-- Use borders for separation, never shadows
-- Use the green phosphor accent ONLY for execution indicators
-
-### Don't
-
-- Do not use gold, yellow, or warm metallics anywhere
-- Do not use glass surfaces (`backdrop-blur`, opacity overlays)
-- Do not use rounded corners above 4px
-- Do not use gradients on backgrounds or text
-- Do not create three equal feature cards in a row
-- Do not stack badges, pills, counters, and stats together
-- Do not use light mode or light sections
-- Do not use purple/blue/cyan AI gradients
-- Do not use `md:` as the main responsive breakpoint
-- Do not animate page content on scroll
-- Do not use shadow-based elevation (use borders instead)
-
----
-
-## Agent prompt guide
-
-Use this prompt when generating UI for Vanchi:
-
-> "Design this page in Vanchi 'Invisible Ledger' mode: solid dark charcoal surfaces (no glass, no transparency), Newsreader serif for headlines, JetBrains Mono for body and UI, chalk white as primary text, muted grey for metadata, phosphor green used ONLY as a 6px dot for agent execution state indicators. 1px solid borders, no rounded corners above 4px, no gradients, no shadows, no scroll animations. Massive breathing room between sections. Asymmetric editorial layout. One strong statement per viewport. Typography carries the design. Make it feel like a printed archive of automated processes, not a SaaS dashboard."
->
-> "Make it more archival, less decorative."
-> "Remove the glass. Remove the glow. Solid surfaces only."
-> "Fewer cards, more typography."
-> "The accent color is not decorative. It is a signal."
-
-### Fallback rule
-
-If unsure between two options, choose the one with:
-
-- Less decoration
-- Fewer components
-- More whitespace
-- Clearer typographic hierarchy
-- Solid surfaces over transparent ones
-- Straight edges over rounded ones
-
----
-
-## Implementation alignment for this repo
-
-- Framework: `SvelteKit`
-- Language: `TypeScript`
-- Styling: `Tailwind CSS v4` + `DaisyUI`
-- Runtime: `Bun`
-- Icons: `@lucide/svelte` (use sparingly, prefer typographic solutions)
-
-Design agents should:
-
-- Use DaisyUI semantic variables (`base-100`, `base-content`, `primary`, etc.)
-- Dark mode is the **only** mode
-- Use Newsreader + JetBrains Mono
-- Remove all glass utilities (`vanchi-glass`, `vanchi-panel-hero`)
-- Remove all gold references from the codebase
-- Replace Playfair Display font files with Newsreader
-- Replace Geist font files with JetBrains Mono
+- Prohibited: gold, yellow, warm metallic colors anywhere.
+- Prohibited: glass surfaces (`backdrop-blur`, opacity overlays, `bg-white/10`).
+- Prohibited: border radius above 4px on any element.
+- Prohibited: gradients on backgrounds, text, or borders.
+- Prohibited: three identical cards in a horizontal row.
+- Prohibited: shadow-based elevation. Use borders instead.
+- Prohibited: scroll-triggered animations, fade sequences, parallax.
+- Prohibited: purple, blue, cyan AI-themed gradients.
+- Prohibited: Bento Grid layouts.
+- Prohibited: light mode sections or light-to-dark transitions.
