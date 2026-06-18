@@ -2,6 +2,50 @@
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
 
+	const tiers = [
+		{
+			num: '01',
+			name: 'Esencial',
+			price: 'USD 2,000 – 4,000',
+			desc: 'Un agente, una herramienta, un canal. Ideal para automatizar un proceso puntual.',
+			features: [
+				'Agente autónomo con 1 herramienta (WhatsApp, Google Calendar, etc.)',
+				'1 canal de entrada/salida',
+				'Dashboard de supervisión básico',
+				'Soporte 30 días post-entrega',
+				'Pago en 4 hitos de resultado'
+			]
+		},
+		{
+			num: '02',
+			name: 'Profesional',
+			price: 'USD 4,000 – 8,000',
+			desc: 'Multi-herramienta, multi-canal. Para empresas que necesitan automatizar varios procesos conectados.',
+			features: [
+				'Agente con hasta 3 herramientas integradas',
+				'WhatsApp + Web como canales',
+				'Dashboard de auditoría completo',
+				'Memoria persistente (contexto entre sesiones)',
+				'Soporte 60 días post-entrega',
+				'Pago en 5 hitos de resultado'
+			]
+		},
+		{
+			num: '03',
+			name: 'Enterprise',
+			price: 'USD 8,000 – 15,000+',
+			desc: 'Orquestación multi-agente. Para operaciones complejas con múltiples flujos autónomos.',
+			features: [
+				'Orquestación de múltiples agentes especializados',
+				'Workflows duraderos y event-driven',
+				'Integración con sistemas externos (APIs, bases de datos)',
+				'Human-in-the-Loop para decisiones críticas',
+				'Soporte 90 días post-entrega',
+				'Pago en 6 hitos de resultado'
+			]
+		}
+	];
+
 	const faqItems = [
 		{
 			question: '¿Por qué no hay un precio fijo?',
@@ -51,42 +95,18 @@
 		description:
 			'Agentes de inteligencia artificial autónomos para empresas. Implementación de GaaS (Generative Agent as a Service) con precios outcome-based. Agentes desde USD 2,000 hasta USD 15,000+.',
 		offers: [
-			{
-				'@type': 'Offer',
-				name: 'Agente Esencial',
-				price: '2000',
-				priceCurrency: 'USD',
-				availability: 'https://schema.org/InStock'
-			},
-			{
-				'@type': 'Offer',
-				name: 'Agente Profesional',
-				price: '4000',
-				priceCurrency: 'USD',
-				availability: 'https://schema.org/InStock'
-			},
-			{
-				'@type': 'Offer',
-				name: 'Agente Enterprise',
-				price: '8000',
-				priceCurrency: 'USD',
-				availability: 'https://schema.org/InStock'
-			}
+			{ '@type': 'Offer', name: 'Agente Esencial', price: '2000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+			{ '@type': 'Offer', name: 'Agente Profesional', price: '4000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+			{ '@type': 'Offer', name: 'Agente Enterprise', price: '8000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' }
 		],
-		provider: {
-			'@type': 'Person',
-			'@id': 'https://www.vanchi.pro/#person',
-			name: 'Ivan Yarupaitan'
-		},
-		areaServed: {
-			'@type': 'Country',
-			name: 'Perú'
-		}
+		provider: { '@type': 'Person', '@id': 'https://www.vanchi.pro/#person', name: 'Ivan Yarupaitan' },
+		areaServed: { '@type': 'Country', name: 'Perú' }
 	};
 
 	const faqStructuredDataJson = JSON.stringify(faqStructuredData).replace(/</g, '\\u003c');
 	const softwareAppStructuredDataJson = JSON.stringify(softwareAppStructuredData).replace(/</g, '\\u003c');
 	const author = 'Ivan Yarupaitan Rivera';
+	const whatsappUrl = 'https://api.whatsapp.com/send/?phone=51985942670&text=Hola%20Ivan,%20quiero%20informaci%C3%B3n%20sobre%20los%20agentes%20de%20IA.';
 </script>
 
 <SEO
@@ -108,179 +128,121 @@
 <!-- ===== HERO ===== -->
 <section class="flex min-h-[90dvh] items-center">
 	<div class="w-full max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-8">PRICING</p>
-		<h1 class="vanchi-display mb-8 text-5xl font-normal lg:text-7xl">
+		<div class="mb-10 flex items-center gap-2.5">
+			<span class="vanchi-agent-dot animate-pulse"></span>
+			<span class="vanchi-eyebrow">PRECIOS · 2026</span>
+		</div>
+		<h1 class="vanchi-display mb-10 text-5xl font-normal leading-[1.05] lg:text-7xl">
 			Cuánto cuesta implementar<br />
 			<span class="italic">Inteligencia Artificial</span><br />
 			en tu empresa
 		</h1>
-		<p class="max-w-prose text-base text-base-content/70 lg:text-lg">
+		<p class="max-w-xl text-base leading-relaxed text-base-content/70 lg:text-lg">
 			Tres rangos. Pago por hitos de resultado. Sin costos ocultos, sin letras chicas.
-			Cada agente se construye para resolver un problema concreto.
+			Cada agente se construye para resolver un problema concreto de tu negocio.
 		</p>
 	</div>
 </section>
 
-<!-- ===== AGENTE ESENCIAL ===== -->
+<!-- ===== PRICE SHEET ===== -->
 <section class="w-full py-40">
-	<div class="container mx-auto max-w-5xl px-4">
-		<div class="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
-			<div>
-				<h3 class="mb-1 font-mono text-sm font-medium uppercase tracking-[0.15em] text-secondary">01</h3>
-				<p class="mb-6 font-mono text-3xl font-medium text-base-content">Esencial</p>
-				<p class="mb-8 font-mono text-2xl text-base-content/80">USD 2,000 – 4,000</p>
-				<p class="max-w-xs text-sm leading-relaxed text-base-content/60">
-					Un agente, una herramienta, un canal. Ideal para automatizar un proceso puntual.
-				</p>
-			</div>
-			<div class="vanchi-container p-8">
-				<ul class="space-y-6 font-mono text-sm leading-relaxed text-base-content/80">
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Agente autónomo con 1 herramienta (WhatsApp, Google Calendar, etc.)</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>1 canal de entrada/salida</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Dashboard de supervisión básico</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Soporte 30 días post-entrega</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Pago en 4 hitos de resultado</span>
-					</li>
-				</ul>
-			</div>
+	<div class="max-w-5xl mx-auto px-4">
+		<p class="vanchi-eyebrow mb-16">AGENTES DE IA</p>
+
+		{#each tiers as tier, i (tier.num)}
+			<article class="grid gap-10 py-16 vanchi-hairline {i === 0 ? 'border-t' : 'border-t'} lg:grid-cols-[280px_1fr] lg:gap-24">
+				<!-- Columna izquierda: identidad del tier -->
+				<div>
+					<p class="mb-3 font-mono text-xs font-medium tracking-[0.15em] text-secondary">{tier.num}</p>
+					<h2 class="vanchi-display text-4xl font-normal lg:text-5xl">{tier.name}</h2>
+					<p class="vanchi-display mt-6 text-2xl font-normal text-base-content/80 tabular-nums lg:text-3xl">
+						{tier.price}
+					</p>
+				</div>
+
+				<!-- Columna derecha: descripción + features -->
+				<div>
+					<p class="mb-10 max-w-prose text-sm leading-relaxed text-base-content/60">
+						{tier.desc}
+					</p>
+					<ul class="space-y-4 font-mono text-sm leading-relaxed text-base-content/80">
+						{#each tier.features as feature (feature)}
+							<li class="flex items-start gap-3">
+								<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-base-content/30"></span>
+								<span>{feature}</span>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</article>
+		{/each}
+
+		<!-- CTA al final del price sheet -->
+		<div class="mt-16 flex flex-wrap items-center gap-6">
+			<a
+				href={whatsappUrl}
+				target="_blank"
+				rel="external noopener noreferrer"
+				class="btn border-0 bg-base-content font-mono text-sm text-base-100 hover:opacity-90"
+			>
+				Consultar por WhatsApp →
+			</a>
+			<p class="font-mono text-xs text-secondary">Respuesta en menos de 24 horas.</p>
 		</div>
 	</div>
 </section>
 
-<!-- ===== AGENTE PROFESIONAL ===== -->
+<!-- ===== PAYMENT MODEL ===== -->
 <section class="w-full py-40 vanchi-hairline border-t">
-	<div class="container mx-auto max-w-5xl px-4">
-		<div class="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
-			<div>
-				<h3 class="mb-1 font-mono text-sm font-medium uppercase tracking-[0.15em] text-secondary">02</h3>
-				<p class="mb-6 font-mono text-3xl font-medium text-base-content">Profesional</p>
-				<p class="mb-8 font-mono text-2xl text-base-content/80">USD 4,000 – 8,000</p>
-				<p class="max-w-xs text-sm leading-relaxed text-base-content/60">
-					Multi-herramienta, multi-canal. Para empresas que necesitan automatizar varios procesos conectados.
-				</p>
-			</div>
-			<div class="vanchi-container p-8">
-				<ul class="space-y-6 font-mono text-sm leading-relaxed text-base-content/80">
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Agente con hasta 3 herramientas integradas</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>WhatsApp + Web como canales</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Dashboard de auditoría completo</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Memoria persistente (contexto entre sesiones)</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Soporte 60 días post-entrega</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Pago en 5 hitos de resultado</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</section>
+	<div class="max-w-5xl mx-auto px-4">
+		<p class="vanchi-eyebrow mb-16">MODELO DE PAGO</p>
 
-<!-- ===== AGENTE ENTERPRISE ===== -->
-<section class="w-full py-40 vanchi-hairline border-t">
-	<div class="container mx-auto max-w-5xl px-4">
-		<div class="grid gap-16 lg:grid-cols-[1fr_2fr] lg:gap-24">
+		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
-				<h3 class="mb-1 font-mono text-sm font-medium uppercase tracking-[0.15em] text-secondary">03</h3>
-				<p class="mb-6 font-mono text-3xl font-medium text-base-content">Enterprise</p>
-				<p class="mb-8 font-mono text-2xl text-base-content/80">USD 8,000 – 15,000+</p>
-				<p class="max-w-xs text-sm leading-relaxed text-base-content/60">
-					Orquestación multi-agente. Para operaciones complejas con múltiples flujos autónomos.
-				</p>
-			</div>
-			<div class="vanchi-container p-8">
-				<ul class="space-y-6 font-mono text-sm leading-relaxed text-base-content/80">
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Orquestación de múltiples agentes especializados</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Workflows duraderos y event-driven</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Integración con sistemas externos (APIs, bases de datos)</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Human-in-the-Loop para decisiones críticas</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Soporte 90 días post-entrega</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
-						<span>Pago en 6 hitos de resultado</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- ===== CÓMO FUNCIONA ===== -->
-<section class="w-full py-40 vanchi-hairline border-t">
-	<div class="container mx-auto max-w-5xl px-4">
-		<p class="vanchi-eyebrow mb-8">PAYMENT MODEL</p>
-		<div class="grid gap-12 lg:grid-cols-2 lg:gap-24">
-			<div>
-				<h2 class="vanchi-display mb-6 text-3xl font-normal lg:text-5xl">
-					Pagás por<br /><span class="italic">resultados</span>,<br />no por horas
+				<h2 class="vanchi-display text-3xl font-normal leading-tight lg:text-5xl">
+					Pagás por<br />
+					<span class="italic">resultados</span>,<br />
+					no por horas
 				</h2>
-				<p class="max-w-prose text-sm leading-relaxed text-base-content/60">
+				<p class="mt-8 max-w-prose text-sm leading-relaxed text-base-content/60">
 					Cada proyecto se divide en hitos con resultados medibles.
-					Solo pagás cuando cada fase está funcionando. Nunca el 100% por adelantado.
+					Solo pagás cuando cada fase está funcionando.
+					Nunca el 100% por adelantado.
 				</p>
 			</div>
-			<div class="vanchi-container p-8">
-				<h3 class="mb-6 font-mono text-xs font-medium uppercase tracking-[0.15em] text-secondary">Ejemplo</h3>
-				<ol class="space-y-5 font-mono text-sm leading-relaxed">
-					<li class="flex gap-3 text-base-content/80">
-						<span class="font-medium text-base-content/40 tabular-nums">1.</span>
-						<span>Agente responde WhatsApp y consulta Google Calendar <span class="text-secondary">30%</span></span>
+
+			<div class="vanchi-container p-8 lg:p-10">
+				<p class="mb-8 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+					EJEMPLO · AGENTE DE CITAS
+				</p>
+				<ol class="space-y-6 font-mono text-sm">
+					<li class="flex gap-4">
+						<span class="w-8 shrink-0 text-base-content/30 tabular-nums">01</span>
+						<span class="text-base-content/80">
+							Agente responde WhatsApp y consulta Google Calendar
+							<span class="ml-2 text-secondary">30%</span>
+						</span>
 					</li>
-					<li class="flex gap-3 text-base-content/80">
-						<span class="font-medium text-base-content/40 tabular-nums">2.</span>
-						<span>Agente agenda, reprograma y confirma citas solo <span class="text-secondary">30%</span></span>
+					<li class="flex gap-4">
+						<span class="w-8 shrink-0 text-base-content/30 tabular-nums">02</span>
+						<span class="text-base-content/80">
+							Agente agenda, reprograma y confirma citas solo
+							<span class="ml-2 text-secondary">30%</span>
+						</span>
 					</li>
-					<li class="flex gap-3 text-base-content/80">
-						<span class="font-medium text-base-content/40 tabular-nums">3.</span>
-						<span>Dashboard de supervisión para el humano <span class="text-secondary">20%</span></span>
+					<li class="flex gap-4">
+						<span class="w-8 shrink-0 text-base-content/30 tabular-nums">03</span>
+						<span class="text-base-content/80">
+							Dashboard de supervisión para el humano
+							<span class="ml-2 text-secondary">20%</span>
+						</span>
 					</li>
-					<li class="flex gap-3 text-base-content/80">
-						<span class="font-medium text-base-content/40 tabular-nums">4.</span>
-						<span>30 días de operación estable con métricas <span class="text-secondary">20%</span></span>
+					<li class="flex gap-4">
+						<span class="w-8 shrink-0 text-base-content/30 tabular-nums">04</span>
+						<span class="text-base-content/80">
+							30 días de operación estable con métricas
+							<span class="ml-2 text-secondary">20%</span>
+						</span>
 					</li>
 				</ol>
 			</div>
@@ -290,13 +252,13 @@
 
 <!-- ===== FAQ ===== -->
 <section class="w-full py-40 vanchi-hairline border-t">
-	<div class="container mx-auto max-w-5xl px-4">
-		<p class="vanchi-eyebrow mb-8">FAQ</p>
+	<div class="max-w-5xl mx-auto px-4">
+		<p class="vanchi-eyebrow mb-16">FAQ</p>
 		<h2 class="vanchi-display mb-16 text-3xl font-normal lg:text-5xl">
 			Preguntas<br /><span class="italic">frecuentes</span>
 		</h2>
 
-		<div class="space-y-1">
+		<div class="space-y-px">
 			{#each faqItems as item (item.question)}
 				<div class="collapse collapse-arrow vanchi-container">
 					<input type="checkbox" />
@@ -312,37 +274,46 @@
 
 <!-- ===== ENTRY PLAN ===== -->
 <section class="w-full py-40 vanchi-hairline border-t">
-	<div class="container mx-auto max-w-5xl px-4">
-		<p class="vanchi-eyebrow mb-8">ALSO AVAILABLE</p>
-		<div class="grid gap-12 lg:grid-cols-2 lg:gap-24">
+	<div class="max-w-5xl mx-auto px-4">
+		<p class="vanchi-eyebrow mb-16">TAMBIÉN DISPONIBLE</p>
+
+		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
-				<h2 class="vanchi-display mb-6 text-3xl font-normal lg:text-5xl">
+				<h2 class="vanchi-display text-3xl font-normal leading-tight lg:text-5xl">
 					Plan de<br /><span class="italic">entrada</span>
 				</h2>
-				<p class="max-w-prose text-sm leading-relaxed text-base-content/60">
+				<p class="mt-8 max-w-prose text-sm leading-relaxed text-base-content/60">
 					Si tu negocio todavía no tiene web o necesitás empezar con algo más accesible.
+					Una landing page profesional, lista para vender.
 				</p>
 			</div>
-			<div class="vanchi-container p-8">
-				<p class="mb-2 font-mono text-xs font-medium uppercase tracking-[0.15em] text-secondary">Landing Page Profesional</p>
-				<p class="mb-1 font-mono text-3xl font-medium text-base-content">S/ 30 <span class="text-base text-base-content/40">/ mes</span></p>
-				<p class="mb-8 font-mono text-xs text-base-content/40">Compromiso mínimo 12 meses. El dominio es tuyo.</p>
 
-				<ul class="mb-10 space-y-4 font-mono text-sm text-base-content/70">
+			<div class="vanchi-container p-8 lg:p-10">
+				<p class="mb-2 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+					LANDING PAGE PROFESIONAL
+				</p>
+				<p class="vanchi-display text-4xl font-normal tabular-nums">
+					S/ 30<span class="ml-2 font-mono text-base text-base-content/40">/ mes</span>
+				</p>
+				<p class="mt-3 font-mono text-xs text-secondary">
+					Compromiso mínimo 12 meses. El dominio es tuyo.
+				</p>
+
+				<ul class="my-10 space-y-4 font-mono text-sm text-base-content/70">
 					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
+						<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-base-content/30"></span>
 						<span>Landing page profesional</span>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
+						<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-base-content/30"></span>
 						<span>Hosting + SSL incluido</span>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
+						<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-base-content/30"></span>
 						<span>Botón de WhatsApp</span>
 					</li>
 					<li class="flex items-start gap-3">
-						<span class="vanchi-agent-dot mt-1.5 shrink-0"></span>
+						<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-base-content/30"></span>
 						<span>Mantenimiento técnico</span>
 					</li>
 				</ul>
@@ -351,7 +322,7 @@
 					href="https://api.whatsapp.com/send/?phone=51985942670&text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20el%20plan%20de%20entrada."
 					target="_blank"
 					rel="external noopener noreferrer"
-					class="btn btn-ghost border border-base-300 font-mono text-sm"
+					class="btn btn-ghost border border-base-300 font-mono text-sm hover:border-base-content"
 				>
 					Consultar →
 				</a>
@@ -362,11 +333,11 @@
 
 <!-- ===== FOOTER ===== -->
 <footer class="w-full py-16 vanchi-hairline border-t">
-	<div class="container mx-auto max-w-5xl px-4">
-		<div class="flex flex-wrap gap-4 font-mono text-sm">
-			<a href={resolve('/(main)/proyectos')} class="text-base-content/60 hover:text-base-content transition-colors duration-150">Proyectos</a>
-			<a href={resolve('/(main)/proyectos/[projectId]', { projectId: 'encap' })} class="text-base-content/60 hover:text-base-content transition-colors duration-150">Caso ENCAP</a>
-			<a href={resolve('/(main)/ivan-yarupaitan-rivera')} class="text-base-content/60 hover:text-base-content transition-colors duration-150">Sobre mí</a>
+	<div class="max-w-5xl mx-auto px-4">
+		<div class="flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm">
+			<a href={resolve('/(main)/proyectos')} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Proyectos</a>
+			<a href={resolve('/(main)/proyectos/[projectId]', { projectId: 'encap' })} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Caso ENCAP</a>
+			<a href={resolve('/(main)/ivan-yarupaitan-rivera')} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Sobre mí</a>
 		</div>
 		<p class="mt-8 font-mono text-xs text-secondary">{author}</p>
 	</div>
