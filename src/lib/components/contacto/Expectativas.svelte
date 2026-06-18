@@ -5,7 +5,6 @@
 			<div class="lg:col-span-1">
 				<p class="mb-16 vanchi-eyebrow">02 // PROTOCOLO</p>
 				<div class="flex items-start gap-3">
-					<span class="mt-2 vanchi-agent-dot animate-pulse"></span>
 					<h2 class="vanchi-display text-3xl font-normal lg:text-5xl">
 						<span class="italic">Protocolo</span><br />
 						de respuesta

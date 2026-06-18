@@ -6,23 +6,16 @@
 		<div class="grid gap-16 lg:grid-cols-3 lg:gap-24">
 			<!-- Columna izquierda — Manifiesto (1/3) -->
 			<div class="lg:col-span-1">
-				<p class="vanchi-eyebrow mb-16">03 // VERIFICACIÓN</p>
+				<p class="mb-16 vanchi-eyebrow">03 // VERIFICACIÓN</p>
 
-				<h2 class="vanchi-display mb-8 text-3xl font-normal lg:text-5xl">
+				<h2 class="mb-8 vanchi-display text-3xl font-normal lg:text-5xl">
 					Presencia<br />Digital
 				</h2>
 
-				<p class="mb-12 max-w-prose font-mono text-xs leading-relaxed text-secondary">
+				<p class="mb-12 max-w-prose font-mono text-sm leading-relaxed text-base-content/60">
 					Índice de repositorios activos, registros profesionales y bitácoras de producción de Ivan
 					Yarupaitan.
 				</p>
-
-				<div class="flex items-center gap-2.5">
-					<span class="vanchi-agent-dot animate-pulse"></span>
-					<span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent">
-						Ledger // Active
-					</span>
-				</div>
 			</div>
 
 			<!-- Columna derecha — Registro indexado (2/3) -->
@@ -36,7 +29,9 @@
 				>
 					<div class="flex items-start justify-between gap-6">
 						<div>
-							<span class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+							<span
+								class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+							>
 								SRC // 01
 							</span>
 							<p class="mb-2 font-mono text-sm font-medium text-base-content">GitHub</p>
@@ -67,7 +62,9 @@
 				>
 					<div class="flex items-start justify-between gap-6">
 						<div>
-							<span class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+							<span
+								class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+							>
 								PRO // 02
 							</span>
 							<p class="mb-2 font-mono text-sm font-medium text-base-content">LinkedIn</p>
@@ -90,46 +87,58 @@
 				</a>
 
 				<!-- Sub-índice compacto: [03]–[07] en grid 60/40 -->
-				<div class="mt-px grid grid-cols-5 gap-px">
+				<div class="mt-px grid grid-cols-4 gap-px">
 					<!-- Columna izquierda del sub-índice (3/5) -->
-					<div class="col-span-3 flex flex-col gap-px">
+					<div class="col-span-2 flex flex-col gap-px">
 						<a
 							href="https://youtube.com/@VanchiDev"
 							target="_blank"
 							rel="external noopener noreferrer"
-							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
+							class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
 							<div class="flex items-center gap-3">
-								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[03]</span>
-								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">YouTube</span>
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+									>[03]</span
+								>
+								<span
+									class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
+									>YouTube</span
+								>
 							</div>
-							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">DATA</span>
 						</a>
 
 						<a
 							href="https://x.com/Vanchi_Dev"
 							target="_blank"
 							rel="external noopener noreferrer"
-							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
+							class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
 							<div class="flex items-center gap-3">
-								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[04]</span>
-								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">X</span>
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+									>[04]</span
+								>
+								<span
+									class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
+									>X</span
+								>
 							</div>
-							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">LOG</span>
 						</a>
 
 						<a
 							href="https://instagram.com/vanchi.dev"
 							target="_blank"
 							rel="external noopener noreferrer"
-							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
+							class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
 							<div class="flex items-center gap-3">
-								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[05]</span>
-								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">Instagram</span>
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+									>[05]</span
+								>
+								<span
+									class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
+									>Instagram</span
+								>
 							</div>
-							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">IMG</span>
 						</a>
 					</div>
 
@@ -139,26 +148,34 @@
 							href="https://tiktok.com/@vanchi.dev"
 							target="_blank"
 							rel="external noopener noreferrer"
-							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
+							class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
 							<div class="flex items-center gap-3">
-								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[06]</span>
-								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">TikTok</span>
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+									>[06]</span
+								>
+								<span
+									class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
+									>TikTok</span
+								>
 							</div>
-							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">SRC</span>
 						</a>
 
 						<a
 							href="https://facebook.com/vanchi.dev"
 							target="_blank"
 							rel="external noopener noreferrer"
-							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
+							class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
 							<div class="flex items-center gap-3">
-								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[07]</span>
-								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">Facebook</span>
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary"
+									>[07]</span
+								>
+								<span
+									class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
+									>Facebook</span
+								>
 							</div>
-							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">SYS</span>
 						</a>
 					</div>
 				</div>

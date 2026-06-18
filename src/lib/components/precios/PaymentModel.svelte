@@ -1,11 +1,6 @@
-<section class="w-full py-40 vanchi-hairline border-t">
-	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">02 // LIQUIDACIÓN</p>
-
-		<div class="flex items-center gap-2.5 mb-16 -mt-12">
-			<span class="vanchi-agent-dot animate-pulse"></span>
-			<span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent">Active</span>
-		</div>
+<section class="w-full border-t vanchi-hairline py-40">
+	<div class="mx-auto max-w-5xl px-4">
+		<p class="mb-16 vanchi-eyebrow">02 // LIQUIDACIÓN</p>
 
 		<div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
 			<div>
@@ -15,13 +10,14 @@
 					no por horas
 				</h2>
 				<p class="mt-8 max-w-prose text-sm leading-relaxed text-base-content/60">
-					Cada proyecto se divide en hitos con resultados medibles.
-					Solo pagas cuando cada fase está funcionando.
-					Nunca el 100% por adelantado.
+					Cada proyecto se divide en hitos con resultados medibles. Solo pagas cuando cada fase está
+					funcionando. Nunca el 100% por adelantado.
 				</p>
 			</div>
 
-			<div class="card bg-base-200 border border-base-300 p-8 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content lg:p-10">
+			<div
+				class="card border border-base-300 bg-base-200 p-8 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content lg:p-10"
+			>
 				<p class="mb-8 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
 					EJEMPLO · AGENTE DE CITAS
 				</p>

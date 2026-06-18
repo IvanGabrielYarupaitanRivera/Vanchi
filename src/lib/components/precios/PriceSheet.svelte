@@ -15,20 +15,23 @@
 </script>
 
 <section class="w-full py-40">
-	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">01 // RANGOS</p>
-
-		<div class="flex items-center gap-2.5 mb-16 -mt-12">
-			<span class="vanchi-agent-dot animate-pulse"></span>
-			<span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent">Active</span>
-		</div>
+	<div class="mx-auto max-w-5xl px-4">
+		<p class="mb-16 vanchi-eyebrow">01 // RANGOS</p>
 
 		{#each tiers as tier, i (tier.num)}
-			<article class="grid gap-10 py-16 vanchi-hairline {i === 0 ? 'border-t' : 'border-t'} lg:grid-cols-[280px_1fr] lg:gap-24">
+			<article
+				class="grid gap-10 vanchi-hairline py-16 {i === 0
+					? 'border-t'
+					: 'border-t'} lg:grid-cols-[280px_1fr] lg:gap-24"
+			>
 				<div>
-					<p class="mb-3 font-mono text-xs font-medium tracking-[0.15em] text-secondary">{tier.num}</p>
+					<p class="mb-3 font-mono text-xs font-medium tracking-[0.15em] text-secondary">
+						{tier.num}
+					</p>
 					<h2 class="vanchi-display text-3xl font-normal lg:text-5xl">{tier.name}</h2>
-					<p class="vanchi-display mt-6 text-2xl font-normal text-base-content/80 tabular-nums lg:text-3xl">
+					<p
+						class="mt-6 vanchi-display text-2xl font-normal text-base-content/80 tabular-nums lg:text-3xl"
+					>
 						{tier.price}
 					</p>
 				</div>
