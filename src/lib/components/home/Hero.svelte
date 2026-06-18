@@ -1,90 +1,37 @@
 <script lang="ts">
-	import bgHero from '$lib/assets/images/bg-hero.webp';
-	import { ArrowRight } from '@lucide/svelte';
-	import { fly } from 'svelte/transition';
 	import { resolve } from '$app/paths';
 </script>
 
-<section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
-	<enhanced:img
-		src={bgHero}
-		alt="Fondo Hero"
-		fetchpriority="high"
-		loading="eager"
-		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% object-cover object-center opacity-20"
-	/>
+<section class="flex min-h-[90dvh] items-center">
+	<div class="mx-auto w-full max-w-5xl px-4">
+		<div class="mb-10 flex items-center gap-2.5">
+			<span class="vanchi-agent-dot animate-pulse"></span>
+			<span class="vanchi-eyebrow">VANCHI · 2026</span>
+		</div>
 
-	<div class="relative hero-content z-10 text-center text-base-content">
-		<div class="max-w-4xl">
-			<!-- Badge: Magic Border Effect -->
-			<div
-				in:fly={{ y: 30, duration: 1000, delay: 200 }}
-				class="relative mb-8 inline-flex overflow-hidden rounded-full p-px"
+		<h1 class="mb-6 vanchi-display text-5xl leading-[1.05] font-normal lg:text-7xl">
+			Tu empresa debería<br />
+			<span class="italic">funcionar</span> sola
+		</h1>
+
+		<p class="mb-16 max-w-xl text-base leading-relaxed text-base-content/70 lg:text-lg">
+			Construyo agentes de IA que trabajan en background. Tú defines el objetivo,
+			el agente lo ejecuta. Sin dashboards, sin manuales, sin intervención humana constante.
+		</p>
+
+		<div class="flex flex-wrap gap-4">
+			<a
+				href={resolve('/(main)/contacto')}
+				class="btn border-0 bg-base-content font-mono text-sm text-base-100 hover:opacity-90"
 			>
-				<span
-					class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#C5A059_50%,transparent_100%)]"
-				></span>
-				<div
-					class="inline-flex h-full w-full items-center gap-2 rounded-full bg-base-100/90 px-4 py-1.5 backdrop-blur-3xl"
-				>
-					<div class="inline-grid *:[grid-area:1/1]">
-						<div class="status animate-ping status-primary"></div>
-						<div class="status status-primary"></div>
-					</div>
-					<span class="flex gap-1 text-xs font-medium tracking-widest text-base-content uppercase">
-						WaaS disponible
-						<span class="hidden lg:inline">para marcas que quieren escalar</span>
-					</span>
-				</div>
-			</div>
-
-			<!-- H1: Mezcla de Sans (Tech) y Serif (Lujo) -->
-			<h1
-				in:fly={{ y: 30, duration: 1000, delay: 400 }}
-				class="mb-8 text-5xl font-bold lg:text-7xl"
+				Automatizar mi empresa →
+			</a>
+			<a
+				href={resolve('/(chat)/chat')}
+				class="btn btn-ghost border border-base-300 font-mono text-sm hover:border-base-content"
 			>
-				Construyendo sistemas
-				<br />
-				<span
-					class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text px-1 font-serif text-transparent italic"
-				>
-					modernos
-				</span>
-			</h1>
-
-			<p
-				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
-			>
-				Activa tu presencia digital con un modelo <strong class="text-primary">WaaS</strong>
-				claro y escalable. Empieza con una base sólida y evoluciona con SEO, IA, catálogo o sistemas
-				internos según el momento real de tu negocio.
-			</p>
-
-			<!-- Buttons: CTA Principal -->
-			<nav in:fly={{ y: 30, duration: 1000, delay: 800 }} aria-label="Acciones principales">
-				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
-					<li role="listitem">
-						<a
-							href={resolve('/(main)/precios')}
-							aria-label="Ver el plan WaaS de Vanchi"
-							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
-						>
-							Ver plan WaaS
-							<ArrowRight size={18} aria-hidden="true" />
-						</a>
-					</li>
-					<li role="listitem">
-						<a
-							href={"/#servicios"}
-							aria-label="Explorar soluciones que se pueden activar con Vanchi"
-							class="btn border border-white/10 bg-base-100/40 btn-ghost transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:text-primary"
-						>
-							Explorar soluciones
-						</a>
-					</li>
-				</ul>
-			</nav>
+				Hablar con el agente
+			</a>
 		</div>
 	</div>
 </section>

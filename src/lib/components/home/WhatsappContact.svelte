@@ -1,136 +1,40 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
-	import { MessageCircle } from '@lucide/svelte';
-
-	let { selectedService }: { selectedService: string } = $props();
-
-	const phoneNumber = '51985942670';
-	let name = $state('');
-	let problem = $state('');
-	const serviceOptions = [
-		'Inteligencia Artificial',
-		'Desarrollo de Sistemas',
-		'Sitios Web de Alto Impacto',
-		'Infraestructura y Soporte'
-	] as const;
-
-	const whatsappMessage = $derived(`¡Hola, Ivan!
-        Estoy contactándote desde tu portafolio web.
-        Me interesa tu servicio de: *${selectedService}*.
-        Mi nombre es: *${name}*.
-        Quiero una solución para: ${problem}
-
-        Espero tu respuesta.`);
-
-	const whatsappUrl = $derived(
-		`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
-	);
-
-	const sendWhatsAppMessage = () => {
-		if (!name || !selectedService || !problem) {
-			return;
-		} else {
-			window.open(whatsappUrl, '_blank');
-		}
-	};
+	import { resolve } from '$app/paths';
 </script>
 
-<section id="contacto" class="relative py-16 lg:py-36" aria-label="Contacto por WhatsApp">
-	<div class="relative container mx-auto px-4">
-		<div class="mx-auto max-w-3xl">
-			<article
-				in:fly={{ y: 30, duration: 800, delay: 200 }}
-				class="card rounded-2xl border border-white/5 bg-base-300/50 shadow-2xl backdrop-blur-lg"
-			>
-				<div class="card-body items-center gap-8 p-8 text-center lg:p-12">
-					<header class="space-y-4">
-						<h2 class="text-3xl font-bold lg:text-5xl">
-							Comencemos con una conversación
-							<span
-								class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text font-serif text-transparent italic"
-							>
-								directa.
-							</span>
-						</h2>
+<section class="w-full py-40 vanchi-hairline border-t">
+	<div class="max-w-5xl mx-auto px-4">
+		<div class="flex items-center gap-2.5 mb-16">
+			<span class="vanchi-agent-dot animate-pulse"></span>
+			<span class="vanchi-eyebrow">05 // CONTACTO</span>
+		</div>
 
-						<p class="mx-auto max-w-xl text-sm text-base-content/60">
-							La forma más rápida de hablar de tu proyecto es por WhatsApp. Completa lo esencial y
-							abre una consulta. Te responderé en menos de 12 horas.
-						</p>
-					</header>
+		<div class="card bg-base-200 border border-base-300 p-8 transition-all duration-100 hover:border-base-content group lg:p-10">
+			<h2 class="vanchi-display mb-6 text-3xl font-normal lg:text-5xl">
+				Comencemos con una<br />
+				<span class="italic">conversación</span> directa
+			</h2>
+			<p class="mb-10 max-w-xl font-mono text-sm leading-relaxed text-base-content/60">
+				La forma más rápida de hablar de tu proyecto es por WhatsApp. Escribime contándome
+				qué quieres automatizar y te respondo con preguntas concretas, no con un pitch.
+			</p>
 
-					<form class="w-full max-w-xl text-left" aria-label="Formulario de contacto rápido">
-						<div class="space-y-5">
-							<fieldset class="fieldset w-full">
-								<legend class="fieldset-legend">¿Cuál es tu nombre?</legend>
-								<label class="validator input w-full rounded-xl">
-									<input
-										id="name"
-										name="name"
-										autocomplete="name"
-										type="text"
-										placeholder="Juan Pérez"
-										bind:value={name}
-										required
-									/>
-								</label>
-								<p class="label text-base-content/50">Para personalizar el primer mensaje.</p>
-							</fieldset>
-
-							<fieldset class="fieldset w-full">
-								<legend class="fieldset-legend">Servicio</legend>
-								<select
-									id="services"
-									name="services"
-									class="validator select w-full rounded-xl"
-									title="Selecciona el servicio que estás buscando"
-									bind:value={selectedService}
-									required
-								>
-									<option value="" disabled>Selecciona</option>
-									{#each serviceOptions as service (service)}
-										<option value={service}>{service}</option>
-									{/each}
-								</select>
-								<p class="label text-base-content/50">
-									Me ayuda a enfocarme en la solución correcta.
-								</p>
-							</fieldset>
-
-							<fieldset class="fieldset w-full">
-								<legend class="fieldset-legend">Describe tu necesidad</legend>
-								<textarea
-									id="problem"
-									name="problem"
-									class="validator textarea w-full rounded-xl"
-									rows={4}
-									placeholder="Ej: necesito automatizar reportes, integrar IA, mejorar conversiones..."
-									bind:value={problem}
-									required
-								></textarea>
-								<p class="label text-base-content/50">Un resumen de 2–3 líneas es suficiente.</p>
-							</fieldset>
-						</div>
-
-						<div class="mt-8 card-actions justify-center">
-							<button
-								onclick={sendWhatsAppMessage}
-								aria-label="Enviar WhatsApp a Ivan con mensaje precargado"
-								class="btn w-full transition-all duration-300 ease-out btn-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(211,163,41,0.15)] lg:w-auto"
-							>
-								<span>Enviar WhatsApp</span>
-								<MessageCircle size={16} />
-							</button>
-						</div>
-					</form>
-
-					<footer class="text-center">
-						<p class="text-xs text-base-content/40">
-							Se abrirá WhatsApp con un mensaje precargado usando tus respuestas.
-						</p>
-					</footer>
-				</div>
-			</article>
+			<div class="flex flex-wrap items-center gap-6">
+				<a
+					href="https://api.whatsapp.com/send/?phone=51985942670&text=Hola%20Ivan,%20vengo%20de%20tu%20portafolio.%20Quiero%20automatizar%20procesos%20de%20mi%20empresa."
+					target="_blank"
+					rel="external noopener noreferrer"
+					class="btn border-0 bg-base-content font-mono text-sm text-base-100 hover:opacity-90"
+				>
+					Abrir conversación →
+				</a>
+				<a
+					href={resolve('/(main)/contacto')}
+					class="btn btn-ghost border border-base-300 font-mono text-sm hover:border-base-content"
+				>
+					Más formas de contacto
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
