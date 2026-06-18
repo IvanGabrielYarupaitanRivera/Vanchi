@@ -16,7 +16,8 @@ export async function GET() {
 		'condiciones-del-servicio': '2026-06-17',
 		'eliminacion-de-datos-de-usuario': '2026-06-17',
 		'contacto': '2026-06-17',
-		'sectores': '2026-06-17'
+		'sectores': '2026-06-17',
+		'metodologia': '2026-06-17'
 	};
 
 	const projectLastmodBySlug: Record<string, string> = {
@@ -37,6 +38,7 @@ export async function GET() {
 		{ path: 'waas', priority: '0.8', changefreq: 'monthly' },
 		{ path: 'proyectos', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'precios', priority: '0.8', changefreq: 'weekly' },
+		{ path: 'metodologia', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'sectores', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'contacto', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'soluciones-legales', priority: '0.8', changefreq: 'weekly' },
