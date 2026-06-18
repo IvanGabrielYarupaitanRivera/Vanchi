@@ -12,7 +12,7 @@
 					<span class="italic">WhatsApp</span>
 				</h2>
 				<p class="mb-8 max-w-prose text-sm leading-relaxed text-base-content/60">
-					El canal mas directo. Escribeme contandome que quieres automatizar y te respondo con preguntas concretas, no con un pitch generico.
+					El canal más directo. Escríbeme contándome qué quieres automatizar y te respondo con preguntas concretas, no con un pitch genérico.
 				</p>
 
 				<a
@@ -21,7 +21,7 @@
 					rel="external noopener noreferrer"
 					class="btn border-0 bg-base-content font-mono text-sm text-base-100 hover:opacity-90"
 				>
-					Abrir conversacion →
+					Abrir conversación →
 				</a>
 			</div>
 
@@ -30,7 +30,7 @@
 					<span class="italic">Email</span>
 				</h2>
 				<p class="mb-8 max-w-prose text-sm leading-relaxed text-base-content/60">
-					Si prefieres escribir con mas detalle. Adjunta contexto, ejemplos o lo que tengas. Mientras mas sepa, mejor puedo responderte.
+					Si prefieres escribir con más detalle. Adjunta contexto, ejemplos o lo que tengas. Mientras más sepa, mejor puedo responderte.
 				</p>
 
 				<div class="card bg-base-200 border border-base-300 p-8">

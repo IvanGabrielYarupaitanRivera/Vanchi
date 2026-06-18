@@ -1,6 +1,6 @@
 <section class="w-full py-40 vanchi-hairline border-t">
 	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">QUE ESPERAR</p>
+		<p class="vanchi-eyebrow mb-16">QUÉ ESPERAR</p>
 
 		<div class="grid gap-6 lg:grid-cols-3">
 			<div class="card bg-base-200 border border-base-300 p-8">
@@ -20,7 +20,7 @@
 			<div class="card bg-base-200 border border-base-300 p-8">
 				<p class="mb-3 font-mono text-xs font-medium tracking-[0.15em] text-secondary">03</p>
 				<p class="font-mono text-sm leading-relaxed text-base-content/80">
-					Si hay fit, armamos una <span class="text-base-content">videollamada</span>. Sin presion, sin compromiso.
+					Si hay fit, armamos una <span class="text-base-content">videollamada</span>. Sin presión, sin compromiso.
 				</p>
 			</div>
 		</div>

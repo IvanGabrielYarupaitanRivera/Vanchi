@@ -10,7 +10,7 @@
 			en Inteligencia Artificial
 		</h1>
 		<p class="max-w-xl text-base leading-relaxed text-base-content/70 lg:text-lg">
-			Escribeme por WhatsApp o email. Sin formularios largos, sin friccion.
+			Escríbeme por WhatsApp o email. Sin formularios largos, sin fricción.
 			Respondo en menos de 24 horas.
 		</p>
 	</div>
