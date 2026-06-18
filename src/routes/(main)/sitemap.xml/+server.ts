@@ -17,7 +17,8 @@ export async function GET() {
 		'eliminacion-de-datos-de-usuario': '2026-06-17',
 		'contacto': '2026-06-17',
 		'sectores': '2026-06-17',
-		'metodologia': '2026-06-17'
+		'metodologia': '2026-06-17',
+		'servicios': '2026-06-17'
 	};
 
 	const projectLastmodBySlug: Record<string, string> = {
@@ -38,6 +39,7 @@ export async function GET() {
 		{ path: 'waas', priority: '0.8', changefreq: 'monthly' },
 		{ path: 'proyectos', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'precios', priority: '0.8', changefreq: 'weekly' },
+		{ path: 'servicios', priority: '0.9', changefreq: 'weekly' },
 		{ path: 'metodologia', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'sectores', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'contacto', priority: '0.8', changefreq: 'weekly' },
