@@ -25,5 +25,16 @@
 				}
 			]
 		}
+	],
+	"redirects": [
+		{ "source": "/sitio-web-huancavelica", "destination": "/", "statusCode": 301 },
+		{ "source": "/sitio-web-huancayo", "destination": "/", "statusCode": 301 },
+		{ "source": "/desarrollo-web-huancavelica", "destination": "/", "statusCode": 301 },
+		{ "source": "/desarrollo-web-huancayo", "destination": "/", "statusCode": 301 },
+		{ "source": "/pagina-web-huancavelica", "destination": "/", "statusCode": 301 },
+		{ "source": "/pagina-web-huancayo", "destination": "/", "statusCode": 301 },
+		{ "source": "/proyectos/sistema-gestion-academica", "destination": "/proyectos", "statusCode": 301 },
+		{ "source": "/proyectos/asistente-inteligente-peralta-asociados", "destination": "/proyectos/peralta-asociados", "statusCode": 301 },
+		{ "source": "/proyectos/pagina-web-peralta-asociados", "destination": "/proyectos/peralta-asociados", "statusCode": 301 }
 	]
 }
