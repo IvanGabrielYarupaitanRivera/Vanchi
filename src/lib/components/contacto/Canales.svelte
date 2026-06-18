@@ -4,7 +4,7 @@
 
 <section class="w-full py-40 vanchi-hairline border-t">
 	<div class="max-w-5xl mx-auto px-4">
-		<p class="vanchi-eyebrow mb-16">CANALES</p>
+		<p class="vanchi-eyebrow mb-16">01 // CANALES</p>
 
 		<div class="grid gap-6 lg:grid-cols-12">
 			<!-- WhatsApp — canal principal -->
@@ -12,7 +12,7 @@
 				href={whatsappUrl}
 				target="_blank"
 				rel="external noopener noreferrer"
-				class="card bg-base-200 border border-base-300 p-8 transition-colors duration-200 hover:border-base-content group lg:col-span-7 lg:p-10"
+				class="card bg-base-200 border border-base-300 p-8 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content group lg:col-span-7 lg:p-10"
 			>
 				<div class="mb-8 flex items-center gap-2.5">
 					<span class="vanchi-agent-dot animate-pulse"></span>
@@ -41,7 +41,7 @@
 			<!-- Email — alternativa -->
 			<a
 				href={`mailto:${email}`}
-				class="card bg-base-200 border border-base-300 p-8 transition-colors duration-200 hover:border-base-content group flex flex-col lg:col-span-5 lg:p-10"
+				class="card bg-base-200 border border-base-300 p-8 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content group flex flex-col lg:col-span-5 lg:p-10"
 			>
 				<div class="mb-8 flex items-center gap-2.5">
 					<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">

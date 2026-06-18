@@ -18,7 +18,7 @@
 				</p>
 
 				<div class="flex items-center gap-2.5">
-					<span class="vanchi-agent-dot"></span>
+					<span class="vanchi-agent-dot animate-pulse"></span>
 					<span class="font-mono text-[10px] font-medium tracking-[0.2em] text-accent uppercase">
 						Ledger // Active
 					</span>

@@ -3,7 +3,7 @@
 		<div class="grid gap-6 lg:grid-cols-3">
 			<!-- Columna izquierda — 1/3 -->
 			<div class="lg:col-span-1">
-				<p class="mb-16 vanchi-eyebrow">QUÉ ESPERAR</p>
+				<p class="mb-16 vanchi-eyebrow">02 // PROTOCOLO</p>
 				<div class="flex items-start gap-3">
 					<span class="mt-2 vanchi-agent-dot animate-pulse"></span>
 					<h2 class="vanchi-display text-3xl leading-tight font-normal lg:text-4xl">
