@@ -50,6 +50,12 @@ Cada deployment (dev y prod) tiene sus propias environment variables en Convex.
 
 Convex no requiere autorizar dominios para producción. Solo aplica para proveedores de auth externos (Clerk, Auth0, etc.) que sí necesitan configurar el dominio de producción.
 
+## 7. Sincronizar datos dev → prod
+
+Para migrar datos de una tabla específica del deployment dev al de producción,
+ver la lección dedicada:
+[`2026-06-17-CONVEX-SYNC-DEV-TO-PROD.md`](./2026-06-17-CONVEX-SYNC-DEV-TO-PROD.md)
+
 ---
 
 **Lecciones aprendidas del error:**

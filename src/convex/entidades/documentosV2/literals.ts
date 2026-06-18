@@ -35,6 +35,7 @@ export const SUBCATEGORIAS = [
 	"legal",
 	"web",
 	"agentes",
+	"gaas",
 	"waas",
 	"personal",
 ] as const;
@@ -92,6 +93,7 @@ export const ETIQUETAS_CONCEPTOS = [
 	"soluciones-legales",
 	"rutas",
 	"asistente",
+	"gaas",
 	"waas",
 ] as const;
 
