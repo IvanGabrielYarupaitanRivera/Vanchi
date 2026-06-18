@@ -3,12 +3,12 @@
 
 <section class="w-full border-t vanchi-hairline py-40">
 	<div class="mx-auto max-w-5xl px-4">
-		<div class="grid gap-x-6 gap-y-16 lg:grid-cols-12">
-			<!-- Columna 1 — Manifiesto del archivo (25%) -->
-			<div class="lg:col-span-3">
-				<p class="mb-16 vanchi-eyebrow">03 // VERIFICACIÓN</p>
+		<div class="grid gap-16 lg:grid-cols-3 lg:gap-24">
+			<!-- Columna izquierda — Manifiesto (1/3) -->
+			<div class="lg:col-span-1">
+				<p class="vanchi-eyebrow mb-16">03 // VERIFICACIÓN</p>
 
-				<h2 class="mb-8 vanchi-display text-3xl leading-tight font-normal lg:text-4xl">
+				<h2 class="vanchi-display mb-8 text-3xl leading-tight font-normal lg:text-4xl">
 					Presencia<br />Digital
 				</h2>
 
@@ -19,15 +19,15 @@
 
 				<div class="flex items-center gap-2.5">
 					<span class="vanchi-agent-dot animate-pulse"></span>
-					<span class="font-mono text-[10px] font-medium tracking-[0.2em] text-accent uppercase">
+					<span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-accent">
 						Ledger // Active
 					</span>
 				</div>
 			</div>
 
-			<!-- Columna 2 — Registros principales (45%) -->
-			<div class="flex flex-col gap-px lg:col-span-5">
-				<!-- [01] GitHub -->
+			<!-- Columna derecha — Registro indexado (2/3) -->
+			<div class="flex flex-col gap-px lg:col-span-2">
+				<!-- [01] GitHub — bloque dominante -->
 				<a
 					href="https://github.com/IvanGabrielYarupaitanRivera"
 					target="_blank"
@@ -36,9 +36,7 @@
 				>
 					<div class="flex items-start justify-between gap-6">
 						<div>
-							<span
-								class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary"
-							>
+							<span class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">
 								SRC // 01
 							</span>
 							<p class="mb-2 font-mono text-sm font-medium text-base-content">GitHub</p>
@@ -60,7 +58,7 @@
 					</div>
 				</a>
 
-				<!-- [02] LinkedIn -->
+				<!-- [02] LinkedIn — bloque dominante -->
 				<a
 					href="https://linkedin.com/in/ivan-yarupaitan-rivera"
 					target="_blank"
@@ -69,9 +67,7 @@
 				>
 					<div class="flex items-start justify-between gap-6">
 						<div>
-							<span
-								class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary"
-							>
+							<span class="mb-4 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">
 								PRO // 02
 							</span>
 							<p class="mb-2 font-mono text-sm font-medium text-base-content">LinkedIn</p>
@@ -92,104 +88,80 @@
 						</svg>
 					</div>
 				</a>
-			</div>
 
-			<!-- Columna 3 — Índice de evidencia visual y social (30%) -->
-			<div class="flex flex-col gap-px lg:col-span-4">
-				<!-- [03] YouTube -->
-				<a
-					href="https://youtube.com/@VanchiDev"
-					target="_blank"
-					rel="external noopener noreferrer"
-					class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
-				>
-					<div class="flex items-center gap-4">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[03]</span>
-						<span
-							class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
-							>YouTube</span
+				<!-- Sub-índice compacto: [03]–[07] en grid 60/40 -->
+				<div class="mt-px grid grid-cols-5 gap-px">
+					<!-- Columna izquierda del sub-índice (3/5) -->
+					<div class="col-span-3 flex flex-col gap-px">
+						<a
+							href="https://youtube.com/@VanchiDev"
+							target="_blank"
+							rel="external noopener noreferrer"
+							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
-						<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline"
-							>DATA // VIDEO</span
-						>
-					</div>
-				</a>
+							<div class="flex items-center gap-3">
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[03]</span>
+								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">YouTube</span>
+							</div>
+							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">DATA</span>
+						</a>
 
-				<!-- [04] X (Twitter) -->
-				<a
-					href="https://x.com/Vanchi_Dev"
-					target="_blank"
-					rel="external noopener noreferrer"
-					class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
-				>
-					<div class="flex items-center gap-4">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[04]</span>
-						<span
-							class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
-							>X</span
+						<a
+							href="https://x.com/Vanchi_Dev"
+							target="_blank"
+							rel="external noopener noreferrer"
+							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
-						<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline"
-							>LOG // OPINIÓN</span
-						>
-					</div>
-				</a>
+							<div class="flex items-center gap-3">
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[04]</span>
+								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">X</span>
+							</div>
+							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">LOG</span>
+						</a>
 
-				<!-- [05] Instagram -->
-				<a
-					href="https://instagram.com/vanchi.dev"
-					target="_blank"
-					rel="external noopener noreferrer"
-					class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
-				>
-					<div class="flex items-center gap-4">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[05]</span>
-						<span
-							class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
-							>Instagram</span
+						<a
+							href="https://instagram.com/vanchi.dev"
+							target="_blank"
+							rel="external noopener noreferrer"
+							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
-						<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline"
-							>IMG // CREATIVE</span
-						>
+							<div class="flex items-center gap-3">
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[05]</span>
+								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">Instagram</span>
+							</div>
+							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">IMG</span>
+						</a>
 					</div>
-				</a>
 
-				<!-- [06] TikTok -->
-				<a
-					href="https://tiktok.com/@vanchi.dev"
-					target="_blank"
-					rel="external noopener noreferrer"
-					class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
-				>
-					<div class="flex items-center gap-4">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[06]</span>
-						<span
-							class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
-							>TikTok</span
+					<!-- Columna derecha del sub-índice (2/5) -->
+					<div class="col-span-2 flex flex-col gap-px">
+						<a
+							href="https://tiktok.com/@vanchi.dev"
+							target="_blank"
+							rel="external noopener noreferrer"
+							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
-						<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline"
-							>SRC // SHORT</span
-						>
-					</div>
-				</a>
+							<div class="flex items-center gap-3">
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[06]</span>
+								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">TikTok</span>
+							</div>
+							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">SRC</span>
+						</a>
 
-				<!-- [07] Facebook -->
-				<a
-					href="https://facebook.com/vanchi.dev"
-					target="_blank"
-					rel="external noopener noreferrer"
-					class="group card flex justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
-				>
-					<div class="flex items-center gap-4">
-						<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[07]</span>
-						<span
-							class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content"
-							>Facebook</span
+						<a
+							href="https://facebook.com/vanchi.dev"
+							target="_blank"
+							rel="external noopener noreferrer"
+							class="group card flex items-center justify-between border border-base-300 bg-base-200 px-4 py-3 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content"
 						>
-						<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline"
-							>SYS // GENERAL</span
-						>
+							<div class="flex items-center gap-3">
+								<span class="font-mono text-xs font-medium tracking-[0.15em] text-secondary">[07]</span>
+								<span class="font-mono text-xs text-base-content/70 transition-colors duration-100 group-hover:text-base-content">Facebook</span>
+							</div>
+							<span class="hidden font-mono text-[10px] text-base-content/30 sm:inline">SYS</span>
+						</a>
 					</div>
-				</a>
+				</div>
 			</div>
 		</div>
 	</div>
