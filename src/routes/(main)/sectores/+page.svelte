@@ -11,8 +11,8 @@
 			slug: 'salud',
 			id: '01',
 			label: 'Clínico',
-			title: 'Salud ',
-			pain: 'Cuellos de botella en admisión y desabastecimiento farmacéutico. Intervenciones enfocadas en reducir la carga administrativa del personal médico.',
+			title: 'Salud',
+			pain: 'Saturación en admisión y descontrol de stock. Agentes de triaje autónomo y gestión de suministros sin intervención humana.',
 			activeCount: '03 Sistemas Activos',
 			interventions: [
 				{ id: '001', name: 'Recursos médicos + chatbot IA', client: 'MediRoosevelt' },
@@ -24,16 +24,12 @@
 			slug: 'legal',
 			id: '02',
 			label: 'Jurídico',
-			title: 'Legal ',
-			pain: 'Riesgo de pérdida de plazos procesales por búsqueda manual en miles de folios físicos y digitales.',
+			title: 'Legal',
+			pain: 'Riesgo de pérdida de plazos procesales. Agentes autónomos para auditoría documental y lectura automatizada de folios.',
 			activeCount: '02 Sistemas Activos',
 			interventions: [
-				{
-					id: '001',
-					name: 'Gestión de informes  ',
-					client: 'Gobierno Regional de Junín'
-				},
-				{ id: '002', name: 'Sitio web para estudio jurídico', client: 'Peralta Asociados' }
+				{ id: '001', name: 'Gestión de informes', client: 'Gobierno Regional de Junín' },
+				{ id: '002', name: 'Soporte legal automatizado', client: 'Peralta Asociados' }
 			]
 		},
 		{
@@ -41,10 +37,10 @@
 			id: '03',
 			label: 'Académico',
 			title: 'Educación',
-			pain: 'Desbordamiento de tutorías por alta demanda estudiantil en plataformas virtuales.',
-			activeCount: 'Agente 24/7',
+			pain: 'Colapso en canales de soporte y tutorías. Agentes inteligentes para resolución interactiva de consultas 24/7.',
+			activeCount: '03 Sistemas Activos',
 			interventions: [
-				{ id: '001', name: 'Tutor AI en plataforma educativa', client: 'ENCAP ' },
+				{ id: '001', name: 'Tutor AI en plataforma educativa', client: 'ENCAP' },
 				{ id: '002', name: 'Sitio web institucional', client: 'Colegio Educere' },
 				{ id: '003', name: 'Preguntas interactivas con IA', client: 'Diapis' }
 			]

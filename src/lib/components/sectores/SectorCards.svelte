@@ -84,7 +84,7 @@
 										<div class="flex flex-wrap justify-between gap-x-6 gap-y-1 font-mono text-xs">
 											<span class="text-base-content/80">{item.id} // {item.name}</span>
 											<span
-												class="text-secondary transition-colors duration-100 group-hover:text-base-content/60"
+												class="text-base-content/50 transition-colors duration-100 group-hover:text-base-content/80"
 												>{item.client}</span
 											>
 										</div>
@@ -141,7 +141,7 @@
 									<div class="flex flex-wrap justify-between gap-x-4 gap-y-1 font-mono text-xs">
 										<span class="text-base-content/80">{item.id} // {item.name}</span>
 										<span
-											class="text-secondary transition-colors duration-100 group-hover:text-base-content/60"
+											class="text-base-content/50 transition-colors duration-100 group-hover:text-base-content/80"
 											>{item.client}</span
 										>
 									</div>
@@ -188,7 +188,7 @@
 									<div class="flex flex-wrap justify-between gap-x-4 gap-y-1 font-mono text-xs">
 										<span class="text-base-content/80">{item.id} // {item.name}</span>
 										<span
-											class="text-secondary transition-colors duration-100 group-hover:text-base-content/60"
+											class="text-base-content/50 transition-colors duration-100 group-hover:text-base-content/80"
 											>{item.client}</span
 										>
 									</div>
