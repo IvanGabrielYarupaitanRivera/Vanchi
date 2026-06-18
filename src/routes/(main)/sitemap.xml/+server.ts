@@ -14,7 +14,8 @@ export async function GET() {
 		'ivan-yarupaitan-rivera': '2026-06-17',
 		'politica-de-privacidad': '2026-06-17',
 		'condiciones-del-servicio': '2026-06-17',
-		'eliminacion-de-datos-de-usuario': '2026-06-17'
+		'eliminacion-de-datos-de-usuario': '2026-06-17',
+		'contacto': '2026-06-17'
 	};
 
 	const projectLastmodBySlug: Record<string, string> = {
@@ -35,6 +36,7 @@ export async function GET() {
 		{ path: 'waas', priority: '0.8', changefreq: 'monthly' },
 		{ path: 'proyectos', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'precios', priority: '0.8', changefreq: 'weekly' },
+		{ path: 'contacto', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'soluciones-legales', priority: '0.8', changefreq: 'weekly' },
 		{ path: 'ivan-yarupaitan-rivera', priority: '0.6', changefreq: 'monthly' },
 		{ path: 'politica-de-privacidad', priority: '0.4', changefreq: 'yearly' },
