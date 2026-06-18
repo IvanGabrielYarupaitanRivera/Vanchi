@@ -96,7 +96,7 @@
 
 	{#if mobileOpen}
 		<div
-			class="flex w-full flex-col gap-6 border-t border-base-300 bg-base-200 px-6 py-8 lg:hidden"
+			class="absolute left-0 right-0 top-full flex w-full flex-col gap-6 border-t border-base-300 bg-base-200 px-6 py-8 lg:hidden"
 		>
 			<nav class="flex flex-col gap-4 text-sm tracking-[0.12em] uppercase">
 				<a
@@ -152,6 +152,24 @@
 					Contacto
 				</a>
 			</nav>
+
+			<div class="flex flex-col gap-2">
+				<a
+					href={resolve('/(chat)/chat')}
+					class="btn btn-ghost min-h-0 h-10 w-full border border-base-300 font-mono text-sm font-bold uppercase tracking-wider"
+					onclick={() => (mobileOpen = false)}
+				>
+					<Sparkles class="mr-1.5 h-4 w-4" />
+					Hablar con el agente
+				</a>
+				<a
+					href={resolve('/(main)/contacto')}
+					class="btn min-h-0 h-10 w-full border border-base-content bg-base-content font-mono text-sm font-bold uppercase tracking-wider text-base-100"
+					onclick={() => (mobileOpen = false)}
+				>
+					Contacto →
+				</a>
+			</div>
 		</div>
 	{/if}
 </header>
