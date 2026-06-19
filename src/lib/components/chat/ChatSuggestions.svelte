@@ -6,22 +6,22 @@
 	let { onSelect = () => {} }: Props = $props();
 
 	const suggestions = [
-		'¿Qué tipo de proyectos has hecho?',
-		'¿Puedes construir un CRM o sistema web?',
-		'¿Cuánto cuesta un proyecto con Vanchi?'
+		'¿Qué proyectos reales has hecho?',
+		'¿Cómo funciona la metodología GaaS?',
+		'¿Cuánto cuesta implementar un agente de IA?'
 	];
 </script>
 
 <div class="flex flex-col items-center text-center">
 	<h2 class="font-display text-2xl text-base-content sm:text-3xl sm:leading-tight">
-		¿Qué información buscas?
+		Habla con el agente
 	</h2>
 	<p class="mt-3 max-w-md text-sm leading-relaxed text-base-content/50">
-		Soy el asistente de <span class="text-primary">Vanchi</span>. Pregúntame sobre
-		proyectos, tecnologías, servicios o cualquier cosa que Ivan pueda hacer por ti.
+		No hay un embudo de ventas acá. Preguntale directamente al agente lo que quieras saber:
+		proyectos, metodología, precios o si tu caso tiene sentido. No hay truco.
 	</p>
 	<div class="mt-8 space-y-2">
-		<p class="text-xs tracking-wider text-base-content/30 uppercase">Sugerencias</p>
+		<p class="text-xs tracking-wider text-base-content/30 uppercase">Preguntale al agente</p>
 		{#each suggestions as s (s)}
 			<button
 				class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"

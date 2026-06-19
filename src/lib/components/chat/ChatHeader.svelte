@@ -9,8 +9,8 @@
 	}
 
 	let {
-		title = 'Asistente Vanchi',
-		subtitle = 'Pregúntame sobre proyectos, tecnologías o servicios',
+		title = 'Habla con el agente',
+		subtitle = 'Sin demo armada. Sin formulario. Solo el agente que construye sistemas.',
 		onNewConversation = () => {}
 	}: Props = $props();
 </script>

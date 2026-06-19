@@ -28,7 +28,7 @@
 			id="chat-input"
 			bind:value={input}
 			onkeydown={onKeydown}
-			placeholder="Escribe tu pregunta aquí..."
+			placeholder="Preguntale lo que quieras al agente..."
 			rows="1"
 			class="textarea w-full pr-12"
 			{disabled}

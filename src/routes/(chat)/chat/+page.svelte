@@ -128,8 +128,8 @@
 </script>
 
 <svelte:head>
-	<title>Chat con el asistente — Vanchi</title>
-	<meta name="description" content="Pregúntale al asistente de Vanchi sobre proyectos, tecnologías, servicios y experiencia de Ivan Yarupaitan." />
+	<title>Chat con el agente IA — Vanchi</title>
+	<meta name="description" content="Habla directamente con el agente de IA que construye sistemas. Sin demo armada, sin formularios, sin truco. Preguntale sobre proyectos, metodologia GaaS, precios o cualquier cosa." />
 </svelte:head>
 
 <div class="mx-auto flex h-full w-full max-w-5xl flex-col">
@@ -145,8 +145,8 @@
 		</div>
 		<div class="px-4 pb-3 sm:px-6 sm:pb-4">
 			<p class="text-center text-xs text-base-content/20">
-				Este asistente puede tener errores. Verifica la información importante con Ivan directamente.
-			</p>
+			Este agente puede cometer errores. Si necesitas informacion critica, verifica con Ivan directamente.
+		</p>
 		</div>
 	{:else}
 		<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto scroll-smooth px-6 py-4">
