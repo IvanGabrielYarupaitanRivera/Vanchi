@@ -27,7 +27,8 @@
 				<p class="font-mono text-sm leading-relaxed text-base-content/70">
 					Un cliente envía un mensaje por WhatsApp → el sistema verifica disponibilidad →
 					agenda en Google Calendar → envía confirmación → notifica 24h antes.
-					Sin intervención humana.
+					Sin intervención humana. Conecto herramientas para empresas en
+					Huancayo, Junín y Perú.
 				</p>
 			</div>
 			<div class="bg-base-200 border border-base-300 p-8 lg:p-10">

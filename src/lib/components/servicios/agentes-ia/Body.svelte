@@ -25,7 +25,8 @@
 				<p class="font-mono text-sm leading-relaxed text-base-content/70">
 					Un chatbot responde lo que le preguntás. Un agente GaaS recibe un objetivo, razona los
 					pasos necesarios, ejecuta actions sobre tus herramientas y reporta el resultado. Sin
-					supervisión constante.
+					supervisión constante. Implementado para empresas en Huancayo, Junín y
+					Perú.
 				</p>
 			</div>
 			<div class="border border-base-300 bg-base-200 p-8 lg:p-10">

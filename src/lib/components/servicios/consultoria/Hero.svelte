@@ -9,14 +9,14 @@
 			<span class="vanchi-eyebrow">03 // CONSULTORÍA</span>
 		</div>
 		<h1 class="mb-10 vanchi-display text-5xl leading-[1.05] font-normal lg:text-7xl">
-			Sabés que necesitas<br />
-			automatizar. No sabés<br />
+			Sabes que necesitas<br />
+			automatizar. No sabes<br />
 			por dónde <span class="italic">empezar</span>
 		</h1>
 		<p class="max-w-xl text-base leading-relaxed text-base-content/70 lg:text-lg">
 			Analizo tu operación actual, identifico los procesos que más tiempo consumen y
 			te entrego una hoja de ruta concreta: qué automatizar primero, con qué herramientas
-			y en cuánto tiempo. Sin humo. Sin compromiso.
+			y en cuánto tiempo. Metodología GaaS. Sin humo. Sin compromiso.
 		</p>
 		<div class="mt-12 flex flex-wrap gap-4">
 			<a
