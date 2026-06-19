@@ -14,11 +14,10 @@
 			<a
 				href={resolve('/')}
 				class="flex items-center gap-3 font-bold tracking-wider text-base-content duration-100 hover:opacity-80"
+				aria-label="Vanchi Home"
 			>
-				<enhanced:img src={icon} alt="Vanchi" class="h-6 w-6" />
-				<span class="hidden sm:inline">VANCHI</span>
+				<enhanced:img src={icon} alt="Vanchi" class="h-6" />
 			</a>
-			<span class="vanchi-agent-dot animate-pulse" title="Active"></span>
 		</div>
 
 		<!-- CENTER: Nav — visible solo lg+ -->
@@ -96,7 +95,7 @@
 
 	{#if mobileOpen}
 		<div
-			class="absolute left-0 right-0 top-full flex w-full flex-col gap-6 border-t border-base-300 bg-base-200 px-6 py-8 lg:hidden"
+			class="absolute top-full right-0 left-0 flex w-full flex-col gap-6 border-t border-base-300 bg-base-200 px-6 py-8 lg:hidden"
 		>
 			<nav class="flex flex-col gap-4 text-sm tracking-[0.12em] uppercase">
 				<a
@@ -156,7 +155,7 @@
 			<div class="flex flex-col gap-2">
 				<a
 					href={resolve('/(chat)/chat')}
-					class="btn btn-ghost min-h-0 h-10 w-full border border-base-300 font-mono text-sm font-bold uppercase tracking-wider"
+					class="btn h-10 min-h-0 w-full border border-base-300 font-mono text-sm font-bold tracking-wider uppercase btn-ghost"
 					onclick={() => (mobileOpen = false)}
 				>
 					<Sparkles class="mr-1.5 h-4 w-4" />
@@ -164,7 +163,7 @@
 				</a>
 				<a
 					href={resolve('/(main)/contacto')}
-					class="btn min-h-0 h-10 w-full border border-base-content bg-base-content font-mono text-sm font-bold uppercase tracking-wider text-base-100"
+					class="btn h-10 min-h-0 w-full border border-base-content bg-base-content font-mono text-sm font-bold tracking-wider text-base-100 uppercase"
 					onclick={() => (mobileOpen = false)}
 				>
 					Contacto →
