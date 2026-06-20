@@ -5,13 +5,10 @@
 	 * Encabezado de expediente con 3 niveles de profundidad.
 	 * NUNCA pasar colores fijos. Usar solo tokens DaisyUI.
 	 *
-	 * Uso:
-	 *   <Hero level="primary" title="..." subtitle="..." action_label="..." action_href="/contacto" status_active={true} italic_word="solo" />
-	 *   <Hero level="secondary" title="..." subtitle="..." action_label="Ver servicios" action_href="/servicios" />
-	 *   <Hero level="tertiary" title="/ legal / privacidad" subtitle="Última actualización: 2026" />
+	 * Para navegación, pasar `action_onclick` en vez de href.
+	 * El caller decide si usa goto(), resolve() o window.location.
 	 */
 
-	import { resolve } from '$app/paths';
 	import SystemStatus from '../SystemStatus/SystemStatus.svelte';
 
 	type Level = 'primary' | 'secondary' | 'tertiary';
@@ -21,7 +18,7 @@
 		title,
 		subtitle,
 		action_label,
-		action_href,
+		action_onclick,
 		status_active = false,
 		italic_word
 	}: {
@@ -29,7 +26,7 @@
 		title: string;
 		subtitle?: string;
 		action_label?: string;
-		action_href?: string;
+		action_onclick?: () => void;
 		status_active?: boolean;
 		italic_word?: string;
 	} = $props();
@@ -39,7 +36,6 @@
 	<div class="mx-auto w-full max-w-5xl px-4">
 
 		{#if level === 'primary'}
-			<!-- ● 01 // TITULO (eyebrow opcional, solo si status_active) -->
 			{#if status_active}
 				<div class="mb-10">
 					<SystemStatus status="active" label="SYSTEM // ONLINE" />
@@ -59,14 +55,14 @@
 				</p>
 			{/if}
 
-			{#if action_label && action_href}
+			{#if action_label && action_onclick}
 				<div class="mt-12">
-					<a
-						href={resolve(action_href as any)}
+					<button
+						onclick={action_onclick}
 						class="btn min-h-0 h-10 border border-base-content bg-base-content px-5 font-mono text-xs font-bold uppercase tracking-wider text-base-100 duration-100 hover:bg-base-content/90"
 					>
 						{action_label} →
-					</a>
+					</button>
 				</div>
 			{/if}
 
@@ -87,19 +83,18 @@
 							{subtitle}
 						</p>
 					{/if}
-					{#if action_label && action_href}
-						<a
-							href={resolve(action_href as any)}
+					{#if action_label && action_onclick}
+						<button
+							onclick={action_onclick}
 							class="btn btn-ghost mt-6 min-h-0 h-9 border border-base-300 px-4 font-mono text-xs font-bold uppercase tracking-wider text-base-content/80 duration-100 hover:bg-base-300 hover:text-base-content"
 						>
 							[ {action_label} ]
-						</a>
+						</button>
 					{/if}
 				</div>
 			</div>
 
 		{:else}
-			<!-- tertiary -->
 			<div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 				<h1 class="font-mono text-sm font-bold text-base-content/60 uppercase tracking-[0.15em]">
 					// {title}
