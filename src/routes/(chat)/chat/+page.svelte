@@ -2,6 +2,7 @@
 	import { useConvexClient } from 'convex-svelte';
 	import { api } from '$convex/_generated/api';
 	import { tick } from 'svelte';
+	import { browser } from '$app/environment';
 	import { renderMd, setMarkdown, setHtml, getLS, setLS, removeLS } from '$lib/components/chat/chat';
 	import ChatHeader from '$lib/components/chat/ChatHeader.svelte';
 	import ChatInput from '$lib/components/chat/ChatInput.svelte';
@@ -19,6 +20,18 @@
 	let cursorPhase = $state<'blink' | 'fadeout' | 'hidden'>('hidden');
 	let rafId: number | null = $state(null);
 	let messagesContainer: HTMLDivElement | undefined = $state();
+	let isMobile = $state(false);
+
+	$effect(() => {
+		if (!browser) return;
+		const mediaQuery = window.matchMedia('(pointer: coarse)');
+		isMobile = mediaQuery.matches || 'ontouchstart' in window;
+		const handleChange = (e: MediaQueryListEvent) => {
+			isMobile = e.matches || 'ontouchstart' in window;
+		};
+		mediaQuery.addEventListener('change', handleChange);
+		return () => mediaQuery.removeEventListener('change', handleChange);
+	});
 
 	$effect(() => {
 		const saved = getLS(LS_KEY);
@@ -103,7 +116,7 @@
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' && !e.shiftKey) {
+		if (e.key === 'Enter' && !e.shiftKey && !isMobile) {
 			e.preventDefault();
 			send();
 		}

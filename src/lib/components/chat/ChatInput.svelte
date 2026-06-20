@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ArrowUp } from '@lucide/svelte';
+	import { browser } from '$app/environment';
 	import { autoResize } from './chat';
 
 	interface Props {
@@ -17,6 +18,19 @@
 		onKeydown = () => {},
 		zeroState = false
 	}: Props = $props();
+
+	let isMobile = $state(false);
+
+	$effect(() => {
+		if (!browser) return;
+		const mediaQuery = window.matchMedia('(pointer: coarse)');
+		isMobile = mediaQuery.matches || 'ontouchstart' in window;
+		const handleChange = (e: MediaQueryListEvent) => {
+			isMobile = e.matches || 'ontouchstart' in window;
+		};
+		mediaQuery.addEventListener('change', handleChange);
+		return () => mediaQuery.removeEventListener('change', handleChange);
+	});
 </script>
 
 <div
@@ -46,7 +60,7 @@
 	</div>
 	<div class="mt-2 flex items-center justify-end gap-2">
 		<p class="text-xs text-base-content/25 max-sm:hidden">
-			Enter para enviar · Shift+Enter para salto de línea
+			{isMobile ? 'Toque el boton para enviar' : 'Enter para enviar · Shift+Enter para salto de linea'}
 		</p>
 	</div>
 </div>
