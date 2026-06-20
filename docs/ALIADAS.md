@@ -45,6 +45,7 @@ Además de las skills instaladas, podemos consultar a **IA externa** (Gemini, Ch
 |--------|---------------------|--------------|
 | **Gemini** | Opiniones de diseño UX, edge cases, decisiones de arquitectura general, filosofía de agentes | El usuario copia el mensaje y lo pega en Gemini |
 | **Convex AI** | Dudas sobre `@convex-dev/agent` (tools, threads), `schema` (literals con `v.literal`), `internalQuery`/`internalMutation` vs `query`/`mutation`, migraciones, variables de entorno por deployment, CRUD con autenticación simple | El usuario copia el mensaje y lo consulta |
+| **Convex AI — KB Docs** | **Base de conocimientos del agente (`documentosV2`).** Dudas sobre estructura, límites, buenas prácticas, reemplazo de RAG, organización del contenido para que el agente lo consuma eficientemente | El usuario copia el mensaje de sección KB Docs y lo consulta |
 | **Vercel AI Gateway** | Dudas sobre AI SDK, `createOpenAI()` vs `openai.chat()`, configuración del Gateway, modelos (`inception/mercury-2`), failover, rate limits | El usuario copia el mensaje y lo consulta |
 
 ### Flujo para consultar a una aliada
