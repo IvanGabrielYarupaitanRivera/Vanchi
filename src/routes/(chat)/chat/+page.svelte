@@ -2,7 +2,6 @@
 	import { useConvexClient } from 'convex-svelte';
 	import { api } from '$convex/_generated/api';
 	import { tick } from 'svelte';
-	import { fly } from 'svelte/transition';
 	import { renderMd, setMarkdown, setHtml, getLS, setLS, removeLS } from '$lib/components/chat/chat';
 	import ChatHeader from '$lib/components/chat/ChatHeader.svelte';
 	import ChatInput from '$lib/components/chat/ChatInput.svelte';
@@ -153,12 +152,12 @@
 			<div class="space-y-4">
 				{#each messages as msg, i (i)}
 					{#if msg.role === 'user'}
-						<div transition:fly={{ y: 8, duration: 300 }} class="space-y-1">
-							<p class="text-sm font-medium text-base-content">{msg.text}</p>
+						<div class="space-y-1">
+							<p class="font-mono text-sm font-medium text-base-content">{msg.text}</p>
 						</div>
 					{:else}
-						<div transition:fly={{ y: 8, duration: 400 }} class="space-y-1">
-							<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
+						<div class="space-y-1">
+							<div class="prose prose-sm max-w-none border-l border-base-300 pl-3 prose-invert">
 								<div use:setMarkdown={msg.text}></div>
 							</div>
 						</div>
@@ -167,12 +166,12 @@
 
 				{#if isTyping}
 					<div class="space-y-1">
-						<div class="prose prose-sm max-w-none border-l border-primary/30 pl-3 prose-invert">
+						<div class="prose prose-sm max-w-none border-l border-base-300 pl-3 prose-invert">
 							<div use:setHtml={typingHtml}></div>
 							{#if cursorPhase === 'blink'}
-								<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-primary align-text-bottom"></span>
+								<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-base-content align-text-bottom"></span>
 							{:else if cursorPhase === 'fadeout'}
-								<span class="inline-block h-[1.1em] w-0.5 bg-primary align-text-bottom"></span>
+								<span class="inline-block h-[1.1em] w-0.5 bg-base-content align-text-bottom"></span>
 							{/if}
 						</div>
 					</div>
@@ -196,7 +195,7 @@
 		width: 6px;
 		height: 6px;
 		border-radius: 50%;
-		background-color: oklch(74% 0.14 85);
+		background-color: oklch(70% 0 0);
 		animation: dot-pulse 1.4s ease-in-out infinite;
 	}
 

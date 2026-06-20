@@ -13,7 +13,7 @@
 </script>
 
 <div class="flex flex-col items-center text-center">
-	<h2 class="font-display text-2xl text-base-content sm:text-3xl sm:leading-tight">
+	<h2 class="vanchi-display text-2xl text-base-content sm:text-3xl sm:leading-tight">
 		Habla con el agente
 	</h2>
 	<p class="mt-3 max-w-md text-sm leading-relaxed text-base-content/50">
@@ -24,7 +24,7 @@
 		<p class="text-xs tracking-wider text-base-content/30 uppercase">Preguntale al agente</p>
 		{#each suggestions as s (s)}
 			<button
-				class="block w-full cursor-pointer border-b border-white/5 py-2 text-left text-sm text-base-content/70 transition-all duration-300 hover:border-primary hover:text-base-content"
+				class="block w-full cursor-pointer border-b border-base-300 py-2 text-left font-mono text-sm text-base-content/70 transition-colors duration-100 hover:text-base-content"
 				onclick={() => onSelect(s)}
 			>
 				{s}

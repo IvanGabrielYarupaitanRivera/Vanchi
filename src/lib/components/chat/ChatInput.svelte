@@ -20,7 +20,7 @@
 </script>
 
 <div
-	class="{zeroState ? '' : 'shrink-0 border-t border-white/10'} w-full px-4 py-3 sm:px-6 sm:py-4"
+	class="{zeroState ? '' : 'shrink-0 border-t border-base-300'} w-full px-4 py-3 sm:px-6 sm:py-4"
 >
 	<div class="relative flex items-end">
 		<textarea
@@ -35,7 +35,7 @@
 		></textarea>
 		{#if input.trim().length > 0}
 			<button
-				class="btn absolute right-2 bottom-2 btn-square btn-sm btn-primary"
+				class="btn absolute right-2 bottom-2 h-8 min-h-0 w-8 border border-base-content bg-base-content p-0 font-mono text-xs text-base-100 duration-100 hover:bg-base-content/90"
 				onclick={onSend}
 				{disabled}
 				aria-label="Enviar"
