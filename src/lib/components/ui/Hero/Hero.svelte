@@ -12,7 +12,7 @@
 	 */
 
 	import { resolve } from '$app/paths';
-	import SystemStatus from './SystemStatus.svelte';
+	import SystemStatus from '../SystemStatus/SystemStatus.svelte';
 
 	type Level = 'primary' | 'secondary' | 'tertiary';
 

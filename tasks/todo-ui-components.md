@@ -25,8 +25,8 @@
 - ❌ No inyectar HTML crudo en `title`. Usar `italic_word` prop en su lugar.
 
 ### Archivos
-- `src/lib/components/ui/Hero.svelte`
-- `src/lib/components/ui/Hero.agent.md`
+- `src/lib/components/ui/Hero/Hero.svelte`
+- `src/lib/components/ui/Hero/Hero.agent.md`
 
 ---
 
@@ -44,8 +44,8 @@
 - ❌ NO agregar glow, shadow o blur al dot.
 
 ### Archivos
-- `src/lib/components/ui/SystemStatus.svelte`
-- `src/lib/components/ui/SystemStatus.agent.md`
+- `src/lib/components/ui/SystemStatus/SystemStatus.svelte`
+- `src/lib/components/ui/SystemStatus/SystemStatus.agent.md`
 
 ---
 
@@ -67,8 +67,8 @@
 - `hover?: boolean` (si aplica `hover:border-base-content hover:-translate-y-0.5`)
 
 ### Archivos
-- `src/lib/components/ui/DataBlock.svelte`
-- `src/lib/components/ui/DataBlock.agent.md`
+- `src/lib/components/ui/DataBlock/DataBlock.svelte`
+- `src/lib/components/ui/DataBlock/DataBlock.agent.md`
 
 ---
 
@@ -91,8 +91,8 @@
 - `external?: boolean` (si es link externo, agrega `rel="external"`)
 
 ### Archivos
-- `src/lib/components/ui/CommandAction.svelte`
-- `src/lib/components/ui/CommandAction.agent.md`
+- `src/lib/components/ui/CommandAction/CommandAction.svelte`
+- `src/lib/components/ui/CommandAction/CommandAction.agent.md`
 
 ---
 
@@ -106,8 +106,8 @@
 - `dense?: boolean` (menos gap entre items)
 
 ### Archivos
-- `src/lib/components/ui/IndexList.svelte`
-- `src/lib/components/ui/IndexList.agent.md`
+- `src/lib/components/ui/IndexList/IndexList.svelte`
+- `src/lib/components/ui/IndexList/IndexList.agent.md`
 
 ---
 
@@ -120,8 +120,8 @@
 - `gap?: 'sm' | 'md'` (gap-px o gap-4)
 
 ### Archivos
-- `src/lib/components/ui/GridTwo.svelte`
-- `src/lib/components/ui/GridTwo.agent.md`
+- `src/lib/components/ui/GridTwo/GridTwo.svelte`
+- `src/lib/components/ui/GridTwo/GridTwo.agent.md`
 
 ---
 
