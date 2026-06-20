@@ -162,30 +162,36 @@
 		</div>
 	{:else}
 		<div bind:this={messagesContainer} class="min-h-0 flex-1 overflow-y-auto scroll-smooth px-6 py-4">
-			<div class="space-y-4">
+			<div class="flex flex-col gap-5">
 				{#each messages as msg, i (i)}
 					{#if msg.role === 'user'}
-						<div class="space-y-1">
-							<p class="font-mono text-sm font-medium text-base-content">{msg.text}</p>
+						<div class="flex flex-col items-end">
+							<div class="border border-base-300 bg-base-200 px-4 py-2.5 max-w-[75%] sm:max-w-[65%]">
+								<p class="font-mono text-sm text-base-content">{msg.text}</p>
+							</div>
 						</div>
 					{:else}
-						<div class="space-y-1">
-							<div class="prose prose-sm max-w-none border-l border-base-300 pl-3 prose-invert">
-								<div use:setMarkdown={msg.text}></div>
+						<div class="flex flex-col items-start">
+							<div class="max-w-[90%] sm:max-w-[80%]">
+								<div class="prose prose-sm max-w-none border-l-2 border-base-300 pl-4 prose-invert">
+									<div use:setMarkdown={msg.text}></div>
+								</div>
 							</div>
 						</div>
 					{/if}
 				{/each}
 
 				{#if isTyping}
-					<div class="space-y-1">
-						<div class="prose prose-sm max-w-none border-l border-base-300 pl-3 prose-invert">
-							<div use:setHtml={typingHtml}></div>
-							{#if cursorPhase === 'blink'}
-								<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-base-content align-text-bottom"></span>
-							{:else if cursorPhase === 'fadeout'}
-								<span class="inline-block h-[1.1em] w-0.5 bg-base-content align-text-bottom"></span>
-							{/if}
+					<div class="flex flex-col items-start">
+						<div class="max-w-[90%] sm:max-w-[80%]">
+							<div class="prose prose-sm max-w-none border-l-2 border-base-300 pl-4 prose-invert">
+								<div use:setHtml={typingHtml}></div>
+								{#if cursorPhase === 'blink'}
+									<span class="inline-block h-[1.1em] w-0.5 animate-pulse bg-base-content align-text-bottom"></span>
+								{:else if cursorPhase === 'fadeout'}
+									<span class="inline-block h-[1.1em] w-0.5 bg-base-content align-text-bottom"></span>
+								{/if}
+							</div>
 						</div>
 					</div>
 				{/if}
