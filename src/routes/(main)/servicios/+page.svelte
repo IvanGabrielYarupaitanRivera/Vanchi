@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/servicios/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import ServiceCards from '$lib/components/servicios/ServiceCards.svelte';
 	import PageFooter from '$lib/components/servicios/Footer.svelte';
 	import type { Service } from '$lib/components/servicios/ServiceCards.svelte';
@@ -72,7 +73,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Deja de operar software. Empeza a recibir resultados"
+	subtitle="No vendo licencias. Construyo agentes de IA que ejecutan procesos completos sin que nadie tenga que hacer clic. Tu defines el objetivo. El agente lo completa."
+	action_label="Conversemos"
+	action_onclick={() => goto(resolve('/(main)/contacto'))}
+/>
 
 <ServiceCards {services} />
 

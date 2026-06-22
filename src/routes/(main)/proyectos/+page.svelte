@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/proyectos/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/proyectos/Body.svelte';
 	import PageFooter from '$lib/components/proyectos/Footer.svelte';
 	import { PROJECTS } from '$lib/constants/projects';
@@ -53,7 +55,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero total={projects.length} />
+<Hero
+	level="secondary"
+	title="Casos de exito en automatizacion con IA"
+	subtitle="{projects.length} proyectos reales de agentes de IA, automatizacion de procesos y desarrollo web. Implementacion GaaS para empresas en salud, legal y educacion en Huancayo, Junin y Peru."
+	action_label="Proponer un proyecto"
+	action_onclick={() => goto(resolve('/(main)/contacto'))}
+/>
 
 <Body {projects} />
 

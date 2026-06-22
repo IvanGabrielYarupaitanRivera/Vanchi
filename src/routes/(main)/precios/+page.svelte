@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/precios/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import PriceSheet from '$lib/components/precios/PriceSheet.svelte';
 	import PaymentModel from '$lib/components/precios/PaymentModel.svelte';
 	import Faq from '$lib/components/precios/Faq.svelte';
@@ -157,7 +158,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Cuanto cuesta implementar Inteligencia Artificial en tu empresa"
+	subtitle="Tres rangos. Pago por hitos de resultado. Sin costos ocultos, sin letras chicas. Cada agente se construye para resolver un problema concreto de tu negocio."
+	action_label="Conversemos"
+	action_onclick={() => goto(resolve('/(main)/contacto'))}
+/>
 
 <PriceSheet {tiers} {whatsappUrl} />
 

@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/sectores/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import SectorCards from '$lib/components/sectores/SectorCards.svelte';
 	import PageFooter from '$lib/components/sectores/Footer.svelte';
 	import type { Sector } from '$lib/components/sectores/SectorCards.svelte';
@@ -85,7 +86,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Tu sector necesita automatizacion urgente"
+	subtitle="Salud, legal, educacion. Tres industrias donde los procesos manuales cuestan mas que la tecnologia. Cada agente se construye para el problema concreto de tu rubro."
+	action_label="Ver proyectos"
+	action_onclick={() => goto(resolve('/(main)/proyectos'))}
+/>
 
 <SectorCards {sectors} />
 
