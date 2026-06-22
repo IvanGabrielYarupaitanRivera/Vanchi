@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/home/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import SocialProof from '$lib/components/home/SocialProof.svelte';
 	import FeaturedProjects from '$lib/components/home/FeaturedProjects.svelte';
 	import Services from '$lib/components/home/Services.svelte';
@@ -63,7 +65,17 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="primary"
+	title="Tu empresa deberia funcionar sola"
+	subtitle="Despliego agentes de IA que resuelven objetivos de negocio de extremo a extremo. Diseno sistemas donde automatizo procesos de mi empresa asociada con ejecucion autonoma en background."
+	action_label="Automatizar mi organizacion"
+	action_onclick={() => goto(resolve('/(main)/contacto'))}
+	action_secondary_label="Iniciar consulta con agente"
+	action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
+	status_active={true}
+	italic_word="sola"
+/>
 <SocialProof />
 <FeaturedProjects />
 <Services />

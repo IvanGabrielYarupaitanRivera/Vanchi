@@ -1,15 +1,15 @@
-/**
- * @component Hero.svelte
- * @description Encabezado de expediente con 3 niveles de profundidad.
- *
- * ANTI-PATRONES RESTRICTOS (Capa Fisica Inmutable):
- * - NO alterar paddings, colores de fondo o bordes con clases arbitrarias.
- * - NO usar gradientes, glassmorphism, sombras (shadow-*) ni border-radius > 4px.
- * - NO usar animaciones fluidas (fade, fly, scale); solo duration-100 en hovers.
- * - NO inyectar emojis ni iconos decorativos fuera de CTAs aprobados.
- */
-
 <script lang="ts">
+	/**
+	 * @component Hero.svelte
+	 * @description Encabezado de expediente con 3 niveles de profundidad.
+	 *
+	 * ANTI-PATRONES RESTRICTOS (Capa Fisica Inmutable):
+	 * - NO alterar paddings, colores de fondo o bordes con clases arbitrarias.
+	 * - NO usar gradientes, glassmorphism, sombras (shadow-*) ni border-radius > 4px.
+	 * - NO usar animaciones fluidas (fade, fly, scale); solo duration-100 en hovers.
+	 * - NO inyectar emojis ni iconos decorativos fuera de CTAs aprobados.
+	 */
+
 	import SystemStatus from '../SystemStatus/SystemStatus.svelte';
 
 	export type HeroLevel = 'primary' | 'secondary' | 'tertiary';
@@ -23,10 +23,14 @@
 		subtitle?: string;
 		/** Palabra exacta dentro del titulo que recibira italica */
 		italic_word?: string;
-		/** Etiqueta para el boton de accion */
+		/** Etiqueta para el boton de accion primario */
 		action_label?: string;
-		/** Callback para delegar navegacion via goto() al llamador */
+		/** Callback para el boton primario */
 		action_onclick?: () => void;
+		/** Etiqueta para el boton de accion secundario (solo primary) */
+		action_secondary_label?: string;
+		/** Callback para el boton secundario (solo primary) */
+		action_secondary_onclick?: () => void;
 		/** Estado del indicador de sistema (exclusivo de primary) */
 		status_active?: boolean;
 	}
@@ -38,10 +42,11 @@
 		italic_word,
 		action_label,
 		action_onclick,
+		action_secondary_label,
+		action_secondary_onclick,
 		status_active = false
 	}: HeroProps = $props();
 
-	// Segmentacion del titulo para aislar la italica sin evaluar HTML crudo
 	const segments = $derived.by(() => {
 		if (!italic_word || !title.includes(italic_word)) {
 			return { before: title, match: '', after: '' };
@@ -55,51 +60,62 @@
 	});
 </script>
 
-<header class="w-full bg-base-100 border-b border-base-300 text-base-content font-mono selection:bg-accent selection:text-base-100">
+<header class="w-full border-b border-base-300 bg-base-100 font-mono text-base-content selection:bg-accent selection:text-base-100">
 
 	{#if level === 'primary'}
-		<div class="max-w-5xl mx-auto py-24 px-6 md:px-12 border-l border-base-300 flex flex-col items-start gap-10">
+		<div class="mx-auto flex max-w-5xl flex-col items-start gap-10 border-l-2 border-base-300 px-6 py-32 md:px-12">
 			<SystemStatus status={status_active ? 'active' : 'idle'} label="SYSTEM // ONLINE" />
 
-			<h1 class="vanchi-display text-5xl lg:text-7xl leading-[1.1] tracking-tight text-base-content max-w-4xl">
-				{segments.before}<span class="font-serif italic text-base-content">{segments.match}</span>{segments.after}
+			<h1 class="max-w-4xl vanchi-display text-5xl leading-[1.1] tracking-tight text-base-content lg:text-7xl">
+				{segments.before}<span class="font-serif text-base-content italic">{segments.match}</span>{segments.after}
 			</h1>
 
 			{#if subtitle}
-				<p class="text-sm md:text-base leading-relaxed text-base-content/70 max-w-2xl">
+				<p class="max-w-2xl text-sm leading-relaxed text-base-content/60 md:text-base">
 					{subtitle}
 				</p>
 			{/if}
 
-			{#if action_label && action_onclick}
-				<button
-					onclick={action_onclick}
-					type="button"
-					class="bg-base-content text-base-100 font-bold text-xs uppercase tracking-wider px-6 py-4 border border-base-content hover:bg-base-content/90 duration-100 cursor-pointer"
-				>
-					{action_label} &rarr;
-				</button>
-			{/if}
+			<div class="flex w-full flex-col items-stretch gap-4 sm:w-auto sm:flex-row sm:items-center">
+				{#if action_label && action_onclick}
+					<button
+						onclick={action_onclick}
+						type="button"
+						class="btn btn-primary h-10 min-h-0 px-5 font-mono text-xs font-bold tracking-wider uppercase duration-100"
+					>
+						{action_label} &rarr;
+					</button>
+				{/if}
+				{#if action_secondary_label && action_secondary_onclick}
+					<button
+						onclick={action_secondary_onclick}
+						type="button"
+						class="btn btn-ghost h-10 min-h-0 border border-base-300 px-5 font-mono text-xs font-bold tracking-wider text-base-content/80 uppercase duration-100 hover:bg-base-300 hover:text-base-content"
+					>
+						{action_secondary_label}
+					</button>
+				{/if}
+			</div>
 		</div>
 
 	{:else if level === 'secondary'}
-		<div class="max-w-5xl mx-auto py-16 px-6 md:px-12 border-x border-base-300 grid grid-cols-1 md:grid-cols-12 gap-8 items-end bg-base-100">
-			<div class="md:col-span-7 flex flex-col gap-4">
-				<h1 class="vanchi-display text-4xl lg:text-5xl text-base-content tracking-tight">
-					{segments.before}<span class="font-serif italic text-base-content">{segments.match}</span>{segments.after}
+		<div class="mx-auto grid max-w-5xl grid-cols-1 items-end gap-8 border-x border-base-300 bg-base-100 px-6 py-20 md:grid-cols-12 md:px-12">
+			<div class="flex flex-col gap-4 md:col-span-7">
+				<h1 class="vanchi-display text-3xl tracking-tight text-base-content lg:text-5xl">
+					{segments.before}<span class="font-serif text-base-content italic">{segments.match}</span>{segments.after}
 				</h1>
 			</div>
 
 			{#if subtitle}
-				<div class="md:col-span-5 pb-1">
-					<p class="text-xs leading-relaxed text-base-content/70 border-l border-base-300 pl-4">
+				<div class="pb-1 md:col-span-5">
+					<p class="border-l border-base-300 pl-4 text-xs leading-relaxed text-base-content/60">
 						{subtitle}
 					</p>
 					{#if action_label && action_onclick}
 						<button
 							onclick={action_onclick}
 							type="button"
-							class="mt-6 px-4 py-2 text-xs uppercase tracking-wider text-base-content bg-transparent border border-base-300 hover:bg-base-200 duration-100 cursor-pointer"
+							class="btn btn-ghost mt-6 h-9 min-h-0 border border-base-300 px-4 font-mono text-xs font-bold tracking-wider text-base-content/80 uppercase duration-100 hover:bg-base-300 hover:text-base-content"
 						>
 							[ {action_label} ]
 						</button>
@@ -109,12 +125,12 @@
 		</div>
 
 	{:else}
-		<div class="max-w-5xl mx-auto py-8 px-6 md:px-12 border-x border-base-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-base-100 w-full">
-			<h1 class="font-mono text-sm lg:text-base font-bold text-base-content uppercase tracking-widest">
+		<div class="mx-auto flex w-full max-w-5xl flex-col gap-4 border-x border-base-300 bg-base-100 px-6 py-8 sm:flex-row sm:items-center sm:justify-between md:px-12">
+			<h1 class="font-mono text-sm font-bold tracking-widest text-base-content uppercase lg:text-base">
 				// {title}
 			</h1>
 			{#if subtitle}
-				<span class="font-mono text-xs text-base-content/50 uppercase tracking-wider sm:text-right">
+				<span class="font-mono text-xs tracking-wider text-base-content/50 uppercase sm:text-right">
 					{subtitle}
 				</span>
 			{/if}

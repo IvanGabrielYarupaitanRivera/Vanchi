@@ -18,33 +18,32 @@ interface HeroProps {
   italic_word?: string;
   action_label?: string;
   action_onclick?: () => void;
+  action_secondary_label?: string;       // solo primary
+  action_secondary_onclick?: () => void;  // solo primary
   status_active?: boolean;
 }
 ```
 
 ## 📊 Comportamiento por Nivel
 
-| Nivel | Altura | SystemStatus | CTA | italic_word | subtitle |
+| Nivel | Espaciado | SystemStatus | Botones | italic_word | subtitle |
 |---|---|---|---|---|---|
-| `primary` | `py-24` | ✅ Arriba | ✅ Chalk | ✅ En titulo | ✅ Abajo |
-| `secondary` | `py-16` | ❌ Ignorado | ✅ Ghost derecha | ✅ En titulo | ✅ Derecha |
+| `primary` | `py-32` | ✅ Arriba | ✅ Primario + Secundario | ✅ En titulo | ✅ Abajo /60 |
+| `secondary` | `py-20` | ❌ Ignorado | ✅ Solo primario (ghost) | ✅ En titulo | ✅ Derecha /60 |
 | `tertiary` | `py-8` | ❌ Ignorado | ❌ Ignorado | ❌ Ignorado | ✅ Metadata derecha |
 
-## ❌ ANTI-PATRONES DE CONTEXTO (Prohibiciones Inquebrantables)
+## ❌ ANTI-PATRONES
 
-* **Cero Estilos Propios:** No intentes pasar clases utilitarias de Tailwind como `bg-zinc-900`,
-  `shadow-2xl` o `rounded-xl`. El componente fuerza `bg-base-100` y `border-base-300` nativamente.
-* **Restriccion de Botones:** En `level="tertiary"`, las props `action_label`, `action_onclick`
-  y `status_active` se omiten. No las declares.
-* **Tipografia Protegida:** El componente mapea `.vanchi-display` (serif) para H1 y `font-mono`
-  (JetBrains Mono) para bloques secundarios.
-* **Inyeccion Limpia:** Nunca uses `{@html}` para inyectar italicas. Pasa la palabra exacta
-  via `italic_word`. El componente usa `$derived.by()` para segmentar el titulo.
+* NO pasar colores fijos. Usar solo tokens DaisyUI.
+* NO `rounded-full`, `rounded-lg`, `rounded-xl`.
+* Si `level="tertiary"`, NO pasar action_label, action_onclick ni status_active.
+* Si `level="secondary"`, NO pasar action_secondary_label ni status_active.
+* NO usar `{@html}` para italicas. Usar `italic_word`.
+* `action_href` no existe. Usar `action_onclick` con `goto(resolve(...))`.
 
-## 💻 Patrones de Composicion Correctos
+## 💻 Ejemplos
 
-### Caso 1: Ruta Raiz (`src/routes/(main)/+page.svelte`)
-
+### Primary — Home
 ```svelte
 <script lang="ts">
   import Hero from '$lib/components/ui/Hero/Hero.svelte';
@@ -56,39 +55,29 @@ interface HeroProps {
   level="primary"
   title="Tu empresa deberia funcionar sola"
   italic_word="sola"
-  subtitle="Despliego agentes de IA que resuelven objetivos de negocio de extremo a extremo."
+  subtitle="Despliego agentes de IA que resuelven objetivos de negocio."
   action_label="Automatizar mi organizacion"
   action_onclick={() => goto(resolve('/(main)/contacto'))}
+  action_secondary_label="Iniciar consulta con agente"
+  action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
   status_active={true}
 />
 ```
 
-### Caso 2: Paginas de Seccion (`src/routes/(main)/sectores/salud/+page.svelte`)
-
+### Secondary — Seccion
 ```svelte
-<script lang="ts">
-  import Hero from '$lib/components/ui/Hero/Hero.svelte';
-  import { goto } from '$app/navigation';
-  import { resolve } from '$app/paths';
-</script>
-
 <Hero
   level="secondary"
-  title="Optimizacion de sistemas clinicos"
-  italic_word="clinicos"
-  subtitle="Resolucion de cuellos de botella en admision mediante agentes autonomos."
-  action_label="Ver Casos de Exito"
+  title="Servicios"
+  italic_word="IA"
+  subtitle="Automatizacion de procesos para empresas en Junin."
+  action_label="Ver casos"
   action_onclick={() => goto(resolve('/(main)/proyectos'))}
 />
 ```
 
-### Caso 3: Documento Legal (`src/routes/(main)/politica-de-privacidad/+page.svelte`)
-
+### Tertiary — Legal
 ```svelte
-<script lang="ts">
-  import Hero from '$lib/components/ui/Hero/Hero.svelte';
-</script>
-
 <Hero
   level="tertiary"
   title="vanchi.pro / politicas de privacidad"
