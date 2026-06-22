@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/ivan-yarupaitan-rivera/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
+	import ivan from '$lib/assets/images/ivan.webp';
 	import Story from '$lib/components/ivan-yarupaitan-rivera/Story.svelte';
 	import Stack from '$lib/components/ivan-yarupaitan-rivera/Stack.svelte';
 	import Cta from '$lib/components/ivan-yarupaitan-rivera/Cta.svelte';
@@ -77,7 +80,18 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="profile"
+	title="Ivan Gabriel Yarupaitan Rivera"
+	subtitle="Ingeniero de Sistemas y Computacion, desde Peru. Especializado en construir productos digitales que unen ingenieria robusta, inteligencia artificial y diseno editorial."
+	action_label="LinkedIn"
+	action_onclick={() => window.open('https://www.linkedin.com/in/ivan-yarupaitan-rivera/', '_blank')}
+	action_secondary_label="Proyectos"
+	action_secondary_onclick={() => goto(resolve('/(main)/proyectos'))}
+	image={ivan}
+	image_alt="Ivan Gabriel Yarupaitan Rivera"
+	image_caption="Ivan Yarupaitan // Huancayo, Peru"
+/>
 <Story />
 <Stack />
 <Cta />

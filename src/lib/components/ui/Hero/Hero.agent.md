@@ -3,20 +3,19 @@
 Componente que encapsula las cabeceras estructurales de todas las rutas.
 Actua bajo el esquema **Dual-Layer Component Architecture**.
 
-Tienes estrictamente **prohibido** reescribir este marcado o alterar sus clases globales.
-Debes **importarlo y parametrizarlo**.
+Debes **importarlo y parametrizarlo**. Prohibido reescribir el marcado.
 
 ## 🎨 Diseño visual
 
 Todos los niveles excepto tertiary incluyen:
-- **Fondo:** Retícula de ingeniería 40×40 + puntos 2px cada 40px (SVG inline, `background-image`)
-- **Esquinas:** L-brackets en `border-secondary` en top-left y bottom-left del header
-- **Sin bordes laterales continuos.** Las esquinas son independientes.
+- Fondo: reticula 40x40 + puntos 2px/40px (SVG inline, background-image)
+- Esquinas L en border-secondary en las 4 puntas del header
+- Sin bordes laterales continuos
 
 ## 📐 Interfaz de Tipos
 
 ```typescript
-type HeroLevel = 'primary' | 'secondary' | 'tertiary';
+type HeroLevel = 'primary' | 'secondary' | 'profile' | 'tertiary';
 
 interface HeroProps {
   level: HeroLevel;
@@ -27,66 +26,68 @@ interface HeroProps {
   action_onclick?: () => void;
   action_secondary_label?: string;
   action_secondary_onclick?: () => void;
-  status_active?: boolean;     // solo primary
+  status_active?: boolean;        // solo primary
+  image?: string;                  // solo profile
+  image_alt?: string;              // solo profile
+  image_caption?: string;          // solo profile
+  children?: Snippet;              // solo profile (metadata chips)
 }
 ```
 
 ## 📊 Comportamiento por Nivel
 
-| Nivel | Altura | SystemStatus | Botones | italic_word | subtitle |
+| Nivel | Altura | SystemStatus | Imagen | Botones | italic_word |
 |---|---|---|---|---|---|
-| `primary` | `py-32 lg:py-48` | ✅ Arriba | ✅ `btn-primary` + `btn-outline` | ✅ En título | ✅ Abajo |
-| `secondary` | `py-24 lg:py-40` | ❌ Ignorado | ✅ `btn-primary` + `btn-outline` | ✅ En título | ✅ Abajo |
-| `tertiary` | `py-8 lg:py-12` | ❌ Ignorado | ❌ Ignorado | ❌ Ignorado | ✅ Metadata derecha |
+| `primary` | `py-32 lg:py-48` | Si arriba | No | primary + outline-primary | Si |
+| `secondary` | `py-24 lg:py-40` | No | No | primary + outline-primary | Si |
+| `profile` | `py-32 lg:py-48` | No | Si (derecha) | primary + outline-primary | Si |
+| `tertiary` | `py-8 lg:py-12` | No | No | No | No |
 
 ## ❌ ANTI-PATRONES
 
 * NO pasar colores fijos. Usar solo tokens DaisyUI.
 * NO `rounded-full`, `rounded-lg`, `rounded-xl`.
-* Si `level="tertiary"`, NO pasar `action_label`, `action_onclick`, `action_secondary_label`, `action_secondary_onclick` ni `status_active`.
-* NO usar `{@html}` para itálicas. Usar `italic_word`.
-* `action_href` no existe. Usar `action_onclick` con `goto(resolve(...))`.
+* Si `level="tertiary"`, NO pasar action_label, action_onclick, status_active ni image.
+* NO usar `{@html}` para italicas. Usar `italic_word`.
+* Usar `action_onclick` con `goto(resolve(...))`.
 
 ## 💻 Ejemplos
 
 ### Primary — Home
 ```svelte
-<script lang="ts">
-  import Hero from '$lib/components/ui/Hero/Hero.svelte';
-  import { goto } from '$app/navigation';
-  import { resolve } from '$app/paths';
-</script>
-
-<Hero
-  level="primary"
-  title="Tu empresa debería funcionar sola"
-  italic_word="sola"
-  subtitle="Despliego agentes de IA que resuelven objetivos de negocio."
-  action_label="Automatizar mi organización"
-  action_onclick={() => goto(resolve('/(main)/contacto'))}
-  action_secondary_label="Iniciar consulta con agente"
-  action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
-  status_active={true}
-/>
+<Hero level="primary" title="Tu empresa deberia funcionar sola"
+  italic_word="sola" subtitle="..."
+  action_label="Automatizar" action_onclick={() => goto(resolve('/(main)/contacto'))}
+  action_secondary_label="Consultar" action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
+  status_active={true} />
 ```
 
-### Secondary — Sección
+### Secondary — Seccion
 ```svelte
-<Hero
-  level="secondary"
-  title="Servicios"
-  italic_word="IA"
-  subtitle="Automatización de procesos para empresas en Junín."
-  action_label="Conversemos"
-  action_onclick={() => goto(resolve('/(main)/contacto'))}
-/>
+<Hero level="secondary" title="Servicios"
+  subtitle="Automatizacion de procesos."
+  action_label="Ver casos" action_onclick={() => goto(resolve('/(main)/proyectos'))} />
+```
+
+### Profile — Pagina personal
+```svelte
+<Hero level="profile" title="Ivan Gabriel Yarupaitan Rivera"
+  subtitle="Ingeniero de Sistemas..."
+  action_label="LinkedIn" action_onclick={() => window.open('https://linkedin.com/...')}
+  action_secondary_label="Proyectos" action_secondary_onclick={() => goto(resolve('/(main)/proyectos'))}
+  image={ivan} image_alt="Ivan" image_caption="Ivan // Huancayo">
+  {#snippet children()}
+    <div class="flex flex-wrap gap-4 font-mono text-sm text-base-content/50">
+      <span>Huancayo, Peru</span>
+      <span>Disponible ahora</span>
+      <span>Full-Stack & IA</span>
+    </div>
+  {/snippet}
+</Hero>
 ```
 
 ### Tertiary — Legal
 ```svelte
-<Hero
-  level="tertiary"
-  title="vanchi.pro / políticas de privacidad"
-  subtitle="Última revisión: Junio 2026"
-/>
+<Hero level="tertiary" title="vanchi.pro / politicas de privacidad"
+  subtitle="Ultima revision: Junio 2026" />
 ```
