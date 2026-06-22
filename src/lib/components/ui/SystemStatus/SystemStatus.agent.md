@@ -1,47 +1,49 @@
 # 🤖 REGLAS DE EJECUCION PARA AGENTE: SystemStatus.svelte
 
-Componente indicador de estado del sistema. Unico componente autorizado para usar `vanchi-agent-dot` con `bg-accent`.
+Componente indicador de estado del sistema. Unico componente autorizado para usar `status-accent` (phosphor green).
 Debe **importarse**, nunca recrearse.
 
-## 📐 Interfaz de Tipos (Props del Sistema)
+## 📐 Interfaz de Tipos
 
 ```typescript
 type SystemStatusValue = 'active' | 'idle' | 'error';
 
 interface SystemStatusProps {
   status?: SystemStatusValue;  // default: 'active'
-  label?: string;              // texto opcional al lado del dot
+  label?: string;
 }
 ```
 
 ## 📊 Comportamiento
 
-| Prop `label` | Output |
-|---|---|
-| `undefined` | Solo dot de 6px |
-| `"SYSTEM // ONLINE"` | Dot + texto en `text-secondary uppercase` |
+| status | Dot | Label color |
+|---|---|---|
+| `active` | `status-accent animate-pulse` (verde) | `text-base-content` (alto contraste) |
+| `idle` | `status-secondary` (gris) | `text-secondary` (muted) |
+| `error` | `status-error` (rojo) | `text-base-content` (alto contraste) |
 
-## ❌ ANTI-PATRONES (Prohibiciones Inquebrantables)
+## ❌ ANTI-PATRONES
 
-* **Phosphor Green Restringido:** NO usar `bg-accent` o `bg-[#00C288]` en ningun otro componente.
-  Este es el UNICO lugar autorizado.
-* **Tamano Fijo:** NO modificar el tamano del dot. `vanchi-agent-dot` = 6px (`w-1.5 h-1.5`).
-* **Sin Efectos:** NO agregar `shadow`, `blur`, `glow` o `ring` al dot.
-* **Solo Estado:** NO usar este componente para decorar elementos que no sean indicadores de estado.
+* NO usar `bg-accent` o `bg-[#00C288]` fuera de este componente.
+* NO agregar `shadow`, `blur`, `glow` o `ring` al dot.
+* NO usar para decorar elementos que no sean indicadores de estado.
 
-## 💻 Patrones de Composicion Correctos
+## 💻 Ejemplos
 
 ```svelte
 <script lang="ts">
   import SystemStatus from '$lib/components/ui/SystemStatus/SystemStatus.svelte';
 </script>
 
-<!-- Solo dot -->
-<SystemStatus status="active" />
-
-<!-- Dot + label -->
+<!-- Activo -->
 <SystemStatus status="active" label="SYSTEM // ONLINE" />
 
+<!-- Inactivo -->
+<SystemStatus status="idle" label="SYSTEM // IDLE" />
+
 <!-- Error -->
-<SystemStatus status="error" label="SYSTEM // FALLO" />
+<SystemStatus status="error" label="SYSTEM // ERROR" />
+
+<!-- Solo dot -->
+<SystemStatus status="active" />
 ```
