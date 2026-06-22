@@ -46,7 +46,7 @@
 			>
 				<h2 class="vanchi-display text-3xl font-normal">CommandAction</h2>
 				<p class="mt-2 font-mono text-sm text-base-content/60">
-					Variaciones: primary, secondary, outline primary, outline secondary, ghost.
+					Primary (filled, outline, ghost) + secondary neutral. 4 niveles.
 				</p>
 				<span class="mt-3 inline-block font-mono text-xs text-secondary">/dev/command-action →</span>
 			</a>
