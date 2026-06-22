@@ -102,6 +102,9 @@
 			{#if subtitle}
 				<p class="max-w-2xl text-sm leading-relaxed text-base-content/60 md:text-base">{subtitle}</p>
 			{/if}
+			{#if children}
+				{@render children()}
+			{/if}
 			<div class="flex w-full flex-col items-stretch gap-4 sm:w-auto sm:flex-row sm:items-center">
 				{#if action_label && action_onclick}
 					<CommandAction level="primary" label={action_label} onclick={action_onclick} />
