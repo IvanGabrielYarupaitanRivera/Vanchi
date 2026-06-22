@@ -64,8 +64,8 @@
 
 <Hero
 	level="secondary"
-	title="Cuantos plazos procesales perdiste este mes"
-	subtitle="Un solo plazo vencido puede costar un caso entero. Agentes que leen, indexan y alertan automaticamente sobre cada folio, cada fecha, cada vencimiento."
+	title="Cuántos plazos procesales perdiste este mes"
+	subtitle="Un solo plazo vencido puede costar un caso entero. Agentes que leen, indexan y alertan automáticamente sobre cada folio, cada fecha, cada vencimiento."
 	action_label="Ver casos"
 	action_onclick={() => goto(resolve("/(main)/proyectos"))}
 />

@@ -100,7 +100,7 @@
 <Hero
 	level="secondary"
 	title="Digitaliza tu despacho legal"
-	subtitle="Moderniza la gestion de tu estudio juridico con agentes de IA. Automatizacion de expedientes, seguimiento de plazos y comunicacion con clientes."
+	subtitle="Moderniza la gestión de tu estudio jurídico con agentes de IA. Automatización de expedientes, seguimiento de plazos y comunicación con clientes."
 	action_label="Conversemos"
 	action_onclick={() => goto(resolve("/(main)/contacto"))}
 />

@@ -71,8 +71,8 @@
 
 <Hero
 	level="secondary"
-	title="Tus administrativos pasan mas tiempo llenando planillas que ayudando alumnos"
-	subtitle="Cada hora que un administrativo invierte en papeleo es una hora que un alumno no recibe atencion. Agentes que responden dudas 24/7, gestionan matriculas y liberan a tus docentes."
+	title="Tus administrativos pasan más tiempo llenando planillas que ayudando alumnos"
+	subtitle="Cada hora que un administrativo invierte en papeleo es una hora que un alumno no recibe atención. Agentes que responden dudas 24/7, gestionan matrículas y liberan a tus docentes."
 	action_label="Ver casos"
 	action_onclick={() => goto(resolve("/(main)/proyectos"))}
 />

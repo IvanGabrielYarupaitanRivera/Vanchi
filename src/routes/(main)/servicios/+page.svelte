@@ -75,8 +75,8 @@
 
 <Hero
 	level="secondary"
-	title="Deja de operar software. Empeza a recibir resultados"
-	subtitle="No vendo licencias. Construyo agentes de IA que ejecutan procesos completos sin que nadie tenga que hacer clic. Tu defines el objetivo. El agente lo completa."
+	title="Deja de operar software. Empieza a recibir resultados"
+	subtitle="No vendo licencias. Construyo agentes de IA que ejecutan procesos completos sin que nadie tenga que hacer clic. Tú defines el objetivo. El agente lo completa."
 	action_label="Conversemos"
 	action_onclick={() => goto(resolve('/(main)/contacto'))}
 />

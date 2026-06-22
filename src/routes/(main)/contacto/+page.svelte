@@ -39,7 +39,7 @@
 
 <SEO
 	title="Contactar a un especialista en Inteligencia Artificial en Peru | Vanchi"
-	description="Quieres implementar IA en tu empresa? Escribeme por WhatsApp o email. Respondo en menos de 24 horas. Sin formularios largos, sin friccion."
+	description="Quieres implementar IA en tu empresa? Escríbeme por WhatsApp o email. Respondo en menos de 24 horas. Sin formularios largos, sin fricción."
 	keywords="contratar especialista inteligencia artificial peru, consultoria ia peru, desarrollador de agentes inteligentes contacto, programador ia huancayo contacto"
 	url="https://www.vanchi.pro/contacto"
 />
@@ -53,8 +53,8 @@
 <Hero
 	level="secondary"
 	title="Contratar a un especialista en Inteligencia Artificial"
-	subtitle="Escribeme por WhatsApp o email. Sin formularios largos, sin friccion. Respondo en menos de 24 horas."
-	action_label="Escribeme"
+	subtitle="Escríbeme por WhatsApp o email. Sin formularios largos, sin fricción. Respondo en menos de 24 horas."
+	action_label="Escríbeme"
 	action_onclick={() => goto(resolve("/(main)/contacto"))}
 />
 

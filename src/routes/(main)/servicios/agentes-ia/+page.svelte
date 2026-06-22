@@ -68,8 +68,8 @@
 
 <Hero
 	level="secondary"
-	title="Tu equipo pierde horas en tareas que un agente podria hacer solo"
-	subtitle="No es un chatbot. Es un agente autonomo que recibe un objetivo, ejecuta las acciones necesarias y reporta resultados. Sin clics. Sin dashboards."
+	title="Tu equipo pierde horas en tareas que un agente podría hacer solo"
+	subtitle="No es un chatbot. Es un agente autónomo que recibe un objetivo, ejecuta las acciones necesarias y reporta resultados. Sin clics. Sin dashboards."
 	action_label="Implementar un agente"
 	action_onclick={() => goto(resolve("/(main)/contacto"))}
 	action_secondary_label="Ver casos por sector"

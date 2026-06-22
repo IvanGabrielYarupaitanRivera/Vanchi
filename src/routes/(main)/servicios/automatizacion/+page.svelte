@@ -63,7 +63,7 @@
 <Hero
 	level="secondary"
 	title="Tus herramientas no se hablan. Tus procesos se atoran"
-	subtitle="Conecto tus sistemas existentes para que trabajen solos. WhatsApp, Google Calendar, correo electronico, base de datos, APIs. Todo orquestado."
+	subtitle="Conecto tus sistemas existentes para que trabajen solos. WhatsApp, Google Calendar, correo electrónico, base de datos, APIs. Todo orquestado."
 	action_label="Automatizar mi proceso"
 	action_onclick={() => goto(resolve("/(main)/contacto"))}
 	action_secondary_label="Ver casos por sector"

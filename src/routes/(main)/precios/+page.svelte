@@ -160,7 +160,7 @@
 
 <Hero
 	level="secondary"
-	title="Cuanto cuesta implementar Inteligencia Artificial en tu empresa"
+	title="Cuánto cuesta implementar Inteligencia Artificial en tu empresa"
 	subtitle="Tres rangos. Pago por hitos de resultado. Sin costos ocultos, sin letras chicas. Cada agente se construye para resolver un problema concreto de tu negocio."
 	action_label="Conversemos"
 	action_onclick={() => goto(resolve('/(main)/contacto'))}

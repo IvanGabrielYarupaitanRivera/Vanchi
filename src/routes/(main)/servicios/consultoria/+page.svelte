@@ -57,7 +57,7 @@
 <Hero
 	level="secondary"
 	title="Sabes que necesitas automatizar. No sabes por donde empezar"
-	subtitle="Analizo tu operacion actual, identifico los procesos que mas tiempo consumen y te entrego una hoja de ruta concreta. Metodologia GaaS. Sin humo."
+	subtitle="Analizo tu operación actual, identifico los procesos que más tiempo consumen y te entrego una hoja de ruta concreta. Metodologia GaaS. Sin humo."
 	action_label="Agendar consulta gratuita"
 	action_onclick={() => goto(resolve("/(main)/contacto"))}
 	action_secondary_label="Conocer GaaS"

@@ -21,9 +21,9 @@
 	const structuredData = {
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
-		name: 'Casos de exito en automatizacion con IA | Vanchi',
+		name: 'Casos de éxito en automatización con IA | Vanchi',
 		description:
-			'9 casos de exito reales de automatizacion con IA en Huancayo, Junin y Peru. Agentes inteligentes, automatizacion de procesos y desarrollo web implementados con GaaS.',
+			'9 casos de exito reales de automatizacion con IA en Huancayo, Junin y Peru. Agentes inteligentes, automatización de procesos y desarrollo web implementados con GaaS.',
 		url: 'https://www.vanchi.pro/proyectos',
 		mainEntity: {
 			'@type': 'ItemList',
@@ -43,8 +43,8 @@
 </script>
 
 <SEO
-	title="Casos de exito en automatizacion con IA para empresas | Vanchi"
-	description="9 casos de exito reales de automatizacion con IA en Huancayo, Junin y Peru. Agentes inteligentes, automatizacion de procesos y desarrollo web. Proyectos implementados con metodologia GaaS."
+	title="Casos de éxito en automatización con IA para empresas | Vanchi"
+	description="9 casos de exito reales de automatizacion con IA en Huancayo, Junin y Peru. Agentes inteligentes, automatización de procesos y desarrollo web. Proyectos implementados con metodologia GaaS."
 	keywords="casos de exito automatizacion con ia, empresas que usan inteligencia artificial en peru, proyectos de ia implementados, sistema de gestion clinica molaric, automatizacion de estudios juridicos junin360"
 	url="https://www.vanchi.pro/proyectos"
 />
@@ -57,8 +57,8 @@
 
 <Hero
 	level="secondary"
-	title="Casos de exito en automatizacion con IA"
-	subtitle="{projects.length} proyectos reales de agentes de IA, automatizacion de procesos y desarrollo web. Implementacion GaaS para empresas en salud, legal y educacion en Huancayo, Junin y Peru."
+	title="Casos de éxito en automatización con IA"
+	subtitle="{projects.length} proyectos reales de agentes de IA, automatización de procesos y desarrollo web. Implementación GaaS para empresas en salud, legal y educación en Huancayo, Junín y Peru."
 	action_label="Proponer un proyecto"
 	action_onclick={() => goto(resolve('/(main)/contacto'))}
 />

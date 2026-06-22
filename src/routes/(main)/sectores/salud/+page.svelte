@@ -78,8 +78,8 @@
 
 <Hero
 	level="secondary"
-	title="Tu clinica pierde plata cada vez que un paciente falta a su cita"
-	subtitle="El 30 por ciento de las citas medicas en Peru terminan en ausentismo. Cada una es una hora facturable perdida. Agentes que confirman, reagendan y reducen ese numero sin intervencion humana."
+	title="Tu clínica pierde plata cada vez que un paciente falta a su cita"
+	subtitle="El 30 por ciento de las citas médicas en Perú terminan en ausentismo. Cada una es una hora facturable perdida. Agentes que confirman, reagendan y reducen ese número sin intervención humana."
 	action_label="Ver casos"
 	action_onclick={() => goto(resolve("/(main)/proyectos"))}
 />

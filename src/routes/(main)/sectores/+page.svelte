@@ -88,8 +88,8 @@
 
 <Hero
 	level="secondary"
-	title="Tu sector necesita automatizacion urgente"
-	subtitle="Salud, legal, educacion. Tres industrias donde los procesos manuales cuestan mas que la tecnologia. Cada agente se construye para el problema concreto de tu rubro."
+	title="Tu sector necesita automatización urgente"
+	subtitle="Salud, legal, educación. Tres industrias donde los procesos manuales cuestan más que la tecnología. Cada agente se construye para el problema concreto de tu rubro."
 	action_label="Ver proyectos"
 	action_onclick={() => goto(resolve('/(main)/proyectos'))}
 />
