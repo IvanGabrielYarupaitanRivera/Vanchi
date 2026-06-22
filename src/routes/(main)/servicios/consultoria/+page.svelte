@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/servicios/consultoria/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/servicios/consultoria/Body.svelte';
 	import PageFooter from '$lib/components/servicios/consultoria/Footer.svelte';
 	import type { ConsultingProject } from '$lib/components/servicios/consultoria/Body.svelte';
@@ -53,7 +54,15 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Sabes que necesitas automatizar. No sabes por donde empezar"
+	subtitle="Analizo tu operacion actual, identifico los procesos que mas tiempo consumen y te entrego una hoja de ruta concreta. Metodologia GaaS. Sin humo."
+	action_label="Agendar consulta gratuita"
+	action_onclick={() => goto(resolve("/(main)/contacto"))}
+	action_secondary_label="Conocer GaaS"
+	action_secondary_onclick={() => goto(resolve("/(main)/metodologia"))}
+/>
 
 <Body {projects} />
 

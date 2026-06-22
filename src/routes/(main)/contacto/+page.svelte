@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/contacto/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Canales from '$lib/components/contacto/Canales.svelte';
 	import Expectativas from '$lib/components/contacto/Expectativas.svelte';
 	import Redes from '$lib/components/contacto/Redes.svelte';
@@ -49,7 +50,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Contratar a un especialista en Inteligencia Artificial"
+	subtitle="Escribeme por WhatsApp o email. Sin formularios largos, sin friccion. Respondo en menos de 24 horas."
+	action_label="Escribeme"
+	action_onclick={() => goto(resolve("/(main)/contacto"))}
+/>
 
 <Canales {whatsappUrl} {email} />
 

@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/metodologia/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/metodologia/Body.svelte';
 	import PageFooter from '$lib/components/metodologia/Footer.svelte';
 
@@ -44,7 +45,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="El software no deberia necesitarte para funcionar"
+	subtitle="Compraste un SaaS. Capacitaste a tu equipo. Y aun asi todo depende de que alguien haga clic. GaaS es software que recibe un objetivo y lo ejecuta solo."
+	action_label="Conocer GaaS"
+	action_onclick={() => goto(resolve("/(main)/metodologia"))}
+/>
 
 <Body />
 

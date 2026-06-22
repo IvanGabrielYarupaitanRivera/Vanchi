@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/sectores/legal/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/sectores/legal/Body.svelte';
 	import PageFooter from '$lib/components/sectores/legal/Footer.svelte';
 	import type { LegalProject } from '$lib/components/sectores/legal/Body.svelte';
@@ -61,7 +62,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Cuantos plazos procesales perdiste este mes"
+	subtitle="Un solo plazo vencido puede costar un caso entero. Agentes que leen, indexan y alertan automaticamente sobre cada folio, cada fecha, cada vencimiento."
+	action_label="Ver casos"
+	action_onclick={() => goto(resolve("/(main)/proyectos"))}
+/>
 
 <Body {projects} />
 

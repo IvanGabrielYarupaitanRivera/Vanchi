@@ -1,6 +1,8 @@
 <script lang="ts">
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/soluciones-legales/Hero.svelte';
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import PhaseBentoGrid from '$lib/components/soluciones-legales/PhaseBentoGrid.svelte';
 	import PhaseDetails from '$lib/components/soluciones-legales/PhaseDetails.svelte';
 	import TrustAndFaq from '$lib/components/soluciones-legales/TrustAndFaq.svelte';
@@ -95,7 +97,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Digitaliza tu despacho legal"
+	subtitle="Moderniza la gestion de tu estudio juridico con agentes de IA. Automatizacion de expedientes, seguimiento de plazos y comunicacion con clientes."
+	action_label="Conversemos"
+	action_onclick={() => goto(resolve("/(main)/contacto"))}
+/>
 
 <PhaseBentoGrid />
 

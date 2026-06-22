@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/sectores/salud/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/sectores/salud/Body.svelte';
 	import PageFooter from '$lib/components/sectores/salud/Footer.svelte';
 	import type { HealthProject } from '$lib/components/sectores/salud/Body.svelte';
@@ -75,7 +76,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Tu clinica pierde plata cada vez que un paciente falta a su cita"
+	subtitle="El 30 por ciento de las citas medicas en Peru terminan en ausentismo. Cada una es una hora facturable perdida. Agentes que confirman, reagendan y reducen ese numero sin intervencion humana."
+	action_label="Ver casos"
+	action_onclick={() => goto(resolve("/(main)/proyectos"))}
+/>
 
 <Body {projects} />
 

@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/servicios/automatizacion/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/servicios/automatizacion/Body.svelte';
 	import PageFooter from '$lib/components/servicios/automatizacion/Footer.svelte';
 	import type { AutomationProject } from '$lib/components/servicios/automatizacion/Body.svelte';
@@ -59,7 +60,15 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Tus herramientas no se hablan. Tus procesos se atoran"
+	subtitle="Conecto tus sistemas existentes para que trabajen solos. WhatsApp, Google Calendar, correo electronico, base de datos, APIs. Todo orquestado."
+	action_label="Automatizar mi proceso"
+	action_onclick={() => goto(resolve("/(main)/contacto"))}
+	action_secondary_label="Ver casos por sector"
+	action_secondary_onclick={() => goto(resolve("/(main)/sectores"))}
+/>
 
 <Body {projects} />
 

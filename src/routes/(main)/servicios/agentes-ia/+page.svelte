@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/servicios/agentes-ia/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/servicios/agentes-ia/Body.svelte';
 	import PageFooter from '$lib/components/servicios/agentes-ia/Footer.svelte';
 	import type { AgentProject } from '$lib/components/servicios/agentes-ia/Body.svelte';
@@ -65,7 +66,15 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Tu equipo pierde horas en tareas que un agente podria hacer solo"
+	subtitle="No es un chatbot. Es un agente autonomo que recibe un objetivo, ejecuta las acciones necesarias y reporta resultados. Sin clics. Sin dashboards."
+	action_label="Implementar un agente"
+	action_onclick={() => goto(resolve("/(main)/contacto"))}
+	action_secondary_label="Ver casos por sector"
+	action_secondary_onclick={() => goto(resolve("/(main)/sectores"))}
+/>
 
 <Body {projects} />
 

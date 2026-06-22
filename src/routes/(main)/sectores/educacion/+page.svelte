@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import Hero from '$lib/components/sectores/educacion/Hero.svelte';
+	import Hero from '$lib/components/ui/Hero/Hero.svelte';
 	import Body from '$lib/components/sectores/educacion/Body.svelte';
 	import PageFooter from '$lib/components/sectores/educacion/Footer.svelte';
 	import type { EducationProject } from '$lib/components/sectores/educacion/Body.svelte';
@@ -68,7 +69,13 @@
 	</svelte:element>
 </svelte:head>
 
-<Hero />
+<Hero
+	level="secondary"
+	title="Tus administrativos pasan mas tiempo llenando planillas que ayudando alumnos"
+	subtitle="Cada hora que un administrativo invierte en papeleo es una hora que un alumno no recibe atencion. Agentes que responden dudas 24/7, gestionan matriculas y liberan a tus docentes."
+	action_label="Ver casos"
+	action_onclick={() => goto(resolve("/(main)/proyectos"))}
+/>
 
 <Body {projects} />
 
