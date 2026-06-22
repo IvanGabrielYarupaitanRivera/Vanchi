@@ -1,12 +1,20 @@
 # 🤖 REGLAS DE EJECUCION PARA AGENTE: Hero.svelte
 
-Este componente encapsula las cabeceras estructurales de todas las rutas del portafolio Vanchi.
+Componente que encapsula las cabeceras estructurales de todas las rutas.
 Actua bajo el esquema **Dual-Layer Component Architecture**.
 
 Tienes estrictamente **prohibido** reescribir este marcado o alterar sus clases globales.
 Debes **importarlo y parametrizarlo**.
 
-## 📐 Interfaz de Tipos (Props del Sistema)
+## 🎨 Diseño visual (solo nivel primary)
+
+El nivel `primary` incluye:
+- **Fondo:** Retícula de ingeniería 40×40 + puntos 2px cada 40px (SVG inline, `background-image`)
+- **Esquinas:** L-brackets en `border-secondary` en top-left y bottom-left del header
+- **Sin borde izquierdo continuo.** Las esquinas son independientes.
+- **bg-base-100** (fondo sólido, sin textura en niveles secondary/tertiary)
+
+## 📐 Interfaz de Tipos
 
 ```typescript
 type HeroLevel = 'primary' | 'secondary' | 'tertiary';
@@ -26,19 +34,19 @@ interface HeroProps {
 
 ## 📊 Comportamiento por Nivel
 
-| Nivel | Espaciado | SystemStatus | Botones | italic_word | subtitle |
+| Nivel | Altura | SystemStatus | Botones | italic_word | subtitle |
 |---|---|---|---|---|---|
-| `primary` | `py-32` | ✅ Arriba | ✅ Primario + Secundario | ✅ En titulo | ✅ Abajo /60 |
-| `secondary` | `py-20` | ❌ Ignorado | ✅ Solo primario (ghost) | ✅ En titulo | ✅ Derecha /60 |
-| `tertiary` | `py-8` | ❌ Ignorado | ❌ Ignorado | ❌ Ignorado | ✅ Metadata derecha |
+| `primary` | `py-32 lg:py-48` | ✅ Arriba | ✅ `btn-primary` + `btn-outline` | ✅ En título | ✅ Abajo |
+| `secondary` | `py-20 lg:py-32` | ❌ Ignorado | ✅ Solo `btn-outline` | ✅ En título | ✅ Derecha |
+| `tertiary` | `py-8 lg:py-12` | ❌ Ignorado | ❌ Ignorado | ❌ Ignorado | ✅ Metadata derecha |
 
 ## ❌ ANTI-PATRONES
 
 * NO pasar colores fijos. Usar solo tokens DaisyUI.
 * NO `rounded-full`, `rounded-lg`, `rounded-xl`.
-* Si `level="tertiary"`, NO pasar action_label, action_onclick ni status_active.
-* Si `level="secondary"`, NO pasar action_secondary_label ni status_active.
-* NO usar `{@html}` para italicas. Usar `italic_word`.
+* Si `level="tertiary"`, NO pasar `action_label`, `action_onclick` ni `status_active`.
+* Si `level="secondary"`, NO pasar `action_secondary_label` ni `status_active`.
+* NO usar `{@html}` para itálicas. Usar `italic_word`.
 * `action_href` no existe. Usar `action_onclick` con `goto(resolve(...))`.
 
 ## 💻 Ejemplos
@@ -53,10 +61,10 @@ interface HeroProps {
 
 <Hero
   level="primary"
-  title="Tu empresa deberia funcionar sola"
+  title="Tu empresa debería funcionar sola"
   italic_word="sola"
   subtitle="Despliego agentes de IA que resuelven objetivos de negocio."
-  action_label="Automatizar mi organizacion"
+  action_label="Automatizar mi organización"
   action_onclick={() => goto(resolve('/(main)/contacto'))}
   action_secondary_label="Iniciar consulta con agente"
   action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
@@ -64,13 +72,13 @@ interface HeroProps {
 />
 ```
 
-### Secondary — Seccion
+### Secondary — Sección
 ```svelte
 <Hero
   level="secondary"
   title="Servicios"
   italic_word="IA"
-  subtitle="Automatizacion de procesos para empresas en Junin."
+  subtitle="Automatización de procesos para empresas en Junín."
   action_label="Ver casos"
   action_onclick={() => goto(resolve('/(main)/proyectos'))}
 />
@@ -80,7 +88,7 @@ interface HeroProps {
 ```svelte
 <Hero
   level="tertiary"
-  title="vanchi.pro / politicas de privacidad"
-  subtitle="Ultima revision: Junio 2026"
+  title="vanchi.pro / políticas de privacidad"
+  subtitle="Última revisión: Junio 2026"
 />
 ```
