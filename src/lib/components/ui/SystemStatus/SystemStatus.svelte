@@ -1,23 +1,29 @@
-<script lang="ts">
-	/**
-	 * SystemStatus.svelte
-	 *
-	 * Único componente autorizado para el dot phosphor green (#00C288 / accent).
-	 * 6px fijo. Sin glow, sin shadow, sin blur.
-	 *
-	 * Uso:
-	 *   <SystemStatus status="active" label="SYSTEM // ONLINE" />
-	 */
+/**
+ * @component SystemStatus.svelte
+ * @description Indicador de estado del sistema. Es el UNICO componente autorizado
+ * para usar `bg-accent` (phosphor green). Dot de 6px fijo.
+ *
+ * ANTI-PATRONES RESTRICTOS:
+ * - ❌ NO usar bg-accent o bg-[#00C288] fuera de este componente.
+ * - ❌ NO modificar el tamano del dot (vanchi-agent-dot = 6px fijo).
+ * - ❌ NO agregar shadow, blur, glow o ring al dot.
+ * - ❌ NO usar para decorar elementos que no sean indicadores de estado.
+ */
 
-	type Status = 'active' | 'idle' | 'error';
+<script lang="ts">
+	export type SystemStatusValue = 'active' | 'idle' | 'error';
+
+	export interface SystemStatusProps {
+		/** Estado del sistema: active (verde pulse), idle (gris), error (rojo) */
+		status?: SystemStatusValue;
+		/** Texto opcional al lado del dot. Ej: "SYSTEM // ONLINE" */
+		label?: string;
+	}
 
 	let {
-		status = 'active' as Status,
+		status = 'active' as SystemStatusValue,
 		label
-	}: {
-		status?: Status;
-		label?: string;
-	} = $props();
+	}: SystemStatusProps = $props();
 
 	const dotClass = $derived(
 		status === 'active'
