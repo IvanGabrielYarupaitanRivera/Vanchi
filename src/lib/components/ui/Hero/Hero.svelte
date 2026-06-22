@@ -52,11 +52,27 @@
 </script>
 
 <header
-	class="w-full border-b border-base-300 bg-base-100 font-mono text-base-content selection:bg-accent selection:text-base-100"
+	class="relative w-full border-b border-base-300 bg-base-100 font-mono text-base-content selection:bg-accent selection:text-base-100"
 >
 	{#if level === 'primary'}
+		<!-- Fondo: reticula 40x40 + puntos 2px/40px -->
 		<div
-			class="mx-auto flex max-w-5xl flex-col items-start gap-10 border-l-2 border-base-300 px-6 py-32 md:px-12 lg:py-48"
+			class="pointer-events-none absolute inset-0"
+			style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%23242B33' stroke-width='1' opacity='0.4'/%3E%3C/svg%3E&quot;), url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23242B33' opacity='0.25'/%3E%3C/svg%3E&quot;);"
+			aria-hidden="true"
+		></div>
+		<!-- Esquinas L en el borde del header -->
+		<div
+			class="pointer-events-none absolute top-0 left-0 h-5 w-5 border-t-2 border-l-2 border-secondary"
+			aria-hidden="true"
+		></div>
+		<div
+			class="pointer-events-none absolute bottom-0 left-0 h-5 w-5 border-b-2 border-l-2 border-secondary"
+			aria-hidden="true"
+		></div>
+
+		<div
+			class="relative mx-auto flex max-w-5xl flex-col items-start gap-10 px-6 py-32 md:px-12 lg:py-48"
 		>
 			<SystemStatus status={status_active ? 'active' : 'idle'} label="SYSTEM // ONLINE" />
 
