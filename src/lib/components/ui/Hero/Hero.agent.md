@@ -1,67 +1,97 @@
-# 🤖 AGENT RULES: Hero.svelte
+# 🤖 REGLAS DE EJECUCION PARA AGENTE: Hero.svelte
 
-**PROPÓSITO:** Renderizar el encabezado de una ruta según su profundidad (primary / secondary / tertiary).
+Este componente encapsula las cabeceras estructurales de todas las rutas del portafolio Vanchi.
+Actua bajo el esquema **Dual-Layer Component Architecture**.
 
-**PROPS:**
+Tienes estrictamente **prohibido** reescribir este marcado o alterar sus clases globales.
+Debes **importarlo y parametrizarlo**.
 
-| Prop | Type | Default | Requerido | Descripción |
-|---|---|---|---|---|
-| `level` | `'primary' \| 'secondary' \| 'tertiary'` | `'secondary'` | No | Nivel de profundidad visual |
-| `title` | `string` | — | **Sí** | Título del hero |
-| `subtitle` | `string \| undefined` | `undefined` | No | Texto secundario |
-| `action_label` | `string \| undefined` | `undefined` | No | Texto del botón CTA |
-| `action_onclick` | `(() => void) \| undefined` | `undefined` | No | Callback de navegación |
-| `status_active` | `boolean` | `false` | No | Muestra SystemStatus (solo primary) |
-| `italic_word` | `string \| undefined` | `undefined` | No | Palabra en itálica dentro del title (solo primary/secondary) |
+## 📐 Interfaz de Tipos (Props del Sistema)
 
-**COMPORTAMIENTO POR NIVEL:**
+```typescript
+type HeroLevel = 'primary' | 'secondary' | 'tertiary';
+
+interface HeroProps {
+  level: HeroLevel;
+  title: string;
+  subtitle?: string;
+  italic_word?: string;
+  action_label?: string;
+  action_onclick?: () => void;
+  status_active?: boolean;
+}
+```
+
+## 📊 Comportamiento por Nivel
 
 | Nivel | Altura | SystemStatus | CTA | italic_word | subtitle |
 |---|---|---|---|---|---|
-| `primary` | `min-h-[90dvh]` | ✅ Arriba | ✅ Chalk abajo | ✅ En newline | ✅ Abajo |
-| `secondary` | `min-h-[90dvh]` | ❌ Ignorado | ✅ Ghost derecha | ✅ Al lado | ✅ Derecha |
-| `tertiary` | `min-h-0 py-12` | ❌ Ignorado | ❌ Ignorado | ❌ Ignorado | ✅ Como metadata |
+| `primary` | `py-24` | ✅ Arriba | ✅ Chalk | ✅ En titulo | ✅ Abajo |
+| `secondary` | `py-16` | ❌ Ignorado | ✅ Ghost derecha | ✅ En titulo | ✅ Derecha |
+| `tertiary` | `py-8` | ❌ Ignorado | ❌ Ignorado | ❌ Ignorado | ✅ Metadata derecha |
 
-**ANTI-PATRONES (NO HACER):**
-- ❌ NUNCA pasar colores fijos (hex, rgb, tailwind colors). Usar tokens: `base-content`, `base-100`, `secondary`, etc.
-- ❌ NUNCA `rounded-full`, `rounded-lg`, `rounded-xl`. El componente usa radius 4px implícito.
-- ❌ Si `level="tertiary"`, NO pasar `action_label`, `action_onclick` ni `status_active`. Se ignoran.
-- ❌ No inyectar HTML crudo en `title`. Usar `italic_word` para palabras en itálica.
-- ❌ NO modificar el `min-h`. Está fijo por nivel.
-- ❌ `action_onclick` espera un callback. El caller debe usar `goto(resolve(...))` internamente.
+## ❌ ANTI-PATRONES DE CONTEXTO (Prohibiciones Inquebrantables)
 
-**EJEMPLOS:**
+* **Cero Estilos Propios:** No intentes pasar clases utilitarias de Tailwind como `bg-zinc-900`,
+  `shadow-2xl` o `rounded-xl`. El componente fuerza `bg-base-100` y `border-base-300` nativamente.
+* **Restriccion de Botones:** En `level="tertiary"`, las props `action_label`, `action_onclick`
+  y `status_active` se omiten. No las declares.
+* **Tipografia Protegida:** El componente mapea `.vanchi-display` (serif) para H1 y `font-mono`
+  (JetBrains Mono) para bloques secundarios.
+* **Inyeccion Limpia:** Nunca uses `{@html}` para inyectar italicas. Pasa la palabra exacta
+  via `italic_word`. El componente usa `$derived.by()` para segmentar el titulo.
+
+## 💻 Patrones de Composicion Correctos
+
+### Caso 1: Ruta Raiz (`src/routes/(main)/+page.svelte`)
 
 ```svelte
 <script lang="ts">
+  import Hero from '$lib/components/ui/Hero/Hero.svelte';
   import { goto } from '$app/navigation';
   import { resolve } from '$app/paths';
 </script>
 
-<!-- Primary — Home -->
 <Hero
   level="primary"
-  title="Tu empresa debería funcionar sola"
-  subtitle="Construyo agentes de IA que trabajan en background."
-  action_label="Empezar"
+  title="Tu empresa deberia funcionar sola"
+  italic_word="sola"
+  subtitle="Despliego agentes de IA que resuelven objetivos de negocio de extremo a extremo."
+  action_label="Automatizar mi organizacion"
   action_onclick={() => goto(resolve('/(main)/contacto'))}
   status_active={true}
-  italic_word="sola"
 />
+```
 
-<!-- Secondary — Servicios -->
+### Caso 2: Paginas de Seccion (`src/routes/(main)/sectores/salud/+page.svelte`)
+
+```svelte
+<script lang="ts">
+  import Hero from '$lib/components/ui/Hero/Hero.svelte';
+  import { goto } from '$app/navigation';
+  import { resolve } from '$app/paths';
+</script>
+
 <Hero
   level="secondary"
-  title="Servicios"
-  subtitle="Automatización de procesos para empresas en Junín."
-  action_label="Ver casos"
+  title="Optimizacion de sistemas clinicos"
+  italic_word="clinicos"
+  subtitle="Resolucion de cuellos de botella en admision mediante agentes autonomos."
+  action_label="Ver Casos de Exito"
   action_onclick={() => goto(resolve('/(main)/proyectos'))}
 />
+```
 
-<!-- Tertiary — Política de privacidad -->
+### Caso 3: Documento Legal (`src/routes/(main)/politica-de-privacidad/+page.svelte`)
+
+```svelte
+<script lang="ts">
+  import Hero from '$lib/components/ui/Hero/Hero.svelte';
+</script>
+
 <Hero
   level="tertiary"
-  title="/ legal / privacidad"
-  subtitle="Actualizado: 2026"
+  title="vanchi.pro / politicas de privacidad"
+  subtitle="Ultima revision: Junio 2026"
 />
 ```
