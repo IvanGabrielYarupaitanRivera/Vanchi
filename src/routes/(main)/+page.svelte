@@ -67,9 +67,9 @@
 
 <Hero
 	level="primary"
-	title="Tu empresa deberia funcionar sola"
-	subtitle="Despliego agentes de IA que resuelven objetivos de negocio de extremo a extremo. Diseno sistemas donde automatizo procesos de mi empresa asociada con ejecucion autonoma en background."
-	action_label="Automatizar mi organizacion"
+	title="Tu empresa debería funcionar sola"
+	subtitle="Despliego agentes de IA que resuelven objetivos de negocio de extremo a extremo. Diseño sistemas donde automatizo procesos de mi empresa asociada con ejecución autónoma en background."
+	action_label="Automatizar mi organización"
 	action_onclick={() => goto(resolve('/(main)/contacto'))}
 	action_secondary_label="Iniciar consulta con agente"
 	action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
