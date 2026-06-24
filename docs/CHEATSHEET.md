@@ -61,22 +61,43 @@ npx convex export    # Exportar datos de Convex
 Vanchi/
 ├── src/
 │   ├── lib/
-│   │   ├── assets/       # Íconos, imágenes, SVGs
-│   │   ├── components/   # Componentes Svelte reutilizables
-│   │   │   ├── chat/     # Componentes del asistente IA v2
-│   │   │   └── ...
-│   │   └── server/       # Cliente Convex para SSR
-│   ├── convex/           # Backend Convex (agentes, schema, entidades)
-│   └── routes/           # Páginas y endpoints de SvelteKit
-│       ├── +layout.svelte       # Raíz: Convex setup
-│       ├── (main)/              # Portfolio + Admin (Header + Footer)
+│   │   ├── assets/             # Íconos, imágenes, SVGs
+│   │   ├── components/
+│   │   │   ├── ui/             # ← COMPONENT LIBRARY (Dual-Layer)
+│   │   │   │   ├── Hero/       # Hero.svelte + Hero.agent.md
+│   │   │   │   ├── SystemStatus/ # SystemStatus.svelte + .agent.md
+│   │   │   │   └── CommandAction/ # CommandAction.svelte + .agent.md
+│   │   │   ├── chat/           # Componentes del asistente IA v2
+│   │   │   ├── home/           # AboutMe, Services, FeaturedProjects
+│   │   │   ├── proyectos/      # Body, Footer, project/
+│   │   │   ├── contacto/       # Canales, Expectativas, Redes
+│   │   │   ├── servicios/      # ServiceCards, Footer, subdirectorios
+│   │   │   ├── sectores/       # SectorCards, Footer, subdirectorios
+│   │   │   ├── precios/        # PriceSheet, PaymentModel, Faq
+│   │   │   ├── metodologia/    # Body, Footer
+│   │   │   ├── ivan-yarupaitan-rivera/ # Story, Stack, Cta
+│   │   │   ├── soluciones-legales/ # PhaseBentoGrid, FAQ, etc.
+│   │   │   ├── Header.svelte   # Navegación principal
+│   │   │   └── Footer.svelte   # Footer del sitio
+│   │   └── server/             # Cliente Convex para SSR
+│   ├── convex/                 # Backend Convex (agentes, schema, entidades)
+│   └── routes/                 # Páginas y endpoints de SvelteKit
+│       ├── +layout.svelte      # Raíz: Convex setup
+│       ├── (main)/             # Portfolio + Admin (Header + Footer)
 │       │   ├── +layout.svelte
-│       │   ├── +page.svelte     # Home
-│       │   ├── admin/           # Login + CRUD protegido
-│       │   ├── proyectos/
+│       │   ├── +page.svelte    # Home
+│       │   ├── admin/          # Login + CRUD protegido
+│       │   ├── proyectos/      # Listado + detalle dinámico
+│       │   ├── servicios/      # Listado + subrutas
+│       │   ├── sectores/       # Listado + subrutas
 │       │   ├── precios/
-│       │   └── ...
-│       └── (chat)/              # Asistente IA (layout aislado)
+│       │   ├── contacto/
+│       │   ├── metodologia/
+│       │   ├── soluciones-legales/
+│       │   ├── ivan-yarupaitan-rivera/
+│       │   ├── waas/
+│       │   └── dev/            # UI component labs
+│       └── (chat)/             # Asistente IA (layout aislado)
 │           └── chat/
 │               ├── +layout.svelte  # h-[100dvh] + visualViewport
 │               └── +page.svelte    # Chat completo
@@ -156,5 +177,6 @@ Cada página debe tener:
 | -------------------------- | -------------------------------- |
 | Documentación del proyecto | [`/docs/README.md`](./README.md) |
 | Design System completo     | [`/DESIGN.md`](../DESIGN.md)     |
+| UI Component Library       | [`/src/lib/components/ui/README.md`](../../src/lib/components/ui/README.md) |
 | Especificaciones activas   | [`/tasks/`](../tasks/)           |
 | Aliados IA / Skills        | [`ALIADAS.md`](./ALIADAS.md)     |

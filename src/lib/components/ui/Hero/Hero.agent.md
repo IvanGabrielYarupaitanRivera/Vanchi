@@ -30,18 +30,18 @@ interface HeroProps {
   image?: string;                  // solo profile
   image_alt?: string;              // solo profile
   image_caption?: string;          // solo profile
-  children?: Snippet;              // solo profile (metadata chips)
+  children?: Snippet;              // contenido extra entre subtitle y botones
 }
 ```
 
 ## 📊 Comportamiento por Nivel
 
-| Nivel | Altura | SystemStatus | Imagen | Botones | italic_word |
-|---|---|---|---|---|---|
-| `primary` | `py-32 lg:py-48` | Si arriba | No | primary + outline-primary | Si |
-| `secondary` | `py-24 lg:py-40` | No | No | primary + outline-primary | Si |
-| `profile` | `py-32 lg:py-48` | No | Si (derecha) | primary + outline-primary | Si |
-| `tertiary` | `py-8 lg:py-12` | No | No | No | No |
+| Nivel | Altura | SystemStatus | Imagen | Botones | italic_word | children |
+|---|---|---|---|---|---|---|
+| `primary` | `py-32 lg:py-48` | Si arriba | No | primary + outline-primary | Si | No |
+| `secondary` | `py-24 lg:py-40` | No | No | primary + outline-primary | Si | Si (entre subtitle y botones) |
+| `profile` | `py-32 lg:py-48` | No | Si (derecha, fija) | primary + outline-primary | Si | Si (entre subtitle y botones) |
+| `tertiary` | `py-8 lg:py-12` | No | No | No | No | No |
 
 ## ❌ ANTI-PATRONES
 
@@ -67,6 +67,16 @@ interface HeroProps {
 <Hero level="secondary" title="Servicios"
   subtitle="Automatizacion de procesos."
   action_label="Ver casos" action_onclick={() => goto(resolve('/(main)/proyectos'))} />
+```
+
+### Secondary con children
+```svelte
+<Hero level="secondary" title={project.meta.title} subtitle={project.meta.tagline}>
+	<div class="flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm text-base-content/50">
+		<span>{project.meta.role}</span>
+		<span>{project.meta.date}</span>
+	</div>
+</Hero>
 ```
 
 ### Profile — Pagina personal

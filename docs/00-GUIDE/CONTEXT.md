@@ -19,6 +19,7 @@
 | UI runtime           | Svelte                   | 5.x (runes, snippets) |
 | Estilos              | Tailwind CSS             | v4                    |
 | Componentes UI       | DaisyUI                  | v5                    |
+| UI Component Library | `src/lib/components/ui/` | Dual-Layer Architecture |
 | Iconos               | Lucide Svelte            | 0.577.x               |
 | Runtime              | Bun                      | 1.3.x                 |
 | Base de datos        | Convex Cloud             | —                     |
@@ -51,10 +52,22 @@ Vanchi/
 │   │   ├── components/
 │   │   │   ├── Header.svelte   # Navegacion principal
 │   │   │   ├── Footer.svelte   # Footer del sitio
-│   │   │   ├── chat/           # ChatHeader, ChatInput, ChatMessages, ChatSuggestions
-│   │   │   ├── home/           # Hero, Services, FeaturedProjects, AboutMe, etc.
-│   │   │   └── proyectos/      # CardProject, OurProjects, etc.
-│   │   │   └── soluciones-legales/  # PhaseBentoGrid, FAQ, etc.
+│   │   │   ├── SEO.svelte      # Meta tags y SEO head
+│   │   │   ├── chat/           # ChatHeader, ChatInput, ChatSuggestions
+│   │   │   ├── home/           # AboutMe, FeaturedProjects, Services, etc.
+│   │   │   ├── proyectos/      # Body, Footer, project/ (Context, Role, etc.)
+│   │   │   ├── contacto/       # Canales, Expectativas, Redes, Footer
+│   │   │   ├── servicios/      # ServiceCards, Footer, subdirectorios (agentes-ia, automatizacion, consultoria)
+│   │   │   ├── sectores/       # SectorCards, Footer, subdirectorios (educacion, legal, salud)
+│   │   │   ├── precios/        # EntryPlan, Faq, PaymentModel, PriceSheet, Footer
+│   │   │   ├── metodologia/    # Body, Footer
+│   │   │   ├── ivan-yarupaitan-rivera/  # Cta, Stack, Story, Footer
+│   │   │   ├── soluciones-legales/  # ComparisonSection, FaqSection, PhaseBentoGrid, etc.
+│   │   │   └── ui/             # ← COMPONENT LIBRARY (Dual-Layer Architecture)
+│   │   │       ├── README.md        # Documentacion para agentes IA
+│   │   │       ├── Hero/            # Hero.svelte + Hero.agent.md (4 niveles)
+│   │   │       ├── SystemStatus/    # SystemStatus.svelte + SystemStatus.agent.md
+│   │   │       └── CommandAction/   # CommandAction.svelte + CommandAction.agent.md
 │   │   ├── server/convex.ts    # Cliente Convex para SSR
 │   │   └── chat/               # chat.ts (markdown, LS, helpers)
 │   ├── routes/
@@ -65,13 +78,23 @@ Vanchi/
 │   │   │   ├── +layout.svelte  # Header + CommandBar + Footer
 │   │   │   ├── +page.svelte    # Home
 │   │   │   ├── proyectos/      # Listado + detalle dinamico
+│   │   │   ├── servicios/      # Listado + subrutas (agentes-ia, automatizacion, consultoria)
+│   │   │   ├── sectores/       # Listado + subrutas (educacion, legal, salud)
 │   │   │   ├── precios/        # Modelos de colaboracion
 │   │   │   ├── soluciones-legales/
-│   │   │   ├── waas/
+│   │   │   ├── metodologia/    # Metodologia GaaS
+│   │   │   ├── contacto/       # Contacto y canales
+│   │   │   ├── ivan-yarupaitan-rivera/  # Pagina personal
+│   │   │   ├── waas/           # WhatsApp as a Service
 │   │   │   ├── admin/
 │   │   │   │   ├── login/      # Login administrativo
 │   │   │   │   └── (protegido)/# Guard de sesion
 │   │   │   │       └── documentos/  # CRUD de documentos
+│   │   │   ├── dev/            # Dev routes para UI components
+│   │   │   │   ├── +page.svelte        # Index
+│   │   │   │   ├── heroes/            # Hero X1 definitive
+│   │   │   │   ├── system-status/     # SystemStatus S6 definitive
+│   │   │   │   └── command-action/    # CommandAction winning variants
 │   │   │   └── ...             # Politicas, sitemap, paginas estaticas
 │   │   └── (chat)/             # Asistente IA (sin Header/Footer)
 │   │       └── chat/
@@ -113,15 +136,25 @@ El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
 
 **Completado:**
 - Landing page, proyectos, precios, waas, soluciones-legales, paginas legales
+- Metodologia GaaS, contacto, ivan-yarupaitan-rivera
+- Servicios (agentes-ia, automatizacion, consultoria), sectores (educacion, legal, salud)
 - Asistente IA v2 con ruta `/chat` (Convex Agent, tabla unica `documentosV2`, Vercel AI Gateway, typing animation, scroll suave)
 - CRUD admin protegido (`/admin/documentos`) — listar, crear, editar, eliminar
 - Base de conocimiento poblada con 26 documentos (sobre-mi, stack, servicios, precios, proyectos, legal)
-- Hub de documentacion completo (`docs/`) con 34 archivos
+- Hub de documentacion completo (`docs/`) con 39 archivos
 - Route groups: `(main)/` portfolio, `(chat)/chat/` asistente, `(protegido)/` admin guard
 - SEO/GEO: `llms.txt` y `llms-full.txt` en produccion
+- **UI Component Library**: `src/lib/components/ui/` con Dual-Layer Architecture (Componente importable + `.agent.md` con anti-patrones)
+- **Hero**: 4 niveles (primary, secondary, profile, tertiary) — migradas las 15 rutas del portafolio
+- **SystemStatus**: Componente S6 con DaisyUI status
+- **CommandAction**: 4 niveles (primary, outline-primary, ghost, secondary)
+- **Hero profile**: Estructura identica a primary con columna de imagen
+- **Chat redesign**: Estados de carga neutros, diferenciacion visual user/agent, mobile detection coarse pointer
+- **Footer & Header**: Editorial Gemini rewrite con indices numerados, E-E-A-T badge
 
 **Pendiente:**
 - (Opcional) Eliminar tablas v1 legacy (documents, chunks, embeddings) sin regresion
+- DataBlock, IndexList, GridTwo components (especificados en `todo-ui-components.md`)
 
 ---
 
@@ -138,5 +171,6 @@ El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
 | Skills / aliados IA           | [`/docs/ALIADAS.md`](../ALIADAS.md)                   |
 | Historial de cambios          | [`/docs/CHANGELOG.md`](../CHANGELOG.md)               |
 | Design system completo        | [`/DESIGN.md`](../../DESIGN.md)                       |
+| UI Component Library          | [`/src/lib/components/ui/README.md`](../../src/lib/components/ui/README.md) |
 | Filosofia del agente          | [`08-FILOSOFIA-AGENTE/README.md`](../08-FILOSOFIA-AGENTE/README.md) |
 | Especificaciones archivadas   | [`/tasks/archived/`](../../tasks/archived/)           |

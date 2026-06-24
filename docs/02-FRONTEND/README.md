@@ -11,6 +11,7 @@
 | Framework | SvelteKit 2 |
 | UI runtime | Svelte 5 (runes) |
 | Estilos | Tailwind CSS v4 + DaisyUI v5 |
+| UI Component Library | `src/lib/components/ui/` (Dual-Layer Architecture) |
 | Iconos | Lucide Svelte |
 | Imagenes | `@sveltejs/enhanced-img` |
 
@@ -28,10 +29,25 @@
 | `/admin/documentos/[id]` | `(main)/admin/(protegido)/documentos/[id]/+page.svelte` | Editar documento |
 | `/proyectos` | `(main)/proyectos/+page.svelte` | Listado de proyectos |
 | `/proyectos/[projectId]` | `(main)/proyectos/[projectId]/+page.svelte` | Detalle dinamico de proyecto |
+| `/servicios` | `(main)/servicios/+page.svelte` | Listado de servicios |
+| `/servicios/agentes-ia` | `(main)/servicios/agentes-ia/+page.svelte` | Servicio de Agentes IA |
+| `/servicios/automatizacion` | `(main)/servicios/automatizacion/+page.svelte` | Servicio de Automatizacion |
+| `/servicios/consultoria` | `(main)/servicios/consultoria/+page.svelte` | Servicio de Consultoria |
+| `/sectores` | `(main)/sectores/+page.svelte` | Listado de sectores |
+| `/sectores/[sector]` | `(main)/sectores/[sector]/+page.svelte` | Detalle dinamico de sector |
+| `/sectores/educacion` | `(main)/sectores/educacion/+page.svelte` | Sector Educacion |
+| `/sectores/legal` | `(main)/sectores/legal/+page.svelte` | Sector Legal |
+| `/sectores/salud` | `(main)/sectores/salud/+page.svelte` | Sector Salud |
 | `/precios` | `(main)/precios/+page.svelte` | Modelos de colaboracion y precios |
 | `/soluciones-legales` | `(main)/soluciones-legales/+page.svelte` | Servicios legales tech |
-| `/waas` | `(main)/waas/+page.svelte` | WhatsApp as a Service |
+| `/metodologia` | `(main)/metodologia/+page.svelte` | Metodologia GaaS |
+| `/contacto` | `(main)/contacto/+page.svelte` | Contacto y canales |
 | `/ivan-yarupaitan-rivera` | `(main)/ivan-yarupaitan-rivera/+page.svelte` | Pagina personal del autor |
+| `/waas` | `(main)/waas/+page.svelte` | WhatsApp as a Service |
+| `/dev` | `(main)/dev/+page.svelte` | Dev index: UI component labs |
+| `/dev/heroes` | `(main)/dev/heroes/+page.svelte` | Hero X1 definitive |
+| `/dev/system-status` | `(main)/dev/system-status/+page.svelte` | SystemStatus S6 definitive |
+| `/dev/command-action` | `(main)/dev/command-action/+page.svelte` | CommandAction winning variants |
 | `/politica-de-privacidad` | `(main)/politica-de-privacidad/+page.svelte` | Politica de privacidad |
 | `/condiciones-del-servicio` | `(main)/condiciones-del-servicio/+page.svelte` | Terminos y condiciones |
 | `/eliminacion-de-datos-de-usuario` | `(main)/eliminacion-de-datos-de-usuario/+page.svelte` | Eliminacion de datos |
@@ -57,9 +73,29 @@ Los layouts usan **route groups** de SvelteKit (carpetas entre parentesis, invis
 
 | Componente | Ruta | Proposito |
 |------------|------|-----------|
-| `Header.svelte` | `lib/components/` | Navegacion principal |
-| `Footer.svelte` | `lib/components/` | Footer del sitio |
+| `Header.svelte` | `lib/components/` | Navegacion principal (Gemini editorial rewrite) |
+| `Footer.svelte` | `lib/components/` | Footer del sitio (Gemini editorial rewrite) |
 | `SEO.svelte` | `lib/components/` | Meta tags y SEO head |
+
+---
+
+## UI Component Library (`src/lib/components/ui/`)
+
+Componentes reutilizables del sistema de diseno, bajo el esquema **Dual-Layer Component Architecture**: cada componente en su propia carpeta con un `.agent.md` que documenta anti-patrones para el agente IA.
+
+| Componente | Ruta | Props principales | Niveles |
+|------------|------|-------------------|---------|
+| `Hero.svelte` | `lib/components/ui/Hero/` | `level`, `title`, `subtitle`, `italic_word`, `action_label`, `action_onclick`, `status_active`, `image`, `children` | primary, secondary, profile, tertiary |
+| `SystemStatus.svelte` | `lib/components/ui/SystemStatus/` | `active`, `label`, `error` | 3 estados (active/error/idle) |
+| `CommandAction.svelte` | `lib/components/ui/CommandAction/` | `level`, `label`, `onclick` | primary, outline-primary, ghost, secondary |
+
+### Reglas de la UI Component Library
+
+- **Importar**, nunca reescribir el componente
+- Cada componente tiene `.agent.md` con ejemplos y anti-patrones
+- Usar snippets (`{#snippet children()}`) para contenido flexible
+- `action_onclick` callback para navegacion (con `goto(resolve(...))`)
+- Solo tokens DaisyUI para colores
 
 ---
 
@@ -67,35 +103,33 @@ Los layouts usan **route groups** de SvelteKit (carpetas entre parentesis, invis
 
 | Componente | Ruta | Proposito |
 |------------|------|-----------|
-| `Hero.svelte` | `lib/components/home/` | Hero principal con imagen de fondo |
-| `Me.svelte` | `lib/components/home/` | Seccion "Sobre mi" |
-| `AboutMe.svelte` | `lib/components/home/` | Detalle extendido del autor |
+| `AboutMe.svelte` | `lib/components/home/` | Seccion "Sobre mi" |
+| `Me.svelte` | `lib/components/home/` | Detalle extendido del autor |
 | `Services.svelte` | `lib/components/home/` | Servicios ofrecidos |
 | `CardService.svelte` | `lib/components/home/` | Tarjeta individual de servicio |
 | `FeaturedProjects.svelte` | `lib/components/home/` | Proyectos destacados |
 | `CardProject.svelte` | `lib/components/home/` | Tarjeta individual de proyecto |
-| `Marquee.svelte` | `lib/components/home/` | Carrusel / marquee de logos |
 | `SocialProof.svelte` | `lib/components/home/` | Prueba social (logros, clientes) |
 | `WhatsappContact.svelte` | `lib/components/home/` | Boton / seccion de contacto WhatsApp |
+| `Marquee.svelte` | `lib/components/home/` | Carrusel / marquee de logos |
+
+> **Nota:** Los Heroes de home fueron migrados a `ui/Hero/`. Los archivos legacy en `lib/components/home/Hero.svelte` y similares han sido eliminados.
 
 ---
 
 ## Componentes de Proyectos
 
-### Listado (`lib/components/projects/`)
+### Listado (`lib/components/proyectos/`)
 
 | Componente | Proposito |
 |------------|-----------|
-| `Hero.svelte` | Hero de la pagina de proyectos |
-| `OurProjects.svelte` | Grid de proyectos |
-| `CardProject.svelte` | Tarjeta de proyecto en el grid |
-| `StatsProjects.svelte` | Estadisticas de proyectos |
+| `Body.svelte` | Cuerpo de la pagina proyectos |
+| `Footer.svelte` | Footer de la pagina proyectos |
 
-### Detalle (`lib/components/projects/project/`)
+### Detalle (`lib/components/proyectos/project/`)
 
 | Componente | Proposito |
 |------------|-----------|
-| `Hero.svelte` | Hero del detalle de proyecto |
 | `Context.svelte` | Contexto del proyecto |
 | `Role.svelte` | Rol del autor en el proyecto |
 | `Solution.svelte` | Solucion tecnica implementada |
@@ -105,27 +139,84 @@ Los layouts usan **route groups** de SvelteKit (carpetas entre parentesis, invis
 | `Results.svelte` | Resultados e impacto |
 | `Assets.svelte` | Assets visuales del proyecto |
 
+> **Nota:** El Hero del detalle fue migrado a `ui/Hero/` con `level="secondary"` + children snippet. El Hero legacy fue eliminado.
+
+---
+
+## Componentes de Servicios
+
+| Componente | Ruta | Proposito |
+|------------|------|-----------|
+| `ServiceCards.svelte` | `lib/components/servicios/` | Grid de servicios |
+| `Footer.svelte` | `lib/components/servicios/` | Footer de servicios |
+| `Hero.svelte` | `lib/components/servicios/agentes-ia/`, `automatizacion/`, `consultoria/` | Heroes legados de subrutas (migrados a `ui/Hero/`) |
+
+---
+
+## Componentes de Sectores
+
+| Componente | Ruta | Proposito |
+|------------|------|-----------|
+| `SectorCards.svelte` | `lib/components/sectores/` | Grid de sectores |
+| `Footer.svelte` | `lib/components/sectores/` | Footer de sectores |
+| `Hero.svelte` | `lib/components/sectores/educacion/`, `legal/`, `salud/` | Heroes legados de subrutas (migrados a `ui/Hero/`) |
+
 ---
 
 ## Componentes de Precios
 
 | Componente | Ruta | Proposito |
 |------------|------|-----------|
-| `CollaborationModels.svelte` | `lib/components/precios/` | Modelos de colaboracion |
+| `EntryPlan.svelte` | `lib/components/precios/` | Plan de entrada |
+| `Faq.svelte` | `lib/components/precios/` | Preguntas frecuentes |
+| `PaymentModel.svelte` | `lib/components/precios/` | Modelo de pago |
+| `PriceSheet.svelte` | `lib/components/precios/` | Tabla de precios |
+| `Footer.svelte` | `lib/components/precios/` | Footer de precios |
 
 ---
 
-## Componentes de Soluciones Legales
+## Componentes de Contacto
 
 | Componente | Ruta | Proposito |
 |------------|------|-----------|
-| `Hero.svelte` | `lib/components/soluciones-legales/` | Hero de la pagina |
-| `ComparisonSection.svelte` | `lib/components/soluciones-legales/` | Comparativa antes/despues |
-| `PhaseBentoGrid.svelte` | `lib/components/soluciones-legales/` | Grid bento de fases |
-| `PhaseDetails.svelte` | `lib/components/soluciones-legales/` | Detalle de cada fase |
-| `SecurityBlock.svelte` | `lib/components/soluciones-legales/` | Bloque de seguridad |
-| `FaqSection.svelte` | `lib/components/soluciones-legales/` | Seccion de FAQ |
-| `TrustAndFaq.svelte` | `lib/components/soluciones-legales/` | Confianza + FAQ combinados |
+| `Canales.svelte` | `lib/components/contacto/` | Canales de contacto |
+| `Expectativas.svelte` | `lib/components/contacto/` | Expectativas del cliente |
+| `Redes.svelte` | `lib/components/contacto/` | Redes sociales |
+| `Footer.svelte` | `lib/components/contacto/` | Footer de contacto |
+
+---
+
+## Componentes de Metodologia
+
+| Componente | Ruta | Proposito |
+|------------|------|-----------|
+| `Body.svelte` | `lib/components/metodologia/` | Cuerpo de la pagina |
+| `Footer.svelte` | `lib/components/metodologia/` | Footer de metodologia |
+
+---
+
+## Componentes de Ivan Yarupaitan Rivera
+
+| Componente | Ruta | Proposito |
+|------------|------|-----------|
+| `Cta.svelte` | `lib/components/ivan-yarupaitan-rivera/` | Llamado a la accion |
+| `Stack.svelte` | `lib/components/ivan-yarupaitan-rivera/` | Stack tecnologico |
+| `Story.svelte` | `lib/components/ivan-yarupaitan-rivera/` | Historia personal |
+| `Footer.svelte` | `lib/components/ivan-yarupaitan-rivera/` | Footer personal |
+
+> **Nota:** El Hero fue migrado a `ui/Hero/` con `level="profile"`. Hero legacy eliminado.
+
+---
+
+## Componentes de Chat
+
+| Componente | Ruta | Proposito |
+|------------|------|-----------|
+| `ChatHeader.svelte` | `lib/components/chat/` | Cabecera del chat |
+| `ChatInput.svelte` | `lib/components/chat/` | Input de mensajes (coarse pointer detection) |
+| `ChatSuggestions.svelte` | `lib/components/chat/` | Sugerencias de mensajes |
+
+> **Nota:** `ChatMessages.svelte` fue eliminado (no usado). La logica de mensajes esta inline en `+page.svelte`.
 
 ---
 
@@ -146,11 +237,23 @@ Los layouts usan **route groups** de SvelteKit (carpetas entre parentesis, invis
 </div>
 ```
 
+### Hero unificado
+
+Todas las paginas del portafolio usan el componente `ui/Hero/Hero.svelte` con el nivel adecuado:
+
+```svelte
+<Hero level="secondary" title="Servicios"
+  subtitle="Automatizacion de procesos."
+  action_label="Ver casos" action_onclick={() => goto(resolve('/(main)/proyectos'))} />
+```
+
+Ver [`ui/README.md`](../../src/lib/components/ui/README.md) para documentacion completa.
+
 ### Navegacion
 
 - `Header.svelte` se renderiza en `+layout.svelte`
-- Nav pill con vidrio ahumado en desktop
-- Menu responsive que colapsa en mobile
+- Solid navbar con bg-base-200, 1px border inferior base-300
+- Active state con vanchi-agent-dot verde
 
 ### SEO
 
@@ -167,11 +270,13 @@ Para consulta rapida de tokens:
 
 | Token | Valor | Uso |
 |-------|-------|-----|
-| `base-100` | `oklch(15% 0.005 85)` | Fondo carbon |
-| `base-content` | `oklch(92% 0.005 90)` | Texto bone white |
-| `primary` | `oklch(74% 0.14 85)` | Dorado antiguo (unico acento) |
+| `base-100` | `oklch(11% 0.005 260)` | Fondo charcoal ink solido |
+| `base-content` | `oklch(94% 0.005 90)` | Texto chalk white |
+| `primary` | `oklch(92% 0.005 90)` | Chalk white (monocromo intencional) |
+| `secondary` | `oklch(60% 0.01 260)` | Metadatos, labels |
+| `accent` | `oklch(72% 0.22 165)` | Phosphor green (solo indicadores) |
 | Tipografia UI | JetBrains Mono | Body, nav, botones, labels |
-| Tipografia display | Newsreader | Titulares editoriales H1/H2 |
+| Tipografia display | Newsreader | Titulos editoriales H1/H2 |
 
 > Documentacion completa: [`07-DESIGN/README.md`](../07-DESIGN/README.md) y [`/DESIGN.md`](../../DESIGN.md).
 
