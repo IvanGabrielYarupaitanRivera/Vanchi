@@ -1,9 +1,20 @@
 # 📋 Asistente IA Vanchi — Command Bar (⌘K) + Convex Agent + RAG
 
 > **ID:** TASK-003
-> **Estado:** Pendiente
+> **Estado:** Parcial (backend ✅ — frontend UI ⬜)
 > **Creada:** 2026-06-04
+> **Última actualización:** 2026-06-23
 > **Completada:** —
+
+### Resumen rápido
+
+| Área | Estado |
+|------|--------|
+| Backend Convex (agentV2, config, tools, conversations) | ✅ Completado |
+| `messages.ts` — query reactiva para historial | ⬜ Pendiente |
+| `CommandBar.svelte` — modal smoked glass | ⬜ Pendiente |
+| `Header.svelte` — indicador ⌘K | ⬜ Pendiente |
+| `+layout.svelte` — keyboard listener + render | ⬜ Pendiente |
 
 ---
 
@@ -90,18 +101,18 @@ En lugar de tres puntitos:
 
 ---
 
-## 4. Stack propuesto
+## 4. Stack actual (implementado)
 
-| Capa           | Tecnología                                                 | Razón                                                                        |
-| -------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| Backend IA     | Convex + `@convex-dev/agent` (dentro de `src/convex/`)     | Sin serverless en Vercel, persistencia nativa, RAG integrable                |
-| Cliente Convex | `convex-svelte` con `setupConvex`                          | Helper oficial para SvelteKit (queries + actions reactivas)                  |
-| LLM            | `openai.chat("gpt-4o-mini")` vía Vercel AI Gateway         | AI SDK auto-detecta `AI_GATEWAY_API_KEY` del entorno. Sin base URL explícita |
-| Modelo         | `gpt-4o-mini`                                              | Rápido, barato, suficiente para el caso de uso                               |
-| RAG            | Convex con vectores (embeddings) + `createTool`            | Búsqueda semántica sobre documentos del portafolio                           |
-| Respuesta      | `generateText` + typing animation client-side              | Sin streaming server-side, typing visual en cliente                          |
-| Frontend       | SvelteKit + Modal ⌘K                                       | Modal smoked glass central con shortcut de teclado                           |
-| Env            | `AI_GATEWAY_API_KEY` (auto-detectado), `PUBLIC_CONVEX_URL` | Variables de entorno para Gateway y Convex                                   |
+| Capa           | Tecnología                                                 | Nota                                                                          |
+| -------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Backend IA     | Convex + `@convex-dev/agent` (dentro de `src/convex/`)     | ✅ Agente v2 implementado en `agentV2/`                                        |
+| Cliente Convex | `convex-svelte` con `setupConvex`                          | ✅ `+layout.svelte` configurado                                                |
+| LLM            | `openai.chat("gpt-4o-mini")` vía Vercel AI Gateway         | ✅ Funcionando                                                                 |
+| Modelo         | `gpt-4o-mini`                                              | ✅ Rápido y económico                                                          |
+| Búsqueda       | Textual directa sobre `documentosV2` (sin embeddings)      | ⬆️ Decisión arquitectónica v2: sin RAG, sin vectores, sin chunking            |
+| Respuesta      | `generateText` + typing animation client-side              | ⬜ Pendiente (frontend)                                                        |
+| Frontend       | SvelteKit + Modal ⌘K                                       | ⬜ Pendiente (`CommandBar.svelte`)                                              |
+| Env            | `AI_GATEWAY_API_KEY`, `PUBLIC_CONVEX_URL`                  | ✅ Configurados                                                                |
 
 ---
 
@@ -273,326 +284,103 @@ Si falla, el estado vive en un `Map` en memoria volátil (se pierde al recargar)
 
 ## 9. Pasos de implementación
 
-### Paso 0 — Instalar dependencias de Convex + Agent
+### ✅ Paso 0 — Instalar dependencias de Convex + Agent — COMPLETADO
 
 **Archivos involucrados:** `package.json`, `svelte.config.js`, `.env`
 
 **Detalle:**
 
-- Instalar dependencias:
-  ```bash
-  npm install convex convex-svelte @convex-dev/agent @ai-sdk/openai
-  ```
-- Crear `convex.json` en la raíz con:
-  ```json
-  {
-  	"functions": "src/convex/"
-  }
-  ```
-  Esto es necesario porque SvelteKit no permite imports fuera de `src/`.
-- Opcional: agregar alias `$convex` en `svelte.config.js` para imports más limpios:
-  ```ts
-  alias: {
-    $convex: './src/convex'
-  }
-  ```
-- Agregar `PUBLIC_CONVEX_URL` y `AI_GATEWAY_API_KEY` al `.env` (la obtienes al ejecutar `npx convex dev`).
-- El usuario debe ejecutar `npx convex dev` en una terminal (esto pide login, crea proyecto, y genera `src/convex/` automáticamente).
-
-> ⚠️ **Nota:** La carpeta `src/convex/` se genera automáticamente al ejecutar `npx convex dev`. No crees los archivos manualmente antes de ese paso.
+- ✅ Dependencias instaladas: `convex`, `convex-svelte`, `@convex-dev/agent`, `@ai-sdk/openai`
+- ✅ Convex configurado en `src/convex/`
+- ✅ `PUBLIC_CONVEX_URL` y `AI_GATEWAY_API_KEY` configurados
 
 ---
 
-### Paso 1 — Registrar el componente Agent en Convex
+### ✅ Paso 1 — Registrar el componente Agent en Convex — COMPLETADO
 
-**Archivos involucrados:** `src/convex/convex.config.ts` (creado por `npx convex dev`)
+**Archivos involucrados:** `src/convex/convex.config.ts`
 
 **Detalle:**
 
-- Editar `src/convex/convex.config.ts` que `npx convex dev` generó automáticamente:
-
-```ts
-// src/convex/convex.config.ts
-import { defineApp } from "convex/server";
-import agent from "@convex-dev/agent/convex.config";
-
-const app = defineApp();
-app.use(agent);
-export default app;
-```
-
-- Al guardar, `npx convex dev` regenera los tipos incluyendo `components.agent` en `src/convex/_generated/`.
-- Verificar que existe `src/convex/_generated/api.d.ts` con `components.agent`.
+- ✅ `convex.config.ts` lista con Agent registrado
+- ✅ Tipos regenerados con `components.agent` en `src/convex/_generated/`
 
 ---
 
-### Paso 2 — Crear el schema de la knowledge base (RAG)
+### ✅ Paso 2 — Schema de knowledge base — COMPLETADO (simplificado)
 
 **Archivos involucrados:** `src/convex/schema.ts`
 
 **Detalle:**
 
-- Crear `src/convex/schema.ts` con **tres tablas separadas** siguiendo el patrón escalable de Convex:
+- ✅ Tabla `documentosV2` definida en schema (con categorías, subcategorías y etiquetas)
+- ✅ El agente v2 usa búsqueda textual directa — sin RAG, sin embeddings, sin chunking
 
-```ts
-// src/convex/schema.ts
-import { defineSchema, defineTable } from 'convex/server';
-import { v } from 'convex/values';
+### ✅ Paso 3 — Seed de knowledge base — COMPLETADO (simplificado)
 
-export default defineSchema({
-  // 📄 Documentos fuente: el contenido original del portafolio
-  // Cada fila es un documento atómico (proyecto, servicio, etc.)
-  documentos: defineTable({
-    title: v.string(),      // "Molaric"
-    slug: v.string(),       // "proyecto-molaric"
-    category: v.string(),   // "proyecto" | "stack" | "servicio" | "about" | "pricing"
-  }).index("bySlug", ["slug"]),
-
-  // 🧩 Chunks: fragmentos de cada documento para búsqueda semántica
-  // Almacenan el texto real que se busca
-  chunks: defineTable({
-    documentId: v.id("documentos"),
-    text: v.string(),
-    embeddingId: v.union(v.id("embeddings"), v.null()),
-  })
-    .index("byDocumentId", ["documentId"])
-    .index("byEmbeddingId", ["embeddingId"]),
-
-  // 📐 Embeddings: vectores numéricos separados del texto
-  // Separarlos evita cargar vectores pesados en lecturas normales
-  embeddings: defineTable({
-    embedding: v.array(v.float64()),
-    chunkId: v.id("chunks"),
-  })
-    .index("byChunkId", ["chunkId"])
-    .vectorIndex("byEmbedding", {
-      vectorField: "embedding",
-      dimensions: 1536, // text-embedding-3-small
-    }),
-});
-```
-
-**¿Por qué tres tablas en vez de una?**
-
-| Escenario                        | Tabla única                                            | Tres tablas (este diseño)                       |
-| -------------------------------- | ------------------------------------------------------ | ----------------------------------------------- |
-| 15 documentos                    | ✅ Simple                                              | ✅ También funciona                             |
-| 100+ documentos                  | ❌ Los embeddings (arrays grandes) ralentizan lecturas | ✅ Los vectores solo se cargan al buscar        |
-| Re-embeder sin tocar texto       | ❌ Hay que reescribir toda la fila                     | ✅ Solo se actualiza `embeddings`               |
-| Devolver resultados sin vectores | ❌ Siempre se carga el embedding aunque no sirva       | ✅ `chunks.text` se devuelve sin tocar vectores |
-
-Este diseño escala de 15 a miles de documentos sin cambios estructurales.
-
-- Las tablas de `threads` y `messages` son manejadas automáticamente por el componente Agent, no necesitan definirse aquí.
-
-### Paso 3 — Crear el seed de la knowledge base (RAG)
-
-Generar el contenido completo del portafolio como documentos estructurados para el RAG, con chunking para escalar a futuro.
-
-**Archivos involucrados:** `src/convex/seed.ts`, `src/lib/data/assistant-context.ts`
+**Archivos involucrados:** `src/convex/agentV2/tools/documentosV2/buscarDocumentos.ts`
 
 **Detalle:**
 
-- Crear `src/lib/data/assistant-context.ts` con **todo el texto del portafolio** estructurado por documentos:
-  - Cada documento es un objeto con `title`, `slug`, `category`, `content`
-  - `content` es el texto completo de ese documento
-  - Ejemplo:
-  ```ts
-  export const documentos = [
-    {
-      title: 'Molaric',
-      slug: 'proyecto-molaric',
-      category: 'proyecto',
-      content: 'Molaric es un agente de IA para clínicas dentales...'
-    },
-    {
-      title: 'Stack Tecnológico',
-      slug: 'stack',
-      category: 'stack',
-      content: 'SvelteKit, Convex, TailwindCSS, TypeScript...'
-    },
-    // ... más documentos
-  ];
-  ```
-- Crear `src/convex/seed.ts` con una `internalAction` que:
-  1. Inserta cada documento en la tabla `documentos`
-  2. Usa `RecursiveCharacterTextSplitter` con `chunkSize: 2000` y `chunkOverlap: 100` para dividir el contenido en chunks
-  3. Inserta los chunks en la tabla `chunks`
-  4. Genera embeddings con OpenAI (vía Vercel AI Gateway) para cada chunk
-  5. Inserta los embeddings en la tabla `embeddings`
-  6. Actualiza cada chunk con su `embeddingId`
-- La action `seedKnowledgeBase` se ejecuta manualmente una vez
-
-> **¿Por qué chunking si los documentos son pequeños ahora?**
-> El chunking ahora sienta las bases para cuando los documentos crezcan. Si un documento futuro tiene 10 páginas sobre un proyecto, el chunking ya está configurado y funcionando. Además,
->
-> - Documentos pequeños → 1 chunk (sin pérdida de rendimiento)
-> - Documentos grandes → múltiples chunks (búsqueda más precisa)
-> - `chunkOverlap: 100` asegura que los límites entre chunks no pierdan contexto
+- ✅ El agente v2 implementa búsqueda textual directa sobre `documentosV2` (categorías + subcategorías + etiquetas)
+- ✅ Sin RAG, sin embeddings, sin chunking — arquitectura minimalista deliberada
 
 ---
 
-### Paso 4 — Definir el agente Vanchi
+### ✅ Paso 4 — Definir el agente Vanchi — COMPLETADO
 
-Crear la configuración del agente con instrucciones, tools de RAG y el modelo configurado vía Vercel AI Gateway.
-
-**Archivos involucrados:** `src/convex/agent.ts`
+**Archivos involucrados:**
+- `src/convex/agentV2/config/config.ts` — instancia del Agent
+- `src/convex/agentV2/config/modelo.ts` — modelo LLM
+- `src/convex/agentV2/config/prompt.ts` — system prompt
+- `src/convex/agentV2/tools/index.ts` — tools registradas
+- `src/convex/agentV2/tools/documentosV2/buscarDocumentos.ts` — tool de búsqueda textual
 
 **Detalle:**
 
-- Crear `src/convex/agent.ts`:
-
-```ts
-// src/convex/agent.ts
-import { components } from "./_generated/api";
-import { Agent, createTool } from "@convex-dev/agent";
-import { openai } from "@ai-sdk/openai";
-import { z } from "zod";
-
-// 🛠️ Tool de RAG: búsqueda en la knowledge base del portafolio
-const searchKnowledgeBase = createTool({
-  description: "Busca información en la base de conocimiento del portafolio de Vanchi. " +
-    "Úsala cuando el usuario pregunte sobre proyectos, tecnologías, servicios, precios o experiencia.",
-  args: z.object({
-    query: z.string().describe("La consulta del usuario para buscar en la base de conocimiento"),
-  }),
-  handler: async (ctx, { query }) => {
-    // Generar embedding de la consulta y buscar en documents
-    const results = await ctx.runQuery(api.chunks.searchChunks, { query });
-    return results;
-  },
-});
-
-// 🤖 Agente Vanchi
-// El AI SDK auto-detecta AI_GATEWAY_API_KEY del entorno de Convex
-// No necesita baseURL ni apiKey explícita
-export const vanchiAgent = new Agent(components.agent, {
-  name: "Vanchi Assistant",
-  languageModel: openai.chat("gpt-4o-mini"),
-  tools: {
-    searchKnowledgeBase,
-  },
-  instructions: `Eres el asistente virtual de Vanchi, el portafolio de Ivan Yarupaitan...`,
-});
-```
-
-- Las instrucciones completas se detallan en la sección correspondiente.
-- La tool `searchKnowledgeBase` se registra como una función que:
-  - Recibe una consulta del usuario
-  - Busca en `documents` por similitud coseno vía vector search
-  - Retorna los fragmentos más relevantes como contexto
+- ✅ Agente `vanchiAgentV2` definido con `@convex-dev/agent`
+- ✅ Modelo configurado (vía Vercel AI Gateway)
+- ✅ Tool `buscarDocumentos` registrada
+- ✅ System prompt completo
+- ✅ `stopWhen: stepCountIs(5)` para evitar loops infinitos
 
 ---
 
-### Paso 5 — Crear las actions del agente
+### ✅ Paso 5 — Crear las actions del agente — COMPLETADO
 
-Crear las actions que el frontend llamará usando `useMutation` de `convex-svelte`.
-
-**Archivos involucrados:** `src/convex/agentActions.ts`
+**Archivos involucrados:** `src/convex/agentV2/conversations.ts`
 
 **Detalle:**
 
-- Crear `src/convex/agentActions.ts`:
-
-```ts
-// src/convex/agentActions.ts
-import { action } from "./_generated/server";
-import { v } from "convex/values";
-import { vanchiAgent } from "./agent";
-
-// Crear un nuevo thread con el primer mensaje
-export const createThread = action({
-  args: { prompt: v.string() },
-  handler: async (ctx, { prompt }) => {
-    const { threadId, thread } = await vanchiAgent.createThread(ctx);
-    const result = await thread.generateText({ prompt });
-    return { threadId, text: result.text };
-  },
-});
-
-// Continuar un thread existente
-export const continueThread = action({
-  args: { prompt: v.string(), threadId: v.string() },
-  handler: async (ctx, { prompt, threadId }) => {
-    const { thread } = await vanchiAgent.continueThread(ctx, { threadId });
-    const result = await thread.generateText({ prompt });
-    return { text: result.text };
-  },
-});
-```
-
-- La tool `searchKnowledgeBase` se define en `agent.ts` (no necesita su propio archivo).
-- `seedKnowledgeBase` vivirá en `src/convex/seed.ts`.
+- ✅ `createThread` action — crea thread y genera primera respuesta
+- ✅ `continueThread` action — continúa thread existente
+- ✅ Ambas con logging, manejo de errores y tipado correcto
 
 ---
 
-### Query para historial reactivo de mensajes
+### ⬜ Query para historial reactivo de mensajes — PENDIENTE
 
-En lugar de cachear mensajes en `localStorage`, se expone una **query** de Convex que el frontend puede suscribirse con `useQuery` de `convex-svelte`.
-
-**Archivos involucrados:** `src/convex/messages.ts`
+**Archivos involucrados:** `src/convex/messages.ts` (por crear)
 
 **Detalle:**
 
-- Crear `src/convex/messages.ts`:
-
-```ts
-// src/convex/messages.ts
-import { query } from "./_generated/server";
-import { v } from "convex/values";
-import { paginationOptsValidator } from "convex/server";
-import { listUIMessages } from "@convex-dev/agent";
-import { components } from "./_generated/api";
-
-export const listThreadMessages = query({
-  args: {
-    threadId: v.string(),
-    paginationOpts: paginationOptsValidator,
-  },
-  handler: async (ctx, { threadId, paginationOpts }) => {
-    // Retorna UIMessage[] — formato listo para renderizar en UI
-    // Agrupa tool calls + respuestas del modelo automáticamente
-    const paginated = await listUIMessages(ctx, components.agent, {
-      threadId,
-      paginationOpts,
-    });
-    return paginated;
-  },
-});
-```
-
-> **Ventaja:** El historial se actualiza en tiempo real vía `useQuery`. No necesitas cachear mensajes en `localStorage` para el render initial — Convex los sirve reactivamente.
+- Falta crear la query `listThreadMessages` usando `listUIMessages` del Agent component
+- El frontend la consumirá con `useQuery` de `convex-svelte`
 
 ---
 
-### Paso 6 — Configurar Convex en el layout de SvelteKit
-
-Usar `convex-svelte` con `setupConvex` en el layout raíz.
+### ✅ Paso 6 — Configurar Convex en el layout de SvelteKit — COMPLETADO
 
 **Archivos involucrados:** `src/routes/+layout.svelte`, `.env`
 
 **Detalle:**
 
-- En `src/routes/+layout.svelte`, agregar el setup de Convex:
-
-```svelte
-<script lang="ts">
-	import { PUBLIC_CONVEX_URL } from '$env/static/public';
-	import { setupConvex } from 'convex-svelte';
-
-	let { children } = $props();
-	setupConvex(PUBLIC_CONVEX_URL);
-</script>
-
-{@render children()}
-```
-
-- Asegurarse de tener `PUBLIC_CONVEX_URL` en `.env` (lo genera `npx convex dev` en un archivo `.env.local`).
-- Opcional: si se usó el alias `$convex` en `svelte.config.js`, los imports en components serán más limpios.
+- ✅ `setupConvex(PUBLIC_CONVEX_URL)` presente en `+layout.svelte`
+- ✅ `PUBLIC_CONVEX_URL` configurado en `.env`
 
 ---
 
-### Paso 7 — Crear el modal de Command Bar (Chat)
+### ⬜ Paso 7 — Crear el modal de Command Bar (Chat) — PENDIENTE
 
 Crear el modal central que contiene el asistente. Este modal:
 
@@ -669,7 +457,7 @@ Crear el modal central que contiene el asistente. Este modal:
 
 ---
 
-### Paso 8 — Agregar el indicador ⌘K en el nav y el modal al layout
+### ⬜ Paso 8 — Agregar el indicador ⌘K en el nav y el modal al layout — PENDIENTE
 
 **Archivos involucrados:** `src/lib/components/Header.svelte`, `src/routes/+layout.svelte`, `src/routes/+page.svelte`
 
@@ -704,7 +492,7 @@ En **+page.svelte**:
 
 ---
 
-### Paso 9 — Verificar integración y builds
+### ⬜ Paso 9 — Verificar integración y builds — PENDIENTE (post-frontend)
 
 **Archivos involucrados:** Todos los anteriores
 
@@ -719,18 +507,16 @@ En **+page.svelte**:
 
 ---
 
-### Paso 10 — Setup de Convex y seed de datos
-
-Pasos manuales posteriores a la implementación del código:
+### ✅ Paso 10 — Setup de Convex y seed de datos — COMPLETADO
 
 **Archivos involucrados:** `convex/` (todo)
 
 **Detalle:**
 
-- `npx convex dev` — Iniciar el backend local
-- Configurar `AI_GATEWAY_API_KEY` en Convex dashboard (environment variables)
-- Ejecutar `seedKnowledgeBase` desde el playground de Convex o mediante una acción programática
-- Verificar que los documentos se hayan indexado correctamente
+- ✅ `npx convex dev` ejecutado y funcionando
+- ✅ `AI_GATEWAY_API_KEY` configurado en Convex dashboard
+- ✅ Documentos seedeados en `documentosV2`
+- ✅ Agente v2 responde preguntas sobre proyectos, stack y servicios
 
 ---
 
@@ -789,59 +575,68 @@ Usuario escribe: "¿Puedes construir un sistema de biblioteca?"
 
 ---
 
-## 12. Estructura final de archivos
+## 12. Estructura actual de archivos
 
 ```
 Vanchi/
-├── convex/                          ─ Configuración de Convex
-│   ├── convex.json                  ─ Functions path: src/convex/
 ├── src/
-│   ├── convex/                      ← Backend Convex (generado + manual)
-│   │   ├── convex.config.ts         ─ Registrar Agent component
-│   │   ├── schema.ts                ─ Tres tablas (documentos, chunks, embeddings) con vector index
-│   │   ├── agent.ts                 ─ Definición del vanchiAgent
-│   │   ├── agentActions.ts          ─ createThread, continueThread
-│   │   ├── seed.ts                  ─ Seed de knowledge base
-│   │   └── _generated/              ─ Tipos auto-generados por convex dev
+│   ├── convex/                      ← Backend Convex
+│   │   ├── convex.config.ts         ─ ✅ Agent registrado
+│   │   ├── schema.ts                ─ ✅ Tabla documentosV2
+│   │   ├── agentV2/                 ─ ✅ Agente v2 completo
+│   │   │   ├── config/
+│   │   │   │   ├── config.ts        ─ Instancia del Agent
+│   │   │   │   ├── modelo.ts        ─ Modelo LLM
+│   │   │   │   └── prompt.ts        ─ System prompt
+│   │   │   ├── tools/
+│   │   │   │   ├── index.ts         ─ Tools registradas
+│   │   │   │   └── documentosV2/
+│   │   │   │       └── buscarDocumentos.ts  ─ Búsqueda textual
+│   │   │   └── conversations.ts     ─ createThread, continueThread
+│   │   ├── messages.ts              ─ ⬜ Query listThreadMessages (pendiente)
+│   │   └── _generated/              ─ Tipos auto-generados
 │   ├── lib/
-│   │   ├── data/
-│   │   │   └── assistant-context.ts ─ NUEVO: Texto completo del portafolio
-│   │   └── components/
-│   │       ├── home/
-│   │       │   └── CommandBar.svelte ─ NUEVO: Modal del asistente (⌘K)
-│   │       └── Header.svelte        ─ MODIFICAR: + indicador ⌘K
+│   │   ├── components/
+│   │   │   ├── chat/                ─ ChatHeader, ChatInput, ChatSuggestions
+│   │   │   ├── home/
+│   │   │   │   └── CommandBar.svelte ─ ⬜ NUEVO (pendiente)
+│   │   │   └── Header.svelte        ─ ⬜ MODIFICAR: + indicador ⌘K
 │   └── routes/
-│       └── +layout.svelte           ─ MODIFICAR: + setupConvex + CommandBar
-│   ├── .env                              ─ PUBLIC_CONVEX_URL, AI_GATEWAY_API_KEY
-└── package.json                      ─ MODIFICAR: + convex, convex-svelte, @convex-dev/agent
+│       └── +layout.svelte           ─ ✅ setupConvex, ⬜ + CommandBar
+├── .env                              ─ PUBLIC_CONVEX_URL
+└── package.json                      ─ Dependencias instaladas
 ```
 
 ---
 
 ## 13. Checklist de cierre
 
-- [ ] `npx convex dev` ejecutado y proyecto Convex creado
-- [ ] Dependencias instaladas: `convex`, `convex-svelte`, `@convex-dev/agent`, `@ai-sdk/openai`
-- [ ] `convex.json` creado con `"functions": "src/convex/"`
-- [ ] `src/convex/convex.config.ts` con Agent registrado
-- [ ] `src/convex/schema.ts` con tres tablas (documentos, chunks, embeddings) + vector index en embeddings
-- [ ] `src/convex/agent.ts` con vanchiAgent (modelo vía Vercel AI Gateway, tools)
-- [ ] `src/convex/agentActions.ts` con createThread, continueThread
-- [ ] `src/convex/seed.ts` con seedKnowledgeBase
-- [ ] `src/lib/data/assistant-context.ts` con contenido completo del portafolio
-- [ ] `src/lib/components/home/CommandBar.svelte` con modal smoked glass
-- [ ] `src/lib/components/Header.svelte` modificado con indicador ⌘K
-- [ ] `src/routes/+layout.svelte` modificado con `setupConvex` + `CommandBar` + keyboard listener
-- [ ] `PUBLIC_CONVEX_URL` en `.env`
+### ✅ Backend (completado)
+
+- [x] `npx convex dev` ejecutado y proyecto Convex creado
+- [x] Dependencias instaladas: `convex`, `convex-svelte`, `@convex-dev/agent`, `@ai-sdk/openai`
+- [x] `convex.json` creado con `"functions": "src/convex/"`
+- [x] `src/convex/convex.config.ts` con Agent registrado
+- [x] `src/convex/schema.ts` con tabla `documentosV2`
+- [x] `src/convex/agentV2/` — agente, modelo, prompt, tools creados y funcionando
+- [x] `src/convex/agentV2/conversations.ts` con createThread, continueThread
+- [x] `PUBLIC_CONVEX_URL` en `.env`
+- [x] `src/routes/+layout.svelte` con `setupConvex`
+- [x] `AI_GATEWAY_API_KEY` configurado en Convex dashboard
+- [x] Documentos seedeados y verificados (`documentosV2`)
+- [x] El agente responde preguntas sobre proyectos, stack y servicios
+
+### ⬜ Frontend (pendiente)
+
+- [ ] `src/convex/messages.ts` — query `listThreadMessages` para historial reactivo
+- [ ] `src/lib/components/home/CommandBar.svelte` — modal smoked glass
+- [ ] `src/lib/components/Header.svelte` — indicador ⌘K
+- [ ] `src/routes/+layout.svelte` — renderizar CommandBar + keyboard listener
 - [ ] Diseño cumple reglas anti-AI-genérica (sin burbujas, sin sparkles, sin avatar, sin gradientes)
 - [ ] El home se mantiene exactamente igual que antes (sin tabs, sin cambios visuales)
 - [ ] Al recargar la página y reabrir, la conversación continúa desde donde quedó
 - [ ] La opción "Nueva conversación" resetea el thread sin recargar la página
 - [ ] `bun run check` pasa
-- [ ] Convex deployment verificado: `npx convex deploy`
-- [ ] Knowledge base seedeada y verificada (seedKnowledgeBase ejecutada)
-- [ ] El agente responde preguntas sobre proyectos, stack y servicios
-- [ ] `PUBLIC_CONVEX_URL` configurada en Vercel dashboard (env vars)
-- [ ] `AI_GATEWAY_API_KEY` configurado en Convex dashboard (env vars)
+- [ ] `bun run build` pasa
 - [ ] Mover a `tasks/archived/` al finalizar
 - [ ] Registrar en `CHANGELOG.md`

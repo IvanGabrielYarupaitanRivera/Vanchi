@@ -6,7 +6,21 @@
 
 ---
 
-## Paso 1: `Hero.svelte` + `Hero.agent.md`
+## ✅ Estado actual (2026-06-23)
+
+| Paso | Componente | Estado |
+|------|-----------|--------|
+| 1 | `Hero.svelte` + `Hero.agent.md` | ✅ Completado |
+| 2 | `SystemStatus.svelte` + `SystemStatus.agent.md` | ✅ Completado |
+| 3 | `DataBlock.svelte` + `DataBlock.agent.md` | ⬜ Pendiente |
+| 4 | `CommandAction.svelte` + `CommandAction.agent.md` | ✅ Completado |
+| 5 | `IndexList.svelte` + `IndexList.agent.md` | ⬜ Pendiente |
+| 6 | `GridTwo.svelte` + `GridTwo.agent.md` | ⬜ Pendiente |
+| 7 | Refactorizar páginas existentes | ⬜ Pendiente |
+
+---
+
+## Paso 1: ✅ `Hero.svelte` + `Hero.agent.md` — COMPLETADO
 
 **El encabezado de expediente.** Primer componente porque es el más visible y el que más variaciones tiene.
 
@@ -30,7 +44,7 @@
 
 ---
 
-## Paso 2: `SystemStatus.svelte` + `SystemStatus.agent.md`
+## Paso 2: ✅ `SystemStatus.svelte` + `SystemStatus.agent.md` — COMPLETADO
 
 **El único componente autorizado para el dot verde phosphor.** Separarlo garantiza que el green nunca se use en otro contexto.
 
@@ -72,7 +86,7 @@
 
 ---
 
-## Paso 4: `CommandAction.svelte` + `CommandAction.agent.md`
+## Paso 4: ✅ `CommandAction.svelte` + `CommandAction.agent.md` — COMPLETADO
 
 **Botón CTA.** Dos variantes que cubren todos los casos de uso.
 
@@ -150,16 +164,11 @@ Una vez creados los componentes base, reemplazar patrones repetitivos en todas l
 
 ---
 
-## Orden de implementación
+## Orden de implementación (pendiente)
 
 ```
-Paso 1 → Hero (el más complejo, define el estándar)
-Paso 2 → SystemStatus (dependencia de Hero primary)
-Paso 3 → DataBlock (reemplaza ~20 cards manuales)
-Paso 4 → CommandAction (reemplaza ~30 botones manuales)
+Paso 3 → DataBlock (reemplaza ~20 cards manuales) — SIGUIENTE
 Paso 5 → IndexList (reemplaza ~8 listas manuales)
 Paso 6 → GridTwo (reemplaza ~10 grids manuales)
-Paso 7 → Refactorizar páginas existentes
+Paso 7 → Refactorizar páginas existentes con Hero + DataBlock + GridTwo
 ```
-
-¿Arrancamos con el **Paso 1: Hero**?

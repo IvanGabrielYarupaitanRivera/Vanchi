@@ -1,10 +1,28 @@
 # 🌳 Árbol de Keywords — Vanchi v2 (BOFU + Pain-Point)
 
 > **Fecha:** 2026-06-17
+> **Última actualización:** 2026-06-23
 > **Versión:** 3.0
 > **Basado en:** Doble feedback de Gemini + GaaS + E-E-A-T + Pain-Point SEO
 > **Principio:** Cada página lidera con el dolor del cliente, no con la tecnología.
 > **Anti-patrón:** "Síndrome del Ingeniero" — vender el CÓMO en vez del PARA QUÉ.
+
+---
+
+## ✅ Estado de implementación
+
+| Prioridad | Acción | Estado |
+|-----------|--------|--------|
+| 1 | Refinar títulos/metas/H1 con lenguaje pain-point | ⬜ Pendiente |
+| 2 | Home: H1 "Tu empresa debería funcionar sola" | ⬜ Pendiente |
+| 3 | JSON-LD E-E-A-T en todas las páginas | ⬜ Pendiente |
+| 4 | Páginas individuales de proyecto con narrativa problema→solución | ⬜ Pendiente |
+| 5 | `/servicios` + sub-rutas con pain-point | ⬜ Pendiente |
+| 6 | `/sectores/salud`, `/legal`, `/educacion` | ⬜ Pendiente |
+| 7 | Sistema `/preguntas/[slug]` (depende de CommandBar) | ⬜ Pendiente |
+| 8 | Backlinks externos a `/metodologia` para validación GEO | ⬜ Pendiente |
+
+> ⚠️ **Nota:** Este árbol está completamente definido pero **ninguna acción ha sido implementada aún**. Todo el contenido actual usa lenguaje descriptivo/técnico, no pain-point.
 
 ---
 
