@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { ArrowUpRight, Bot, Lightbulb, Workflow } from '@lucide/svelte';
+	import CommandAction from '$lib/components/ui/CommandAction/CommandAction.svelte';
+	import DataBlock from '$lib/components/ui/DataBlock/DataBlock.svelte';
+	import SectionLayout from '$lib/components/ui/SectionLayout/SectionLayout.svelte';
 
 	const pains = [
 		{
@@ -23,38 +27,49 @@
 	] as const;
 </script>
 
-<section class="w-full py-40 vanchi-hairline border-t">
-	<div class="max-w-5xl mx-auto px-4">
-		<div class="flex items-center gap-2.5 mb-16">
-			<span class="vanchi-agent-dot animate-pulse"></span>
-			<span class="vanchi-eyebrow">03 // SERVICIOS</span>
-		</div>
+{#snippet serviceIcon(slug: string)}
+	{#if slug === 'agentes-ia'}
+		<Bot class="h-full w-full" stroke-width="1" aria-hidden="true" />
+	{:else if slug === 'automatizacion'}
+		<Workflow class="h-full w-full" stroke-width="1" aria-hidden="true" />
+	{:else}
+		<Lightbulb class="h-full w-full" stroke-width="1" aria-hidden="true" />
+	{/if}
+{/snippet}
 
-		<div class="grid gap-16 lg:grid-cols-12 lg:gap-24">
-			<div class="lg:col-span-5">
-				<h2 class="vanchi-display text-3xl font-normal lg:text-5xl">
-					Deja de operar<br />
-					<span class="italic">software</span>
-				</h2>
-				<p class="mt-8 font-mono text-sm leading-relaxed text-base-content/60">
-					No vendo licencias. Construyo agentes que reciben un objetivo y lo ejecutan
-					solos. Automatización de procesos para empresas en Junín. Cada solución
-					empieza con un problema concreto de tu operación.
-				</p>
-			</div>
-
-			<div class="lg:col-span-7">
-				<div class="flex flex-col gap-6">
-					{#each pains as pain (pain.id)}
-						<a href={resolve('/(main)/servicios/[servicio]', { servicio: pain.servicio })} class="card bg-base-200 border border-base-300 p-6 transition-all duration-100 hover:-translate-y-0.5 hover:border-base-content group lg:p-8">
+<SectionLayout
+	variant="primary"
+	number="03"
+	label="SERVICIOS"
+	title="Deja de operar software"
+	italic_word="software"
+	description="No vendo licencias. Construyo agentes que reciben un objetivo y lo ejecutan solos. Automatización de procesos para empresas en Junín. Cada solución empieza con un problema concreto de tu operación."
+>
+	<div class="flex flex-col gap-px">
+		{#each pains as pain (pain.id)}
+			<a href={resolve('/(main)/servicios/[servicio]', { servicio: pain.servicio })} class="block">
+				<DataBlock level="compact" hover={true}>
+					<div class="flex items-start justify-between gap-4">
+						<div class="grow">
 							<span class="mb-3 block font-mono text-xs font-medium tracking-[0.15em] text-secondary">[{pain.id}]</span>
 							<p class="font-mono text-sm font-medium text-base-content">{pain.pain}</p>
 							<p class="mt-2 font-mono text-sm leading-relaxed text-base-content/60">{pain.solve}</p>
 							<span class="mt-3 inline-block font-mono text-xs text-base-content transition-transform duration-100 group-hover:translate-x-1">→</span>
-						</a>
-					{/each}
-				</div>
-			</div>
-		</div>
+						</div>
+						<div class="hidden shrink-0 lg:block">
+							<div class="h-5 w-5 text-base-content/20 transition-colors duration-100 group-hover:text-base-content/40">
+								{@render serviceIcon(pain.servicio)}
+							</div>
+						</div>
+					</div>
+				</DataBlock>
+			</a>
+		{/each}
 	</div>
-</section>
+
+	<div class="mt-10">
+		<CommandAction level="primary" label="Ver todos los servicios"
+			href={resolve('/(main)/servicios')}
+			icon={ArrowUpRight} />
+	</div>
+</SectionLayout>
