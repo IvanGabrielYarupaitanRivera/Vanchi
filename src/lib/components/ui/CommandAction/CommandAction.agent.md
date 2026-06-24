@@ -15,10 +15,14 @@ interface CommandActionProps {
   href?: string;             // Renderiza <a>. Prioridad sobre onclick.
   onclick?: () => void;      // Renderiza <button>
   icon?: Component;          // Lucide icon opcional
+  target?: string;           // Solo <a>. Override del auto-detect.
+  rel?: string;              // Solo <a>. Override del auto-detect.
 }
 ```
 
 ## 📊 Comportamiento
+
+### Niveles de estilo
 
 | level | Clase DaisyUI | Pinta | Uso tipico |
 |---|---|---|---|
@@ -26,6 +30,17 @@ interface CommandActionProps {
 | `outline-primary` | `btn btn-outline btn-primary uppercase` | Borde chalk | CTA secundario |
 | `ghost` | `btn btn-ghost text-base-content uppercase` | Sin borde | Accion sutil |
 | `secondary` | `btn btn-neutral uppercase` | Gris oscuro | CTA secundario relleno |
+
+### Auto-detect de links externos
+
+Cuando se usa como `<a>`, el componente detecta automaticamente si el `href` es externo (empieza con `http`):
+
+| href | target | rel |
+|---|---|---|
+| `resolve('/(main)/servicios')` | `undefined` (misma pestana) | `undefined` |
+| `"https://api.whatsapp.com/..."` | `_blank` (nueva pestana) | `external noopener noreferrer` |
+
+Si necesitas override, pasa `target` o `rel` explicitamente y tienen prioridad.
 
 ## ❌ ANTI-PATRONES
 
@@ -36,7 +51,7 @@ interface CommandActionProps {
 
 ## 💻 Ejemplos
 
-### Como link (navegacion)
+### Como link interno (misma pestana)
 ```svelte
 <script lang="ts">
   import { resolve } from '$app/paths';
@@ -48,7 +63,14 @@ interface CommandActionProps {
 <CommandAction level="ghost" label="Ver todos" href={resolve('/(main)/proyectos')} icon={ArrowUpRight} />
 ```
 
-### Como boton (accion)
+### Como link externo (nueva pestana automaticamente)
+```svelte
+<CommandAction level="primary" label="Abrir conversación"
+  href="https://api.whatsapp.com/send/?phone=51985942670&text=Hola"
+  icon={MessageCircle} />
+```
+
+### Como boton (accion JS)
 ```svelte
 <CommandAction level="primary" label="Automatizar" onclick={() => {}} />
 <CommandAction level="primary" label="Automatizar" icon={ArrowUpRight} onclick={() => {}} />

@@ -36,11 +36,13 @@ Estas reglas están **encapsuladas en los componentes**. El agente NO puede romp
 
 ## 📦 Inventario de componentes
 
-| Componente | Propósito | Niveles | Snippets |
+| Componente | Propósito | Niveles / Variants | Snippets |
 |---|---|---|---|
-| `Hero/` | Encabezado de expediente | `primary`, `secondary`, `tertiary` | Contenido vía props |
+| `Hero/` | Encabezado de expediente | `primary`, `secondary`, `profile`, `tertiary` | Contenido vía props |
 | `SystemStatus/` | Dot indicador de estado | `active`, `idle`, `error` | — |
-| `DataBlock/` | Contenedor universal | `default`, `compact`, `elevated` | `header`, `children`, `footer` |
+| `CommandAction/` | Botón/link CTA | `primary`, `outline-primary`, `ghost`, `secondary` | `href` (renderiza `<a>`), `onclick` (renderiza `<button>`), `icon`, `target`, `rel`. Links externos auto-detectados → nueva pestaña |
+| `DataBlock/` | Contenedor universal de cards | `default`, `compact`, `elevated` | `children`, `hover`, `padding` |
+| `SectionLayout/` | Esqueleto de sección con eyebrow | `primary` (grid 5/7), `secondary` (1 columna) | `children`, `children_left` |
 
 ---
 
@@ -57,11 +59,19 @@ Estas reglas están **encapsuladas en los componentes**. El agente NO puede romp
 <!-- ✅ CORRECTO: Importar + snippets -->
 <script lang="ts">
   import Hero from '$lib/components/ui/Hero/Hero.svelte';
+  import SectionLayout from '$lib/components/ui/SectionLayout/SectionLayout.svelte';
+  import DataBlock from '$lib/components/ui/DataBlock/DataBlock.svelte';
 </script>
 
 <Hero level="primary" title="..." subtitle="..." />
 
-<!-- ❌ INCORRECTO: No copiar el HTML del Hero manualmente -->
+<SectionLayout variant="primary" number="01" label="SECCIÓN" title="..." italic_word="...">
+  <DataBlock level="compact" hover={true}>
+    <!-- contenido -->
+  </DataBlock>
+</SectionLayout>
+
+<!-- ❌ INCORRECTO: No copiar el HTML manualmente -->
 <section class="flex min-h-[90dvh] ...">  <!-- NO -->
 ```
 
@@ -83,13 +93,19 @@ Estas reglas están **encapsuladas en los componentes**. El agente NO puede romp
 src/lib/components/ui/
 ├── README.md
 ├── Hero/
-│   ├── Hero.svelte        ← IMPORTABLE. Contenedor estricto.
-│   └── Hero.agent.md      ← Reglas para el agente.
+│   ├── Hero.svelte            ← IMPORTABLE. Contenedor estricto.
+│   └── Hero.agent.md          ← Reglas para el agente.
 ├── SystemStatus/
 │   ├── SystemStatus.svelte
 │   └── SystemStatus.agent.md
+├── CommandAction/
+│   ├── CommandAction.svelte
+│   └── CommandAction.agent.md
 ├── DataBlock/
-│   ├── DataBlock.svelte    ← (próximo) Con snippets header/children/footer
+│   ├── DataBlock.svelte       ← Contenedor universal de cards (3 niveles)
 │   └── DataBlock.agent.md
+├── SectionLayout/
+│   ├── SectionLayout.svelte   ← Esqueleto de seccion (eyebrow + grid)
+│   └── SectionLayout.agent.md
 └── ...
 ```

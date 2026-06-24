@@ -26,14 +26,26 @@
 		label,
 		href,
 		onclick,
-		icon: Icon
+		icon: Icon,
+		target,
+		rel
 	}: {
 		level?: ActionLevel;
 		label: string;
 		href?: string;
 		onclick?: () => void;
 		icon?: Component;
+		target?: string;
+		rel?: string;
 	} = $props();
+
+	const isExternal = $derived(href?.startsWith('http'));
+
+	const resolvedTarget = $derived(target ?? (isExternal ? '_blank' : undefined));
+
+	const resolvedRel = $derived(
+		rel ?? (isExternal ? 'external noopener noreferrer' : undefined)
+	);
 
 	const btnClass = $derived(
 		level === 'primary'
@@ -48,7 +60,7 @@
 
 {#if href}
 	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-	<a {href} class={btnClass}>
+	<a {href} target={resolvedTarget} rel={resolvedRel} class={btnClass}>
 		{#if Icon}
 			<Icon class="h-4 w-4" />
 		{/if}
