@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
 	import Hero from '$lib/components/ui/Hero/Hero.svelte';
@@ -33,7 +32,8 @@
 
 	const contactStructuredDataJson = JSON.stringify(contactStructuredData).replace(/</g, '\\u003c');
 	const author = 'Ivan Yarupaitan Rivera';
-	const whatsappUrl = 'https://api.whatsapp.com/send/?phone=51985942670&text=Hola%20Ivan,%20me%20gustaria%20conversar%20sobre%20un%20proyecto.';
+	const whatsappUrl =
+		'https://api.whatsapp.com/send/?phone=51985942670&text=Hola%20Ivan,%20me%20gustaria%20conversar%20sobre%20un%20proyecto.';
 	const email = 'ivangyr321@gmail.com';
 </script>
 
@@ -55,7 +55,7 @@
 	title="Contratar a un especialista en Inteligencia Artificial"
 	subtitle="Escríbeme por WhatsApp o email. Sin formularios largos, sin fricción. Respondo en menos de 24 horas."
 	action_label="Escríbeme"
-	action_onclick={() => goto(resolve("/(main)/contacto"))}
+	action_onclick={() => window.open(whatsappUrl, '_blank')}
 />
 
 <Canales {whatsappUrl} {email} />
@@ -65,8 +65,21 @@
 <Redes />
 
 <PageFooter {author}>
-	<a href={resolve('/(main)/precios')} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Precios</a>
-	<a href={resolve('/(main)/proyectos')} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Proyectos</a>
-	<a href={resolve('/(main)/proyectos/[projectId]', { projectId: 'encap' })} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Caso ENCAP</a>
-	<a href={resolve('/(main)/ivan-yarupaitan-rivera')} class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Sobre mi</a>
+	<a
+		href={resolve('/(main)/precios')}
+		class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Precios</a
+	>
+	<a
+		href={resolve('/(main)/proyectos')}
+		class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Proyectos</a
+	>
+	<a
+		href={resolve('/(main)/proyectos/[projectId]', { projectId: 'encap' })}
+		class="text-base-content/60 transition-colors duration-150 hover:text-base-content"
+		>Caso ENCAP</a
+	>
+	<a
+		href={resolve('/(main)/ivan-yarupaitan-rivera')}
+		class="text-base-content/60 transition-colors duration-150 hover:text-base-content">Sobre mi</a
+	>
 </PageFooter>

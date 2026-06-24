@@ -50,7 +50,7 @@
 	title="El software no debería necesitarte para funcionar"
 	subtitle="Compraste un SaaS. Capacitaste a tu equipo. Y aún así todo depende de que alguien haga clic. GaaS es software que recibe un objetivo y lo ejecuta solo."
 	action_label="Conocer GaaS"
-	action_onclick={() => goto(resolve("/(main)/metodologia"))}
+	action_onclick={() => goto(resolve('/(main)/contacto'))}
 />
 
 <Body />
