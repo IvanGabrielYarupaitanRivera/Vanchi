@@ -12,7 +12,7 @@
 |------|-----------|--------|
 | 1 | `Hero.svelte` + `Hero.agent.md` | ✅ Completado |
 | 2 | `SystemStatus.svelte` + `SystemStatus.agent.md` | ✅ Completado |
-| 3 | `DataBlock.svelte` + `DataBlock.agent.md` | ⬜ Pendiente |
+| 3 | `DataBlock.svelte` + `DataBlock.agent.md` | ✅ Completado |
 | 4 | `CommandAction.svelte` + `CommandAction.agent.md` | ✅ Completado |
 | 5 | `IndexList.svelte` + `IndexList.agent.md` | ⬜ Pendiente |
 | 6 | `GridTwo.svelte` + `GridTwo.agent.md` | ⬜ Pendiente |
@@ -167,8 +167,8 @@ Una vez creados los componentes base, reemplazar patrones repetitivos en todas l
 ## Orden de implementación (pendiente)
 
 ```
-Paso 3 → DataBlock (reemplaza ~20 cards manuales) — SIGUIENTE
-Paso 5 → IndexList (reemplaza ~8 listas manuales)
+Paso 3 → DataBlock (reemplaza ~20 cards manuales) — ✅ COMPLETADO
+Paso 5 → IndexList (reemplaza ~8 listas manuales) — SIGUIENTE
 Paso 6 → GridTwo (reemplaza ~10 grids manuales)
 Paso 7 → Refactorizar páginas existentes con Hero + DataBlock + GridTwo
 ```
