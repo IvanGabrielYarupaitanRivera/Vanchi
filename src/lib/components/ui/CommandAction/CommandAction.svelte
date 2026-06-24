@@ -1,7 +1,10 @@
 <script lang="ts">
 	/**
 	 * @component CommandAction.svelte
-	 * @description Boton CTA con variantes de estilo.
+	 * @description CTA button/link con variantes de estilo.
+	 *
+	 * Renderiza <a> si recibe href, <button> si recibe onclick.
+	 * Nunca ambos. Si se pasan ambos, href tiene prioridad.
 	 *
 	 * Niveles:
 	 * - primary: btn-primary (chalk-on-charcoal, filled)
@@ -21,11 +24,13 @@
 	let {
 		level = 'primary' as ActionLevel,
 		label,
+		href,
 		onclick,
 		icon: Icon
 	}: {
 		level?: ActionLevel;
 		label: string;
+		href?: string;
 		onclick?: () => void;
 		icon?: Component;
 	} = $props();
@@ -41,9 +46,19 @@
 	);
 </script>
 
-<button {onclick} type="button" class={btnClass}>
-	{#if Icon}
-		<Icon class="h-4 w-4"></Icon>
-	{/if}
-	{label}
-</button>
+{#if href}
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+	<a {href} class={btnClass}>
+		{#if Icon}
+			<Icon class="h-4 w-4" />
+		{/if}
+		{label}
+	</a>
+{:else}
+	<button {onclick} type="button" class={btnClass}>
+		{#if Icon}
+			<Icon class="h-4 w-4" />
+		{/if}
+		{label}
+	</button>
+{/if}
