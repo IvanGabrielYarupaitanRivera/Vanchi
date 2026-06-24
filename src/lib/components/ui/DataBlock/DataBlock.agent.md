@@ -24,6 +24,20 @@ interface DataBlockProps {
 | `compact` | `p-6 lg:p-8` | `bg-base-200` | Cards en grids densos, sub-items |
 | `elevated` | `p-8 lg:p-10` | `bg-neutral` | Solo 1 por pagina (destacar seccion) |
 
+## 🎬 Micro-interacciones
+
+Cuando `hover={true}`, el DataBlock recibe:
+- `group` — permite `group-hover:` en elementos hijos
+- `transition-all duration-100` — 100ms de transicion
+- `hover:-translate-y-0.5` — levanta 2px
+- `hover:border-base-content` — el borde se aclara
+
+Uso tipico en hijos:
+```svelte
+<span class="... transition-transform duration-100 group-hover:translate-x-1">→</span>
+<span class="... transition-opacity duration-100 group-hover:opacity-100">...</span>
+```
+
 ## 📋 Reglas de uso
 
 1. **DataBlock es un contenedor.** El contenido va dentro via Snippet.
@@ -62,6 +76,19 @@ interface DataBlockProps {
   </DataBlock>
 </a>
 ```
+
+### Compact con hover y micro-interaccion hija (flechita)
+```svelte
+<a href={resolve('/(main)/servicios/[servicio]', { servicio: 'agentes-ia' })} class="block">
+  <DataBlock level="compact" hover={true}>
+    <p class="font-mono text-sm text-base-content">Agentes IA</p>
+    <p class="font-mono text-xs text-base-content/60">Agentes autonomos 24/7</p>
+    <span class="mt-3 inline-block font-mono text-xs text-base-content transition-transform duration-100 group-hover:translate-x-1">→</span>
+  </DataBlock>
+</a>
+```
+
+> El `group` se agrega automaticamente cuando `hover={true}`, permitiendo usar `group-hover:` en elementos hijos (flechitas, opacidad, etc.).
 
 ### Elevated (destacar, solo 1 por pagina)
 ```svelte
