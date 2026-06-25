@@ -1,17 +1,23 @@
 <script lang="ts">
-	import SEO from '$lib/components/SEO.svelte';
 	import { resolve } from '$app/paths';
-	import { ArrowLeft, Trash2 } from '@lucide/svelte';
+	import { ArrowLeft, ArrowUpRight } from '@lucide/svelte';
+	import SEO from '$lib/components/SEO.svelte';
+	import SectionLayout from '$lib/components/ui/SectionLayout/SectionLayout.svelte';
+	import DataBlock from '$lib/components/ui/DataBlock/DataBlock.svelte';
+	import CommandAction from '$lib/components/ui/CommandAction/CommandAction.svelte';
 
-	const updatedAt = '31 de marzo de 2026';
-	const effectiveFrom = '1 de abril de 2026';
-	const documentVersion = 'v1.1';
+	const updatedAt = '24 de junio de 2026';
+	const effectiveFrom = '1 de julio de 2026';
+	const documentVersion = 'v2.0';
+	const legalCompany = 'VANCHI CORPORATION E.I.R.L.';
+	const legalRuc = '20615874591';
 	const legalOwner = 'Ivan Yarupaitan Rivera';
-	const legalRuc = '10710480031';
 	const legalEmail = 'ivangyr321@gmail.com';
+	const legalAddress =
+		'Cal. Las Estrellas Nro. 153, Urb. Los Eucaliptos, Huancayo, Junín, Perú';
 	const responseWindow = 'hasta 15 días hábiles';
 
-	const removalSteps = [
+	const group1 = [
 		{
 			title: '01. Canal oficial de solicitud',
 			content: [
@@ -25,7 +31,10 @@
 				'Para proteger tus datos, validaremos que quien solicita la eliminación sea el titular o su representante autorizado.',
 				'La validación mínima requiere correo registrado y documento firmado de identificación del solicitante antes de ejecutar cualquier acción.'
 			]
-		},
+		}
+	] as const;
+
+	const group2 = [
 		{
 			title: '03. Datos que pueden eliminarse',
 			content: [
@@ -39,7 +48,10 @@
 				`El plazo referencial de atención es ${responseWindow}, contado desde la validación completa de la solicitud.`,
 				'Si el caso requiere revisión adicional, te informaremos oportunamente con el estado y motivo de la ampliación.'
 			]
-		},
+		}
+	] as const;
+
+	const group3 = [
 		{
 			title: '05. Excepciones legales y contractuales',
 			content: [
@@ -65,7 +77,9 @@
 		{
 			title: '08. Datos del responsable',
 			content: [
-				`Responsable: ${legalOwner} (RUC ${legalRuc}).`,
+				`${legalCompany} — RUC: ${legalRuc}.`,
+				`Titular: ${legalOwner}.`,
+				`Domicilio fiscal: ${legalAddress}.`,
 				`Contacto oficial para eliminación y privacidad: ${legalEmail}.`
 			]
 		}
@@ -74,86 +88,101 @@
 
 <SEO
 	title="Eliminación de Datos de Usuario | Vanchi"
-	description="Procedimiento para solicitar eliminación de datos personales: canal oficial, validación de identidad, plazos, excepciones y constancia de cierre."
+	description="Procedimiento para solicitar eliminación de datos personales en VANCHI CORPORATION E.I.R.L. (RUC 20615874591): canal oficial, validación de identidad, plazos, excepciones y constancia de cierre."
 	url="https://www.vanchi.pro/eliminacion-de-datos-de-usuario"
 />
 
-<main class="min-h-screen py-24 lg:py-32">
-	<div class="container mx-auto max-w-4xl px-4">
-		<a
-			href={resolve('/(main)/politica-de-privacidad')}
-			class="mb-8 inline-flex items-center gap-2 text-sm text-base-content/60 transition-colors hover:text-primary"
-		>
-			<ArrowLeft size={16} />
-			Volver a Política de Privacidad
-		</a>
-
-		<header class="mb-16 border-b border-white/10 pb-10">
-			<div
-				class="mb-4 inline-flex items-center justify-center rounded-xl bg-primary/10 p-3 text-primary"
+<main>
+	<div class="mx-auto max-w-5xl px-4">
+		<!-- Cabecera del documento -->
+		<div class="py-24 lg:py-32">
+			<a
+				href={resolve('/(main)/politica-de-privacidad')}
+				class="inline-flex items-center gap-2 font-mono text-sm text-base-content/60 transition-colors hover:text-base-content"
 			>
-				<Trash2 size={32} />
-			</div>
-			<h1 class="mb-4 font-serif text-4xl font-bold tracking-tight text-base-content lg:text-5xl">
-				Eliminación de <span
-					class="bg-linear-to-r from-primary via-yellow-200 to-primary bg-clip-text text-transparent italic"
-					>Datos de Usuario</span
-				>
-			</h1>
-			<p class="text-lg text-base-content/70">
-				Este procedimiento explica cómo solicitar la eliminación de datos personales tratados por
-				Vanchi en el marco de su servicio como agencia tecnológica.
-			</p>
-			<div class="mt-5 flex flex-wrap gap-2 text-sm text-base-content/60">
-				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
-					Titular: {legalOwner}
-				</span>
-				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
-					RUC: {legalRuc}
-				</span>
-				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
-					Versión: {documentVersion}
-				</span>
-				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
-					Vigente desde: {effectiveFrom}
-				</span>
-				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
-					Plazo de atención: {responseWindow}
-				</span>
-				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
-					Actualizado: {updatedAt}
-				</span>
-			</div>
-		</header>
+				<ArrowLeft size={14} />
+				Volver a Política de Privacidad
+			</a>
 
-		<article
-			class="prose-invert prose-p:text-base-content/70 prose-headings:text-base-content prose-headings:font-serif prose max-w-none space-y-12"
-		>
-			{#each removalSteps as section (section.title)}
-				<section
-					class="rounded-2xl border border-white/5 bg-base-200/30 p-6 transition-colors duration-300 hover:border-primary/20 lg:p-8"
-				>
-					<h2 class="text-2xl font-bold">{section.title}</h2>
-					<div class="mt-4 space-y-4">
+			<header class="mt-10 border-b border-base-300 pb-10">
+				<h1 class="vanchi-display text-5xl text-base-content lg:text-7xl">
+					Eliminación de <span class="italic">Datos de Usuario</span>
+				</h1>
+				<p class="mt-6 max-w-2xl font-mono text-sm leading-relaxed text-base-content/60">
+					Este procedimiento explica cómo solicitar la eliminación de datos personales tratados por
+					Vanchi en el marco de su servicio como agencia tecnológica.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-x-8 gap-y-2 font-mono text-xs tracking-[0.15em] text-secondary uppercase">
+					<span>{legalCompany}</span>
+					<span>RUC: {legalRuc}</span>
+					<span>v.{documentVersion}</span>
+					<span>Vigente: {effectiveFrom}</span>
+					<span>Plazo: {responseWindow}</span>
+					<span>Actualizado: {updatedAt}</span>
+				</div>
+			</header>
+		</div>
+	</div>
+
+	<!-- Grupo 1: Solicitud -->
+	<SectionLayout variant="secondary" number="01" label="SOLICITUD">
+		<div class="flex flex-col gap-px">
+			{#each group1 as section (section.title)}
+				<DataBlock level="compact">
+					<h2 class="vanchi-eyebrow mb-4">{section.title}</h2>
+					<div class="space-y-4 font-mono text-sm leading-relaxed text-base-content/80">
 						{#each section.content as paragraph (paragraph)}
 							<p>{paragraph}</p>
 						{/each}
 					</div>
-				</section>
+				</DataBlock>
 			{/each}
-		</article>
-
-		<div class="mt-16 border-t border-white/10 pt-10 text-center">
-			<div class="flex flex-wrap justify-center gap-3">
-				<a href={resolve('/(main)/precios')} class="btn">Ver planes y precios</a>
-				<a href={resolve('/(main)/metodologia')} class="btn">Ver metodología GaaS</a>
-				<a href={resolve('/(main)/politica-de-privacidad')} class="btn">Ver política de privacidad</a>
-				<a href={resolve('/(main)/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
-			</div>
-			<p class="mx-auto mt-6 max-w-2xl text-sm leading-loose text-base-content/60">
-				Para iniciar una solicitud, escríbenos a <strong>{legalEmail}</strong> con el asunto “Eliminación
-				de datos” y adjunta correo registrado + documento firmado para validar titularidad.
-			</p>
 		</div>
+	</SectionLayout>
+
+	<!-- Grupo 2: Ejecución -->
+	<SectionLayout variant="secondary" number="02" label="EJECUCIÓN">
+		<div class="flex flex-col gap-px">
+			{#each group2 as section (section.title)}
+				<DataBlock level="compact">
+					<h2 class="vanchi-eyebrow mb-4">{section.title}</h2>
+					<div class="space-y-4 font-mono text-sm leading-relaxed text-base-content/80">
+						{#each section.content as paragraph (paragraph)}
+							<p>{paragraph}</p>
+						{/each}
+					</div>
+				</DataBlock>
+			{/each}
+		</div>
+	</SectionLayout>
+
+	<!-- Grupo 3: Excepciones y Alcance -->
+	<SectionLayout variant="secondary" number="03" label="EXCEPCIONES Y ALCANCE">
+		<div class="flex flex-col gap-px">
+			{#each group3 as section (section.title)}
+				<DataBlock level="compact">
+					<h2 class="vanchi-eyebrow mb-4">{section.title}</h2>
+					<div class="space-y-4 font-mono text-sm leading-relaxed text-base-content/80">
+						{#each section.content as paragraph (paragraph)}
+							<p>{paragraph}</p>
+						{/each}
+					</div>
+				</DataBlock>
+			{/each}
+		</div>
+	</SectionLayout>
+
+	<!-- Footer links -->
+	<div class="mx-auto max-w-5xl border-t border-base-300 px-4 py-16">
+		<div class="flex flex-wrap justify-center gap-3">
+			<CommandAction level="ghost" label="Ver planes y precios" href={resolve('/(main)/precios')} icon={ArrowUpRight} />
+			<CommandAction level="ghost" label="Metodología GaaS" href={resolve('/(main)/metodologia')} icon={ArrowUpRight} />
+			<CommandAction level="ghost" label="Política de privacidad" href={resolve('/(main)/politica-de-privacidad')} icon={ArrowUpRight} />
+			<CommandAction level="ghost" label="Condiciones del servicio" href={resolve('/(main)/condiciones-del-servicio')} icon={ArrowUpRight} />
+		</div>
+		<p class="mx-auto mt-8 max-w-2xl text-center font-mono text-xs leading-relaxed text-base-content/60">
+			Para iniciar una solicitud, escríbenos a <strong class="text-base-content">{legalEmail}</strong> con el asunto "Eliminación
+			de datos" y adjunta correo registrado + documento firmado para validar titularidad.
+		</p>
 	</div>
 </main>

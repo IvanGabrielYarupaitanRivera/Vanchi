@@ -51,6 +51,9 @@
 				href={resolve('/eliminacion-de-datos-de-usuario')}
 				class="link text-base-content/60 link-hover">Eliminación de Datos</a
 			>
+			<a href={resolve('/transparencia')} class="link text-base-content/60 link-hover"
+				>Transparencia Fiscal</a
+			>
 		</nav>
 	</div>
 
