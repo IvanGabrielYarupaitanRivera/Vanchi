@@ -8,6 +8,7 @@ Debes **importarlo y parametrizarlo**. Prohibido reescribir el marcado.
 ## 🎨 Diseño visual
 
 Todos los niveles excepto tertiary incluyen:
+
 - Fondo: reticula 40x40 + puntos 2px/40px (SVG inline, background-image)
 - Esquinas L en border-secondary en las 4 puntas del header
 - Sin bordes laterales continuos
@@ -36,40 +37,53 @@ interface HeroProps {
 
 ## 📊 Comportamiento por Nivel
 
-| Nivel | Altura | SystemStatus | Imagen | Botones | italic_word | children |
-|---|---|---|---|---|---|---|
-| `primary` | `py-32 lg:py-48` | Si arriba | No | primary + outline-primary | Si | No |
-| `secondary` | `py-24 lg:py-40` | No | No | primary + outline-primary | Si | Si (entre subtitle y botones) |
-| `profile` | `py-32 lg:py-48` | No | Si (derecha, fija) | primary + outline-primary | Si | Si (entre subtitle y botones) |
-| `tertiary` | `py-8 lg:py-12` | No | No | No | No | No |
+| Nivel       | Altura           | SystemStatus | Imagen             | Botones                   | italic_word | children                      |
+| ----------- | ---------------- | ------------ | ------------------ | ------------------------- | ----------- | ----------------------------- |
+| `primary`   | `py-32 lg:py-48` | Si arriba    | No                 | primary + outline-primary | Si          | No                            |
+| `secondary` | `py-24 lg:py-40` | No           | No                 | primary + outline-primary | Si          | Si (entre subtitle y botones) |
+| `profile`   | `py-32 lg:py-48` | No           | Si (derecha, fija) | primary + outline-primary | Si          | Si (entre subtitle y botones) |
+| `tertiary`  | `py-8 lg:py-12`  | No           | No                 | No                        | No          | No                            |
 
 ## ❌ ANTI-PATRONES
 
-* NO pasar colores fijos. Usar solo tokens DaisyUI.
-* NO `rounded-full`, `rounded-lg`, `rounded-xl`.
-* Si `level="tertiary"`, NO pasar action_label, action_onclick, status_active ni image.
-* NO usar `{@html}` para italicas. Usar `italic_word`.
-* Usar `action_onclick` con `goto(resolve(...))`.
+- NO pasar colores fijos. Usar solo tokens DaisyUI.
+- NO `rounded-full`, `rounded-lg`, `rounded-xl`.
+- Si `level="tertiary"`, NO pasar action_label, action_onclick, status_active ni image.
+- NO usar `{@html}` para italicas. Usar `italic_word`.
+- Usar `action_onclick` con `goto(resolve(...))`.
 
 ## 💻 Ejemplos
 
 ### Primary — Home
+
 ```svelte
-<Hero level="primary" title="Tu empresa deberia funcionar sola"
-  italic_word="sola" subtitle="..."
-  action_label="Automatizar" action_onclick={() => goto(resolve('/(main)/contacto'))}
-  action_secondary_label="Consultar" action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
-  status_active={true} />
+<Hero
+	level="primary"
+	title="Tu empresa deberia funcionar sola"
+	italic_word="sola"
+	subtitle="..."
+	action_label="Automatizar"
+	action_onclick={() => goto(resolve('/(main)/contacto'))}
+	action_secondary_label="Consultar"
+	action_secondary_onclick={() => goto(resolve('/(chat)/chat'))}
+	status_active={true}
+/>
 ```
 
 ### Secondary — Seccion
+
 ```svelte
-<Hero level="secondary" title="Servicios"
-  subtitle="Automatizacion de procesos."
-  action_label="Ver casos" action_onclick={() => goto(resolve('/(main)/proyectos'))} />
+<Hero
+	level="secondary"
+	title="Servicios"
+	subtitle="Automatizacion de procesos."
+	action_label="Ver casos"
+	action_onclick={() => goto(resolve('/(main)/proyectos'))}
+/>
 ```
 
 ### Secondary con children
+
 ```svelte
 <Hero level="secondary" title={project.meta.title} subtitle={project.meta.tagline}>
 	<div class="flex flex-wrap gap-x-8 gap-y-3 font-mono text-sm text-base-content/50">
@@ -80,24 +94,36 @@ interface HeroProps {
 ```
 
 ### Profile — Pagina personal
+
 ```svelte
-<Hero level="profile" title="Ivan Gabriel Yarupaitan Rivera"
-  subtitle="Ingeniero de Sistemas..."
-  action_label="LinkedIn" action_onclick={() => window.open('https://linkedin.com/...')}
-  action_secondary_label="Proyectos" action_secondary_onclick={() => goto(resolve('/(main)/proyectos'))}
-  image={ivan} image_alt="Ivan" image_caption="Ivan // Huancayo">
-  {#snippet children()}
-    <div class="flex flex-wrap gap-4 font-mono text-sm text-base-content/50">
-      <span>Huancayo, Peru</span>
-      <span>Disponible ahora</span>
-      <span>Full-Stack & IA</span>
-    </div>
-  {/snippet}
+<Hero
+	level="profile"
+	title="Ivan Gabriel Yarupaitan Rivera"
+	subtitle="Ingeniero de Sistemas..."
+	action_label="LinkedIn"
+	action_onclick={() => window.open('https://linkedin.com/...')}
+	action_secondary_label="Proyectos"
+	action_secondary_onclick={() => goto(resolve('/(main)/proyectos'))}
+	image={ivan}
+	image_alt="Ivan"
+	image_caption="Ivan // Huancayo"
+>
+	{#snippet children()}
+		<div class="flex flex-wrap gap-4 font-mono text-sm text-base-content/50">
+			<span>Huancayo, Peru</span>
+			<span>Disponible ahora</span>
+			<span>Full-Stack & IA</span>
+		</div>
+	{/snippet}
 </Hero>
 ```
 
 ### Tertiary — Legal
+
 ```svelte
-<Hero level="tertiary" title="vanchi.pro / politicas de privacidad"
-  subtitle="Ultima revision: Junio 2026" />
+<Hero
+	level="tertiary"
+	title="vanchi.pro / politicas de privacidad"
+	subtitle="Ultima revision: Junio 2026"
+/>
 ```
