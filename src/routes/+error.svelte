@@ -2,9 +2,8 @@
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import SEO from '$lib/components/SEO.svelte';
-	import { ChevronsRight } from '@lucide/svelte';
-	import { fly } from 'svelte/transition';
-	import bgError from '$lib/assets/images/bg-error.webp';
+	import SystemStatus from '$lib/components/ui/SystemStatus/SystemStatus.svelte';
+	import CommandAction from '$lib/components/ui/CommandAction/CommandAction.svelte';
 
 	const errorCode = $derived(page.status);
 	const errorMessage = $derived(page.error?.message ?? 'Algo salió mal');
@@ -13,72 +12,32 @@
 
 <SEO
 	title={`${errorCode} — Error | Vanchi`}
-	description="Página de error de mi portafolio de Vanchi. Lo sentimos, la página que buscas no está disponible."
+	description="Página de error del portafolio Vanchi. La página que buscas no está disponible."
 	noindex={true}
 	nofollow={true}
 />
 
-<section class="relative -mt-24 flex min-h-screen w-full items-center justify-center">
-	<!-- Fondo con máscara -->
-	<enhanced:img
-		src={bgError}
-		alt="Fondo Error"
-		fetchpriority="high"
-		loading="eager"
-		class="absolute inset-0 h-full w-full mask-r-from-80% mask-b-from-50% mask-l-from-80% object-cover object-center opacity-20"
-	/>
-
-	<article class="relative hero-content z-10 max-w-3xl text-center text-base-content">
-		<div class="max-w-4xl">
-			<!-- Badge de Error -->
-			<div
-				in:fly={{ y: 30, duration: 1000, delay: 200 }}
-				class="relative mb-8 inline-flex overflow-hidden rounded-full p-px"
-			>
-				<span
-					class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#C5A059_50%,transparent_100%)]"
-				></span>
-				<div
-					class="inline-flex h-full w-full items-center gap-2 rounded-full bg-base-100/90 px-4 py-1.5 backdrop-blur-3xl"
-				>
-					<div class="inline-grid *:[grid-area:1/1]">
-						<div class="status animate-ping status-error"></div>
-						<div class="status status-error"></div>
-					</div>
-					<span class="flex gap-1 text-xs font-medium tracking-widest text-base-content uppercase">
-						Error {errorCode}
-					</span>
-				</div>
+<section class="flex min-h-screen w-full items-center justify-center">
+	<article class="max-w-3xl text-center text-base-content">
+		<div class="px-4">
+			<!-- Badge: código de error via SystemStatus -->
+			<div class="vanchi-container mb-12 inline-flex items-center gap-2 rounded px-3 py-1.5">
+				<SystemStatus status="error" label="Error {errorCode}" />
 			</div>
 
-			<!-- H1: Código de Error -->
-			<h1
-				in:fly={{ y: 30, duration: 1000, delay: 400 }}
-				class="mb-8 text-5xl font-bold lg:text-7xl"
-			>
+			<!-- H1: mensaje principal -->
+			<h1 class="vanchi-display mb-8 text-5xl lg:text-7xl">
 				{#if isNotFound}
-					Página
-					<br />
-					<span
-						class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text px-1 font-serif text-transparent italic"
-					>
-						no encontrada
-					</span>
+					Página<br />
+					<span class="italic">no encontrada</span>
 				{:else}
-					Error del
-					<span
-						class="bg-linear-to-r from-primary via-primary to-primary bg-clip-text px-1 font-serif text-transparent italic"
-					>
-						servidor
-					</span>
+					Error del<br />
+					<span class="italic">servidor</span>
 				{/if}
 			</h1>
 
 			<!-- Descripción -->
-			<p
-				in:fly={{ y: 30, duration: 1000, delay: 600 }}
-				class="mx-auto mb-10 max-w-2xl px-4 text-sm text-pretty text-base-content/80 lg:text-lg"
-			>
+			<p class="vanchi-reading mx-auto mb-12 px-4 text-sm lg:text-base">
 				{#if isNotFound}
 					La página que buscas no existe o ha sido movida. Verifica la URL o regresa al inicio para
 					explorar el portafolio.
@@ -87,21 +46,9 @@
 				{/if}
 			</p>
 
-			<!-- Botones de Acción -->
-			<nav in:fly={{ y: 30, duration: 1000, delay: 800 }} aria-label="Opciones de navegación">
-				<ul class="flex flex-col items-center justify-center gap-4 lg:flex-row" role="list">
-					<li role="listitem">
-						<a
-							href={resolve('/')}
-							type="button"
-							class="btn transition-all duration-300 btn-primary hover:-translate-y-1"
-							aria-label="Volver al inicio"
-						>
-							Ir al Inicio
-							<ChevronsRight size={18} aria-hidden="true" />
-						</a>
-					</li>
-				</ul>
+			<!-- CTA via CommandAction -->
+			<nav aria-label="Opciones de navegación">
+				<CommandAction level="primary" label="Ir al Inicio" href={resolve('/')} />
 			</nav>
 		</div>
 	</article>
