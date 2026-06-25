@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import SystemStatus from '$lib/components/ui/SystemStatus/SystemStatus.svelte';
 
 	const year = new Date().getFullYear();
 </script>
@@ -70,7 +71,7 @@
 			</div>
 
 			<div class="flex w-full items-center gap-3 border border-base-300 bg-base-100 p-3 md:w-auto">
-				<span class="vanchi-agent-dot animate-pulse"></span>
+				<SystemStatus status="active" />
 				<span class="text-base-content/40 uppercase">
 					Jurisdicción: Huancayo, Junín, Perú // Deploy: Active
 				</span>

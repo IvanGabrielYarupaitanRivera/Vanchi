@@ -8,9 +8,11 @@ Renderiza `<a>` si se pasa `href`, `<button>` si se pasa `onclick`. Nunca ambos.
 
 ```typescript
 type ActionLevel = 'primary' | 'outline-primary' | 'ghost' | 'secondary';
+type ActionSize = 'sm' | 'md';
 
 interface CommandActionProps {
   level?: ActionLevel;      // default: 'primary'
+  size?: ActionSize;         // default: 'md'
   label: string;
   href?: string;             // Renderiza <a>. Prioridad sobre onclick.
   onclick?: () => void;      // Renderiza <button>
@@ -31,6 +33,13 @@ interface CommandActionProps {
 | `ghost` | `btn btn-ghost text-base-content uppercase` | Sin borde | Accion sutil |
 | `secondary` | `btn btn-neutral uppercase` | Gris oscuro | CTA secundario relleno |
 
+### Tamaños
+
+| size | Clase DaisyUI | Altura | Uso típico |
+|---|---|---|---|
+| `md` (default) | *(ninguna)* | 40px (`h-10`) | CTAs de sección, hero actions |
+| `sm` | `btn-sm` | 32px (`h-8`) | Header toolbar, acciones inline secundarias |
+
 ### Auto-detect de links externos
 
 Cuando se usa como `<a>`, el componente detecta automaticamente si el `href` es externo (empieza con `http`):
@@ -48,6 +57,7 @@ Si necesitas override, pasa `target` o `rel` explicitamente y tienen prioridad.
 * NO modificar el uppercase. El componente lo fuerza.
 * NO pasar `href` y `onclick` juntos. `href` tiene prioridad.
 * NO usar `onclick` para navegacion interna. Usar `href` con `resolve()`.
+* NO usar `size="sm"` fuera del header toolbar o acciones inline secundarias.
 
 ## 💻 Ejemplos
 
@@ -68,6 +78,12 @@ Si necesitas override, pasa `target` o `rel` explicitamente y tienen prioridad.
 <CommandAction level="primary" label="Abrir conversación"
   href="https://api.whatsapp.com/send/?phone=51985942670&text=Hola"
   icon={MessageCircle} />
+```
+
+### Como tamaño small (header toolbar)
+```svelte
+<CommandAction size="sm" level="ghost" label="Chat" icon={Sparkles} onclick={() => goto(resolve('/(chat)/chat'))} />
+<CommandAction size="sm" level="primary" label="Contacto" href={resolve('/(main)/contacto')} />
 ```
 
 ### Como boton (accion JS)

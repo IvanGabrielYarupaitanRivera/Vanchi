@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
-	import { Sparkles } from '@lucide/svelte';
+	import { ArrowUpRight, Menu, Sparkles, X } from '@lucide/svelte';
+	import { blur, fly } from 'svelte/transition';
 	import icon from '$lib/assets/icons/icon.svg';
+	import CommandAction from '$lib/components/ui/CommandAction/CommandAction.svelte';
 
 	let mobileOpen = $state(false);
 </script>
@@ -68,34 +71,51 @@
 
 		<!-- END: Botones + hamburguesa -->
 		<div class="navbar-end gap-2">
-			<a
-				href={resolve('/(chat)/chat')}
-				class="btn hidden h-9 min-h-0 border border-base-300 bg-transparent px-3 font-mono text-xs font-bold tracking-wider text-base-content/80 uppercase btn-ghost duration-100 hover:bg-base-300 hover:text-base-content lg:inline-flex"
-			>
-				<Sparkles class="mr-1 h-3 w-3" />
-				Chat
-			</a>
+			<div class="hidden lg:block">
+				<CommandAction
+					size="sm"
+					level="outline-primary"
+					icon={Sparkles}
+					label="Chat"
+					href={resolve('/(chat)/chat')}
+				/>
+			</div>
 
-			<a
-				href={resolve('/(main)/contacto')}
-				class="btn hidden h-9 min-h-0 border border-base-content bg-base-content px-3 font-mono text-xs font-bold tracking-wider text-base-100 uppercase duration-100 hover:bg-base-content/90 lg:inline-flex"
-			>
-				Contacto →
-			</a>
+			<div class="hidden lg:block">
+				<CommandAction
+					size="sm"
+					level="primary"
+					icon={ArrowUpRight}
+					label="Contacto"
+					href={resolve('/(main)/contacto')}
+				/>
+			</div>
 
 			<button
 				class="btn h-9 min-h-0 w-9 border border-base-300 p-0 text-base-content btn-ghost lg:hidden"
 				onclick={() => (mobileOpen = !mobileOpen)}
-				aria-label="Toggle Menu"
+				aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
 			>
-				<span class="font-mono text-sm">{mobileOpen ? '[X]' : '[=]'}</span>
+				{#if mobileOpen}
+					<X class="h-4 w-4" />
+				{:else}
+					<Menu class="h-4 w-4" />
+				{/if}
 			</button>
 		</div>
 	</div>
 
 	{#if mobileOpen}
 		<div
-			class="absolute top-full right-0 left-0 flex w-full flex-col gap-6 border-t border-base-300 bg-base-200 px-6 py-8 lg:hidden"
+			class="fixed inset-x-0 top-14 bottom-0 z-40 bg-base-100/10 backdrop-blur-lg lg:hidden"
+			role="presentation"
+			transition:blur={{ duration: 100 }}
+			onclick={() => (mobileOpen = false)}
+		></div>
+
+		<div
+			class="absolute top-full right-0 left-0 z-50 flex w-full flex-col gap-6 border-t border-base-300 bg-base-200 px-6 py-8 lg:hidden"
+			transition:fly={{ y: -20, duration: 200 }}
 		>
 			<nav class="flex flex-col gap-4 text-sm tracking-[0.12em] uppercase">
 				<a
@@ -152,22 +172,25 @@
 				</a>
 			</nav>
 
-			<div class="flex flex-col gap-2">
-				<a
-					href={resolve('/(chat)/chat')}
-					class="btn h-10 min-h-0 w-full border border-base-300 font-mono text-sm font-bold tracking-wider uppercase btn-ghost"
-					onclick={() => (mobileOpen = false)}
-				>
-					<Sparkles class="mr-1.5 h-4 w-4" />
-					Hablar con el agente
-				</a>
-				<a
-					href={resolve('/(main)/contacto')}
-					class="btn h-10 min-h-0 w-full border border-base-content bg-base-content font-mono text-sm font-bold tracking-wider text-base-100 uppercase"
-					onclick={() => (mobileOpen = false)}
-				>
-					Contacto →
-				</a>
+			<div class="flex flex-col gap-2 [&_.btn]:w-full">
+				<CommandAction
+					level="outline-primary"
+					icon={Sparkles}
+					label="Hablar con el agente"
+					onclick={() => {
+						mobileOpen = false;
+						goto(resolve('/(chat)/chat'));
+					}}
+				/>
+				<CommandAction
+					level="primary"
+					icon={ArrowUpRight}
+					label="Contacto"
+					onclick={() => {
+						mobileOpen = false;
+						goto(resolve('/(main)/contacto'));
+					}}
+				/>
 			</div>
 		</div>
 	{/if}

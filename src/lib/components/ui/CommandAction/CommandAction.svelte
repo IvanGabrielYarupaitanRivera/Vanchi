@@ -20,9 +20,11 @@
 	import type { Component } from 'svelte';
 
 	type ActionLevel = 'primary' | 'outline-primary' | 'ghost' | 'secondary';
+	type ActionSize = 'sm' | 'md';
 
 	let {
 		level = 'primary' as ActionLevel,
+		size = 'md' as ActionSize,
 		label,
 		href,
 		onclick,
@@ -31,6 +33,7 @@
 		rel
 	}: {
 		level?: ActionLevel;
+		size?: ActionSize;
 		label: string;
 		href?: string;
 		onclick?: () => void;
@@ -47,14 +50,16 @@
 		rel ?? (isExternal ? 'external noopener noreferrer' : undefined)
 	);
 
+	const btnSize = $derived(size === 'sm' ? 'btn-sm' : '');
+
 	const btnClass = $derived(
-		level === 'primary'
-			? 'btn btn-primary uppercase'
+		`${level === 'primary'
+			? 'btn btn-primary'
 			: level === 'outline-primary'
-				? 'btn btn-outline btn-primary uppercase'
+				? 'btn btn-outline btn-primary'
 				: level === 'ghost'
-					? 'btn btn-ghost text-base-content uppercase'
-					: 'btn btn-neutral uppercase'
+					? 'btn btn-ghost text-base-content'
+					: 'btn btn-neutral'} uppercase ${btnSize}`
 	);
 </script>
 
