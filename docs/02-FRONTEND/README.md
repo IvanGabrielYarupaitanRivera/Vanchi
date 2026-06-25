@@ -83,11 +83,13 @@ Los layouts usan **route groups** de SvelteKit (carpetas entre parentesis, invis
 
 Componentes reutilizables del sistema de diseno, bajo el esquema **Dual-Layer Component Architecture**: cada componente en su propia carpeta con un `.agent.md` que documenta anti-patrones para el agente IA.
 
-| Componente | Ruta | Props principales | Niveles |
-|------------|------|-------------------|---------|
+| Componente | Ruta | Props principales | Niveles / Variants |
+|------------|------|-------------------|--------------------|
 | `Hero.svelte` | `lib/components/ui/Hero/` | `level`, `title`, `subtitle`, `italic_word`, `action_label`, `action_onclick`, `status_active`, `image`, `children` | primary, secondary, profile, tertiary |
-| `SystemStatus.svelte` | `lib/components/ui/SystemStatus/` | `active`, `label`, `error` | 3 estados (active/error/idle) |
-| `CommandAction.svelte` | `lib/components/ui/CommandAction/` | `level`, `label`, `onclick` | primary, outline-primary, ghost, secondary |
+| `SystemStatus.svelte` | `lib/components/ui/SystemStatus/` | `status`, `label` | active, idle, error |
+| `CommandAction.svelte` | `lib/components/ui/CommandAction/` | `level`, `label`, `href` (link), `onclick` (button), `icon`, `target`, `rel`. Auto-detect externos | primary, outline-primary, ghost, secondary |
+| `DataBlock.svelte` | `lib/components/ui/DataBlock/` | `level`, `padding`, `hover`, `children` | default, compact, elevated |
+| `SectionLayout.svelte` | `lib/components/ui/SectionLayout/` | `variant`, `number`, `label`, `title`, `italic_word`, `description`, `children`, `children_left` | primary (grid 5/7), secondary (1 columna) |
 
 ### Reglas de la UI Component Library
 
@@ -101,19 +103,15 @@ Componentes reutilizables del sistema de diseno, bajo el esquema **Dual-Layer Co
 
 ## Componentes del Home
 
-| Componente | Ruta | Proposito |
-|------------|------|-----------|
-| `AboutMe.svelte` | `lib/components/home/` | Seccion "Sobre mi" |
-| `Me.svelte` | `lib/components/home/` | Detalle extendido del autor |
-| `Services.svelte` | `lib/components/home/` | Servicios ofrecidos |
-| `CardService.svelte` | `lib/components/home/` | Tarjeta individual de servicio |
-| `FeaturedProjects.svelte` | `lib/components/home/` | Proyectos destacados |
-| `CardProject.svelte` | `lib/components/home/` | Tarjeta individual de proyecto |
-| `SocialProof.svelte` | `lib/components/home/` | Prueba social (logros, clientes) |
-| `WhatsappContact.svelte` | `lib/components/home/` | Boton / seccion de contacto WhatsApp |
-| `Marquee.svelte` | `lib/components/home/` | Carrusel / marquee de logos |
-
-> **Nota:** Los Heroes de home fueron migrados a `ui/Hero/`. Los archivos legacy en `lib/components/home/Hero.svelte` y similares han sido eliminados.
+| Componente | Ruta | Proposito | Componentes UI que usa |
+|------------|------|-----------|------------------------|
+| `Hero` | — | Usa `ui/Hero/` directamente en `+page.svelte` | Hero (primary) |
+| `SocialProof.svelte` | `lib/components/home/` | Prueba social (logros, clientes) | SectionLayout + DataBlock |
+| `FeaturedProjects.svelte` | `lib/components/home/` | Proyectos destacados | SectionLayout + DataBlock |
+| `Services.svelte` | `lib/components/home/` | Servicios ofrecidos | SectionLayout + DataBlock |
+| `AboutMe.svelte` | `lib/components/home/` | Seccion "Sobre mi" | SectionLayout + DataBlock |
+| `WhatsappContact.svelte` | `lib/components/home/` | Seccion de contacto WhatsApp | SectionLayout + DataBlock |
+| `Marquee.svelte` | `lib/components/home/` | Carrusel / marquee de logos | — |
 
 ---
 
@@ -235,6 +233,21 @@ Componentes reutilizables del sistema de diseno, bajo el esquema **Dual-Layer Co
 		<!-- contenido -->
 	</div>
 </div>
+```
+
+### Layout de seccion unificado
+
+Todas las secciones de la home usan `SectionLayout` + `DataBlock`:
+
+```svelte
+<SectionLayout variant="primary" number="01" label="EVIDENCIA"
+  title="Seis proyectos pagados por clientes reales"
+  italic_word="pagados"
+  description="...">
+  <DataBlock level="compact" hover={true}>
+    <!-- contenido -->
+  </DataBlock>
+</SectionLayout>
 ```
 
 ### Hero unificado

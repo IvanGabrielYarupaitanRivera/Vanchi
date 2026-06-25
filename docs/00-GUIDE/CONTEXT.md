@@ -67,7 +67,9 @@ Vanchi/
 │   │   │       ├── README.md        # Documentacion para agentes IA
 │   │   │       ├── Hero/            # Hero.svelte + Hero.agent.md (4 niveles)
 │   │   │       ├── SystemStatus/    # SystemStatus.svelte + SystemStatus.agent.md
-│   │   │       └── CommandAction/   # CommandAction.svelte + CommandAction.agent.md
+│   │   │       ├── CommandAction/   # CommandAction.svelte + CommandAction.agent.md
+│   │   │       ├── DataBlock/       # DataBlock.svelte + DataBlock.agent.md (contenedor universal de cards)
+│   │   │       └── SectionLayout/   # SectionLayout.svelte + SectionLayout.agent.md (esqueleto de seccion)
 │   │   ├── server/convex.ts    # Cliente Convex para SSR
 │   │   └── chat/               # chat.ts (markdown, LS, helpers)
 │   ├── routes/
@@ -147,14 +149,17 @@ El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
 - **UI Component Library**: `src/lib/components/ui/` con Dual-Layer Architecture (Componente importable + `.agent.md` con anti-patrones)
 - **Hero**: 4 niveles (primary, secondary, profile, tertiary) — migradas las 15 rutas del portafolio
 - **SystemStatus**: Componente S6 con DaisyUI status
-- **CommandAction**: 4 niveles (primary, outline-primary, ghost, secondary)
+- **CommandAction**: 4 niveles (primary, outline-primary, ghost, secondary). Soporta `href` (link) y `onclick` (button). Auto-detecta links externos → `target="_blank"` + `rel="noopener noreferrer"`. Props `target`/`rel` override.
 - **Hero profile**: Estructura identica a primary con columna de imagen
+- **DataBlock**: Contenedor universal de cards (default, compact, elevated) — reemplaza ~20 cards manuales
+- **SectionLayout**: Esqueleto de seccion con eyebrow + grid 5/7 (primary) o 1 columna (secondary) — unifica las 5 secciones de la home
 - **Chat redesign**: Estados de carga neutros, diferenciacion visual user/agent, mobile detection coarse pointer
 - **Footer & Header**: Editorial Gemini rewrite con indices numerados, E-E-A-T badge
 
 **Pendiente:**
 - (Opcional) Eliminar tablas v1 legacy (documents, chunks, embeddings) sin regresion
-- DataBlock, IndexList, GridTwo components (especificados en `todo-ui-components.md`)
+- Home sections refactorizadas con SectionLayout + DataBlock + CommandAction (5 secciones).
+- IndexList, GridTwo components (especificados en `todo-ui-components.md`)
 
 ---
 

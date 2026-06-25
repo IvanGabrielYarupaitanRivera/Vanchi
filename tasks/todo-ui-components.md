@@ -14,9 +14,21 @@
 | 2 | `SystemStatus.svelte` + `SystemStatus.agent.md` | ✅ Completado |
 | 3 | `DataBlock.svelte` + `DataBlock.agent.md` | ✅ Completado |
 | 4 | `CommandAction.svelte` + `CommandAction.agent.md` | ✅ Completado |
-| 5 | `IndexList.svelte` + `IndexList.agent.md` | ⬜ Pendiente |
-| 6 | `GridTwo.svelte` + `GridTwo.agent.md` | ⬜ Pendiente |
-| 7 | Refactorizar páginas existentes | ⬜ Pendiente |
+| 5 | `SectionLayout.svelte` + `SectionLayout.agent.md` | ✅ Completado |
+| 6 | `DataBlock.svelte` + `DataBlock.agent.md` | ✅ Completado |
+| 7 | `IndexList.svelte` + `IndexList.agent.md` | ⬜ Pendiente |
+| 8 | `GridTwo.svelte` + `GridTwo.agent.md` | ⬜ Pendiente |
+| 9 | Refactorizar páginas existentes | ✅ Home completada (5 secciones con SectionLayout + DataBlock + CommandAction) |
+
+---
+
+## Paso 5: ✅ `SectionLayout.svelte` + `SectionLayout.agent.md` — COMPLETADO
+
+**Esqueleto de seccion unificado.** Unifica las 5 secciones de la home con eyebrow + grid 5/7.
+
+### Archivos
+- `src/lib/components/ui/SectionLayout/SectionLayout.svelte`
+- `src/lib/components/ui/SectionLayout/SectionLayout.agent.md`
 
 ---
 
@@ -88,21 +100,29 @@
 
 ## Paso 4: ✅ `CommandAction.svelte` + `CommandAction.agent.md` — COMPLETADO
 
-**Botón CTA.** Dos variantes que cubren todos los casos de uso.
+**Botón/link CTA.** 4 niveles + auto-detect de links externos.
 
 ### Niveles
 
 | Nivel | Estilo | Uso |
 |---|---|---|
-| `primary` | `border border-base-content bg-base-content text-base-100` | CTA principal de cada página |
-| `ghost` | `btn-ghost border border-base-300 text-base-content/80` | Acción secundaria |
+| `primary` | `btn btn-primary uppercase` | CTA principal |
+| `outline-primary` | `btn btn-outline btn-primary uppercase` | CTA secundario con borde |
+| `ghost` | `btn btn-ghost text-base-content uppercase` | Acción sutil |
+| `secondary` | `btn btn-neutral uppercase` | CTA secundario relleno |
 
 ### Props
-- `level: 'primary' | 'ghost'`
+- `level: ActionLevel` (primary | outline-primary | ghost | secondary)
 - `label: string`
-- `href: string` (usa `resolve()` internamente)
+- `href?: string` → renderiza `<a>`
+- `onclick?: () => void` → renderiza `<button>`
 - `icon?: Component` (Lucide icon opcional)
-- `external?: boolean` (si es link externo, agrega `rel="external"`)
+- `target?: string` (override del auto-detect)
+- `rel?: string` (override del auto-detect)
+
+### Auto-detect
+- Links que empiezan con `http` → `target="_blank"` + `rel="external noopener noreferrer"`
+- Links internos (`resolve(...)`) → misma pestaña
 
 ### Archivos
 - `src/lib/components/ui/CommandAction/CommandAction.svelte`
@@ -167,8 +187,12 @@ Una vez creados los componentes base, reemplazar patrones repetitivos en todas l
 ## Orden de implementación (pendiente)
 
 ```
-Paso 3 → DataBlock (reemplaza ~20 cards manuales) — ✅ COMPLETADO
-Paso 5 → IndexList (reemplaza ~8 listas manuales) — SIGUIENTE
-Paso 6 → GridTwo (reemplaza ~10 grids manuales)
-Paso 7 → Refactorizar páginas existentes con Hero + DataBlock + GridTwo
+Paso 1 → Hero — ✅ COMPLETADO
+Paso 2 → SystemStatus — ✅ COMPLETADO
+Paso 3 → CommandAction — ✅ COMPLETADO (target, rel, auto-detect externos)
+Paso 4 → DataBlock — ✅ COMPLETADO
+Paso 5 → SectionLayout — ✅ COMPLETADO
+Paso 6 → IndexList — SIGUIENTE
+Paso 7 → GridTwo
+Paso 8 → Refactorizar páginas existentes con Hero + SectionLayout + DataBlock + CommandAction + GridTwo (home ✅)
 ```
