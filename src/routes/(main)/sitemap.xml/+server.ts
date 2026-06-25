@@ -9,7 +9,6 @@ export async function GET() {
 	// Todas las rutas estaticas
 	const staticEntries: { path: string; priority: string; changefreq: string }[] = [
 		{ path: '', priority: '1.0', changefreq: 'weekly' },
-		{ path: 'waas', priority: '0.8', changefreq: 'monthly' },
 		{ path: 'proyectos', priority: '0.9', changefreq: 'weekly' },
 		{ path: 'precios', priority: '0.9', changefreq: 'weekly' },
 		{ path: 'contacto', priority: '0.9', changefreq: 'weekly' },

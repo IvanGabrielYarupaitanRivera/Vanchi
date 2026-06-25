@@ -8,13 +8,13 @@
 
 ### Resumen rápido
 
-| Área | Estado |
-|------|--------|
+| Área                                                   | Estado        |
+| ------------------------------------------------------ | ------------- |
 | Backend Convex (agentV2, config, tools, conversations) | ✅ Completado |
-| `messages.ts` — query reactiva para historial | ⬜ Pendiente |
-| `CommandBar.svelte` — modal smoked glass | ⬜ Pendiente |
-| `Header.svelte` — indicador ⌘K | ⬜ Pendiente |
-| `+layout.svelte` — keyboard listener + render | ⬜ Pendiente |
+| `messages.ts` — query reactiva para historial          | ⬜ Pendiente  |
+| `CommandBar.svelte` — modal smoked glass               | ⬜ Pendiente  |
+| `Header.svelte` — indicador ⌘K                         | ⬜ Pendiente  |
+| `+layout.svelte` — keyboard listener + render          | ⬜ Pendiente  |
 
 ---
 
@@ -41,7 +41,6 @@ El asistente debe conocer **todo** sobre:
 - Ivan Yarupaitan (quién es, su experiencia)
 - Stack tecnológico que domina
 - Los 9 proyectos del portafolio (descripción, tecnologías, resultados)
-- Servicios que ofrece (WaaS, desarrollo web, consultoría IA)
 - Modelo de precios y colaboración
 - Filosofía de diseño y trabajo
 
@@ -103,16 +102,16 @@ En lugar de tres puntitos:
 
 ## 4. Stack actual (implementado)
 
-| Capa           | Tecnología                                                 | Nota                                                                          |
-| -------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Backend IA     | Convex + `@convex-dev/agent` (dentro de `src/convex/`)     | ✅ Agente v2 implementado en `agentV2/`                                        |
-| Cliente Convex | `convex-svelte` con `setupConvex`                          | ✅ `+layout.svelte` configurado                                                |
-| LLM            | `openai.chat("gpt-4o-mini")` vía Vercel AI Gateway         | ✅ Funcionando                                                                 |
-| Modelo         | `gpt-4o-mini`                                              | ✅ Rápido y económico                                                          |
-| Búsqueda       | Textual directa sobre `documentosV2` (sin embeddings)      | ⬆️ Decisión arquitectónica v2: sin RAG, sin vectores, sin chunking            |
-| Respuesta      | `generateText` + typing animation client-side              | ⬜ Pendiente (frontend)                                                        |
-| Frontend       | SvelteKit + Modal ⌘K                                       | ⬜ Pendiente (`CommandBar.svelte`)                                              |
-| Env            | `AI_GATEWAY_API_KEY`, `PUBLIC_CONVEX_URL`                  | ✅ Configurados                                                                |
+| Capa           | Tecnología                                             | Nota                                                               |
+| -------------- | ------------------------------------------------------ | ------------------------------------------------------------------ |
+| Backend IA     | Convex + `@convex-dev/agent` (dentro de `src/convex/`) | ✅ Agente v2 implementado en `agentV2/`                            |
+| Cliente Convex | `convex-svelte` con `setupConvex`                      | ✅ `+layout.svelte` configurado                                    |
+| LLM            | `openai.chat("gpt-4o-mini")` vía Vercel AI Gateway     | ✅ Funcionando                                                     |
+| Modelo         | `gpt-4o-mini`                                          | ✅ Rápido y económico                                              |
+| Búsqueda       | Textual directa sobre `documentosV2` (sin embeddings)  | ⬆️ Decisión arquitectónica v2: sin RAG, sin vectores, sin chunking |
+| Respuesta      | `generateText` + typing animation client-side          | ⬜ Pendiente (frontend)                                            |
+| Frontend       | SvelteKit + Modal ⌘K                                   | ⬜ Pendiente (`CommandBar.svelte`)                                 |
+| Env            | `AI_GATEWAY_API_KEY`, `PUBLIC_CONVEX_URL`              | ✅ Configurados                                                    |
 
 ---
 
@@ -330,6 +329,7 @@ Si falla, el estado vive en un `Map` en memoria volátil (se pierde al recargar)
 ### ✅ Paso 4 — Definir el agente Vanchi — COMPLETADO
 
 **Archivos involucrados:**
+
 - `src/convex/agentV2/config/config.ts` — instancia del Agent
 - `src/convex/agentV2/config/modelo.ts` — modelo LLM
 - `src/convex/agentV2/config/prompt.ts` — system prompt

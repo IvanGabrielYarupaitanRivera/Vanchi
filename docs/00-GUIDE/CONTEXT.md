@@ -12,24 +12,24 @@
 
 ## Stack tecnologico
 
-| Capa                 | Tecnologia               | Version               |
-| -------------------- | ------------------------ | --------------------- |
-| Framework            | SvelteKit                | 2 (Svelte 5)          |
-| Lenguaje             | TypeScript               | 5.x                   |
-| UI runtime           | Svelte                   | 5.x (runes, snippets) |
-| Estilos              | Tailwind CSS             | v4                    |
-| Componentes UI       | DaisyUI                  | v5                    |
+| Capa                 | Tecnologia               | Version                 |
+| -------------------- | ------------------------ | ----------------------- |
+| Framework            | SvelteKit                | 2 (Svelte 5)            |
+| Lenguaje             | TypeScript               | 5.x                     |
+| UI runtime           | Svelte                   | 5.x (runes, snippets)   |
+| Estilos              | Tailwind CSS             | v4                      |
+| Componentes UI       | DaisyUI                  | v5                      |
 | UI Component Library | `src/lib/components/ui/` | Dual-Layer Architecture |
-| Iconos               | Lucide Svelte            | 0.577.x               |
-| Runtime              | Bun                      | 1.3.x                 |
-| Base de datos        | Convex Cloud             | —                     |
-| Agente IA            | `@convex-dev/agent`      | v0.6+                 |
-| LLM Gateway          | Vercel AI Gateway        | —                     |
-| Modelo LLM           | inception/mercury-2      | —                     |
-| Hosting Frontend     | Vercel                   | Adapter               |
-| Hosting Backend      | Convex Cloud             | —                     |
-| SEO/GEO              | llms.txt / llms-full.txt | Estatico en `static/` |
-| Imagenes optimizadas | `@sveltejs/enhanced-img` | —                     |
+| Iconos               | Lucide Svelte            | 0.577.x                 |
+| Runtime              | Bun                      | 1.3.x                   |
+| Base de datos        | Convex Cloud             | —                       |
+| Agente IA            | `@convex-dev/agent`      | v0.6+                   |
+| LLM Gateway          | Vercel AI Gateway        | —                       |
+| Modelo LLM           | inception/mercury-2      | —                       |
+| Hosting Frontend     | Vercel                   | Adapter                 |
+| Hosting Backend      | Convex Cloud             | —                       |
+| SEO/GEO              | llms.txt / llms-full.txt | Estatico en `static/`   |
+| Imagenes optimizadas | `@sveltejs/enhanced-img` | —                       |
 
 ---
 
@@ -87,7 +87,6 @@ Vanchi/
 │   │   │   ├── metodologia/    # Metodologia GaaS
 │   │   │   ├── contacto/       # Contacto y canales
 │   │   │   ├── ivan-yarupaitan-rivera/  # Pagina personal
-│   │   │   ├── waas/           # WhatsApp as a Service
 │   │   │   ├── admin/
 │   │   │   │   ├── login/      # Login administrativo
 │   │   │   │   └── (protegido)/# Guard de sesion
@@ -120,13 +119,13 @@ Vanchi/
 
 ## Identidad visual (resumen)
 
-| Token              | Valor                  | Uso                            |
-| ------------------ | ---------------------- | ------------------------------ |
-| `base-100`         | `oklch(11% 0.005 260)` | Fondo charcoal ink solido      |
-| `base-content`     | `oklch(94% 0.005 90)`  | Texto chalk white              |
+| Token              | Valor                  | Uso                               |
+| ------------------ | ---------------------- | --------------------------------- |
+| `base-100`         | `oklch(11% 0.005 260)` | Fondo charcoal ink solido         |
+| `base-content`     | `oklch(94% 0.005 90)`  | Texto chalk white                 |
 | `accent`           | `oklch(72% 0.22 165)`  | Phosphor green (solo indicadores) |
-| Tipografia UI      | JetBrains Mono         | Body, nav, botones, labels     |
-| Tipografia display | Newsreader             | Titulos editoriales H1/H2      |
+| Tipografia UI      | JetBrains Mono         | Body, nav, botones, labels        |
+| Tipografia display | Newsreader             | Titulos editoriales H1/H2         |
 
 > **Fuente de verdad completa:** [`/DESIGN.md`](../../DESIGN.md) en la raiz.
 
@@ -137,7 +136,8 @@ Vanchi/
 El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
 
 **Completado:**
-- Landing page, proyectos, precios, waas, soluciones-legales, paginas legales
+
+- Landing page, proyectos, precios, soluciones-legales, paginas legales
 - Metodologia GaaS, contacto, ivan-yarupaitan-rivera
 - Servicios (agentes-ia, automatizacion, consultoria), sectores (educacion, legal, salud)
 - Asistente IA v2 con ruta `/chat` (Convex Agent, tabla unica `documentosV2`, Vercel AI Gateway, typing animation, scroll suave)
@@ -157,6 +157,7 @@ El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
 - **Footer & Header**: Editorial Gemini rewrite con indices numerados, E-E-A-T badge
 
 **Pendiente:**
+
 - (Opcional) Eliminar tablas v1 legacy (documents, chunks, embeddings) sin regresion
 - Home sections refactorizadas con SectionLayout + DataBlock + CommandAction (5 secciones).
 - IndexList, GridTwo components (especificados en `todo-ui-components.md`)
@@ -165,17 +166,17 @@ El proyecto esta **en produccion activa**, desplegado en Vercel + Convex Cloud.
 
 ## Enlaces de navegacion
 
-| Si necesitas...                 | Ve a...                                                 |
-| ----------------------------- | ----------------------------------------------------- |
-| Entender el proyecto          | Este documento                                        |
-| Arrancar rapido como agente   | [`/docs/AGENT-QUICKSTART.md`](../AGENT-QUICKSTART.md) |
-| Saber que leer segun tu tarea | [`NAVIGATION.md`](./NAVIGATION.md)                    |
-| El ciclo de trabajo           | [`WORKFLOW.md`](./WORKFLOW.md)                        |
-| Reglas del stack              | [`STACK-PATTERNS.md`](./STACK-PATTERNS.md)            |
-| Comandos rapidos              | [`/docs/CHEATSHEET.md`](../CHEATSHEET.md)             |
-| Skills / aliados IA           | [`/docs/ALIADAS.md`](../ALIADAS.md)                   |
-| Historial de cambios          | [`/docs/CHANGELOG.md`](../CHANGELOG.md)               |
-| Design system completo        | [`/DESIGN.md`](../../DESIGN.md)                       |
+| Si necesitas...               | Ve a...                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| Entender el proyecto          | Este documento                                                              |
+| Arrancar rapido como agente   | [`/docs/AGENT-QUICKSTART.md`](../AGENT-QUICKSTART.md)                       |
+| Saber que leer segun tu tarea | [`NAVIGATION.md`](./NAVIGATION.md)                                          |
+| El ciclo de trabajo           | [`WORKFLOW.md`](./WORKFLOW.md)                                              |
+| Reglas del stack              | [`STACK-PATTERNS.md`](./STACK-PATTERNS.md)                                  |
+| Comandos rapidos              | [`/docs/CHEATSHEET.md`](../CHEATSHEET.md)                                   |
+| Skills / aliados IA           | [`/docs/ALIADAS.md`](../ALIADAS.md)                                         |
+| Historial de cambios          | [`/docs/CHANGELOG.md`](../CHANGELOG.md)                                     |
+| Design system completo        | [`/DESIGN.md`](../../DESIGN.md)                                             |
 | UI Component Library          | [`/src/lib/components/ui/README.md`](../../src/lib/components/ui/README.md) |
-| Filosofia del agente          | [`08-FILOSOFIA-AGENTE/README.md`](../08-FILOSOFIA-AGENTE/README.md) |
-| Especificaciones archivadas   | [`/tasks/archived/`](../../tasks/archived/)           |
+| Filosofia del agente          | [`08-FILOSOFIA-AGENTE/README.md`](../08-FILOSOFIA-AGENTE/README.md)         |
+| Especificaciones archivadas   | [`/tasks/archived/`](../../tasks/archived/)                                 |

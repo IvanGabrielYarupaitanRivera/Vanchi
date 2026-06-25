@@ -110,15 +110,14 @@
 
 Todas las siguientes rutas tienen datos estáticos definidos directamente en sus componentes o páginas. No requieren `load()` ni data layer:
 
-| Ruta | Archivo | Tipo de datos |
-|------|---------|---------------|
-| `/waas` | `waas/+page.svelte` | Contenido estático en el componente |
-| `/soluciones-legales` | `soluciones-legales/+page.svelte` | Contenido estático + componentes específicos |
-| `/ivan-yarupaitan-rivera` | `ivan-yarupaitan-rivera/+page.svelte` | Contenido estático en el componente |
-| `/precios` | `precios/+page.svelte` | Contenido estático + CollaborationModels.svelte |
-| `/politica-de-privacidad` | `politica-de-privacidad/+page.svelte` | Contenido estático |
-| `/condiciones-del-servicio` | `condiciones-del-servicio/+page.svelte` | Contenido estático |
-| `/eliminacion-de-datos-de-usuario` | `eliminacion-de-datos-de-usuario/+page.svelte` | Contenido estático |
+| Ruta                               | Archivo                                        | Tipo de datos                                   |
+| ---------------------------------- | ---------------------------------------------- | ----------------------------------------------- |
+| `/soluciones-legales`              | `soluciones-legales/+page.svelte`              | Contenido estático + componentes específicos    |
+| `/ivan-yarupaitan-rivera`          | `ivan-yarupaitan-rivera/+page.svelte`          | Contenido estático en el componente             |
+| `/precios`                         | `precios/+page.svelte`                         | Contenido estático + CollaborationModels.svelte |
+| `/politica-de-privacidad`          | `politica-de-privacidad/+page.svelte`          | Contenido estático                              |
+| `/condiciones-del-servicio`        | `condiciones-del-servicio/+page.svelte`        | Contenido estático                              |
+| `/eliminacion-de-datos-de-usuario` | `eliminacion-de-datos-de-usuario/+page.svelte` | Contenido estático                              |
 
 ---
 
@@ -163,22 +162,25 @@ lib/
 ## Flujo Convex: Chat (Agente V2)
 
 ```
+
 1. USUARIO escribe mensaje
 2. ChatInput → handleSubmit()
 3. Convex: api.agentV2.conversations.chat({ messages })
    ├── Agent.run() con tool buscarDocumentos
-   │   └── Agent decide si necesita buscar
-   │       ├── Si: ejecuta buscarDocumentos({ categoria?, subcategoria?, etiquetas? })
-   │       │   └── Query Convex: api.entidades.documentosV2.queries.buscar
-   │       │       └── Retorna documentos matching
-   │       └── Agent lee los docs y genera respuesta
+   │ └── Agent decide si necesita buscar
+   │ ├── Si: ejecuta buscarDocumentos({ categoria?, subcategoria?, etiquetas? })
+   │ │ └── Query Convex: api.entidades.documentosV2.queries.buscar
+   │ │ └── Retorna documentos matching
+   │ └── Agent lee los docs y genera respuesta
    └── Retorna { response: string }
 4. Cliente recibe texto y lo muestra con typing animation (requestAnimationFrame)
+
 ```
 
 ### Admin CRUD con Convex
 
 ```
+
 LISTAR (reactivo WebSocket)
 useQuery(api.entidades.documentosV2.queries.listar)
 ├── Suscripcion WebSocket
@@ -193,10 +195,12 @@ form action → mutation: api.entidades.documentosV2.mutations.crear({ data, pas
 └── Redirect a /admin/documentos
 
 EDITAR (SSR + mutacion)
-+page.server.ts → convex.query(obtener, { id })  // SSR para pre-cargar datos
++page.server.ts → convex.query(obtener, { id }) // SSR para pre-cargar datos
 form action → mutation: api.entidades.documentosV2.mutations.actualizar({ id, data, password })
 
 ELIMINAR (mutacion)
 form action → mutation: api.entidades.documentosV2.mutations.eliminar({ id, password })
+
 ```
+
 ```

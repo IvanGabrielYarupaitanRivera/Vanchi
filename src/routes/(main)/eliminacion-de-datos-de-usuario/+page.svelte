@@ -146,7 +146,7 @@
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
 				<a href={resolve('/(main)/precios')} class="btn">Ver planes y precios</a>
-				<a href={resolve('/(main)/waas')} class="btn">Ver modelo WaaS</a>
+				<a href={resolve('/(main)/metodologia')} class="btn">Ver metodología GaaS</a>
 				<a href={resolve('/(main)/politica-de-privacidad')} class="btn">Ver política de privacidad</a>
 				<a href={resolve('/(main)/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
 			</div>

@@ -4,10 +4,8 @@
 ## Páginas Principales
 - [Inicio](https://vanchi.pro/) - Landing page con servicios, proyectos destacados y contacto directo.
 - [Asistente IA](https://vanchi.pro/chat) - Chat interactivo con el agente de IA de Vanchi (modelo inception/mercury-2 vía Vercel AI Gateway).
-- [Proyectos](https://vanchi.pro/proyectos) - Portafolio completo de 9 proyectos: Molaric, ENCAP, Junín360, MediRoosevelt, Farmape, Obstetra Conecta, Diapis, Colegio Educere, Peralta Asociados.
-- [Precios](https://vanchi.pro/precios) - Modelos de colaboración: WaaS desde S/30/mes y cotización por proyecto.
-- [Servicios Legales Tech](https://vanchi.pro/soluciones-legales) - Framework de modernización tecnológica para estudios jurídicos en 5 fases.
-- [WhatsApp as a Service](https://vanchi.pro/waas) - Integración y automatización con WhatsApp Business API.
+- [Proyectos](https://vanchi.pro/proyectos) - Portafolio completo de 9 proyectos: Molaric, ENCAP, Junín360, MediRoosevelt, Farmape, Obstetra Conecta, Diapis, Colegio Educere, Peralta Asociados. 
+- [Servicios Legales Tech](https://vanchi.pro/soluciones-legales) - Framework de modernización tecnológica para estudios jurídicos en 5 fases. 
 - [Ivan Yarupaitan Rivera](https://vanchi.pro/ivan-yarupaitan-rivera) - Perfil profesional completo, experiencia, metodología y equipo.
 
 ## Stack Tecnológico

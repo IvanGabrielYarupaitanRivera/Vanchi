@@ -16,7 +16,7 @@
 			content: [
 				`El responsable del tratamiento de datos personales es ${legalOwner}, identificado con RUC ${legalRuc}.`,
 				`Para consultas sobre privacidad y ejercicio de derechos, puedes escribir a ${legalEmail}.`,
-				'Esta política aplica al sitio web, formularios de contacto y canales comerciales asociados al servicio Socio Tecnológico (WaaS).'
+				'Esta política aplica al sitio web, formularios de contacto y canales comerciales asociados al servicio Socio Tecnológico (GaaS).'
 			]
 		},
 		{
@@ -96,7 +96,7 @@
 
 <SEO
 	title="Política de Privacidad | Vanchi"
-	description="Conoce cómo Vanchi recopila, usa y protege los datos personales en su servicio de Socio Tecnológico (WaaS)."
+	description="Conoce cómo Vanchi recopila, usa y protege los datos personales en su servicio de Socio Tecnológico (GaaS)."
 	url="https://www.vanchi.pro/politica-de-privacidad"
 />
 
@@ -123,7 +123,7 @@
 				>
 			</h1>
 			<p class="text-lg text-base-content/70">
-				En Vanchi operamos como agencia tecnológica bajo el modelo Socio Tecnológico (WaaS). Esta
+				En Vanchi operamos como agencia tecnológica bajo el modelo Socio Tecnológico (GaaS). Esta
 				política explica cómo tratamos los datos personales con enfoque de transparencia y
 				responsabilidad.
 			</p>
@@ -166,7 +166,7 @@
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
 				<a href={resolve('/(main)/precios')} class="btn">Ver planes y precios</a>
-				<a href={resolve('/(main)/waas')} class="btn">Ver modelo WaaS</a>
+				<a href={resolve('/(main)/metodologia')} class="btn">Ver metodología GaaS</a>
 				<a href={resolve('/(main)/condiciones-del-servicio')} class="btn">Ver condiciones del servicio</a>
 				<a href={resolve('/(main)/eliminacion-de-datos-de-usuario')} class="btn"
 					>Solicitar eliminación de datos</a

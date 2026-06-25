@@ -95,7 +95,6 @@ Vanchi/
 │       │   ├── metodologia/
 │       │   ├── soluciones-legales/
 │       │   ├── ivan-yarupaitan-rivera/
-│       │   ├── waas/
 │       │   └── dev/            # UI component labs
 │       └── (chat)/             # Asistente IA (layout aislado)
 │           └── chat/
@@ -128,9 +127,9 @@ Vanchi/
 
 ### Tipografía
 
-| Uso       | Font             |
-| --------- | ---------------- |
-| Display   | Newsreader |
+| Uso       | Font           |
+| --------- | -------------- |
+| Display   | Newsreader     |
 | UI / body | JetBrains Mono |
 
 ---
@@ -173,10 +172,10 @@ Cada página debe tener:
 
 ## 🔗 Enlaces útiles
 
-| Recurso                    | Ruta                             |
-| -------------------------- | -------------------------------- |
-| Documentación del proyecto | [`/docs/README.md`](./README.md) |
-| Design System completo     | [`/DESIGN.md`](../DESIGN.md)     |
+| Recurso                    | Ruta                                                                        |
+| -------------------------- | --------------------------------------------------------------------------- |
+| Documentación del proyecto | [`/docs/README.md`](./README.md)                                            |
+| Design System completo     | [`/DESIGN.md`](../DESIGN.md)                                                |
 | UI Component Library       | [`/src/lib/components/ui/README.md`](../../src/lib/components/ui/README.md) |
-| Especificaciones activas   | [`/tasks/`](../tasks/)           |
-| Aliados IA / Skills        | [`ALIADAS.md`](./ALIADAS.md)     |
+| Especificaciones activas   | [`/tasks/`](../tasks/)                                                      |
+| Aliados IA / Skills        | [`ALIADAS.md`](./ALIADAS.md)                                                |

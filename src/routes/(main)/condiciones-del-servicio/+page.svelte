@@ -150,7 +150,7 @@
 
 <SEO
 	title="Condiciones del Servicio | Vanchi"
-	description="Condiciones generales del servicio Socio Tecnológico (WaaS): alcance, pagos, soporte, propiedad intelectual, responsabilidad y terminación."
+	description="Condiciones generales del servicio Socio Tecnológico (GaaS): alcance, pagos, soporte, propiedad intelectual, responsabilidad y terminación."
 	url="https://www.vanchi.pro/condiciones-del-servicio"
 />
 
@@ -185,7 +185,7 @@
 			<p class="text-lg text-base-content/70">
 				Este documento define las reglas de colaboración comercial y técnica entre Vanchi y sus
 				clientes bajo el modelo de agencia tecnológica con servicio principal Socio Tecnológico
-				(WaaS).
+				(GaaS).
 			</p>
 			<div class="mt-5 flex flex-wrap gap-2 text-sm text-base-content/60">
 				<span class="rounded-full border border-white/10 bg-base-200/40 px-3 py-1">
@@ -242,7 +242,7 @@
 		<div class="mt-16 border-t border-white/10 pt-10 text-center">
 			<div class="flex flex-wrap justify-center gap-3">
 				<a href={resolve('/(main)/precios')} class="btn">Ver planes y precios</a>
-				<a href={resolve('/(main)/waas')} class="btn">Ver modelo WaaS</a>
+				<a href={resolve('/(main)/metodologia')} class="btn">Ver metodología GaaS</a>
 				<a href={resolve('/(main)/politica-de-privacidad')} class="btn">Ver política de privacidad</a>
 				<a href={resolve('/(main)/eliminacion-de-datos-de-usuario')} class="btn"
 					>Proceso de eliminación de datos</a

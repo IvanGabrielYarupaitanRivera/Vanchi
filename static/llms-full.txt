@@ -177,8 +177,6 @@ URL: https://www.vanchi.pro/#servicios
 
 Ivan ofrece dos modelos principales de colaboración:
 
-**Modelo WaaS (Web as a Service):** Suscripción mensual desde S/30/mes. Incluye desarrollo, hosting, dominio, mantenimiento y soporte. Ideal para estudios, clínicas y pequeñas empresas. Sin costos ocultos, sin contratos largos.
-
 **Modelo Proyecto:** Cotización por proyecto según alcance y complejidad. Ideal para aplicaciones web complejas, sistemas con IA, plataformas multi-tenant. Incluye análisis, diseño, desarrollo, testing, deployment y documentación. Se entrega el código fuente completo.
 
 Ambos modelos incluyen consultoría inicial gratuita. Ivan trabaja con empresas en Perú y Latinoamérica. Pagos en soles (S/) o dólares (USD).

@@ -43,20 +43,19 @@
 
 ## Modos de renderizado
 
-| Ruta | Modo | Detalle |
-|------|------|---------|
-| `/` (Home) | SSR | Datos estáticos + componentes de landing |
-| `/proyectos` | SSR | Listado desde data layer TypeScript |
-| `/proyectos/[projectId]` | SSR | Carga dinámica vía `+page.ts` + `load()` |
-| `/precios` | SSR | Contenido estático |
-| `/soluciones-legales` | SSR | Contenido estático |
-| `/waas` | SSR | Contenido estático |
-| `/chat` | SSR + WebSocket | Layout aislado `(chat)/chat`. Convex Agent vía `useQuery` reactivo + typing animation |
-| `/admin/login` | SSR | Formulario login + cookie `admin_session` |
-| `/admin/documentos` | SSR + WebSocket | CRUD con `useQuery` reactivo para listado, form actions para crear/editar |
-| `/sitemap.xml` | Prerendered | XML generado en build |
-| Páginas legales | SSR | Contenido estático |
-| `/llms.txt`, `/llms-full.txt` | Static | Archivos GEO/SEO para crawlers de IA |
+| Ruta                          | Modo            | Detalle                                                                               |
+| ----------------------------- | --------------- | ------------------------------------------------------------------------------------- |
+| `/` (Home)                    | SSR             | Datos estáticos + componentes de landing                                              |
+| `/proyectos`                  | SSR             | Listado desde data layer TypeScript                                                   |
+| `/proyectos/[projectId]`      | SSR             | Carga dinámica vía `+page.ts` + `load()`                                              |
+| `/precios`                    | SSR             | Contenido estático                                                                    |
+| `/soluciones-legales`         | SSR             | Contenido estático                                                                    |
+| `/chat`                       | SSR + WebSocket | Layout aislado `(chat)/chat`. Convex Agent vía `useQuery` reactivo + typing animation |
+| `/admin/login`                | SSR             | Formulario login + cookie `admin_session`                                             |
+| `/admin/documentos`           | SSR + WebSocket | CRUD con `useQuery` reactivo para listado, form actions para crear/editar             |
+| `/sitemap.xml`                | Prerendered     | XML generado en build                                                                 |
+| Páginas legales               | SSR             | Contenido estático                                                                    |
+| `/llms.txt`, `/llms-full.txt` | Static          | Archivos GEO/SEO para crawlers de IA                                                  |
 
 ---
 
@@ -131,6 +130,7 @@ lib/constants/         → projects.ts, services.ts
 ## Conexión Frontend ↔ Convex
 
 ### Reactiva (WebSocket)
+
 ```svelte
 <script lang="ts">
 	import { useQuery } from 'convex-svelte';
@@ -141,6 +141,7 @@ lib/constants/         → projects.ts, services.ts
 ```
 
 ### Mutaciones (HTTP)
+
 ```svelte
 <script lang="ts">
 	import { useMutation } from 'convex-svelte';
@@ -150,6 +151,7 @@ lib/constants/         → projects.ts, services.ts
 ```
 
 ### SSR (desde server load)
+
 ```ts
 // +page.server.ts
 import { getConvexClient } from '$lib/server/convex';

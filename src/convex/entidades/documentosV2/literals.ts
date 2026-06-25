@@ -5,46 +5,41 @@
  * Todos los archivos (schema, mutations, queries, tools, formularios)
  * importan de aquí. Un solo lugar para modificar.
  */
-import { v } from "convex/values";
+import { v } from 'convex/values';
 
 // ─── CATEGORÍAS ───────────────────────────────────────────
 
 export const CATEGORIAS = [
-	"sobre-mi",
-	"stack",
-	"servicio",
-	"precios",
-	"proyecto",
-	"legal",
+	'sobre-mi',
+	'stack',
+	'servicio',
+	'precios',
+	'proyecto',
+	'legal'
 ] as const;
 
 export type Categoria = (typeof CATEGORIAS)[number];
 
-export const categoriaValidator = v.union(
-	...CATEGORIAS.map((c) => v.literal(c)),
-);
+export const categoriaValidator = v.union(...CATEGORIAS.map((c) => v.literal(c)));
 
 // ─── SUBCATEGORÍAS ────────────────────────────────────────
 
 export const SUBCATEGORIAS = [
-	"frontend",
-	"backend",
-	"ia",
-	"salud",
-	"educacion",
-	"legal",
-	"web",
-	"agentes",
-	"gaas",
-	"waas",
-	"personal",
+	'frontend',
+	'backend',
+	'ia',
+	'salud',
+	'educacion',
+	'legal',
+	'web',
+	'agentes',
+	'gaas',
+	'personal'
 ] as const;
 
 export type Subcategoria = (typeof SUBCATEGORIAS)[number];
 
-export const subcategoriaValidator = v.union(
-	...SUBCATEGORIAS.map((s) => v.literal(s)),
-);
+export const subcategoriaValidator = v.union(...SUBCATEGORIAS.map((s) => v.literal(s)));
 
 // ─── ETIQUETAS ────────────────────────────────────────────
 
@@ -53,58 +48,55 @@ export const subcategoriaValidator = v.union(
  * Las listas de abajo NO se usan en el schema, solo como ayuda visual.
  */
 export const ETIQUETAS_TECNOLOGIAS = [
-	"sveltekit",
-	"convex",
-	"tailwindcss",
-	"typescript",
-	"astro",
-	"openrouter",
-	"vercel-ai-gateway",
-	"whatsapp",
-	"deepgram",
-	"livekit",
-	"supabase",
-	"n8n",
-	"gemini-api",
-	"google-calendar",
-	"better-auth",
-	"netlify",
-	"lit",
+	'sveltekit',
+	'convex',
+	'tailwindcss',
+	'typescript',
+	'astro',
+	'openrouter',
+	'vercel-ai-gateway',
+	'whatsapp',
+	'deepgram',
+	'livekit',
+	'supabase',
+	'n8n',
+	'gemini-api',
+	'google-calendar',
+	'better-auth',
+	'netlify',
+	'lit'
 ] as const;
 
 export const ETIQUETAS_PROYECTOS = [
-	"molaric",
-	"encap",
-	"junin360",
-	"mediroosevelt",
-	"farmape",
-	"obstetraconecta",
-	"diapis",
-	"colegio-educere",
-	"peralta-asociados",
+	'molaric',
+	'encap',
+	'junin360',
+	'mediroosevelt',
+	'farmape',
+	'obstetraconecta',
+	'diapis',
+	'colegio-educere',
+	'peralta-asociados'
 ] as const;
 
 export const ETIQUETAS_CONCEPTOS = [
-	"experiencia",
-	"desarrollo-web",
-	"agentes-ia",
-	"precios",
-	"redes-sociales",
-	"soluciones-legales",
-	"rutas",
-	"asistente",
-	"gaas",
-	"waas",
+	'experiencia',
+	'desarrollo-web',
+	'agentes-ia',
+	'precios',
+	'redes-sociales',
+	'soluciones-legales',
+	'rutas',
+	'asistente',
+	'gaas'
 ] as const;
 
 export const ETIQUETAS = [
 	...ETIQUETAS_TECNOLOGIAS,
 	...ETIQUETAS_PROYECTOS,
-	...ETIQUETAS_CONCEPTOS,
+	...ETIQUETAS_CONCEPTOS
 ] as const;
 
 export type Etiqueta = (typeof ETIQUETAS)[number];
 
-export const etiquetaValidator = v.union(
-	...ETIQUETAS.map((e) => v.literal(e)),
-);
+export const etiquetaValidator = v.union(...ETIQUETAS.map((e) => v.literal(e)));
