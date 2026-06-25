@@ -45,8 +45,22 @@
 		areaServed: { '@type': 'Country', name: 'Perú' }
 	};
 
+	const gaasStructuredData = {
+		'@context': 'https://schema.org',
+		'@type': 'SoftwareApplication',
+		'@id': 'https://www.vanchi.pro/#gaas',
+		name: 'Generative Agent as a Service',
+		description: 'Metodología de software autónomo donde los agentes de IA trabajan en background sin intervención humana.',
+		author: { '@id': 'https://www.vanchi.pro/#person' },
+		offers: {
+			'@type': 'Offer',
+			areaServed: { '@type': 'Country', name: 'Perú' }
+		}
+	};
+
 	const personJson = JSON.stringify(personStructuredData).replace(/</g, '\\u003c');
 	const orgJson = JSON.stringify(organizationStructuredData).replace(/</g, '\\u003c');
+	const gaasJson = JSON.stringify(gaasStructuredData).replace(/</g, '\\u003c');
 </script>
 
 <SEO
@@ -63,12 +77,15 @@
 	<svelte:element this={'script'} type="application/ld+json">
 		{orgJson}
 	</svelte:element>
+	<svelte:element this={'script'} type="application/ld+json">
+		{gaasJson}
+	</svelte:element>
 </svelte:head>
 
 <Hero
 	level="primary"
 	title="Tu empresa debería funcionar sola"
-	subtitle="Despliego agentes de IA que resuelven objetivos de negocio de extremo a extremo. Diseño sistemas donde automatizo procesos de mi empresa asociada con ejecución autónoma en background."
+	subtitle="Construyo agentes de IA que trabajan en background. Tú defines el objetivo, el agente lo ejecuta."
 	action_label="Automatizar mi organización"
 	action_onclick={() => goto(resolve('/(main)/contacto'))}
 	action_secondary_label="Iniciar consulta con agente"
