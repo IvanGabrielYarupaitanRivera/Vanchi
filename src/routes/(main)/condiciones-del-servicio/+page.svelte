@@ -5,6 +5,7 @@
 	import SectionLayout from '$lib/components/ui/SectionLayout/SectionLayout.svelte';
 	import DataBlock from '$lib/components/ui/DataBlock/DataBlock.svelte';
 	import CommandAction from '$lib/components/ui/CommandAction/CommandAction.svelte';
+	import Dropdown from '$lib/components/ui/Dropdown/Dropdown.svelte';
 
 	const updatedAt = '24 de junio de 2026';
 	const effectiveFrom = '1 de julio de 2026';
@@ -256,18 +257,9 @@
 
 	<!-- Grupo 4: Preguntas Frecuentes -->
 	<SectionLayout variant="secondary" number="04" label="PREGUNTAS FRECUENTES">
-		<div class="flex flex-col gap-px">
-			{#each directQnA as item (item.question)}
-				<details class="border border-base-300 bg-base-200 p-6 open:border-base-content lg:p-8">
-					<summary class="cursor-pointer font-mono text-sm font-medium text-base-content">
-						{item.question}
-					</summary>
-					<p class="mt-4 font-mono text-sm leading-relaxed text-base-content/60">
-						{item.answer}
-					</p>
-				</details>
-			{/each}
-		</div>
+		<Dropdown
+			items={directQnA.map((item) => ({ title: item.question, content: item.answer }))}
+		/>
 	</SectionLayout>
 
 	<!-- Footer links -->
