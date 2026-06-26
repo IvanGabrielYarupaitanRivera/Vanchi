@@ -43,6 +43,7 @@ Estas reglas están **encapsuladas en los componentes**. El agente NO puede romp
 | `CommandAction/` | Botón/link CTA | `primary`, `outline-primary`, `ghost`, `secondary` | `href` (renderiza `<a>`), `onclick` (renderiza `<button>`), `icon`, `target`, `rel`. Links externos auto-detectados → nueva pestaña |
 | `DataBlock/` | Contenedor universal de cards | `default`, `compact`, `elevated` | `children`, `hover`, `padding` |
 | `SectionLayout/` | Esqueleto de sección con eyebrow | `primary` (grid 5/7), `secondary` (1 columna) | `children`, `children_left` |
+| `Dropdown/` | Lista colapsable de items (acordeón) | `with_borders` (toggle) | — |
 
 ---
 
@@ -61,6 +62,7 @@ Estas reglas están **encapsuladas en los componentes**. El agente NO puede romp
   import Hero from '$lib/components/ui/Hero/Hero.svelte';
   import SectionLayout from '$lib/components/ui/SectionLayout/SectionLayout.svelte';
   import DataBlock from '$lib/components/ui/DataBlock/DataBlock.svelte';
+  import Dropdown from '$lib/components/ui/Dropdown/Dropdown.svelte';
 </script>
 
 <Hero level="primary" title="..." subtitle="..." />
@@ -69,6 +71,15 @@ Estas reglas están **encapsuladas en los componentes**. El agente NO puede romp
   <DataBlock level="compact" hover={true}>
     <!-- contenido -->
   </DataBlock>
+</SectionLayout>
+
+<!-- FAQ con Dropdown -->
+<SectionLayout variant="secondary" number="03" label="FAQ">
+  <Dropdown
+    items={[
+      { title: "¿Pregunta frecuente?", content: "Respuesta aquí." }
+    ]}
+  />
 </SectionLayout>
 
 <!-- ❌ INCORRECTO: No copiar el HTML manualmente -->
@@ -107,5 +118,8 @@ src/lib/components/ui/
 ├── SectionLayout/
 │   ├── SectionLayout.svelte   ← Esqueleto de seccion (eyebrow + grid)
 │   └── SectionLayout.agent.md
+├── Dropdown/
+│   ├── Dropdown.svelte        ← Lista colapsable de items (acordeón)
+│   └── Dropdown.agent.md      ← Reglas para el agente
 └── ...
 ```
