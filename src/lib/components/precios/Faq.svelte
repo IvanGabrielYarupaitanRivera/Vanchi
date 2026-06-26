@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Dropdown from '$lib/components/ui/Dropdown/Dropdown.svelte';
+
 	interface FaqItem {
 		question: string;
 		answer: string;
@@ -15,18 +17,8 @@
 			Preguntas<br /><span class="italic">frecuentes</span>
 		</h2>
 
-		<div class="space-y-px">
-			{#each items as item (item.question)}
-				<div class="collapse-arrow collapse border border-base-300 bg-base-200">
-					<input type="checkbox" />
-					<div class="collapse-title font-mono text-sm font-medium text-base-content">
-						{item.question}
-					</div>
-					<div class="collapse-content">
-						<p class="font-mono text-sm leading-relaxed text-base-content/70">{item.answer}</p>
-					</div>
-				</div>
-			{/each}
-		</div>
+		<Dropdown
+			items={items.map((item) => ({ title: item.question, content: item.answer }))}
+		/>
 	</div>
 </section>
