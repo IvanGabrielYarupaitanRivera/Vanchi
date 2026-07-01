@@ -67,6 +67,12 @@
       "sourceType": "github",
       "computedHash": "524f7c7950c3fde726101613f630140411c7d080e63be718687f4b38f919be81"
     },
+    "geo-best-practices": {
+      "source": "luka2chat/geo-skills",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "9502a06fd7353c8505244213243b268f89c88da68abc79e6cee6688b63e2adf5"
+    },
     "gpt-taste": {
       "source": "Leonxlnx/taste-skill",
       "sourceType": "github",
