@@ -8,4 +8,9 @@
 	setupConvex(PUBLIC_CONVEX_URL);
 </script>
 
+<svelte:head>
+	<!-- Verification Bing Webmaster -->
+	<meta name="msvalidate.01" content="212B24E9157CE54B8F464CB7B221FC64" />
+</svelte:head>
+
 {@render children()}
