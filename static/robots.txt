@@ -1,5 +1,45 @@
+# ==============================================
+# Vanchi - robots.txt
+# ==============================================
+
+# Allow all standard crawlers
 User-agent: *
 Allow: /
 
-# Agregar enlace al sitemap
+# ==============================================
+# AI Search Crawlers (afectan respuestas en tiempo real de IA)
+# ==============================================
+
+# OpenAI - ChatGPT Search
+User-agent: GPTBot
+Allow: /
+
+# OpenAI - ChatGPT Search especifico
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI - navegacion iniciada por usuario
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - Claude web search
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google - AI Overviews, Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl - datasets de entrenamiento
+User-agent: CCBot
+Allow: /
+
+# ==============================================
+# Sitemaps
+# ==============================================
 Sitemap: https://www.vanchi.pro/sitemap.xml
+Sitemap: https://www.vanchi.pro/llms.txt
