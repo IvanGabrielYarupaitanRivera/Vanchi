@@ -46,6 +46,10 @@
 	description="Sabes que necesitas automatizar pero no sabes por donde empezar. Te ayudo a identificar que procesos automatizar primero. Analisis de operacion, deteccion de cuellos de botella y hoja de ruta concreta. Primera consulta sin costo."
 	keywords="consultoria de automatizacion para empresas, que procesos automatizar en mi negocio, consultoria ia huancayo, diagnostico de automatizacion peru, roadmap automatizacion procesos"
 	url="https://www.vanchi.pro/servicios/consultoria"
+	breadcrumbs={[
+		{ name: 'Servicios', item: '/servicios' },
+		{ name: 'Consultoria', item: '/servicios/consultoria' }
+	]}
 />
 
 <svelte:head>

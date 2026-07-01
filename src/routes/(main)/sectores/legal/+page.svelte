@@ -54,6 +54,10 @@
 	description="¿Plazos procesales vencidos? Agentes de IA que indexan, notifican y hacen seguimiento automático de cada expediente. Implementación GaaS para estudios jurídicos en Huancayo y Perú."
 	keywords="gestion de expedientes legales con ia, automatizar seguimiento de casos legales, reducir errores en documentos juridicos, software legal para estudios en junin, evitar que venzan plazos procesales"
 	url="https://www.vanchi.pro/sectores/legal"
+	breadcrumbs={[
+		{ name: 'Sectores', item: '/sectores' },
+		{ name: 'Legal', item: '/sectores/legal' }
+	]}
 />
 
 <svelte:head>

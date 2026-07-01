@@ -61,6 +61,10 @@
 	description="¿Tus docentes saturados de consultas repetitivas? Agentes de IA que responden dudas 24/7, generan preguntas automáticas y gestionan matrículas. Implementación GaaS para colegios en Perú."
 	keywords="atencion a padres de familia automatizada, reducir carga administrativa en colegios, automatizar matricula y calificaciones, gestion escolar con ia huancayo, tutor ia para plataformas educativas"
 	url="https://www.vanchi.pro/sectores/educacion"
+	breadcrumbs={[
+		{ name: 'Sectores', item: '/sectores' },
+		{ name: 'Educacion', item: '/sectores/educacion' }
+	]}
 />
 
 <svelte:head>

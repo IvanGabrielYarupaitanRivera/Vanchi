@@ -87,6 +87,9 @@
 	description="Moderniza tu estudio jurídico por fases: web profesional, automatización, sistema interno, IA y agentes. Empieza desde S/ 30/mes."
 	keywords="legal tech peru, software para abogados, automatizacion para estudios juridicos, ia para abogados, sistema para despacho legal, vanchi legal"
 	url={legalPageUrl}
+	breadcrumbs={[
+		{ name: 'Soluciones Legales', item: '/soluciones-legales' }
+	]}
 />
 
 <svelte:head>

@@ -58,6 +58,10 @@
 	description="¿Tu equipo pierde horas en tareas repetitivas? Implemento agentes de IA que trabajan solos: responden clientes, agendan citas, procesan datos. Goal-oriented, sin dashboards. Metodología GaaS en Huancayo, Junín y Perú."
 	keywords="agente ia autonomo para empresas, automatizar procesos con agentes de inteligencia artificial, agente virtual para negocio huancayo, implementar agente ia peru, outsourcing de ia para pymes"
 	url="https://www.vanchi.pro/servicios/agentes-ia"
+	breadcrumbs={[
+		{ name: 'Servicios', item: '/servicios' },
+		{ name: 'Agentes IA', item: '/servicios/agentes-ia' }
+	]}
 />
 
 <svelte:head>

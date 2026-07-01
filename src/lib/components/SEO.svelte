@@ -17,6 +17,7 @@
 		nofollow?: boolean;
 		ogImageWidth?: number;
 		ogImageHeight?: number;
+		breadcrumbs?: { name: string; item: string }[];
 	}
 
 	const SITE_URL = 'https://www.vanchi.pro';
@@ -38,7 +39,8 @@
 		noindex = false,
 		nofollow = false,
 		ogImageWidth = 1200,
-		ogImageHeight = 1200
+		ogImageHeight = 1200,
+		breadcrumbs = []
 	}: SEOProps = $props();
 
 	// Construir el robots content
@@ -53,6 +55,30 @@
 	);
 
 	const canonicalUrl = $derived(url.split('#')[0].split('?')[0]);
+
+	// Breadcrumbs estructurados
+	const breadcrumbData = $derived(
+		breadcrumbs.length > 0
+			? {
+					'@type': 'BreadcrumbList',
+					'@id': `${canonicalUrl}/#breadcrumb`,
+					itemListElement: [
+						{
+							'@type': 'ListItem',
+							position: 1,
+							name: 'Inicio',
+							item: SITE_URL
+						},
+						...breadcrumbs.map((crumb, i) => ({
+							'@type': 'ListItem',
+							position: i + 2,
+							name: crumb.name,
+							item: `${SITE_URL}${crumb.item}`
+						}))
+					]
+				}
+			: null
+	);
 
 	// Datos estructurados JSON-LD: Usamos @graph para conectar Organización, Persona y Sitio Web
 	const structuredData = $derived({
@@ -105,7 +131,8 @@
 					'@id': `${SITE_URL}/#organization`
 				},
 				inLanguage: locale
-			}
+			},
+			...(breadcrumbData ? [breadcrumbData] : [])
 		]
 	});
 

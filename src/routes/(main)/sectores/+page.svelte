@@ -78,6 +78,9 @@
 	description="¿Tu sector pierde plata por procesos manuales? Agentes de IA para clínicas, estudios jurídicos y colegios en Huancayo, Junín y Perú. Implementación GaaS orientada a resultados."
 	keywords="automatizacion ia por sector, agentes ia salud huancayo, automatizacion legal ia junin, ia para colegios peru, sectores automatizacion inteligente"
 	url="https://www.vanchi.pro/sectores"
+	breadcrumbs={[
+		{ name: 'Sectores', item: '/sectores' }
+	]}
 />
 
 <svelte:head>

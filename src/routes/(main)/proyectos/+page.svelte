@@ -47,6 +47,9 @@
 	description="9 casos de exito reales de automatizacion con IA en Huancayo, Junin y Peru. Agentes inteligentes, automatización de procesos y desarrollo web. Proyectos implementados con metodologia GaaS."
 	keywords="casos de exito automatizacion con ia, empresas que usan inteligencia artificial en peru, proyectos de ia implementados, sistema de gestion clinica molaric, automatizacion de estudios juridicos junin360"
 	url="https://www.vanchi.pro/proyectos"
+	breadcrumbs={[
+		{ name: 'Proyectos', item: '/proyectos' }
+	]}
 />
 
 <svelte:head>
