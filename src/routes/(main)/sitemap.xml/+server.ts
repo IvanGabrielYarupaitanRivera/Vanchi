@@ -4,7 +4,7 @@ export const prerender = true;
 
 export async function GET() {
 	const website = 'https://www.vanchi.pro';
-	const today = '2026-06-18';
+	const today = '2026-06-28';
 
 	// Todas las rutas estaticas
 	const staticEntries: { path: string; priority: string; changefreq: string }[] = [
@@ -26,7 +26,8 @@ export async function GET() {
 		{ path: 'ivan-yarupaitan-rivera', priority: '0.6', changefreq: 'monthly' },
 		{ path: 'politica-de-privacidad', priority: '0.4', changefreq: 'yearly' },
 		{ path: 'condiciones-del-servicio', priority: '0.4', changefreq: 'yearly' },
-		{ path: 'eliminacion-de-datos-de-usuario', priority: '0.4', changefreq: 'yearly' }
+		{ path: 'eliminacion-de-datos-de-usuario', priority: '0.4', changefreq: 'yearly' },
+		{ path: 'transparencia', priority: '0.5', changefreq: 'monthly' }
 	];
 
 	const staticPages = staticEntries.map((entry) => ({
