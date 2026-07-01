@@ -132,6 +132,22 @@
 				},
 				inLanguage: locale
 			},
+			{
+				'@type': 'LocalBusiness',
+				'@id': `${SITE_URL}/#localbusiness`,
+				name: 'Vanchi',
+				description: description,
+				url: SITE_URL,
+				email: LEGAL_EMAIL,
+				areaServed: 'Huancayo, Junín, Perú',
+				address: {
+					'@type': 'PostalAddress',
+					addressLocality: 'Huancayo',
+					addressRegion: 'Junín',
+					addressCountry: 'PE'
+				},
+				telephone: '+51985942670'
+			},
 			...(breadcrumbData ? [breadcrumbData] : [])
 		]
 	});
