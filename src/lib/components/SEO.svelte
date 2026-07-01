@@ -56,6 +56,9 @@
 
 	const canonicalUrl = $derived(url.split('#')[0].split('?')[0]);
 
+	// Fecha actual para dateModified
+	const today = new Date().toISOString().split('T')[0];
+
 	// Breadcrumbs estructurados
 	const breadcrumbData = $derived(
 		breadcrumbs.length > 0
@@ -130,7 +133,8 @@
 				publisher: {
 					'@id': `${SITE_URL}/#organization`
 				},
-				inLanguage: locale
+				inLanguage: locale,
+				dateModified: today
 			},
 			{
 				'@type': 'LocalBusiness',
