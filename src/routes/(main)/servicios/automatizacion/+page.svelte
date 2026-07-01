@@ -48,7 +48,7 @@
 </script>
 
 <SEO
-	title="Automatización de procesos con IA para empresas en Huancayo y Perú | Vanchi"
+	title="Automatizacion de procesos con IA para empresas | Vanchi"
 	description="¿Tus sistemas no se comunican entre sí? Automatizo flujos completos: WhatsApp, Google Calendar, correo, base de datos. Todo orquestado para que trabaje solo. Metodología GaaS en Junín y Perú."
 	keywords="automatizar procesos de mi empresa con ia, integracion whatsapp google calendar automatizada, automatizacion de procesos en junin, workflow automation peru, orquestacion de herramientas ia"
 	url="https://www.vanchi.pro/servicios/automatizacion"

@@ -54,7 +54,7 @@
 </script>
 
 <SEO
-	title="Agentes de IA autónomos para automatizar procesos en tu empresa | Vanchi"
+	title="Agentes de IA autonomos para tu empresa | Vanchi"
 	description="¿Tu equipo pierde horas en tareas repetitivas? Implemento agentes de IA que trabajan solos: responden clientes, agendan citas, procesan datos. Goal-oriented, sin dashboards. Metodología GaaS en Huancayo, Junín y Perú."
 	keywords="agente ia autonomo para empresas, automatizar procesos con agentes de inteligencia artificial, agente virtual para negocio huancayo, implementar agente ia peru, outsourcing de ia para pymes"
 	url="https://www.vanchi.pro/servicios/agentes-ia"

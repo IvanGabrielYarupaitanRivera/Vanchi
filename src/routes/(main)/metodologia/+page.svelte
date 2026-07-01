@@ -33,7 +33,7 @@
 </script>
 
 <SEO
-	title="GaaS: Software que trabaja solo — Metodología de agentes IA autónomos | Vanchi"
+	title="GaaS: Metodologia de agentes IA autonomos | Vanchi"
 	description="El software no debería necesitarte para funcionar. GaaS (Generative Agent as a Service) es la metodología de agentes IA que ejecutan procesos completos sin intervención humana. Outcome-Based, Goal-Driven, 10 características."
 	keywords="software que trabaja solo, que es gaas, software sin intervencion humana, automatizacion real vs dashboard, diferencia entre saas y agentes ia, metodologia agentes autonomos"
 	url="https://www.vanchi.pro/metodologia"

@@ -64,7 +64,7 @@
 </script>
 
 <SEO
-	title="Automatización de citas médicas con IA en Huancayo y Perú | Vanchi"
+	title="Automatizacion de citas medicas con IA | Vanchi"
 	description="¿Tu clínica pierde plata por pacientes que faltan a sus citas? Agentes de IA que confirman, reagendan y responden consultas 24/7. Implementación GaaS para el sector salud en Junín y Perú."
 	keywords="automatizar citas medicas con ia, reducir ausentismo pacientes clinica, agente virtual para consultorios huancayo, confirmar citas por whatsapp automatico, gestion de citas multi sede, ia sector salud peru"
 	url="https://www.vanchi.pro/sectores/salud"

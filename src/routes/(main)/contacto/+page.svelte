@@ -38,7 +38,7 @@
 </script>
 
 <SEO
-	title="Contactar a un especialista en Inteligencia Artificial en Peru | Vanchi"
+	title="Contactar a un especialista en IA en Peru | Vanchi"
 	description="Quieres implementar IA en tu empresa? Escríbeme por WhatsApp o email. Respondo en menos de 24 horas. Sin formularios largos, sin fricción."
 	keywords="contratar especialista inteligencia artificial peru, consultoria ia peru, desarrollador de agentes inteligentes contacto, programador ia huancayo contacto"
 	url="https://www.vanchi.pro/contacto"

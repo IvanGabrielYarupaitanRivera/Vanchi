@@ -61,7 +61,7 @@
 </script>
 
 <SEO
-	title="Agentes de IA, Automatización y Consultoría para empresas | Vanchi"
+	title="Agentes de IA, Automatizacion y Consultoria | Vanchi"
 	description="¿Tu personal pierde horas en tareas repetitivas? Agentes de IA autónomos, automatización de procesos y consultoría de inteligencia artificial. Implementación GaaS en Huancayo, Junín y Perú."
 	keywords="servicios de automatizacion inteligente para empresas, como automatizar procesos repetitivos de mi negocio, soluciones de ia para pymes huancayo, que procesos de mi empresa puedo automatizar"
 	url="https://www.vanchi.pro/servicios"

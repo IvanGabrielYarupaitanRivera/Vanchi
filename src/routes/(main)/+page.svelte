@@ -64,7 +64,7 @@
 </script>
 
 <SEO
-	title="Automatizo procesos de mi empresa — Agentes de IA autónomos | Vanchi"
+	title="Automatizo procesos con Agentes de IA autonomos | Vanchi"
 	description="Tu empresa debería funcionar sola. Construyo agentes de inteligencia artificial que trabajan en background. Desarrollo de IA en Huancayo, Junín y Perú. Metodología GaaS."
 	keywords="automatizo procesos de mi empresa, desarrollador de ia huancayo, automatizacion de procesos junin, quien hace agentes inteligentes en huancayo, empresa de ia en junin, ivan yarupaitan, vanchi"
 	url="https://www.vanchi.pro/"

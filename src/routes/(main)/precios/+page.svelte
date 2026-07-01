@@ -143,7 +143,7 @@
 </script>
 
 <SEO
-	title="Cuánto cuesta implementar Inteligencia Artificial en tu empresa | Vanchi"
+	title="Cuanto cuesta implementar IA en tu empresa | Vanchi"
 	description="Agentes de IA autónomos desde S/ 2,000 hasta S/ 15,000+. Precios transparentes con pago por hitos de resultado, no por horas. Sin costos ocultos."
 	keywords="cuanto cuesta implementar inteligencia artificial, precio de agente virtual para empresa, costo de automatizar procesos con ia, implementar ia peru precio, agente ia para pymes costo"
 	url="https://www.vanchi.pro/precios"

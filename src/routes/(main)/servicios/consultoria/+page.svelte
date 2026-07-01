@@ -42,7 +42,7 @@
 </script>
 
 <SEO
-	title="Consultoría de IA y automatización para empresas en Huancayo y Perú | Vanchi"
+	title="Consultoria de IA y automatizacion | Vanchi"
 	description="Sabes que necesitas automatizar pero no sabes por donde empezar. Te ayudo a identificar que procesos automatizar primero. Analisis de operacion, deteccion de cuellos de botella y hoja de ruta concreta. Primera consulta sin costo."
 	keywords="consultoria de automatizacion para empresas, que procesos automatizar en mi negocio, consultoria ia huancayo, diagnostico de automatizacion peru, roadmap automatizacion procesos"
 	url="https://www.vanchi.pro/servicios/consultoria"

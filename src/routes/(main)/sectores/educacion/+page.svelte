@@ -57,7 +57,7 @@
 </script>
 
 <SEO
-	title="Automatización de procesos educativos con IA en Huancayo | Vanchi"
+	title="Automatizacion educativa con IA en Huancayo | Vanchi"
 	description="¿Tus docentes saturados de consultas repetitivas? Agentes de IA que responden dudas 24/7, generan preguntas automáticas y gestionan matrículas. Implementación GaaS para colegios en Perú."
 	keywords="atencion a padres de familia automatizada, reducir carga administrativa en colegios, automatizar matricula y calificaciones, gestion escolar con ia huancayo, tutor ia para plataformas educativas"
 	url="https://www.vanchi.pro/sectores/educacion"
