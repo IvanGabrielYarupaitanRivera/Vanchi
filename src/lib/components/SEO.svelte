@@ -111,7 +111,17 @@
 				description: description,
 				url: `${SITE_URL}/ivan-yarupaitan-rivera`,
 				image: image,
-				jobTitle: 'Ingeniero de Sistemas',
+				jobTitle: 'Ingeniero de Sistemas y Computacion',
+				alumniOf: [
+					{
+						'@type': 'CollegeOrUniversity',
+						name: 'Universidad Peruana de los Andes'
+					},
+					{
+						'@type': 'CollegeOrUniversity',
+						name: 'Universidad Continental'
+					}
+				],
 				sameAs: [
 					'https://www.linkedin.com/in/ivan-yarupaitan-rivera/',
 					'https://github.com/IvanGabrielYarupaitanRivera'
@@ -121,7 +131,10 @@
 					'TypeScript',
 					'Artificial Intelligence',
 					'UI/UX Design',
-					'Tailwind CSS'
+					'Tailwind CSS',
+					'Convex',
+					'Agent IA',
+					'GaaS'
 				]
 			},
 			{
