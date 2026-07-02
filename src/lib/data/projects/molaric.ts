@@ -24,8 +24,8 @@ export const molaric: CaseStudy = {
 	meta: {
 		title: 'Molaric',
 		description:
-			'Molaric es un agente de inteligencia artificial para clínicas dentales que funciona 24/7 a través de WhatsApp. Los pacientes pueden agendar, reprogramar o cancelar citas mediante conversaciones naturales, mientras que el sistema sincroniza automáticamente con Google Calendar de la clínica. Incluye recordatorios inteligentes, verificación de disponibilidad en tiempo real y un dashboard web completo para el doctor.',
-		tagline: 'Agente IA 24/7 para clínicas dentales vía WhatsApp',
+			'Molaric fue mi intento de crear un agente de IA para clínicas dentales que funcionara 24/7 vía WhatsApp: agendaba citas, las sincronizaba con Google Calendar, enviaba recordatorios automáticos y transcribía audios. No consiguió clientes. Pero fue el proyecto donde aprendí cómo un agente puede integrarse con sistemas externos, interactuar con bases de datos y reemplazar procesos humanos completos. El fracaso comercial que definió mi metodología GaaS.',
+		tagline: 'El fracaso comercial que me enseñó a construir agentes',
 		date: 'Abril 2026',
 		role: 'Full-Stack Developer & AI Engineer',
 		keywords: [
@@ -34,7 +34,9 @@ export const molaric: CaseStudy = {
 			'Clínicas Dentales',
 			'WhatsApp',
 			'Google Calendar',
-			'Inteligencia Artificial'
+			'Inteligencia Artificial',
+			'Caso de aprendizaje',
+			'Fracaso comercial'
 		],
 		stack: ['SvelteKit', 'Convex', 'Vercel AI Gateway', 'Google Calendar', 'TailwindCSS', 'Better Auth'],
 		bgHero: {
@@ -62,7 +64,7 @@ export const molaric: CaseStudy = {
 	},
 	myRole: {
 		description:
-			'Lideré el desarrollo completo de Molaric, desde la arquitectura del agente IA hasta la interfaz del dashboard. Diseñé el sistema conversacional multi-tenant, implementé la sincronización con Google Calendar API v3, integré WhatsApp como canal de comunicación vía Kapso, y construí el dashboard web con SvelteKit. También diseñé el sistema de recordatorios híbridos con IA, la verificación de disponibilidad en tiempo real y el sistema de roles y permisos.',
+			'Construí Molaric de punta a punta. Fue el proyecto donde más crecí como ingeniero de agentes. Aprendí a orquestar un agente IA con sistemas externos reales — WhatsApp, Google Calendar, base de datos — y entendí por primera vez que un agente puede reemplazar un proceso humano completo. Comercialmente no funcionó: no supe venderlo, no encontré el mercado adecuado. Pero técnicamente fue impecable, y todo lo que sé sobre arquitectura de agentes nació acá.',
 		deliverables: [
 			'Arquitectura completa del agente IA conversacional',
 			'Integración con WhatsApp (Kapso) para comunicación bidireccional',
@@ -83,24 +85,24 @@ export const molaric: CaseStudy = {
 		],
 		findings: [
 			{
-				title: 'WhatsApp como canal universal',
-				desc: 'El 95% de los pacientes prefieren WhatsApp para comunicarse con su clínica dental. No requiere descargar apps adicionales y es familiar para todas las edades.'
+				title: 'El producto funcionaba. La venta no.',
+				desc: 'Técnicamente Molaric hacía exactamente lo que prometía: agendar, sincronizar, recordar. Pero no supe venderlo. Las clínicas dentales en Huancayo no estaban listas para confiar en un agente autónomo. Subestimé la barrera de adopción.'
 			},
 			{
-				title: 'Olvido de citas como problema principal',
-				desc: 'Las clínicas reportan que entre el 20-30% de las citas programadas resultan en ausencias. Los recordatorios automatizados con confirmación reducen drásticamente este porcentaje.'
+				title: 'Un agente puede integrarse con cualquier sistema',
+				desc: 'Acá entendí que un agente no es solo un chatbot. Es un orquestador: habla con WhatsApp, escribe en Google Calendar, consulta una base de datos, transcribe audio. Puede tocar cualquier sistema que tenga una API.'
 			},
 			{
-				title: 'Necesidad de atención fuera del horario laboral',
-				desc: 'Muchos pacientes desean agendar citas en horarios no laborales. Una solución 24/7 aumenta la captación de pacientes y mejora la satisfacción.'
+				title: 'La arquitectura multi-tenant era el verdadero valor',
+				desc: 'Aunque no conseguí clientes, la arquitectura que diseñé —datos aislados por clínica, tools unificadas, goal-oriented— se convirtió en el molde de todos mis agentes posteriores. ENCAP hereda directamente de Molaric.'
 			}
 		],
 		insight:
-			'Molaric debía ser un asistente conversacional accesible vía WhatsApp, con capacidad de auto-gestión de citas, sincronización de calendario en tiempo real, y recordatorios inteligentes. La clave estaba en hacer que la experiencia del paciente fuera tan simple como enviar un mensaje, mientras se eliminaba la carga operativa del personal de la clínica.'
+			'Molaric me enseñó que el problema no es técnico, es de adopción. Podés construir el agente más sofisticado del mundo, pero si el mercado no está listo o no sabés comunicar el valor, no vas a vender. También me enseñó que un agente bien diseñado puede interactuar con cualquier sistema externo: WhatsApp, Google Calendar, bases de datos, APIs. Ese conocimiento es el que después apliqué en ENCAP y en todos mis proyectos posteriores.'
 	},
 	solution: {
 		concept:
-			'Desarrollar un agente de IA conversacional multi-tenant que opera 24/7 vía WhatsApp, integrado con Google Calendar y un dashboard web. El agente gestiona pacientes, citas, recordatorios y disponibilidad mediante conversaciones naturales, mientras el doctor supervisa todo desde un dashboard intuitivo.',
+			'Desarrollar un agente de IA conversacional multi-tenant que opera 24/7 vía WhatsApp, integrado con Google Calendar y un dashboard web. Técnicamente se logró todo: el agente gestionaba pacientes, citas, recordatorios y disponibilidad mediante conversaciones naturales. Comercialmente no se logró nada: cero clientes. Pero la arquitectura que construí acá se convirtió en la base técnica de todos mis agentes posteriores.',
 		decisions: [
 			'Utilizar Convex como backend completo (base de datos + lógica del agente) para mantener todo en un solo ecosistema',
 			'Implementar @convex-dev/agent como framework del agente IA con tools unificadas por dominio',
@@ -186,13 +188,13 @@ export const molaric: CaseStudy = {
 	},
 	results: {
 		metrics: [
-			{ value: '24/7', label: 'Disponibilidad del agente para pacientes' },
-			{ value: '100%', label: 'Citas sincronizadas con Google Calendar' },
-			{ value: '-30%', label: 'Reducción de ausencias por recordatorios automáticos' },
-			{ value: '+40%', label: 'Aumento en citas agendadas fuera del horario laboral' }
+			{ value: '0', label: 'Clientes conseguidos' },
+			{ value: '100%', label: 'Del producto técnicamente completado' },
+			{ value: '4', label: 'Sistemas externos integrados (WhatsApp, Google Calendar, DB, STT)' },
+			{ value: '1', label: 'Arquitectura de agentes que heredó ENCAP y todo lo que vino después' }
 		],
 		feedback:
-			'Molaric ha transformado la forma en que las clínicas dentales gestionan sus citas. Los doctores reportan una reducción significativa en llamadas telefónicas y administrativas, mientras que los pacientes valoran la posibilidad de agendar citas en cualquier momento a través de WhatsApp. La sincronización automática con Google Calendar eliminó por completo los errores de doble reserva.'
+			'Molaric fue un fracaso comercial. No conseguí ni un solo cliente. Pero fue el proyecto que más me enseñó sobre agentes inteligentes. Acá entendí cómo un agente puede comunicarse con WhatsApp, sincronizar un Google Calendar, escribir en una base de datos y transcribir audio, todo de forma autónoma. Esa arquitectura —tools unificadas, goal-oriented, multi-tenant— es la misma que usé después en ENCAP, el proyecto que sí funciona en producción con clientes reales. Si no hubiera fracasado con Molaric, no habría tenido las bases para tener éxito con ENCAP.'
 	},
 	assets: {
 		liveUrl: 'https://molaric.com/',
