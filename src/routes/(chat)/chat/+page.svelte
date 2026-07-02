@@ -141,7 +141,60 @@
 
 <svelte:head>
 	<title>Chat con el agente IA — Vanchi</title>
-	<meta name="description" content="Habla directamente con el agente de IA que construye sistemas. Sin demo armada, sin formularios, sin truco. Preguntale sobre proyectos, metodologia GaaS, precios o cualquier cosa." />
+	<meta name="description" content="Hablá con el agente de IA. Sin demo armada, sin truco. Preguntale sobre proyectos reales, metodologia GaaS, precios o cualquier cosa. Probalo gratis." />
+	<svelte:element this={'script'} type="application/ld+json">
+		{JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebApplication',
+			name: 'Chat con el agente IA de Vanchi',
+			description: 'Agente conversacional de IA que responde preguntas sobre proyectos reales, metodología GaaS, precios y automatización de procesos. Sin demo armada, sin respuestas prefabricadas.',
+			url: 'https://www.vanchi.pro/chat',
+			applicationCategory: 'AIApplication',
+			operatingSystem: 'Web',
+			author: {
+				'@type': 'Person',
+				'@id': 'https://www.vanchi.pro/#person',
+				name: 'Ivan Yarupaitan Rivera'
+			},
+			offers: {
+				'@type': 'Offer',
+				price: '0',
+				priceCurrency: 'PEN'
+			}
+		}).replace(/</g, '\\u003c')}
+	</svelte:element>
+	<svelte:element this={'script'} type="application/ld+json">
+		{JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'FAQPage',
+			mainEntity: [
+				{
+					'@type': 'Question',
+					name: '¿Qué proyectos reales ha hecho Vanchi?',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: 'Vanchi ha implementado 9 proyectos de IA y automatización. El más destacado es ENCAP, un tutor AI 24/7 que resuelve dudas académicas sin un docente conectado, con 95% de satisfacción y en uso activo por un cliente real. También están Molaric (agente IA para clínicas dentales vía WhatsApp), Junín360 (gestión de informes para el Gobierno Regional de Junín), y más.'
+					}
+				},
+				{
+					'@type': 'Question',
+					name: '¿Cómo funciona la metodología GaaS?',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: 'GaaS (Generative Agent as a Service) es una metodología donde agentes de IA ejecutan procesos completos sin intervención humana. A diferencia del SaaS tradicional, no entregás una herramienta que alguien debe operar: definís un objetivo y el agente lo completa solo. Tiene 10 características no negociables: Outcome-Based, Goal-Driven, Reasoning Loop, Tool Use, Persistent Memory, Self-Improvement, Multi-Agent, Proactive, Guardrails y Human-in-the-Loop.'
+					}
+				},
+				{
+					'@type': 'Question',
+					name: '¿Cuánto cuesta implementar un agente de IA?',
+					acceptedAnswer: {
+						'@type': 'Answer',
+						text: 'Los agentes de IA de Vanchi tienen precios transparentes con pago por hitos de resultado, no por horas. El rango va desde S/ 2,000 para un agente simple hasta S/ 15,000+ para orquestaciones multi-agente enterprise. Cada proyecto se divide en fases con resultados medibles. Solo pagás cuando cada fase está funcionando.'
+					}
+				}
+			]
+		}).replace(/</g, '\\u003c')}
+	</svelte:element>
 </svelte:head>
 
 <div class="mx-auto flex h-full w-full max-w-5xl flex-col">
