@@ -112,6 +112,14 @@
 			>
 				← Todos los proyectos
 			</a>
+			{#if project.id === 'encap' || project.id === 'molaric'}
+				<a
+					href={resolve('/(main)/metodologia')}
+					class="btn h-9 min-h-0 border border-base-300 px-3 font-mono text-xs font-bold tracking-wider text-base-content/80 uppercase duration-100 hover:bg-base-300 hover:text-base-content"
+				>
+					Entender GaaS →
+				</a>
+			{/if}
 			<a
 				href={resolve('/(main)/contacto')}
 				class="btn h-9 min-h-0 border border-base-content bg-base-content px-3 font-mono text-xs font-bold tracking-wider text-base-100 uppercase duration-100 hover:bg-base-content/90"
